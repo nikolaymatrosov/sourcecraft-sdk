@@ -222,7 +222,7 @@ export class IssuesCommentsApi extends runtime.BaseAPI {
      * Permanently deletes a comment from an issue. This action cannot be undone.
      * Delete Comment
      */
-    async deleteIssueCommentRaw(requestParameters: DeleteIssueCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+    async deleteIssueCommentRaw(requestParameters: DeleteIssueCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['issueCommentId'] == null) {
             throw new runtime.RequiredError(
                 'issueCommentId',
@@ -257,16 +257,15 @@ export class IssuesCommentsApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.VoidApiResponse(response);
     }
 
     /**
      * Permanently deletes a comment from an issue. This action cannot be undone.
      * Delete Comment
      */
-    async deleteIssueComment(requestParameters: DeleteIssueCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
-        const response = await this.deleteIssueCommentRaw(requestParameters, initOverrides);
-        return await response.value();
+    async deleteIssueComment(requestParameters: DeleteIssueCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.deleteIssueCommentRaw(requestParameters, initOverrides);
     }
 
     /**

@@ -174,7 +174,7 @@ example().catch(console.error);
 
 ## deleteIssueComment
 
-> object deleteIssueComment(issueCommentId, silent)
+> deleteIssueComment(issueCommentId, silent)
 
 Delete Comment
 
@@ -226,7 +226,7 @@ example().catch(console.error);
 
 ### Return type
 
-**object**
+`void` (Empty response body)
 
 ### Authorization
 

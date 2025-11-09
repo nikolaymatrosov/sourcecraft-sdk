@@ -108,6 +108,45 @@ try {
     console.log(`✓ Cleaned up ${cleanedRefCount} invalid 'type: object' entries from items with $ref`);
   }
 
+  // Clean up 204 No Content responses
+  // Replace verbose content definition with empty object
+  function cleanup204Responses(obj) {
+    if (typeof obj !== 'object' || obj === null) {
+      return 0;
+    }
+
+    let count = 0;
+
+    // Check if this is a responses object with 204
+    if (obj['204'] && obj['204'].content) {
+      const content = obj['204'].content;
+      // Check if it has the verbose application/json schema with empty properties
+      if (content['application/json'] &&
+          content['application/json'].schema &&
+          content['application/json'].schema.type === 'object' &&
+          content['application/json'].schema.properties &&
+          Object.keys(content['application/json'].schema.properties).length === 0) {
+        // Replace with empty content object
+        obj['204'].content = {};
+        count++;
+      }
+    }
+
+    // Recursively process all properties
+    for (const key in obj) {
+      if (obj.hasOwnProperty(key) && typeof obj[key] === 'object') {
+        count += cleanup204Responses(obj[key]);
+      }
+    }
+
+    return count;
+  }
+
+  const cleaned204Count = cleanup204Responses(spec);
+  if (cleaned204Count > 0) {
+    console.log(`✓ Cleaned up ${cleaned204Count} verbose 204 No Content response definitions`);
+  }
+
   // Write the modified spec back to file
   const yamlOutput = yaml.dump(spec, {
     indent: 2,

@@ -1,0 +1,22 @@
+{
+  "name": "sourcecraft-sdk-examples",
+  "version": "0.0.1",
+  "description": "Examples for SourceCraft SDK",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc",
+    "01": "node --env-file=.env dist/01-basic-setup.js",
+    "02": "node --env-file=.env dist/02-repository-operations.js",
+    "03": "node --env-file=.env dist/03-issues-management.js",
+    "04": "node --env-file=.env dist/04-pull-requests.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "sourcecraft-sdk": "file:.."
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.0",
+    "typescript": "^5.9.3"
+  }
+}

@@ -442,7 +442,7 @@ export class RepositoryApi extends runtime.BaseAPI {
     /**
      * Delete Repository
      */
-    async deleteRepositoryRaw(requestParameters: DeleteRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+    async deleteRepositoryRaw(requestParameters: DeleteRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['orgSlug'] == null) {
             throw new runtime.RequiredError(
                 'orgSlug',
@@ -485,21 +485,20 @@ export class RepositoryApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.VoidApiResponse(response);
     }
 
     /**
      * Delete Repository
      */
-    async deleteRepository(requestParameters: DeleteRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
-        const response = await this.deleteRepositoryRaw(requestParameters, initOverrides);
-        return await response.value();
+    async deleteRepository(requestParameters: DeleteRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.deleteRepositoryRaw(requestParameters, initOverrides);
     }
 
     /**
      * Delete Repository (By Repository ID)
      */
-    async deleteRepositoryByIDRaw(requestParameters: DeleteRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+    async deleteRepositoryByIDRaw(requestParameters: DeleteRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['repoId'] == null) {
             throw new runtime.RequiredError(
                 'repoId',
@@ -534,15 +533,14 @@ export class RepositoryApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.VoidApiResponse(response);
     }
 
     /**
      * Delete Repository (By Repository ID)
      */
-    async deleteRepositoryByID(requestParameters: DeleteRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
-        const response = await this.deleteRepositoryByIDRaw(requestParameters, initOverrides);
-        return await response.value();
+    async deleteRepositoryByID(requestParameters: DeleteRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.deleteRepositoryByIDRaw(requestParameters, initOverrides);
     }
 
     /**

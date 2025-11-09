@@ -22,11 +22,7 @@ paths:
             type: boolean
       responses:
         '204':
-          content:
-            application/json:
-              schema:
-                properties: {}
-                type: object
+          content: {}
           description: A successful response.
         default:
           content:
@@ -184,11 +180,7 @@ paths:
             type: boolean
       responses:
         '204':
-          content:
-            application/json:
-              schema:
-                properties: {}
-                type: object
+          content: {}
           description: A successful response.
         default:
           content:
@@ -309,11 +301,7 @@ paths:
             type: boolean
       responses:
         '204':
-          content:
-            application/json:
-              schema:
-                properties: {}
-                type: object
+          content: {}
           description: A successful response.
         default:
           content:
@@ -362,11 +350,7 @@ paths:
             type: boolean
       responses:
         '204':
-          content:
-            application/json:
-              schema:
-                properties: {}
-                type: object
+          content: {}
           description: A successful response.
         default:
           content:
@@ -484,11 +468,7 @@ paths:
             type: boolean
       responses:
         '204':
-          content:
-            application/json:
-              schema:
-                properties: {}
-                type: object
+          content: {}
           description: A successful response.
         default:
           content:
@@ -968,11 +948,7 @@ paths:
             type: boolean
       responses:
         '204':
-          content:
-            application/json:
-              schema:
-                properties: {}
-                type: object
+          content: {}
           description: A successful response.
         default:
           content:
@@ -1870,11 +1846,7 @@ paths:
             type: boolean
       responses:
         '204':
-          content:
-            application/json:
-              schema:
-                properties: {}
-                type: object
+          content: {}
           description: A successful response.
         default:
           content:
@@ -2942,11 +2914,7 @@ paths:
             type: boolean
       responses:
         '204':
-          content:
-            application/json:
-              schema:
-                properties: {}
-                type: object
+          content: {}
           description: A successful response.
         default:
           content:
@@ -3152,11 +3120,7 @@ paths:
             type: boolean
       responses:
         '204':
-          content:
-            application/json:
-              schema:
-                properties: {}
-                type: object
+          content: {}
           description: A successful response.
         default:
           content:
@@ -3866,11 +3830,7 @@ paths:
             type: boolean
       responses:
         '204':
-          content:
-            application/json:
-              schema:
-                properties: {}
-                type: object
+          content: {}
           description: A successful response.
         default:
           content:
@@ -5334,11 +5294,7 @@ paths:
             type: boolean
       responses:
         '204':
-          content:
-            application/json:
-              schema:
-                properties: {}
-                type: object
+          content: {}
           description: A successful response.
         default:
           content:

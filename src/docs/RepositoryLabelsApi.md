@@ -174,7 +174,7 @@ example().catch(console.error);
 
 ## deleteLabel
 
-> object deleteLabel(orgSlug, repoSlug, labelSlug, silent)
+> deleteLabel(orgSlug, repoSlug, labelSlug, silent)
 
 Delete label (By Slug)
 
@@ -230,7 +230,7 @@ example().catch(console.error);
 
 ### Return type
 
-**object**
+`void` (Empty response body)
 
 ### Authorization
 
@@ -253,7 +253,7 @@ example().catch(console.error);
 
 ## deleteLabelByID
 
-> object deleteLabelByID(labelId, silent)
+> deleteLabelByID(labelId, silent)
 
 Delete label (By Label ID)
 
@@ -303,7 +303,7 @@ example().catch(console.error);
 
 ### Return type
 
-**object**
+`void` (Empty response body)
 
 ### Authorization
 

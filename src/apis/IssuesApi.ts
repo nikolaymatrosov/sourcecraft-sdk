@@ -244,7 +244,7 @@ export class IssuesApi extends runtime.BaseAPI {
     /**
      * Delete Issue
      */
-    async deleteIssueRaw(requestParameters: DeleteIssueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+    async deleteIssueRaw(requestParameters: DeleteIssueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['orgSlug'] == null) {
             throw new runtime.RequiredError(
                 'orgSlug',
@@ -295,21 +295,20 @@ export class IssuesApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.VoidApiResponse(response);
     }
 
     /**
      * Delete Issue
      */
-    async deleteIssue(requestParameters: DeleteIssueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
-        const response = await this.deleteIssueRaw(requestParameters, initOverrides);
-        return await response.value();
+    async deleteIssue(requestParameters: DeleteIssueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.deleteIssueRaw(requestParameters, initOverrides);
     }
 
     /**
      * Delete Issue (By Issue ID)
      */
-    async deleteIssueByIDRaw(requestParameters: DeleteIssueByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+    async deleteIssueByIDRaw(requestParameters: DeleteIssueByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['issueId'] == null) {
             throw new runtime.RequiredError(
                 'issueId',
@@ -344,15 +343,14 @@ export class IssuesApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.VoidApiResponse(response);
     }
 
     /**
      * Delete Issue (By Issue ID)
      */
-    async deleteIssueByID(requestParameters: DeleteIssueByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
-        const response = await this.deleteIssueByIDRaw(requestParameters, initOverrides);
-        return await response.value();
+    async deleteIssueByID(requestParameters: DeleteIssueByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.deleteIssueByIDRaw(requestParameters, initOverrides);
     }
 
     /**

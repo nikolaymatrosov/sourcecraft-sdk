@@ -17,7 +17,6 @@ apis/RepositoryPullRequestCommentsApi.ts
 apis/RepositoryPullRequestReviewersApi.ts
 apis/RolesApi.ts
 apis/UserPullRequestApi.ts
-apis/index.ts
 docs/AddRepoRolesBody.md
 docs/AddRepoRolesResponse.md
 docs/Anchor.md
@@ -269,4 +268,3 @@ models/V1ReviewerDelta.ts
 models/V1Tag.ts
 models/WorkflowInput.ts
 models/index.ts
-runtime.ts

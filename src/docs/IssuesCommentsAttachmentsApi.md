@@ -13,7 +13,7 @@ All URIs are relative to *http://localhost*
 
 ## deleteIssueCommentAttachment
 
-> object deleteIssueCommentAttachment(issueCommentId, attachmentId, silent)
+> deleteIssueCommentAttachment(issueCommentId, attachmentId, silent)
 
 Remove attachment
 
@@ -68,7 +68,7 @@ example().catch(console.error);
 
 ### Return type
 
-**object**
+`void` (Empty response body)
 
 ### Authorization
 

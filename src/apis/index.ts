@@ -1,4 +1,5 @@
 /* tslint:disable */
+/* eslint-disable */
 export * from './CIApi';
 export * from './IssuesApi';
 export * from './IssuesAttachmentsApi';

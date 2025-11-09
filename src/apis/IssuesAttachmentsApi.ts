@@ -83,7 +83,7 @@ export class IssuesAttachmentsApi extends runtime.BaseAPI {
      * Permanently removes an attachment from an issue. The file will be deleted and cannot be reused.
      * Remove attachment
      */
-    async deleteIssueAttachmentRaw(requestParameters: DeleteIssueAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+    async deleteIssueAttachmentRaw(requestParameters: DeleteIssueAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['orgSlug'] == null) {
             throw new runtime.RequiredError(
                 'orgSlug',
@@ -142,23 +142,22 @@ export class IssuesAttachmentsApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.VoidApiResponse(response);
     }
 
     /**
      * Permanently removes an attachment from an issue. The file will be deleted and cannot be reused.
      * Remove attachment
      */
-    async deleteIssueAttachment(requestParameters: DeleteIssueAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
-        const response = await this.deleteIssueAttachmentRaw(requestParameters, initOverrides);
-        return await response.value();
+    async deleteIssueAttachment(requestParameters: DeleteIssueAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.deleteIssueAttachmentRaw(requestParameters, initOverrides);
     }
 
     /**
      * Permanently removes an attachment from an issue. The file will be deleted and cannot be reused.
      * Remove attachment (by Issue ID)
      */
-    async deleteIssueAttachmentByIDRaw(requestParameters: DeleteIssueAttachmentByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+    async deleteIssueAttachmentByIDRaw(requestParameters: DeleteIssueAttachmentByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['issueId'] == null) {
             throw new runtime.RequiredError(
                 'issueId',
@@ -201,16 +200,15 @@ export class IssuesAttachmentsApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.VoidApiResponse(response);
     }
 
     /**
      * Permanently removes an attachment from an issue. The file will be deleted and cannot be reused.
      * Remove attachment (by Issue ID)
      */
-    async deleteIssueAttachmentByID(requestParameters: DeleteIssueAttachmentByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
-        const response = await this.deleteIssueAttachmentByIDRaw(requestParameters, initOverrides);
-        return await response.value();
+    async deleteIssueAttachmentByID(requestParameters: DeleteIssueAttachmentByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.deleteIssueAttachmentByIDRaw(requestParameters, initOverrides);
     }
 
     /**

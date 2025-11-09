@@ -60,7 +60,7 @@ export class IssuesCommentsAttachmentsApi extends runtime.BaseAPI {
      * Permanently removes an attachment from a comment. The file will be deleted and cannot be reused.
      * Remove attachment
      */
-    async deleteIssueCommentAttachmentRaw(requestParameters: DeleteIssueCommentAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+    async deleteIssueCommentAttachmentRaw(requestParameters: DeleteIssueCommentAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['issueCommentId'] == null) {
             throw new runtime.RequiredError(
                 'issueCommentId',
@@ -103,16 +103,15 @@ export class IssuesCommentsAttachmentsApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.VoidApiResponse(response);
     }
 
     /**
      * Permanently removes an attachment from a comment. The file will be deleted and cannot be reused.
      * Remove attachment
      */
-    async deleteIssueCommentAttachment(requestParameters: DeleteIssueCommentAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
-        const response = await this.deleteIssueCommentAttachmentRaw(requestParameters, initOverrides);
-        return await response.value();
+    async deleteIssueCommentAttachment(requestParameters: DeleteIssueCommentAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.deleteIssueCommentAttachmentRaw(requestParameters, initOverrides);
     }
 
     /**

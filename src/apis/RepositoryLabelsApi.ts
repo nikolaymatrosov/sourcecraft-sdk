@@ -234,7 +234,7 @@ export class RepositoryLabelsApi extends runtime.BaseAPI {
     /**
      * Delete label (By Slug)
      */
-    async deleteLabelRaw(requestParameters: DeleteLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+    async deleteLabelRaw(requestParameters: DeleteLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['orgSlug'] == null) {
             throw new runtime.RequiredError(
                 'orgSlug',
@@ -285,21 +285,20 @@ export class RepositoryLabelsApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.VoidApiResponse(response);
     }
 
     /**
      * Delete label (By Slug)
      */
-    async deleteLabel(requestParameters: DeleteLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
-        const response = await this.deleteLabelRaw(requestParameters, initOverrides);
-        return await response.value();
+    async deleteLabel(requestParameters: DeleteLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.deleteLabelRaw(requestParameters, initOverrides);
     }
 
     /**
      * Delete label (By Label ID)
      */
-    async deleteLabelByIDRaw(requestParameters: DeleteLabelByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+    async deleteLabelByIDRaw(requestParameters: DeleteLabelByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['labelId'] == null) {
             throw new runtime.RequiredError(
                 'labelId',
@@ -334,15 +333,14 @@ export class RepositoryLabelsApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.VoidApiResponse(response);
     }
 
     /**
      * Delete label (By Label ID)
      */
-    async deleteLabelByID(requestParameters: DeleteLabelByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
-        const response = await this.deleteLabelByIDRaw(requestParameters, initOverrides);
-        return await response.value();
+    async deleteLabelByID(requestParameters: DeleteLabelByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.deleteLabelByIDRaw(requestParameters, initOverrides);
     }
 
     /**

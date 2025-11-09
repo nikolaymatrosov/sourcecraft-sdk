@@ -213,7 +213,7 @@ export class IssuesLinkedIssuesApi extends runtime.BaseAPI {
      * Removes links between issues by ID
      * Delete Link (By Link ID)
      */
-    async deleteIssueLinkRaw(requestParameters: DeleteIssueLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+    async deleteIssueLinkRaw(requestParameters: DeleteIssueLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
         if (requestParameters['issueLinkId'] == null) {
             throw new runtime.RequiredError(
                 'issueLinkId',
@@ -248,16 +248,15 @@ export class IssuesLinkedIssuesApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.VoidApiResponse(response);
     }
 
     /**
      * Removes links between issues by ID
      * Delete Link (By Link ID)
      */
-    async deleteIssueLink(requestParameters: DeleteIssueLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
-        const response = await this.deleteIssueLinkRaw(requestParameters, initOverrides);
-        return await response.value();
+    async deleteIssueLink(requestParameters: DeleteIssueLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+        await this.deleteIssueLinkRaw(requestParameters, initOverrides);
     }
 
     /**

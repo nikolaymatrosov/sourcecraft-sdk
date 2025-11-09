@@ -329,7 +329,7 @@ example().catch(console.error);
 
 ## deleteRepository
 
-> object deleteRepository(orgSlug, repoSlug, silent)
+> deleteRepository(orgSlug, repoSlug, silent)
 
 Delete Repository
 
@@ -382,7 +382,7 @@ example().catch(console.error);
 
 ### Return type
 
-**object**
+`void` (Empty response body)
 
 ### Authorization
 
@@ -405,7 +405,7 @@ example().catch(console.error);
 
 ## deleteRepositoryByID
 
-> object deleteRepositoryByID(repoId, silent)
+> deleteRepositoryByID(repoId, silent)
 
 Delete Repository (By Repository ID)
 
@@ -455,7 +455,7 @@ example().catch(console.error);
 
 ### Return type
 
-**object**
+`void` (Empty response body)
 
 ### Authorization
 

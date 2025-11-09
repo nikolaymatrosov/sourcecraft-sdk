@@ -1,35 +1,40 @@
 {
-  "name": "sourcecraft-sdk",
-  "version": "0.0.1",
-  "description": "SourceCraft SDK",
-  "license": "MIT",
-  "author": "Nikolay Matrosov <nikolay.matrosov@gmail.com>",
-  "type": "commonjs",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "convert": "npx api-spec-converter --from=swagger_2 --to=openapi_3 --syntax=yaml spec/swagger.json > spec/openapi.yaml",
-    "add-auth": "node scripts/add-auth-to-openapi.js",
-    "prepare-spec": "npm run convert && npm run add-auth",
-    "generate-sdk": "npx openapi-generator-cli generate -i spec/openapi.yaml -g typescript-fetch -o ./src",
-    "clean": "rm -rf dist",
-    "build:ts": "tsc",
-    "build:watch": "tsc --watch",
-    "build": "npm run prepare-spec && npm run generate-sdk && npm run build:ts",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "format": "prettier --write \"src/**/*.ts\"",
-    "format:check": "prettier --check \"src/**/*.ts\""
-  },
-  "devDependencies": {
-    "@eslint/js": "^9.39.1",
-    "@openapitools/openapi-generator-cli": "^2.25.0",
-    "eslint": "^9.39.1",
-    "eslint-config-prettier": "^10.1.8",
-    "js-yaml": "^4.1.0",
-    "prettier": "^3.6.2",
-    "typescript": "^5.9.3",
-    "typescript-eslint": "^8.46.3"
-  }
+    "name": "sourcecraft-sdk",
+    "version": "0.0.1",
+    "description": "SourceCraft SDK",
+    "license": "MIT",
+    "author": "Nikolay Matrosov <nikolay.matrosov@gmail.com>",
+    "type": "commonjs",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "convert": "npx api-spec-converter --from=swagger_2 --to=openapi_3 --syntax=yaml spec/swagger.json > spec/openapi.yaml",
+        "fix-spec": "node scripts/fix-openapi.js",
+        "prepare-spec": "npm run convert && npm run fix-spec",
+        "generate-sdk": "npx openapi-generator-cli generate -i spec/openapi.yaml -g typescript-fetch -o ./src",
+        "clean": "rm -rf dist",
+        "build:ts": "tsc",
+        "build:watch": "tsc --watch",
+        "build:examples": "tsc -p examples/tsconfig.json",
+        "build": "npm run prepare-spec && npm run generate-sdk && npm run build:ts",
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix",
+        "format": "prettier --write \"src/**/*.ts\"",
+        "format:check": "prettier --check \"src/**/*.ts\""
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.39.1",
+        "@openapitools/openapi-generator-cli": "^2.25.0",
+        "@types/node": "^24.10.0",
+        "eslint": "^9.39.1",
+        "eslint-config-prettier": "^10.1.8",
+        "js-yaml": "^4.1.0",
+        "prettier": "^3.6.2",
+        "typescript": "^5.9.3",
+        "typescript-eslint": "^8.46.3"
+    }
 }

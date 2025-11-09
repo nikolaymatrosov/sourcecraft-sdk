@@ -6131,10 +6131,7 @@
         "responses": {
           "204": {
             "description": "A successful response.",
-            "schema": {
-              "type": "object",
-              "properties": {}
-            }
+            "content": {}
           },
           "default": {
             "description": "Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme",

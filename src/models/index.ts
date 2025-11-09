@@ -1,4 +1,5 @@
 /* tslint:disable */
+/* eslint-disable */
 export * from './AddRepoRolesBody';
 export * from './AddRepoRolesResponse';
 export * from './Anchor';

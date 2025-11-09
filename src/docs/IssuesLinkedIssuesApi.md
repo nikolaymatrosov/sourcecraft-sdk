@@ -176,7 +176,7 @@ example().catch(console.error);
 
 ## deleteIssueLink
 
-> object deleteIssueLink(issueLinkId, silent)
+> deleteIssueLink(issueLinkId, silent)
 
 Delete Link (By Link ID)
 
@@ -228,7 +228,7 @@ example().catch(console.error);
 
 ### Return type
 
-**object**
+`void` (Empty response body)
 
 ### Authorization
 

@@ -16,7 +16,7 @@ All URIs are relative to *http://localhost*
 
 ## deleteIssueAttachment
 
-> object deleteIssueAttachment(orgSlug, repoSlug, issueSlug, attachmentId, silent)
+> deleteIssueAttachment(orgSlug, repoSlug, issueSlug, attachmentId, silent)
 
 Remove attachment
 
@@ -77,7 +77,7 @@ example().catch(console.error);
 
 ### Return type
 
-**object**
+`void` (Empty response body)
 
 ### Authorization
 
@@ -100,7 +100,7 @@ example().catch(console.error);
 
 ## deleteIssueAttachmentByID
 
-> object deleteIssueAttachmentByID(issueId, attachmentId, silent)
+> deleteIssueAttachmentByID(issueId, attachmentId, silent)
 
 Remove attachment (by Issue ID)
 
@@ -155,7 +155,7 @@ example().catch(console.error);
 
 ### Return type
 
-**object**
+`void` (Empty response body)
 
 ### Authorization
 

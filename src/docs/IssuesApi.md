@@ -175,7 +175,7 @@ example().catch(console.error);
 
 ## deleteIssue
 
-> object deleteIssue(orgSlug, repoSlug, issueSlug, silent)
+> deleteIssue(orgSlug, repoSlug, issueSlug, silent)
 
 Delete Issue
 
@@ -231,7 +231,7 @@ example().catch(console.error);
 
 ### Return type
 
-**object**
+`void` (Empty response body)
 
 ### Authorization
 
@@ -254,7 +254,7 @@ example().catch(console.error);
 
 ## deleteIssueByID
 
-> object deleteIssueByID(issueId, silent)
+> deleteIssueByID(issueId, silent)
 
 Delete Issue (By Issue ID)
 
@@ -304,7 +304,7 @@ example().catch(console.error);
 
 ### Return type
 
-**object**
+`void` (Empty response body)
 
 ### Authorization
 

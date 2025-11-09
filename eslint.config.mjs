@@ -28,6 +28,6 @@ export default tseslint.config(
         },
     },
     {
-        ignores: ["dist", "node_modules", "*.js", "spec", "eslint.config.mjs", "scripts"],
+        ignores: ["dist", "node_modules", "*.js", "spec", "eslint.config.mjs", "scripts", "examples"],
     }
 );

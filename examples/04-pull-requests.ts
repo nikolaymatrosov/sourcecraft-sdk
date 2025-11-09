@@ -11,7 +11,7 @@ import {
   RepositoryPullRequestReviewersApi,
   RepositoryPullRequestCommentsApi,
   UserPullRequestApi,
-} from 'sourcecraft-sdk';
+} from '@nikolaymatrosov/sourcecraft-sdk';
 
 // Example constants - customize these for your use case or set via environment variables
 const ORG_SLUG = process.env.SOURCECRAFT_ORG || 'my-org';

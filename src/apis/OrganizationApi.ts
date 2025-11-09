@@ -39,9 +39,53 @@ export interface ListOrganizationRepositoriesByIDRequest {
 }
 
 /**
+ * OrganizationApi - interface
+ * 
+ * @export
+ * @interface OrganizationApiInterface
+ */
+export interface OrganizationApiInterface {
+    /**
+     * 
+     * @summary List Organization Repositories
+     * @param {string} orgSlug 
+     * @param {string} [orgId] 
+     * @param {string} [pageSize] The maximum number of repositories to return. The service may return fewer than this value
+     * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OrganizationApiInterface
+     */
+    listOrganizationRepositoriesRaw(requestParameters: ListOrganizationRepositoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListOrganizationRepositoriesResponse>>;
+
+    /**
+     * List Organization Repositories
+     */
+    listOrganizationRepositories(requestParameters: ListOrganizationRepositoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListOrganizationRepositoriesResponse>;
+
+    /**
+     * 
+     * @summary List Organization Repositories (By Organization ID)
+     * @param {string} orgId 
+     * @param {string} [pageSize] The maximum number of repositories to return. The service may return fewer than this value
+     * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof OrganizationApiInterface
+     */
+    listOrganizationRepositoriesByIDRaw(requestParameters: ListOrganizationRepositoriesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListOrganizationRepositoriesResponse>>;
+
+    /**
+     * List Organization Repositories (By Organization ID)
+     */
+    listOrganizationRepositoriesByID(requestParameters: ListOrganizationRepositoriesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListOrganizationRepositoriesResponse>;
+
+}
+
+/**
  * 
  */
-export class OrganizationApi extends runtime.BaseAPI {
+export class OrganizationApi extends runtime.BaseAPI implements OrganizationApiInterface {
 
     /**
      * List Organization Repositories

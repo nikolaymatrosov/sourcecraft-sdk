@@ -39,9 +39,52 @@ export interface RemoveReactionRequest {
 }
 
 /**
+ * IssuesCommentsReactionsApi - interface
+ * 
+ * @export
+ * @interface IssuesCommentsReactionsApiInterface
+ */
+export interface IssuesCommentsReactionsApiInterface {
+    /**
+     * Adds a reaction to an issue comment
+     * @summary Add Reaction
+     * @param {string} issueCommentId 
+     * @param {ModifyReactionBody} modifyReactionBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesCommentsReactionsApiInterface
+     */
+    addReactionRaw(requestParameters: AddReactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Reactions>>;
+
+    /**
+     * Adds a reaction to an issue comment
+     * Add Reaction
+     */
+    addReaction(requestParameters: AddReactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Reactions>;
+
+    /**
+     * Remove a reaction from an issue comment
+     * @summary Remove Reaction
+     * @param {string} issueCommentId 
+     * @param {ModifyReactionBody} modifyReactionBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesCommentsReactionsApiInterface
+     */
+    removeReactionRaw(requestParameters: RemoveReactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Reactions>>;
+
+    /**
+     * Remove a reaction from an issue comment
+     * Remove Reaction
+     */
+    removeReaction(requestParameters: RemoveReactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Reactions>;
+
+}
+
+/**
  * 
  */
-export class IssuesCommentsReactionsApi extends runtime.BaseAPI {
+export class IssuesCommentsReactionsApi extends runtime.BaseAPI implements IssuesCommentsReactionsApiInterface {
 
     /**
      * Adds a reaction to an issue comment

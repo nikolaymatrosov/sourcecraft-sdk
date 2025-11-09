@@ -12,8 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { log } from "console";
-
 
 export const BASE_PATH = "https://api.sourcecraft.tech".replace(/\/+$/, "");
 

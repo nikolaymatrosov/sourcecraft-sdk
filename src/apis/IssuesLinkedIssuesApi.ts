@@ -67,9 +67,113 @@ export interface ListIssueLinksByIDRequest {
 }
 
 /**
+ * IssuesLinkedIssuesApi - interface
+ * 
+ * @export
+ * @interface IssuesLinkedIssuesApiInterface
+ */
+export interface IssuesLinkedIssuesApiInterface {
+    /**
+     * Creates a two-way relation from source issue to target issue of a specific type. Only one link can exist between two given issues.
+     * @summary Create Link between Issues
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {string} issueSlug 
+     * @param {CreateLinkBody} createLinkBody 
+     * @param {boolean} [silent] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesLinkedIssuesApiInterface
+     */
+    createIssueLinkRaw(requestParameters: CreateIssueLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLink>>;
+
+    /**
+     * Creates a two-way relation from source issue to target issue of a specific type. Only one link can exist between two given issues.
+     * Create Link between Issues
+     */
+    createIssueLink(requestParameters: CreateIssueLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLink>;
+
+    /**
+     * Creates a two-way relation from source issue to target issue of a specific type. Only one link can exist between two given issues.
+     * @summary Create Link between Issues (By Issue ID)
+     * @param {string} issueId 
+     * @param {CreateLinkBody} createLinkBody 
+     * @param {boolean} [silent] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesLinkedIssuesApiInterface
+     */
+    createIssueLinkByIDRaw(requestParameters: CreateIssueLinkByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLink>>;
+
+    /**
+     * Creates a two-way relation from source issue to target issue of a specific type. Only one link can exist between two given issues.
+     * Create Link between Issues (By Issue ID)
+     */
+    createIssueLinkByID(requestParameters: CreateIssueLinkByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLink>;
+
+    /**
+     * Removes links between issues by ID
+     * @summary Delete Link (By Link ID)
+     * @param {string} issueLinkId 
+     * @param {boolean} [silent] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesLinkedIssuesApiInterface
+     */
+    deleteIssueLinkRaw(requestParameters: DeleteIssueLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+
+    /**
+     * Removes links between issues by ID
+     * Delete Link (By Link ID)
+     */
+    deleteIssueLink(requestParameters: DeleteIssueLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * Retrieves links between this issue and other issues
+     * @summary List Issue Links
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {string} issueSlug 
+     * @param {string} [pageSize] The maximum number of issues to return. The service may return fewer than this value
+     * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
+     * @param {string} [sortBy] Ordering options: comma separated list of fields. For example: \&quot;name, created_at\&quot; Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;name, -created_at\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesLinkedIssuesApiInterface
+     */
+    listIssueLinksRaw(requestParameters: ListIssueLinksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListLinksResponse>>;
+
+    /**
+     * Retrieves links between this issue and other issues
+     * List Issue Links
+     */
+    listIssueLinks(requestParameters: ListIssueLinksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListLinksResponse>;
+
+    /**
+     * Retrieves links between this issue and other issues
+     * @summary List Issue Links (By Issue ID)
+     * @param {string} issueId 
+     * @param {string} [pageSize] The maximum number of issues to return. The service may return fewer than this value
+     * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
+     * @param {string} [sortBy] Ordering options: comma separated list of fields. For example: \&quot;name, created_at\&quot; Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;name, -created_at\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesLinkedIssuesApiInterface
+     */
+    listIssueLinksByIDRaw(requestParameters: ListIssueLinksByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListLinksResponse>>;
+
+    /**
+     * Retrieves links between this issue and other issues
+     * List Issue Links (By Issue ID)
+     */
+    listIssueLinksByID(requestParameters: ListIssueLinksByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListLinksResponse>;
+
+}
+
+/**
  * 
  */
-export class IssuesLinkedIssuesApi extends runtime.BaseAPI {
+export class IssuesLinkedIssuesApi extends runtime.BaseAPI implements IssuesLinkedIssuesApiInterface {
 
     /**
      * Creates a two-way relation from source issue to target issue of a specific type. Only one link can exist between two given issues.

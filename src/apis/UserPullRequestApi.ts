@@ -44,9 +44,60 @@ export interface ListUserPullRequestsByIDRequest {
 }
 
 /**
+ * UserPullRequestApi - interface
+ * 
+ * @export
+ * @interface UserPullRequestApiInterface
+ */
+export interface UserPullRequestApiInterface {
+    /**
+     * Lists pull requests related to a user identified by user slug.
+     * @summary List User Pull Requests
+     * @param {string} userSlug 
+     * @param {string} [userId] 
+     * @param {'author' | 'reviewer' | 'any'} [role] Role by which PRs should be selected: author, reviewer or any
+     * @param {string} [pageSize] The maximum number of pull requests to return. The service may return fewer than this value
+     * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
+     * @param {string} [sortBy] Ordering options: comma separated list of fields. For example: \&quot;name, created_at\&quot; Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;name, -created_at\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent. Available fields: title, created_at, updated_at
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserPullRequestApiInterface
+     */
+    listUserPullRequestsRaw(requestParameters: ListUserPullRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListRepositoryPullRequestsResponse>>;
+
+    /**
+     * Lists pull requests related to a user identified by user slug.
+     * List User Pull Requests
+     */
+    listUserPullRequests(requestParameters: ListUserPullRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListRepositoryPullRequestsResponse>;
+
+    /**
+     * Lists pull requests related to a user identified by UUID.
+     * @summary List User Pull Requests (By User ID)
+     * @param {string} userId 
+     * @param {string} [userSlug] 
+     * @param {'author' | 'reviewer' | 'any'} [role] Role by which PRs should be selected: author, reviewer or any
+     * @param {string} [pageSize] The maximum number of pull requests to return. The service may return fewer than this value
+     * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
+     * @param {string} [sortBy] Ordering options: comma separated list of fields. For example: \&quot;name, created_at\&quot; Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;name, -created_at\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent. Available fields: title, created_at, updated_at
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserPullRequestApiInterface
+     */
+    listUserPullRequestsByIDRaw(requestParameters: ListUserPullRequestsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListRepositoryPullRequestsResponse>>;
+
+    /**
+     * Lists pull requests related to a user identified by UUID.
+     * List User Pull Requests (By User ID)
+     */
+    listUserPullRequestsByID(requestParameters: ListUserPullRequestsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListRepositoryPullRequestsResponse>;
+
+}
+
+/**
  * 
  */
-export class UserPullRequestApi extends runtime.BaseAPI {
+export class UserPullRequestApi extends runtime.BaseAPI implements UserPullRequestApiInterface {
 
     /**
      * Lists pull requests related to a user identified by user slug.

@@ -101,9 +101,194 @@ export interface UpdateMilestoneByIDRequest {
 }
 
 /**
+ * RepositoryMilestonesApi - interface
+ * 
+ * @export
+ * @interface RepositoryMilestonesApiInterface
+ */
+export interface RepositoryMilestonesApiInterface {
+    /**
+     * 
+     * @summary Create a Milestone
+     * @param {string} orgSlug Path parameters for different routes
+     * @param {string} repoSlug 
+     * @param {CreateMilestoneBody} createMilestoneBody 
+     * @param {boolean} [silent] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryMilestonesApiInterface
+     */
+    createMilestoneRaw(requestParameters: CreateMilestoneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Milestone>>;
+
+    /**
+     * Create a Milestone
+     */
+    createMilestone(requestParameters: CreateMilestoneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Milestone>;
+
+    /**
+     * 
+     * @summary Create a Milestone (By Repo ID)
+     * @param {string} repoId 
+     * @param {CreateMilestoneBody} createMilestoneBody 
+     * @param {boolean} [silent] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryMilestonesApiInterface
+     */
+    createMilestoneByIDRaw(requestParameters: CreateMilestoneByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Milestone>>;
+
+    /**
+     * Create a Milestone (By Repo ID)
+     */
+    createMilestoneByID(requestParameters: CreateMilestoneByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Milestone>;
+
+    /**
+     * 
+     * @summary Delete a Milestone (By Slug)
+     * @param {string} orgSlug Path parameters for different routes
+     * @param {string} repoSlug 
+     * @param {string} milestoneSlug 
+     * @param {boolean} [silent] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryMilestonesApiInterface
+     */
+    deleteMilestoneRaw(requestParameters: DeleteMilestoneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>>;
+
+    /**
+     * Delete a Milestone (By Slug)
+     */
+    deleteMilestone(requestParameters: DeleteMilestoneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object>;
+
+    /**
+     * 
+     * @summary Delete a Milestone (By ID)
+     * @param {string} milestoneId 
+     * @param {boolean} [silent] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryMilestonesApiInterface
+     */
+    deleteMilestoneByIDRaw(requestParameters: DeleteMilestoneByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>>;
+
+    /**
+     * Delete a Milestone (By ID)
+     */
+    deleteMilestoneByID(requestParameters: DeleteMilestoneByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object>;
+
+    /**
+     * 
+     * @summary Get a Milestone (By Slug)
+     * @param {string} orgSlug Path parameters for different routes
+     * @param {string} repoSlug 
+     * @param {string} milestoneSlug 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryMilestonesApiInterface
+     */
+    getMilestoneRaw(requestParameters: GetMilestoneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Milestone>>;
+
+    /**
+     * Get a Milestone (By Slug)
+     */
+    getMilestone(requestParameters: GetMilestoneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Milestone>;
+
+    /**
+     * 
+     * @summary Get a Milestone (By ID)
+     * @param {string} milestoneId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryMilestonesApiInterface
+     */
+    getMilestoneByIDRaw(requestParameters: GetMilestoneByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Milestone>>;
+
+    /**
+     * Get a Milestone (By ID)
+     */
+    getMilestoneByID(requestParameters: GetMilestoneByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Milestone>;
+
+    /**
+     * 
+     * @summary List Repository Milestones
+     * @param {string} orgSlug Path parameters for different routes
+     * @param {string} repoSlug 
+     * @param {string} [pageSize] 
+     * @param {string} [pageToken] 
+     * @param {string} [sortBy] 
+     * @param {string} [filter] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryMilestonesApiInterface
+     */
+    listMilestonesForRepositoryRaw(requestParameters: ListMilestonesForRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListMilestonesForRepositoryResponse>>;
+
+    /**
+     * List Repository Milestones
+     */
+    listMilestonesForRepository(requestParameters: ListMilestonesForRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListMilestonesForRepositoryResponse>;
+
+    /**
+     * 
+     * @summary List Repository Milestones (By Repo ID)
+     * @param {string} repoId 
+     * @param {string} [pageSize] 
+     * @param {string} [pageToken] 
+     * @param {string} [sortBy] 
+     * @param {string} [filter] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryMilestonesApiInterface
+     */
+    listMilestonesForRepositoryByIDRaw(requestParameters: ListMilestonesForRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListMilestonesForRepositoryResponse>>;
+
+    /**
+     * List Repository Milestones (By Repo ID)
+     */
+    listMilestonesForRepositoryByID(requestParameters: ListMilestonesForRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListMilestonesForRepositoryResponse>;
+
+    /**
+     * 
+     * @summary Update a Milestone (By Slug)
+     * @param {string} orgSlug Path parameters for different routes
+     * @param {string} repoSlug 
+     * @param {string} milestoneSlug 
+     * @param {UpdateMilestoneBody} updateMilestoneBody 
+     * @param {boolean} [silent] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryMilestonesApiInterface
+     */
+    updateMilestoneRaw(requestParameters: UpdateMilestoneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Milestone>>;
+
+    /**
+     * Update a Milestone (By Slug)
+     */
+    updateMilestone(requestParameters: UpdateMilestoneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Milestone>;
+
+    /**
+     * 
+     * @summary Update a Milestone (By ID)
+     * @param {string} milestoneId 
+     * @param {UpdateMilestoneBody} updateMilestoneBody 
+     * @param {boolean} [silent] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryMilestonesApiInterface
+     */
+    updateMilestoneByIDRaw(requestParameters: UpdateMilestoneByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Milestone>>;
+
+    /**
+     * Update a Milestone (By ID)
+     */
+    updateMilestoneByID(requestParameters: UpdateMilestoneByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Milestone>;
+
+}
+
+/**
  * 
  */
-export class RepositoryMilestonesApi extends runtime.BaseAPI {
+export class RepositoryMilestonesApi extends runtime.BaseAPI implements RepositoryMilestonesApiInterface {
 
     /**
      * Create a Milestone

@@ -1,5 +1,5 @@
 {
-    "name": "sourcecraft-sdk",
+    "name": "@nikolaymatrosov/sourcecraft-sdk",
     "version": "0.0.1",
     "description": "SourceCraft SDK",
     "license": "MIT",
@@ -15,7 +15,7 @@
         "convert": "npx api-spec-converter --from=swagger_2 --to=openapi_3 --syntax=yaml spec/swagger.json > spec/openapi.yaml",
         "fix-spec": "node scripts/fix-openapi.js",
         "prepare-spec": "npm run convert && npm run fix-spec",
-        "generate-sdk": "npx openapi-generator-cli generate -i spec/openapi.yaml -g typescript-fetch -o ./src",
+        "generate-sdk": "npx openapi-generator-cli generate -i spec/openapi.yaml -g typescript-fetch -o ./src -c gen-config.json",
         "clean": "rm -rf dist",
         "build:ts": "tsc",
         "build:watch": "tsc --watch",

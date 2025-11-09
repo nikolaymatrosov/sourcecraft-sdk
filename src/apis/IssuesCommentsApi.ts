@@ -80,9 +80,144 @@ export interface UpdateIssueCommentRequest {
 }
 
 /**
+ * IssuesCommentsApi - interface
+ * 
+ * @export
+ * @interface IssuesCommentsApiInterface
+ */
+export interface IssuesCommentsApiInterface {
+    /**
+     * 
+     * @summary Create comment
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {string} issueSlug 
+     * @param {CreateIssueCommentBody} createIssueCommentBody 
+     * @param {boolean} [silent] do not notify subscribers
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesCommentsApiInterface
+     */
+    createIssueCommentRaw(requestParameters: CreateIssueCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueComment>>;
+
+    /**
+     * Create comment
+     */
+    createIssueComment(requestParameters: CreateIssueCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueComment>;
+
+    /**
+     * 
+     * @summary Create comment (by Issue ID)
+     * @param {string} issueId 
+     * @param {CreateIssueCommentBody} createIssueCommentBody 
+     * @param {boolean} [silent] do not notify subscribers
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesCommentsApiInterface
+     */
+    createIssueCommentByIDRaw(requestParameters: CreateIssueCommentByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueComment>>;
+
+    /**
+     * Create comment (by Issue ID)
+     */
+    createIssueCommentByID(requestParameters: CreateIssueCommentByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueComment>;
+
+    /**
+     * Permanently deletes a comment from an issue. This action cannot be undone.
+     * @summary Delete Comment
+     * @param {string} issueCommentId 
+     * @param {boolean} [silent] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesCommentsApiInterface
+     */
+    deleteIssueCommentRaw(requestParameters: DeleteIssueCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+
+    /**
+     * Permanently deletes a comment from an issue. This action cannot be undone.
+     * Delete Comment
+     */
+    deleteIssueComment(requestParameters: DeleteIssueCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * 
+     * @summary Get Comment
+     * @param {string} issueCommentId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesCommentsApiInterface
+     */
+    getIssueCommentRaw(requestParameters: GetIssueCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueComment>>;
+
+    /**
+     * Get Comment
+     */
+    getIssueComment(requestParameters: GetIssueCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueComment>;
+
+    /**
+     * Retrieves comments for an issue
+     * @summary List Comments
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {string} issueSlug 
+     * @param {string} [pageSize] The maximum number of issues to return. The service may return fewer than this value
+     * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
+     * @param {string} [sortBy] Ordering options: comma separated list of fields. For example: \&quot;name, created_at\&quot; Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;name, -created_at\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesCommentsApiInterface
+     */
+    listIssueCommentsRaw(requestParameters: ListIssueCommentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListIssueCommentsResponse>>;
+
+    /**
+     * Retrieves comments for an issue
+     * List Comments
+     */
+    listIssueComments(requestParameters: ListIssueCommentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListIssueCommentsResponse>;
+
+    /**
+     * Retrieves comments for an issue
+     * @summary List Comments (by ID)
+     * @param {string} issueId 
+     * @param {string} [pageSize] The maximum number of issues to return. The service may return fewer than this value
+     * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
+     * @param {string} [sortBy] Ordering options: comma separated list of fields. For example: \&quot;name, created_at\&quot; Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;name, -created_at\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesCommentsApiInterface
+     */
+    listIssueCommentsByIDRaw(requestParameters: ListIssueCommentsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListIssueCommentsResponse>>;
+
+    /**
+     * Retrieves comments for an issue
+     * List Comments (by ID)
+     */
+    listIssueCommentsByID(requestParameters: ListIssueCommentsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListIssueCommentsResponse>;
+
+    /**
+     * Update a comment
+     * @summary Update Comment
+     * @param {string} issueCommentId 
+     * @param {UpdateIssueCommentBody} updateIssueCommentBody 
+     * @param {boolean} [silent] do not notify subscribers
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesCommentsApiInterface
+     */
+    updateIssueCommentRaw(requestParameters: UpdateIssueCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueComment>>;
+
+    /**
+     * Update a comment
+     * Update Comment
+     */
+    updateIssueComment(requestParameters: UpdateIssueCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueComment>;
+
+}
+
+/**
  * 
  */
-export class IssuesCommentsApi extends runtime.BaseAPI {
+export class IssuesCommentsApi extends runtime.BaseAPI implements IssuesCommentsApiInterface {
 
     /**
      * Create comment

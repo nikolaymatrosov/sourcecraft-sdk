@@ -1,6 +1,6 @@
 # IssuesStatusesApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.sourcecraft.tech*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|

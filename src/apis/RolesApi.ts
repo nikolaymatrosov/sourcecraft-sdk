@@ -66,9 +66,121 @@ export interface RemoveRepoRolesByIDRequest {
 }
 
 /**
+ * RolesApi - interface
+ * 
+ * @export
+ * @interface RolesApiInterface
+ */
+export interface RolesApiInterface {
+    /**
+     * 
+     * @summary Add Repository Roles
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {AddRepoRolesBody} addRepoRolesBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RolesApiInterface
+     */
+    addRepoRolesRaw(requestParameters: AddRepoRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+
+    /**
+     * Add Repository Roles
+     */
+    addRepoRoles(requestParameters: AddRepoRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+
+    /**
+     * 
+     * @summary Add Repository Roles (By ID)
+     * @param {string} repoId 
+     * @param {AddRepoRolesBody} addRepoRolesBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RolesApiInterface
+     */
+    addRepoRolesByIDRaw(requestParameters: AddRepoRolesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+
+    /**
+     * Add Repository Roles (By ID)
+     */
+    addRepoRolesByID(requestParameters: AddRepoRolesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+
+    /**
+     * 
+     * @summary List Repository Roles
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {string} [pageSize] The maximum number of repo roles to return. The service may return fewer than this value
+     * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
+     * @param {string} [sortBy] Ordering options: comma separated list of fields. Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;foo, -bar\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent. Available fields: name
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RolesApiInterface
+     */
+    listRepoRolesRaw(requestParameters: ListRepoRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+
+    /**
+     * List Repository Roles
+     */
+    listRepoRoles(requestParameters: ListRepoRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+
+    /**
+     * 
+     * @summary List Repository Roles (By ID)
+     * @param {string} repoId 
+     * @param {string} [pageSize] The maximum number of repo roles to return. The service may return fewer than this value
+     * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
+     * @param {string} [sortBy] Ordering options: comma separated list of fields. Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;foo, -bar\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent. Available fields: name
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RolesApiInterface
+     */
+    listRepoRolesByIDRaw(requestParameters: ListRepoRolesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+
+    /**
+     * List Repository Roles (By ID)
+     */
+    listRepoRolesByID(requestParameters: ListRepoRolesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+
+    /**
+     * 
+     * @summary Remove Repository Roles
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {RemoveRepoRolesBody} removeRepoRolesBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RolesApiInterface
+     */
+    removeRepoRolesRaw(requestParameters: RemoveRepoRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+
+    /**
+     * Remove Repository Roles
+     */
+    removeRepoRoles(requestParameters: RemoveRepoRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+
+    /**
+     * 
+     * @summary Remove Repository Roles (By ID)
+     * @param {string} repoId 
+     * @param {RemoveRepoRolesBody} removeRepoRolesBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RolesApiInterface
+     */
+    removeRepoRolesByIDRaw(requestParameters: RemoveRepoRolesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+
+    /**
+     * Remove Repository Roles (By ID)
+     */
+    removeRepoRolesByID(requestParameters: RemoveRepoRolesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+
+}
+
+/**
  * 
  */
-export class RolesApi extends runtime.BaseAPI {
+export class RolesApi extends runtime.BaseAPI implements RolesApiInterface {
 
     /**
      * Add Repository Roles

@@ -195,9 +195,405 @@ export interface UpdateRepositoryByIDRequest {
 }
 
 /**
+ * RepositoryApi - interface
+ * 
+ * @export
+ * @interface RepositoryApiInterface
+ */
+export interface RepositoryApiInterface {
+    /**
+     * 
+     * @summary Add Repository Roles
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {AddRepoRolesBody} addRepoRolesBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryApiInterface
+     */
+    addRepoRolesRaw(requestParameters: AddRepoRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+
+    /**
+     * Add Repository Roles
+     */
+    addRepoRoles(requestParameters: AddRepoRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+
+    /**
+     * 
+     * @summary Add Repository Roles (By ID)
+     * @param {string} repoId 
+     * @param {AddRepoRolesBody} addRepoRolesBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryApiInterface
+     */
+    addRepoRolesByIDRaw(requestParameters: AddRepoRolesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+
+    /**
+     * Add Repository Roles (By ID)
+     */
+    addRepoRolesByID(requestParameters: AddRepoRolesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+
+    /**
+     * 
+     * @summary Create Repository in Organization
+     * @param {string} orgSlug 
+     * @param {CreateRepositoryBody} createRepositoryBody 
+     * @param {string} [orgId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryApiInterface
+     */
+    createRepositoryRaw(requestParameters: CreateRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Repository>>;
+
+    /**
+     * Create Repository in Organization
+     */
+    createRepository(requestParameters: CreateRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Repository>;
+
+    /**
+     * 
+     * @summary Create Repository in Organization (By Organization ID)
+     * @param {string} orgId 
+     * @param {CreateRepositoryBody} createRepositoryBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryApiInterface
+     */
+    createRepositoryByIDRaw(requestParameters: CreateRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Repository>>;
+
+    /**
+     * Create Repository in Organization (By Organization ID)
+     */
+    createRepositoryByID(requestParameters: CreateRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Repository>;
+
+    /**
+     * 
+     * @summary Delete Repository
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {boolean} [silent] Flag for deleting without any notifications. NOT IMPLEMENTED YET.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryApiInterface
+     */
+    deleteRepositoryRaw(requestParameters: DeleteRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+
+    /**
+     * Delete Repository
+     */
+    deleteRepository(requestParameters: DeleteRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * 
+     * @summary Delete Repository (By Repository ID)
+     * @param {string} repoId 
+     * @param {boolean} [silent] Flag for deleting without any notifications. NOT IMPLEMENTED YET.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryApiInterface
+     */
+    deleteRepositoryByIDRaw(requestParameters: DeleteRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+
+    /**
+     * Delete Repository (By Repository ID)
+     */
+    deleteRepositoryByID(requestParameters: DeleteRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * 
+     * @summary Fork Repository
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {ForkRepositoryBody} forkRepositoryBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryApiInterface
+     */
+    forkRepositoryRaw(requestParameters: ForkRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Repository>>;
+
+    /**
+     * Fork Repository
+     */
+    forkRepository(requestParameters: ForkRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Repository>;
+
+    /**
+     * 
+     * @summary Fork Repository (By ID)
+     * @param {string} repoId 
+     * @param {ForkRepositoryBody} forkRepositoryBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryApiInterface
+     */
+    forkRepositoryByIDRaw(requestParameters: ForkRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Repository>>;
+
+    /**
+     * Fork Repository (By ID)
+     */
+    forkRepositoryByID(requestParameters: ForkRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Repository>;
+
+    /**
+     * 
+     * @summary Get Repository
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryApiInterface
+     */
+    getRepositoryRaw(requestParameters: GetRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Repository>>;
+
+    /**
+     * Get Repository
+     */
+    getRepository(requestParameters: GetRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Repository>;
+
+    /**
+     * 
+     * @summary Get Repository (By ID)
+     * @param {string} repoId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryApiInterface
+     */
+    getRepositoryByIDRaw(requestParameters: GetRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Repository>>;
+
+    /**
+     * Get Repository (By ID)
+     */
+    getRepositoryByID(requestParameters: GetRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Repository>;
+
+    /**
+     * 
+     * @summary List Repository Branches
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {string} [filter] Filter branches by name contains
+     * @param {string} [sortBy] Ordering options: comma separated list of fields. Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;foo, -bar\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent. Available fields: name
+     * @param {string} [pageSize] The maximum number of branches to return. The service may return fewer than this value
+     * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryApiInterface
+     */
+    listBranchesRaw(requestParameters: ListBranchesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListBranchesResponse>>;
+
+    /**
+     * List Repository Branches
+     */
+    listBranches(requestParameters: ListBranchesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListBranchesResponse>;
+
+    /**
+     * 
+     * @summary List Repository Branches (By Repo ID)
+     * @param {string} repoId 
+     * @param {string} [filter] Filter branches by name contains
+     * @param {string} [sortBy] Ordering options: comma separated list of fields. Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;foo, -bar\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent. Available fields: name
+     * @param {string} [pageSize] The maximum number of branches to return. The service may return fewer than this value
+     * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryApiInterface
+     */
+    listBranchesByIDRaw(requestParameters: ListBranchesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListBranchesResponse>>;
+
+    /**
+     * List Repository Branches (By Repo ID)
+     */
+    listBranchesByID(requestParameters: ListBranchesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListBranchesResponse>;
+
+    /**
+     * 
+     * @summary List Repository Roles
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {string} [pageSize] The maximum number of repo roles to return. The service may return fewer than this value
+     * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
+     * @param {string} [sortBy] Ordering options: comma separated list of fields. Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;foo, -bar\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent. Available fields: name
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryApiInterface
+     */
+    listRepoRolesRaw(requestParameters: ListRepoRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+
+    /**
+     * List Repository Roles
+     */
+    listRepoRoles(requestParameters: ListRepoRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+
+    /**
+     * 
+     * @summary List Repository Roles (By ID)
+     * @param {string} repoId 
+     * @param {string} [pageSize] The maximum number of repo roles to return. The service may return fewer than this value
+     * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
+     * @param {string} [sortBy] Ordering options: comma separated list of fields. Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;foo, -bar\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent. Available fields: name
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryApiInterface
+     */
+    listRepoRolesByIDRaw(requestParameters: ListRepoRolesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+
+    /**
+     * List Repository Roles (By ID)
+     */
+    listRepoRolesByID(requestParameters: ListRepoRolesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+
+    /**
+     * 
+     * @summary List Repository Tags
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {string} [filter] Filter tags by name contains
+     * @param {string} [sortBy] Ordering options: comma separated list of fields. Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;foo, -bar\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent. Available fields: name
+     * @param {string} [pageSize] The maximum number of tags to return. The service may return fewer than this value
+     * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryApiInterface
+     */
+    listTagsRaw(requestParameters: ListTagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListTagsResponse>>;
+
+    /**
+     * List Repository Tags
+     */
+    listTags(requestParameters: ListTagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListTagsResponse>;
+
+    /**
+     * 
+     * @summary List Repository Tags (By Repo ID)
+     * @param {string} repoId 
+     * @param {string} [filter] Filter tags by name contains
+     * @param {string} [sortBy] Ordering options: comma separated list of fields. Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;foo, -bar\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent. Available fields: name
+     * @param {string} [pageSize] The maximum number of tags to return. The service may return fewer than this value
+     * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryApiInterface
+     */
+    listTagsByIDRaw(requestParameters: ListTagsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListTagsResponse>>;
+
+    /**
+     * List Repository Tags (By Repo ID)
+     */
+    listTagsByID(requestParameters: ListTagsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListTagsResponse>;
+
+    /**
+     * 
+     * @summary List Repository File Tree
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {string} [revision] Git reference (branch, tag, or commit SHA). If empty, the default branch (usually main) will be used. Examples: &#x60;mybranch&#x60;, &#x60;tags:v1.0.0&#x60;
+     * @param {string} [path] Path within repository to get the tree for. If not specified, returns the root tree
+     * @param {boolean} [recursive] Whether to retrieve tree entries recursively. If false, only immediate children are returned
+     * @param {string} [pageSize] The maximum number of tree entries to return. The service may return fewer than this value
+     * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryApiInterface
+     */
+    listTreeRaw(requestParameters: ListTreeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListTreeResponse>>;
+
+    /**
+     * List Repository File Tree
+     */
+    listTree(requestParameters: ListTreeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListTreeResponse>;
+
+    /**
+     * 
+     * @summary List Repository File Tree (By Repo ID)
+     * @param {string} repoId 
+     * @param {string} [revision] Git reference (branch, tag, or commit SHA). If empty, the default branch (usually main) will be used. Examples: &#x60;mybranch&#x60;, &#x60;tags:v1.0.0&#x60;
+     * @param {string} [path] Path within repository to get the tree for. If not specified, returns the root tree
+     * @param {boolean} [recursive] Whether to retrieve tree entries recursively. If false, only immediate children are returned
+     * @param {string} [pageSize] The maximum number of tree entries to return. The service may return fewer than this value
+     * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryApiInterface
+     */
+    listTreeByIDRaw(requestParameters: ListTreeByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListTreeResponse>>;
+
+    /**
+     * List Repository File Tree (By Repo ID)
+     */
+    listTreeByID(requestParameters: ListTreeByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListTreeResponse>;
+
+    /**
+     * 
+     * @summary Remove Repository Roles
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {RemoveRepoRolesBody} removeRepoRolesBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryApiInterface
+     */
+    removeRepoRolesRaw(requestParameters: RemoveRepoRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+
+    /**
+     * Remove Repository Roles
+     */
+    removeRepoRoles(requestParameters: RemoveRepoRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+
+    /**
+     * 
+     * @summary Remove Repository Roles (By ID)
+     * @param {string} repoId 
+     * @param {RemoveRepoRolesBody} removeRepoRolesBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryApiInterface
+     */
+    removeRepoRolesByIDRaw(requestParameters: RemoveRepoRolesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+
+    /**
+     * Remove Repository Roles (By ID)
+     */
+    removeRepoRolesByID(requestParameters: RemoveRepoRolesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+
+    /**
+     * 
+     * @summary Update Repository
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {UpdateRepositoryBody} updateRepositoryBody 
+     * @param {boolean} [silent] Flag for update without any notifications. NOT IMPLEMENTED YET.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryApiInterface
+     */
+    updateRepositoryRaw(requestParameters: UpdateRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Repository>>;
+
+    /**
+     * Update Repository
+     */
+    updateRepository(requestParameters: UpdateRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Repository>;
+
+    /**
+     * 
+     * @summary Update Repository (By Repo ID)
+     * @param {string} repoId 
+     * @param {UpdateRepositoryBody} updateRepositoryBody 
+     * @param {boolean} [silent] Flag for update without any notifications. NOT IMPLEMENTED YET.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryApiInterface
+     */
+    updateRepositoryByIDRaw(requestParameters: UpdateRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Repository>>;
+
+    /**
+     * Update Repository (By Repo ID)
+     */
+    updateRepositoryByID(requestParameters: UpdateRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Repository>;
+
+}
+
+/**
  * 
  */
-export class RepositoryApi extends runtime.BaseAPI {
+export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInterface {
 
     /**
      * Add Repository Roles

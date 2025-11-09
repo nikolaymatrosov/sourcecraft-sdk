@@ -111,9 +111,213 @@ export interface UpdateIssueByIDRequest {
 }
 
 /**
+ * IssuesApi - interface
+ * 
+ * @export
+ * @interface IssuesApiInterface
+ */
+export interface IssuesApiInterface {
+    /**
+     * 
+     * @summary Create Issue in Repository
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {CreateIssueBody} createIssueBody 
+     * @param {boolean} [silent] do not notify subscribers
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesApiInterface
+     */
+    createIssueRaw(requestParameters: CreateIssueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Issue>>;
+
+    /**
+     * Create Issue in Repository
+     */
+    createIssue(requestParameters: CreateIssueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Issue>;
+
+    /**
+     * 
+     * @summary Create Issue in Repository (By Repo ID)
+     * @param {string} repoId 
+     * @param {CreateIssueBody} createIssueBody 
+     * @param {boolean} [silent] do not notify subscribers
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesApiInterface
+     */
+    createIssueByIDRaw(requestParameters: CreateIssueByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Issue>>;
+
+    /**
+     * Create Issue in Repository (By Repo ID)
+     */
+    createIssueByID(requestParameters: CreateIssueByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Issue>;
+
+    /**
+     * 
+     * @summary Delete Issue
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {string} issueSlug 
+     * @param {boolean} [silent] do not notify subscribers
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesApiInterface
+     */
+    deleteIssueRaw(requestParameters: DeleteIssueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+
+    /**
+     * Delete Issue
+     */
+    deleteIssue(requestParameters: DeleteIssueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * 
+     * @summary Delete Issue (By Issue ID)
+     * @param {string} issueId 
+     * @param {boolean} [silent] do not notify subscribers
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesApiInterface
+     */
+    deleteIssueByIDRaw(requestParameters: DeleteIssueByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+
+    /**
+     * Delete Issue (By Issue ID)
+     */
+    deleteIssueByID(requestParameters: DeleteIssueByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * 
+     * @summary Get Issue
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {string} issueSlug 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesApiInterface
+     */
+    getIssueRaw(requestParameters: GetIssueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Issue>>;
+
+    /**
+     * Get Issue
+     */
+    getIssue(requestParameters: GetIssueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Issue>;
+
+    /**
+     * 
+     * @summary Get Issue (By ID)
+     * @param {string} issueId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesApiInterface
+     */
+    getIssueByIDRaw(requestParameters: GetIssueByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Issue>>;
+
+    /**
+     * Get Issue (By ID)
+     */
+    getIssueByID(requestParameters: GetIssueByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Issue>;
+
+    /**
+     * Returns a list of issues that are either assigned to or created by the currently authenticated user.
+     * @summary My Issues
+     * @param {string} [pageSize] 
+     * @param {string} [pageToken] 
+     * @param {string} [sortBy] 
+     * @param {string} [filter] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesApiInterface
+     */
+    listIssuesAssignedToAuthenticatedUserRaw(requestParameters: ListIssuesAssignedToAuthenticatedUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListIssuesAssignedToAuthenticatedUserResponse>>;
+
+    /**
+     * Returns a list of issues that are either assigned to or created by the currently authenticated user.
+     * My Issues
+     */
+    listIssuesAssignedToAuthenticatedUser(requestParameters: ListIssuesAssignedToAuthenticatedUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListIssuesAssignedToAuthenticatedUserResponse>;
+
+    /**
+     * 
+     * @summary List Repository Issues
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {string} [pageSize] The maximum number of issues to return. The service may return fewer than this value
+     * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
+     * @param {string} [sortBy] Ordering options: comma separated list of fields. For example: \&quot;name, created_at\&quot; Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;name, -created_at\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent.
+     * @param {string} [filter] Filter using QL language
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesApiInterface
+     */
+    listRepositoryIssuesRaw(requestParameters: ListRepositoryIssuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListRepositoryIssuesResponse>>;
+
+    /**
+     * List Repository Issues
+     */
+    listRepositoryIssues(requestParameters: ListRepositoryIssuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListRepositoryIssuesResponse>;
+
+    /**
+     * 
+     * @summary List Repository Issues (By Repo ID)
+     * @param {string} repoId 
+     * @param {string} [pageSize] The maximum number of issues to return. The service may return fewer than this value
+     * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
+     * @param {string} [sortBy] Ordering options: comma separated list of fields. For example: \&quot;name, created_at\&quot; Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;name, -created_at\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent.
+     * @param {string} [filter] Filter using QL language
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesApiInterface
+     */
+    listRepositoryIssuesByIDRaw(requestParameters: ListRepositoryIssuesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListRepositoryIssuesResponse>>;
+
+    /**
+     * List Repository Issues (By Repo ID)
+     */
+    listRepositoryIssuesByID(requestParameters: ListRepositoryIssuesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListRepositoryIssuesResponse>;
+
+    /**
+     * 
+     * @summary Update Issue
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {string} issueSlug 
+     * @param {UpdateIssueBody} updateIssueBody 
+     * @param {boolean} [silent] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesApiInterface
+     */
+    updateIssueRaw(requestParameters: UpdateIssueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Issue>>;
+
+    /**
+     * Update Issue
+     */
+    updateIssue(requestParameters: UpdateIssueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Issue>;
+
+    /**
+     * 
+     * @summary Update Issue (By Issue ID)
+     * @param {string} issueId 
+     * @param {UpdateIssueBody} updateIssueBody 
+     * @param {boolean} [silent] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesApiInterface
+     */
+    updateIssueByIDRaw(requestParameters: UpdateIssueByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Issue>>;
+
+    /**
+     * Update Issue (By Issue ID)
+     */
+    updateIssueByID(requestParameters: UpdateIssueByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Issue>;
+
+}
+
+/**
  * 
  */
-export class IssuesApi extends runtime.BaseAPI {
+export class IssuesApi extends runtime.BaseAPI implements IssuesApiInterface {
 
     /**
      * Create Issue in Repository

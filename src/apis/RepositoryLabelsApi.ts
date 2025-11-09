@@ -101,9 +101,194 @@ export interface UpdateLabelByIDRequest {
 }
 
 /**
+ * RepositoryLabelsApi - interface
+ * 
+ * @export
+ * @interface RepositoryLabelsApiInterface
+ */
+export interface RepositoryLabelsApiInterface {
+    /**
+     * 
+     * @summary Create Label
+     * @param {string} orgSlug Path parameters for different routes
+     * @param {string} repoSlug 
+     * @param {CreateLabelBody} createLabelBody 
+     * @param {boolean} [silent] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryLabelsApiInterface
+     */
+    createLabelRaw(requestParameters: CreateLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Label>>;
+
+    /**
+     * Create Label
+     */
+    createLabel(requestParameters: CreateLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Label>;
+
+    /**
+     * 
+     * @summary Create Label (By ID)
+     * @param {string} repoId 
+     * @param {CreateLabelBody} createLabelBody 
+     * @param {boolean} [silent] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryLabelsApiInterface
+     */
+    createLabelByIDRaw(requestParameters: CreateLabelByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Label>>;
+
+    /**
+     * Create Label (By ID)
+     */
+    createLabelByID(requestParameters: CreateLabelByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Label>;
+
+    /**
+     * 
+     * @summary Delete label (By Slug)
+     * @param {string} orgSlug Path parameters for different routes
+     * @param {string} repoSlug 
+     * @param {string} labelSlug 
+     * @param {boolean} [silent] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryLabelsApiInterface
+     */
+    deleteLabelRaw(requestParameters: DeleteLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+
+    /**
+     * Delete label (By Slug)
+     */
+    deleteLabel(requestParameters: DeleteLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * 
+     * @summary Delete label (By Label ID)
+     * @param {string} labelId 
+     * @param {boolean} [silent] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryLabelsApiInterface
+     */
+    deleteLabelByIDRaw(requestParameters: DeleteLabelByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+
+    /**
+     * Delete label (By Label ID)
+     */
+    deleteLabelByID(requestParameters: DeleteLabelByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * 
+     * @summary Get Label (By Slug)
+     * @param {string} orgSlug Path parameters for different routes
+     * @param {string} repoSlug 
+     * @param {string} labelSlug 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryLabelsApiInterface
+     */
+    getLabelRaw(requestParameters: GetLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Label>>;
+
+    /**
+     * Get Label (By Slug)
+     */
+    getLabel(requestParameters: GetLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Label>;
+
+    /**
+     * 
+     * @summary Get Label (By Label ID)
+     * @param {string} labelId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryLabelsApiInterface
+     */
+    getLabelByIDRaw(requestParameters: GetLabelByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Label>>;
+
+    /**
+     * Get Label (By Label ID)
+     */
+    getLabelByID(requestParameters: GetLabelByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Label>;
+
+    /**
+     * 
+     * @summary List labels
+     * @param {string} orgSlug Path parameters for different routes
+     * @param {string} repoSlug 
+     * @param {string} [pageSize] 
+     * @param {string} [pageToken] 
+     * @param {string} [sortBy] 
+     * @param {string} [filter] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryLabelsApiInterface
+     */
+    listLabelsForRepositoryRaw(requestParameters: ListLabelsForRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListLabelsForRepositoryResponse>>;
+
+    /**
+     * List labels
+     */
+    listLabelsForRepository(requestParameters: ListLabelsForRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListLabelsForRepositoryResponse>;
+
+    /**
+     * 
+     * @summary List labels (By ID)
+     * @param {string} repoId 
+     * @param {string} [pageSize] 
+     * @param {string} [pageToken] 
+     * @param {string} [sortBy] 
+     * @param {string} [filter] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryLabelsApiInterface
+     */
+    listLabelsForRepositoryByIDRaw(requestParameters: ListLabelsForRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListLabelsForRepositoryResponse>>;
+
+    /**
+     * List labels (By ID)
+     */
+    listLabelsForRepositoryByID(requestParameters: ListLabelsForRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListLabelsForRepositoryResponse>;
+
+    /**
+     * 
+     * @summary Update Label (By Slug)
+     * @param {string} orgSlug Path parameters for different routes
+     * @param {string} repoSlug 
+     * @param {string} labelSlug 
+     * @param {UpdateLabelBody} updateLabelBody 
+     * @param {boolean} [silent] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryLabelsApiInterface
+     */
+    updateLabelRaw(requestParameters: UpdateLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Label>>;
+
+    /**
+     * Update Label (By Slug)
+     */
+    updateLabel(requestParameters: UpdateLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Label>;
+
+    /**
+     * 
+     * @summary Update Label (By Label ID)
+     * @param {string} labelId 
+     * @param {UpdateLabelBody} updateLabelBody 
+     * @param {boolean} [silent] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryLabelsApiInterface
+     */
+    updateLabelByIDRaw(requestParameters: UpdateLabelByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Label>>;
+
+    /**
+     * Update Label (By Label ID)
+     */
+    updateLabelByID(requestParameters: UpdateLabelByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Label>;
+
+}
+
+/**
  * 
  */
-export class RepositoryLabelsApi extends runtime.BaseAPI {
+export class RepositoryLabelsApi extends runtime.BaseAPI implements RepositoryLabelsApiInterface {
 
     /**
      * Create Label

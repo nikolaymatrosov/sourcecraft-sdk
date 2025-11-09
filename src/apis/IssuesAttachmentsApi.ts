@@ -75,9 +75,145 @@ export interface UploadIssueAttachmentRequest {
 }
 
 /**
+ * IssuesAttachmentsApi - interface
+ * 
+ * @export
+ * @interface IssuesAttachmentsApiInterface
+ */
+export interface IssuesAttachmentsApiInterface {
+    /**
+     * Permanently removes an attachment from an issue. The file will be deleted and cannot be reused.
+     * @summary Remove attachment
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {string} issueSlug 
+     * @param {string} attachmentId 
+     * @param {boolean} [silent] creation options (query)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesAttachmentsApiInterface
+     */
+    deleteIssueAttachmentRaw(requestParameters: DeleteIssueAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+
+    /**
+     * Permanently removes an attachment from an issue. The file will be deleted and cannot be reused.
+     * Remove attachment
+     */
+    deleteIssueAttachment(requestParameters: DeleteIssueAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * Permanently removes an attachment from an issue. The file will be deleted and cannot be reused.
+     * @summary Remove attachment (by Issue ID)
+     * @param {string} issueId 
+     * @param {string} attachmentId 
+     * @param {boolean} [silent] creation options (query)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesAttachmentsApiInterface
+     */
+    deleteIssueAttachmentByIDRaw(requestParameters: DeleteIssueAttachmentByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+
+    /**
+     * Permanently removes an attachment from an issue. The file will be deleted and cannot be reused.
+     * Remove attachment (by Issue ID)
+     */
+    deleteIssueAttachmentByID(requestParameters: DeleteIssueAttachmentByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+
+    /**
+     * Gets attachment details and download URL
+     * @summary Get attachment
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {string} issueSlug 
+     * @param {string} attachmentId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesAttachmentsApiInterface
+     */
+    getIssueAttachmentRaw(requestParameters: GetIssueAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AttachmentDownloadable>>;
+
+    /**
+     * Gets attachment details and download URL
+     * Get attachment
+     */
+    getIssueAttachment(requestParameters: GetIssueAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AttachmentDownloadable>;
+
+    /**
+     * Gets attachment details and download URL
+     * @summary Get attachment (By Issue ID)
+     * @param {string} issueId 
+     * @param {string} attachmentId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesAttachmentsApiInterface
+     */
+    getIssueAttachmentByIDRaw(requestParameters: GetIssueAttachmentByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AttachmentDownloadable>>;
+
+    /**
+     * Gets attachment details and download URL
+     * Get attachment (By Issue ID)
+     */
+    getIssueAttachmentByID(requestParameters: GetIssueAttachmentByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AttachmentDownloadable>;
+
+    /**
+     * Retrieves all attachments from an issue
+     * @summary List attachments
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {string} issueSlug 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesAttachmentsApiInterface
+     */
+    listIssueAttachmentsRaw(requestParameters: ListIssueAttachmentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AttachmentsResponse>>;
+
+    /**
+     * Retrieves all attachments from an issue
+     * List attachments
+     */
+    listIssueAttachments(requestParameters: ListIssueAttachmentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AttachmentsResponse>;
+
+    /**
+     * Retrieves all attachments from an issue
+     * @summary List attachments (By Issue ID)
+     * @param {string} issueId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesAttachmentsApiInterface
+     */
+    listIssueAttachmentsByIDRaw(requestParameters: ListIssueAttachmentsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AttachmentsResponse>>;
+
+    /**
+     * Retrieves all attachments from an issue
+     * List attachments (By Issue ID)
+     */
+    listIssueAttachmentsByID(requestParameters: ListIssueAttachmentsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AttachmentsResponse>;
+
+    /**
+     * Uploads attachment to an issue
+     * @summary Upload attachment
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {string} issueSlug 
+     * @param {Blob} file The file to upload
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesAttachmentsApiInterface
+     */
+    uploadIssueAttachmentRaw(requestParameters: UploadIssueAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Attachment>>;
+
+    /**
+     * Uploads attachment to an issue
+     * Upload attachment
+     */
+    uploadIssueAttachment(requestParameters: UploadIssueAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Attachment>;
+
+}
+
+/**
  * 
  */
-export class IssuesAttachmentsApi extends runtime.BaseAPI {
+export class IssuesAttachmentsApi extends runtime.BaseAPI implements IssuesAttachmentsApiInterface {
 
     /**
      * Permanently removes an attachment from an issue. The file will be deleted and cannot be reused.

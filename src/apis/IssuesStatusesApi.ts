@@ -26,9 +26,33 @@ import {
 } from '../models/index';
 
 /**
+ * IssuesStatusesApi - interface
+ * 
+ * @export
+ * @interface IssuesStatusesApiInterface
+ */
+export interface IssuesStatusesApiInterface {
+    /**
+     * Lists Issue Statuses available for any issue
+     * @summary List system statuses
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesStatusesApiInterface
+     */
+    listIssueStatusRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListIssueStatusesResponse>>;
+
+    /**
+     * Lists Issue Statuses available for any issue
+     * List system statuses
+     */
+    listIssueStatus(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListIssueStatusesResponse>;
+
+}
+
+/**
  * 
  */
-export class IssuesStatusesApi extends runtime.BaseAPI {
+export class IssuesStatusesApi extends runtime.BaseAPI implements IssuesStatusesApiInterface {
 
     /**
      * Lists Issue Statuses available for any issue

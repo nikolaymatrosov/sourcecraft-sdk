@@ -39,9 +39,53 @@ export interface RunWorkflowByIDRequest {
 }
 
 /**
+ * CIApi - interface
+ * 
+ * @export
+ * @interface CIApiInterface
+ */
+export interface CIApiInterface {
+    /**
+     * 
+     * @summary Run Workflow in Repository
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {string} workflowName 
+     * @param {RunCIBody} runCIBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CIApiInterface
+     */
+    runWorkflowRaw(requestParameters: RunWorkflowRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+
+    /**
+     * Run Workflow in Repository
+     */
+    runWorkflow(requestParameters: RunWorkflowRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+
+    /**
+     * 
+     * @summary Run Workflow in Repository (By Repo ID)
+     * @param {string} repoId 
+     * @param {string} workflowName 
+     * @param {RunCIBody} runCIBody 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CIApiInterface
+     */
+    runWorkflowByIDRaw(requestParameters: RunWorkflowByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+
+    /**
+     * Run Workflow in Repository (By Repo ID)
+     */
+    runWorkflowByID(requestParameters: RunWorkflowByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+
+}
+
+/**
  * 
  */
-export class CIApi extends runtime.BaseAPI {
+export class CIApi extends runtime.BaseAPI implements CIApiInterface {
 
     /**
      * Run Workflow in Repository

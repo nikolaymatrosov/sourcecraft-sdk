@@ -104,9 +104,166 @@ export interface UpdateReviewersByIDRequest {
 }
 
 /**
+ * RepositoryPullRequestReviewersApi - interface
+ * 
+ * @export
+ * @interface RepositoryPullRequestReviewersApiInterface
+ */
+export interface RepositoryPullRequestReviewersApiInterface {
+    /**
+     * 
+     * @summary Automatically assign reviewers to meet review requirements
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {string} pullRequestSlug 
+     * @param {AutoAssignBody} autoAssignBody 
+     * @param {string} [pullRequestId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryPullRequestReviewersApiInterface
+     */
+    autoAssignRaw(requestParameters: AutoAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AutoAssignResponse>>;
+
+    /**
+     * Automatically assign reviewers to meet review requirements
+     */
+    autoAssign(requestParameters: AutoAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AutoAssignResponse>;
+
+    /**
+     * 
+     * @summary Automatically assign reviewers to meet review requirements (By ID)
+     * @param {string} pullRequestId 
+     * @param {AutoAssignBody} autoAssignBody 
+     * @param {string} [pullRequestSlug] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryPullRequestReviewersApiInterface
+     */
+    autoAssignByIDRaw(requestParameters: AutoAssignByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AutoAssignResponse>>;
+
+    /**
+     * Automatically assign reviewers to meet review requirements (By ID)
+     */
+    autoAssignByID(requestParameters: AutoAssignByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AutoAssignResponse>;
+
+    /**
+     * 
+     * @summary List Reviewers
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {string} pullRequestSlug 
+     * @param {string} [pullRequestId] 
+     * @param {string} [pageSize] The maximum number of reviewers to return. The service may return fewer than this value
+     * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
+     * @param {string} [sortBy] Ordering options: comma separated list of fields. For example: \&quot;name, created_at\&quot; Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;name, -created_at\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent.  Available columns: created_at, decision
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryPullRequestReviewersApiInterface
+     */
+    listReviewersRaw(requestParameters: ListReviewersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListReviewersResponse>>;
+
+    /**
+     * List Reviewers
+     */
+    listReviewers(requestParameters: ListReviewersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListReviewersResponse>;
+
+    /**
+     * 
+     * @summary List Reviewers (By ID)
+     * @param {string} pullRequestId 
+     * @param {string} [pullRequestSlug] 
+     * @param {string} [pageSize] The maximum number of reviewers to return. The service may return fewer than this value
+     * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
+     * @param {string} [sortBy] Ordering options: comma separated list of fields. For example: \&quot;name, created_at\&quot; Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;name, -created_at\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent.  Available columns: created_at, decision
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryPullRequestReviewersApiInterface
+     */
+    listReviewersByIDRaw(requestParameters: ListReviewersByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListReviewersResponse>>;
+
+    /**
+     * List Reviewers (By ID)
+     */
+    listReviewersByID(requestParameters: ListReviewersByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListReviewersResponse>;
+
+    /**
+     * 
+     * @summary Set Decision
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {string} pullRequestSlug 
+     * @param {SetDecisionBody} setDecisionBody 
+     * @param {string} [pullRequestId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryPullRequestReviewersApiInterface
+     */
+    setDecisionRaw(requestParameters: SetDecisionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SetDecisionResponse>>;
+
+    /**
+     * Set Decision
+     */
+    setDecision(requestParameters: SetDecisionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SetDecisionResponse>;
+
+    /**
+     * 
+     * @summary Set Decision (By ID)
+     * @param {string} pullRequestId 
+     * @param {SetDecisionBody} setDecisionBody 
+     * @param {string} [pullRequestSlug] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryPullRequestReviewersApiInterface
+     */
+    setDecisionByIDRaw(requestParameters: SetDecisionByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SetDecisionResponse>>;
+
+    /**
+     * Set Decision (By ID)
+     */
+    setDecisionByID(requestParameters: SetDecisionByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SetDecisionResponse>;
+
+    /**
+     * 
+     * @summary Update Reviewers
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {string} pullRequestSlug 
+     * @param {UpdateReviewersBody} updateReviewersBody 
+     * @param {string} [pullRequestId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryPullRequestReviewersApiInterface
+     */
+    updateReviewersRaw(requestParameters: UpdateReviewersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UpdateReviewersResponse>>;
+
+    /**
+     * Update Reviewers
+     */
+    updateReviewers(requestParameters: UpdateReviewersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpdateReviewersResponse>;
+
+    /**
+     * 
+     * @summary Update Reviewers (By ID)
+     * @param {string} pullRequestId 
+     * @param {UpdateReviewersBody} updateReviewersBody 
+     * @param {string} [pullRequestSlug] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryPullRequestReviewersApiInterface
+     */
+    updateReviewersByIDRaw(requestParameters: UpdateReviewersByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UpdateReviewersResponse>>;
+
+    /**
+     * Update Reviewers (By ID)
+     */
+    updateReviewersByID(requestParameters: UpdateReviewersByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpdateReviewersResponse>;
+
+}
+
+/**
  * 
  */
-export class RepositoryPullRequestReviewersApi extends runtime.BaseAPI {
+export class RepositoryPullRequestReviewersApi extends runtime.BaseAPI implements RepositoryPullRequestReviewersApiInterface {
 
     /**
      * Automatically assign reviewers to meet review requirements

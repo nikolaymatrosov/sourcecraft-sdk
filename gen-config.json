@@ -1,0 +1,6 @@
+{
+    "supportsES6": true,
+    "modelPropertyNaming": "camelCase",
+    "withInterfaces": true,
+    "basePath": "https://api.sourcecraft.tech"
+}

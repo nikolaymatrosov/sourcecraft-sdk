@@ -5,7 +5,7 @@
  * with authentication.
  */
 
-import { Configuration, RepositoryApi } from 'sourcecraft-sdk';
+import { Configuration, RepositoryApi } from '@nikolaymatrosov/sourcecraft-sdk';
 
 // Example 1: Basic configuration with access token
 // You can set these via environment variables or use the default values

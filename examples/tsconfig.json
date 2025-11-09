@@ -5,7 +5,7 @@
     "rootDir": ".",
     "noEmit": false,
     "paths": {
-      "sourcecraft-sdk": ["../dist"]
+      "@nikolaymatrosov/sourcecraft-sdk": ["../dist"]
     }
   },
   "include": [

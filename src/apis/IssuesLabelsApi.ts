@@ -81,9 +81,166 @@ export interface ReplaceLabelsByIDRequest {
 }
 
 /**
+ * IssuesLabelsApi - interface
+ * 
+ * @export
+ * @interface IssuesLabelsApiInterface
+ */
+export interface IssuesLabelsApiInterface {
+    /**
+     * Associates one or more labels with a specific issue. Returns resulting collection.
+     * @summary Add Labels
+     * @param {string} orgSlug depending on which route is used, either parent or repoId is filled
+     * @param {string} repoSlug 
+     * @param {string} issueSlug 
+     * @param {ModifyLabelCollectionRequest} modifyLabelCollectionRequest 
+     * @param {boolean} [silent] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesLabelsApiInterface
+     */
+    addLabelsRaw(requestParameters: AddLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLabelsResponse>>;
+
+    /**
+     * Associates one or more labels with a specific issue. Returns resulting collection.
+     * Add Labels
+     */
+    addLabels(requestParameters: AddLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLabelsResponse>;
+
+    /**
+     * Associates one or more labels with a specific issue. Returns resulting collection.
+     * @summary Add Labels (By Issue ID)
+     * @param {string} issueId 
+     * @param {ModifyLabelCollectionRequest} modifyLabelCollectionRequest 
+     * @param {boolean} [silent] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesLabelsApiInterface
+     */
+    addLabelsByIDRaw(requestParameters: AddLabelsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLabelsResponse>>;
+
+    /**
+     * Associates one or more labels with a specific issue. Returns resulting collection.
+     * Add Labels (By Issue ID)
+     */
+    addLabelsByID(requestParameters: AddLabelsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLabelsResponse>;
+
+    /**
+     * Retrieves all labels that are linked to the specified issue.
+     * @summary List Labels
+     * @param {string} orgSlug depending on which route is used, either parent or repoId is filled
+     * @param {string} repoSlug 
+     * @param {string} issueSlug 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesLabelsApiInterface
+     */
+    getLabelsRaw(requestParameters: GetLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLabelsResponse>>;
+
+    /**
+     * Retrieves all labels that are linked to the specified issue.
+     * List Labels
+     */
+    getLabels(requestParameters: GetLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLabelsResponse>;
+
+    /**
+     * Retrieves all labels that are linked to the specified issue.
+     * @summary List Labels (By Issue ID)
+     * @param {string} issueId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesLabelsApiInterface
+     */
+    getLabelsByIDRaw(requestParameters: GetLabelsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLabelsResponse>>;
+
+    /**
+     * Retrieves all labels that are linked to the specified issue.
+     * List Labels (By Issue ID)
+     */
+    getLabelsByID(requestParameters: GetLabelsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLabelsResponse>;
+
+    /**
+     * Removes one or more labels from a specific issue. Returns resulting collection.
+     * @summary Remove labels
+     * @param {string} orgSlug depending on which route is used, either parent or repoId is filled
+     * @param {string} repoSlug 
+     * @param {string} issueSlug 
+     * @param {ModifyLabelCollectionRequest} modifyLabelCollectionRequest 
+     * @param {boolean} [silent] creation options (query)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesLabelsApiInterface
+     */
+    removeLabelsRaw(requestParameters: RemoveLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLabelsResponse>>;
+
+    /**
+     * Removes one or more labels from a specific issue. Returns resulting collection.
+     * Remove labels
+     */
+    removeLabels(requestParameters: RemoveLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLabelsResponse>;
+
+    /**
+     * Removes one or more labels from a specific issue. Returns resulting collection.
+     * @summary Remove labels (By Issue ID)
+     * @param {string} issueId 
+     * @param {ModifyLabelCollectionRequest} modifyLabelCollectionRequest 
+     * @param {boolean} [silent] creation options (query)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesLabelsApiInterface
+     */
+    removeLabelsByIDRaw(requestParameters: RemoveLabelsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLabelsResponse>>;
+
+    /**
+     * Removes one or more labels from a specific issue. Returns resulting collection.
+     * Remove labels (By Issue ID)
+     */
+    removeLabelsByID(requestParameters: RemoveLabelsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLabelsResponse>;
+
+    /**
+     * Completely replaces the current set of labels on an issue with the provided set.
+     * @summary Replace Labels
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {string} issueSlug 
+     * @param {ModifyLabelCollectionRequest} modifyLabelCollectionRequest 
+     * @param {boolean} [silent] creation options (query)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesLabelsApiInterface
+     */
+    replaceLabelsRaw(requestParameters: ReplaceLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLabelsResponse>>;
+
+    /**
+     * Completely replaces the current set of labels on an issue with the provided set.
+     * Replace Labels
+     */
+    replaceLabels(requestParameters: ReplaceLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLabelsResponse>;
+
+    /**
+     * Completely replaces the current set of labels on an issue with the provided set.
+     * @summary Replace Labels (By Issue ID)
+     * @param {string} issueId 
+     * @param {ModifyLabelCollectionRequest} modifyLabelCollectionRequest 
+     * @param {boolean} [silent] creation options (query)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesLabelsApiInterface
+     */
+    replaceLabelsByIDRaw(requestParameters: ReplaceLabelsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLabelsResponse>>;
+
+    /**
+     * Completely replaces the current set of labels on an issue with the provided set.
+     * Replace Labels (By Issue ID)
+     */
+    replaceLabelsByID(requestParameters: ReplaceLabelsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLabelsResponse>;
+
+}
+
+/**
  * 
  */
-export class IssuesLabelsApi extends runtime.BaseAPI {
+export class IssuesLabelsApi extends runtime.BaseAPI implements IssuesLabelsApiInterface {
 
     /**
      * Associates one or more labels with a specific issue. Returns resulting collection.

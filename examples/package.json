@@ -12,8 +12,7 @@
     "04": "node --env-file=.env dist/04-pull-requests.js"
   },
   "dependencies": {
-    "dotenv": "^16.4.5",
-    "sourcecraft-sdk": "file:.."
+    "@nikolaymatrosov/sourcecraft-sdk": "file:.."
   },
   "devDependencies": {
     "@types/node": "^24.10.0",

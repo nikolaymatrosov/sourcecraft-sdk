@@ -74,9 +74,115 @@ export interface ListPullRequestCommentsByIDRequest {
 }
 
 /**
+ * RepositoryPullRequestCommentsApi - interface
+ * 
+ * @export
+ * @interface RepositoryPullRequestCommentsApiInterface
+ */
+export interface RepositoryPullRequestCommentsApiInterface {
+    /**
+     * 
+     * @summary Create comment
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {string} pullRequestSlug 
+     * @param {CreatePullRequestCommentBody} createPullRequestCommentBody 
+     * @param {string} [pullRequestId] 
+     * @param {boolean} [silent] do not notify subscribers
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryPullRequestCommentsApiInterface
+     */
+    createPullRequestCommentRaw(requestParameters: CreatePullRequestCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequestComment>>;
+
+    /**
+     * Create comment
+     */
+    createPullRequestComment(requestParameters: CreatePullRequestCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequestComment>;
+
+    /**
+     * 
+     * @summary Create comment (by PullRequest ID)
+     * @param {string} pullRequestId 
+     * @param {CreatePullRequestCommentBody} createPullRequestCommentBody 
+     * @param {string} [pullRequestSlug] 
+     * @param {boolean} [silent] do not notify subscribers
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryPullRequestCommentsApiInterface
+     */
+    createPullRequestCommentByIDRaw(requestParameters: CreatePullRequestCommentByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequestComment>>;
+
+    /**
+     * Create comment (by PullRequest ID)
+     */
+    createPullRequestCommentByID(requestParameters: CreatePullRequestCommentByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequestComment>;
+
+    /**
+     * 
+     * @summary Get Comment
+     * @param {string} pullRequestCommentId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryPullRequestCommentsApiInterface
+     */
+    getPullRequestCommentRaw(requestParameters: GetPullRequestCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequestComment>>;
+
+    /**
+     * Get Comment
+     */
+    getPullRequestComment(requestParameters: GetPullRequestCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequestComment>;
+
+    /**
+     * 
+     * @summary List Comments
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {string} pullRequestSlug 
+     * @param {string} [pullRequestId] 
+     * @param {string} [iteration] 
+     * @param {boolean} [onlyDrafts] Only drafts (unpublished) comments
+     * @param {string} [pageSize] The maximum number of comments to return. The service may return fewer than this value
+     * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
+     * @param {string} [sortBy] Ordering options: comma separated list of fields. For example: \&quot;name, created_at\&quot; Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;name, -created_at\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent. Available fields: iteration, author_id, parent_id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryPullRequestCommentsApiInterface
+     */
+    listPullRequestCommentsRaw(requestParameters: ListPullRequestCommentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListPullRequestCommentsResponse>>;
+
+    /**
+     * List Comments
+     */
+    listPullRequestComments(requestParameters: ListPullRequestCommentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListPullRequestCommentsResponse>;
+
+    /**
+     * 
+     * @summary List Comments (by ID)
+     * @param {string} pullRequestId 
+     * @param {string} [pullRequestSlug] 
+     * @param {string} [iteration] 
+     * @param {boolean} [onlyDrafts] Only drafts (unpublished) comments
+     * @param {string} [pageSize] The maximum number of comments to return. The service may return fewer than this value
+     * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
+     * @param {string} [sortBy] Ordering options: comma separated list of fields. For example: \&quot;name, created_at\&quot; Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;name, -created_at\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent. Available fields: iteration, author_id, parent_id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryPullRequestCommentsApiInterface
+     */
+    listPullRequestCommentsByIDRaw(requestParameters: ListPullRequestCommentsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListPullRequestCommentsResponse>>;
+
+    /**
+     * List Comments (by ID)
+     */
+    listPullRequestCommentsByID(requestParameters: ListPullRequestCommentsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListPullRequestCommentsResponse>;
+
+}
+
+/**
  * 
  */
-export class RepositoryPullRequestCommentsApi extends runtime.BaseAPI {
+export class RepositoryPullRequestCommentsApi extends runtime.BaseAPI implements RepositoryPullRequestCommentsApiInterface {
 
     /**
      * Create comment

@@ -5,7 +5,7 @@
  * creating a new repository, retrieving it, and deleting it.
  */
 
-import { Configuration, RepositoryApi } from 'sourcecraft-sdk';
+import { Configuration, RepositoryApi } from '@nikolaymatrosov/sourcecraft-sdk';
 
 // Example constants - customize these for your use case or set via environment variables
 const ORG_SLUG = process.env.SOURCECRAFT_ORG || 'my-org';

@@ -67,9 +67,128 @@ export interface RemoveLinkedPRsByIDRequest {
 }
 
 /**
+ * IssuesLinkedPRsApi - interface
+ * 
+ * @export
+ * @interface IssuesLinkedPRsApiInterface
+ */
+export interface IssuesLinkedPRsApiInterface {
+    /**
+     * Associates one or more pull requests with a specific issue. Returns resulting collection
+     * @summary Add Linked PRs
+     * @param {string} orgSlug depending on which route is used, either parent or repoId is filled
+     * @param {string} repoSlug 
+     * @param {string} issueSlug 
+     * @param {ModifyPullRequestCollectionRequest} modifyPullRequestCollectionRequest 
+     * @param {boolean} [silent] creation options (query)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesLinkedPRsApiInterface
+     */
+    addLinkedPRsRaw(requestParameters: AddLinkedPRsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLinkedPRsResponse>>;
+
+    /**
+     * Associates one or more pull requests with a specific issue. Returns resulting collection
+     * Add Linked PRs
+     */
+    addLinkedPRs(requestParameters: AddLinkedPRsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLinkedPRsResponse>;
+
+    /**
+     * Associates one or more pull requests with a specific issue. Returns resulting collection
+     * @summary Add linked PRs (By ID)
+     * @param {string} issueId 
+     * @param {ModifyPullRequestCollectionRequest} modifyPullRequestCollectionRequest 
+     * @param {boolean} [silent] creation options (query)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesLinkedPRsApiInterface
+     */
+    addLinkedPRsByIDRaw(requestParameters: AddLinkedPRsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLinkedPRsResponse>>;
+
+    /**
+     * Associates one or more pull requests with a specific issue. Returns resulting collection
+     * Add linked PRs (By ID)
+     */
+    addLinkedPRsByID(requestParameters: AddLinkedPRsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLinkedPRsResponse>;
+
+    /**
+     * Retrieves all pull requests that are linked to the specified issue.
+     * @summary List Linked PRs
+     * @param {string} orgSlug depending on which route is used, either parent or repoId is filled
+     * @param {string} repoSlug 
+     * @param {string} issueSlug 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesLinkedPRsApiInterface
+     */
+    getLinkedPRsRaw(requestParameters: GetLinkedPRsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLinkedPRsResponse>>;
+
+    /**
+     * Retrieves all pull requests that are linked to the specified issue.
+     * List Linked PRs
+     */
+    getLinkedPRs(requestParameters: GetLinkedPRsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLinkedPRsResponse>;
+
+    /**
+     * Retrieves all pull requests that are linked to the specified issue.
+     * @summary List Linked PRs (By Issue ID)
+     * @param {string} issueId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesLinkedPRsApiInterface
+     */
+    getLinkedPRsByIDRaw(requestParameters: GetLinkedPRsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLinkedPRsResponse>>;
+
+    /**
+     * Retrieves all pull requests that are linked to the specified issue.
+     * List Linked PRs (By Issue ID)
+     */
+    getLinkedPRsByID(requestParameters: GetLinkedPRsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLinkedPRsResponse>;
+
+    /**
+     * Removes one or more pull requests with a specific issue. Returns resulting collection
+     * @summary Remove linked PRs
+     * @param {string} orgSlug depending on which route is used, either parent or repoId is filled
+     * @param {string} repoSlug 
+     * @param {string} issueSlug 
+     * @param {ModifyPullRequestCollectionRequest} modifyPullRequestCollectionRequest 
+     * @param {boolean} [silent] creation options (query)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesLinkedPRsApiInterface
+     */
+    removeLinkedPRsRaw(requestParameters: RemoveLinkedPRsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLinkedPRsResponse>>;
+
+    /**
+     * Removes one or more pull requests with a specific issue. Returns resulting collection
+     * Remove linked PRs
+     */
+    removeLinkedPRs(requestParameters: RemoveLinkedPRsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLinkedPRsResponse>;
+
+    /**
+     * Removes one or more pull requests with a specific issue. Returns resulting collection
+     * @summary Remove linked PRs (by ID)
+     * @param {string} issueId 
+     * @param {ModifyPullRequestCollectionRequest} modifyPullRequestCollectionRequest 
+     * @param {boolean} [silent] creation options (query)
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IssuesLinkedPRsApiInterface
+     */
+    removeLinkedPRsByIDRaw(requestParameters: RemoveLinkedPRsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLinkedPRsResponse>>;
+
+    /**
+     * Removes one or more pull requests with a specific issue. Returns resulting collection
+     * Remove linked PRs (by ID)
+     */
+    removeLinkedPRsByID(requestParameters: RemoveLinkedPRsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLinkedPRsResponse>;
+
+}
+
+/**
  * 
  */
-export class IssuesLinkedPRsApi extends runtime.BaseAPI {
+export class IssuesLinkedPRsApi extends runtime.BaseAPI implements IssuesLinkedPRsApiInterface {
 
     /**
      * Associates one or more pull requests with a specific issue. Returns resulting collection

@@ -147,9 +147,308 @@ export interface UpdatePullRequestByIDRequest {
 }
 
 /**
+ * RepositoryPullRequestApi - interface
+ * 
+ * @export
+ * @interface RepositoryPullRequestApiInterface
+ */
+export interface RepositoryPullRequestApiInterface {
+    /**
+     * 
+     * @summary Create PullRequest in Repository
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {CreatePullRequestBody} createPullRequestBody 
+     * @param {boolean} [silent] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryPullRequestApiInterface
+     */
+    createPullRequestRaw(requestParameters: CreatePullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>>;
+
+    /**
+     * Create PullRequest in Repository
+     */
+    createPullRequest(requestParameters: CreatePullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest>;
+
+    /**
+     * 
+     * @summary Create PullRequest in Repository (By Repo ID)
+     * @param {string} repoId 
+     * @param {CreatePullRequestBody} createPullRequestBody 
+     * @param {boolean} [silent] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryPullRequestApiInterface
+     */
+    createPullRequestByIDRaw(requestParameters: CreatePullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>>;
+
+    /**
+     * Create PullRequest in Repository (By Repo ID)
+     */
+    createPullRequestByID(requestParameters: CreatePullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest>;
+
+    /**
+     * 
+     * @summary Discard PullRequest
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {string} pullRequestSlug 
+     * @param {string} [pullRequestId] 
+     * @param {boolean} [silent] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryPullRequestApiInterface
+     */
+    discardPullRequestRaw(requestParameters: DiscardPullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>>;
+
+    /**
+     * Discard PullRequest
+     */
+    discardPullRequest(requestParameters: DiscardPullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest>;
+
+    /**
+     * 
+     * @summary Discard PullRequest (By ID)
+     * @param {string} pullRequestId 
+     * @param {string} [pullRequestSlug] 
+     * @param {boolean} [silent] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryPullRequestApiInterface
+     */
+    discardPullRequestByIDRaw(requestParameters: DiscardPullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>>;
+
+    /**
+     * Discard PullRequest (By ID)
+     */
+    discardPullRequestByID(requestParameters: DiscardPullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest>;
+
+    /**
+     * 
+     * @summary Draft PullRequest
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {string} pullRequestSlug 
+     * @param {string} [pullRequestId] 
+     * @param {boolean} [silent] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryPullRequestApiInterface
+     */
+    draftPullRequestRaw(requestParameters: DraftPullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>>;
+
+    /**
+     * Draft PullRequest
+     */
+    draftPullRequest(requestParameters: DraftPullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest>;
+
+    /**
+     * 
+     * @summary Draft PullRequest (By ID)
+     * @param {string} pullRequestId 
+     * @param {string} [pullRequestSlug] 
+     * @param {boolean} [silent] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryPullRequestApiInterface
+     */
+    draftPullRequestByIDRaw(requestParameters: DraftPullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>>;
+
+    /**
+     * Draft PullRequest (By ID)
+     */
+    draftPullRequestByID(requestParameters: DraftPullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest>;
+
+    /**
+     * 
+     * @summary Get PullRequest
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {string} pullRequestSlug 
+     * @param {string} [pullRequestId] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryPullRequestApiInterface
+     */
+    getPullRequestRaw(requestParameters: GetPullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>>;
+
+    /**
+     * Get PullRequest
+     */
+    getPullRequest(requestParameters: GetPullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest>;
+
+    /**
+     * 
+     * @summary Get PullRequest (By ID)
+     * @param {string} pullRequestId 
+     * @param {string} [pullRequestSlug] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryPullRequestApiInterface
+     */
+    getPullRequestByIDRaw(requestParameters: GetPullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>>;
+
+    /**
+     * Get PullRequest (By ID)
+     */
+    getPullRequestByID(requestParameters: GetPullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest>;
+
+    /**
+     * Retrieves all pull requests from an repository
+     * @summary List Repository Pull Requests
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {string} [pageSize] The maximum number of pull requests to return. The service may return fewer than this value
+     * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
+     * @param {string} [sortBy] Ordering options: comma separated list of fields. For example: \&quot;name, created_at\&quot; Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;name, -created_at\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent. Available fields: title, created_at, updated_at
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryPullRequestApiInterface
+     */
+    listRepositoryPullRequestsRaw(requestParameters: ListRepositoryPullRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListRepositoryPullRequestsResponse>>;
+
+    /**
+     * Retrieves all pull requests from an repository
+     * List Repository Pull Requests
+     */
+    listRepositoryPullRequests(requestParameters: ListRepositoryPullRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListRepositoryPullRequestsResponse>;
+
+    /**
+     * Retrieves all pull requests from an repository
+     * @summary List Repository Pull Requests (By Repo ID)
+     * @param {string} repoId 
+     * @param {string} [pageSize] The maximum number of pull requests to return. The service may return fewer than this value
+     * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
+     * @param {string} [sortBy] Ordering options: comma separated list of fields. For example: \&quot;name, created_at\&quot; Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;name, -created_at\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent. Available fields: title, created_at, updated_at
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryPullRequestApiInterface
+     */
+    listRepositoryPullRequestsByIDRaw(requestParameters: ListRepositoryPullRequestsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListRepositoryPullRequestsResponse>>;
+
+    /**
+     * Retrieves all pull requests from an repository
+     * List Repository Pull Requests (By Repo ID)
+     */
+    listRepositoryPullRequestsByID(requestParameters: ListRepositoryPullRequestsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListRepositoryPullRequestsResponse>;
+
+    /**
+     * 
+     * @summary Publish PullRequest (change status to open)
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {string} pullRequestSlug 
+     * @param {string} [pullRequestId] 
+     * @param {boolean} [silent] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryPullRequestApiInterface
+     */
+    publishPullRequestRaw(requestParameters: PublishPullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>>;
+
+    /**
+     * Publish PullRequest (change status to open)
+     */
+    publishPullRequest(requestParameters: PublishPullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest>;
+
+    /**
+     * 
+     * @summary Publish PullRequest (By ID)
+     * @param {string} pullRequestId 
+     * @param {string} [pullRequestSlug] 
+     * @param {boolean} [silent] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryPullRequestApiInterface
+     */
+    publishPullRequestByIDRaw(requestParameters: PublishPullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>>;
+
+    /**
+     * Publish PullRequest (By ID)
+     */
+    publishPullRequestByID(requestParameters: PublishPullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest>;
+
+    /**
+     * 
+     * @summary Reopen PullRequest
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {string} pullRequestSlug 
+     * @param {string} [pullRequestId] 
+     * @param {boolean} [silent] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryPullRequestApiInterface
+     */
+    reopenPullRequestRaw(requestParameters: ReopenPullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>>;
+
+    /**
+     * Reopen PullRequest
+     */
+    reopenPullRequest(requestParameters: ReopenPullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest>;
+
+    /**
+     * 
+     * @summary Reopen PullRequest (By ID)
+     * @param {string} pullRequestId 
+     * @param {string} [pullRequestSlug] 
+     * @param {boolean} [silent] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryPullRequestApiInterface
+     */
+    reopenPullRequestByIDRaw(requestParameters: ReopenPullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>>;
+
+    /**
+     * Reopen PullRequest (By ID)
+     */
+    reopenPullRequestByID(requestParameters: ReopenPullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest>;
+
+    /**
+     * 
+     * @summary Update PullRequest
+     * @param {string} orgSlug 
+     * @param {string} repoSlug 
+     * @param {string} pullRequestSlug 
+     * @param {UpdatePullRequestBody} updatePullRequestBody 
+     * @param {string} [pullRequestId] 
+     * @param {boolean} [silent] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryPullRequestApiInterface
+     */
+    updatePullRequestRaw(requestParameters: UpdatePullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>>;
+
+    /**
+     * Update PullRequest
+     */
+    updatePullRequest(requestParameters: UpdatePullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest>;
+
+    /**
+     * 
+     * @summary Update PullRequest (By ID)
+     * @param {string} pullRequestId 
+     * @param {UpdatePullRequestBody} updatePullRequestBody 
+     * @param {string} [pullRequestSlug] 
+     * @param {boolean} [silent] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryPullRequestApiInterface
+     */
+    updatePullRequestByIDRaw(requestParameters: UpdatePullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>>;
+
+    /**
+     * Update PullRequest (By ID)
+     */
+    updatePullRequestByID(requestParameters: UpdatePullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest>;
+
+}
+
+/**
  * 
  */
-export class RepositoryPullRequestApi extends runtime.BaseAPI {
+export class RepositoryPullRequestApi extends runtime.BaseAPI implements RepositoryPullRequestApiInterface {
 
     /**
      * Create PullRequest in Repository

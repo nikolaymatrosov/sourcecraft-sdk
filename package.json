@@ -1,9 +1,24 @@
 {
     "name": "@nikolaymatrosov/sourcecraft-sdk",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "SourceCraft SDK",
     "license": "MIT",
-    "author": "Nikolay Matrosov <nikolay.matrosov@gmail.com>",
+    "author": {
+        "name": "Nikolay Matrosov",
+        "email": "nikolay.matrosov@gmail.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/nikolaymatrosov/sourcecraft-sdk.git"
+    },
+    "keywords": [
+        "sourcecraft",
+        "sdk",
+        "api",
+        "typescript",
+        "openapi",
+        "fetch"
+    ],
     "type": "commonjs",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",

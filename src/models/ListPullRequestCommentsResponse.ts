@@ -12,29 +12,29 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { PullRequestComment } from './PullRequestComment';
+import { mapValues } from "../runtime";
+import type { PullRequestComment } from "./PullRequestComment";
 import {
     PullRequestCommentFromJSON,
     PullRequestCommentFromJSONTyped,
     PullRequestCommentToJSON,
     PullRequestCommentToJSONTyped,
-} from './PullRequestComment';
+} from "./PullRequestComment";
 
 /**
- * 
+ *
  * @export
  * @interface ListPullRequestCommentsResponse
  */
 export interface ListPullRequestCommentsResponse {
     /**
-     * 
+     *
      * @type {string}
      * @memberof ListPullRequestCommentsResponse
      */
     nextPageToken?: string;
     /**
-     * 
+     *
      * @type {Array<PullRequestComment>}
      * @memberof ListPullRequestCommentsResponse
      */
@@ -44,22 +44,31 @@ export interface ListPullRequestCommentsResponse {
 /**
  * Check if a given object implements the ListPullRequestCommentsResponse interface.
  */
-export function instanceOfListPullRequestCommentsResponse(value: object): value is ListPullRequestCommentsResponse {
+export function instanceOfListPullRequestCommentsResponse(
+    value: object
+): value is ListPullRequestCommentsResponse {
     return true;
 }
 
-export function ListPullRequestCommentsResponseFromJSON(json: any): ListPullRequestCommentsResponse {
+export function ListPullRequestCommentsResponseFromJSON(
+    json: any
+): ListPullRequestCommentsResponse {
     return ListPullRequestCommentsResponseFromJSONTyped(json, false);
 }
 
-export function ListPullRequestCommentsResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): ListPullRequestCommentsResponse {
+export function ListPullRequestCommentsResponseFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): ListPullRequestCommentsResponse {
     if (json == null) {
         return json;
     }
     return {
-        
-        'nextPageToken': json['next_page_token'] == null ? undefined : json['next_page_token'],
-        'pullRequestComments': json['pull_request_comments'] == null ? undefined : ((json['pull_request_comments'] as Array<any>).map(PullRequestCommentFromJSON)),
+        nextPageToken: json["next_page_token"] == null ? undefined : json["next_page_token"],
+        pullRequestComments:
+            json["pull_request_comments"] == null
+                ? undefined
+                : (json["pull_request_comments"] as Array<any>).map(PullRequestCommentFromJSON),
     };
 }
 
@@ -67,15 +76,19 @@ export function ListPullRequestCommentsResponseToJSON(json: any): ListPullReques
     return ListPullRequestCommentsResponseToJSONTyped(json, false);
 }
 
-export function ListPullRequestCommentsResponseToJSONTyped(value?: ListPullRequestCommentsResponse | null, ignoreDiscriminator: boolean = false): any {
+export function ListPullRequestCommentsResponseToJSONTyped(
+    value?: ListPullRequestCommentsResponse | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'next_page_token': value['nextPageToken'],
-        'pull_request_comments': value['pullRequestComments'] == null ? undefined : ((value['pullRequestComments'] as Array<any>).map(PullRequestCommentToJSON)),
+        next_page_token: value["nextPageToken"],
+        pull_request_comments:
+            value["pullRequestComments"] == null
+                ? undefined
+                : (value["pullRequestComments"] as Array<any>).map(PullRequestCommentToJSON),
     };
 }
-

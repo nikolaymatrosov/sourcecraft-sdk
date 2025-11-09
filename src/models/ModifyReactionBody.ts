@@ -12,30 +12,28 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { Reaction } from './Reaction';
+import { mapValues } from "../runtime";
+import type { Reaction } from "./Reaction";
 import {
     ReactionFromJSON,
     ReactionFromJSONTyped,
     ReactionToJSON,
     ReactionToJSONTyped,
-} from './Reaction';
+} from "./Reaction";
 
 /**
- * 
+ *
  * @export
  * @interface ModifyReactionBody
  */
 export interface ModifyReactionBody {
     /**
-     * 
+     *
      * @type {Reaction}
      * @memberof ModifyReactionBody
      */
     reaction?: Reaction;
 }
-
-
 
 /**
  * Check if a given object implements the ModifyReactionBody interface.
@@ -48,13 +46,15 @@ export function ModifyReactionBodyFromJSON(json: any): ModifyReactionBody {
     return ModifyReactionBodyFromJSONTyped(json, false);
 }
 
-export function ModifyReactionBodyFromJSONTyped(json: any, ignoreDiscriminator: boolean): ModifyReactionBody {
+export function ModifyReactionBodyFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): ModifyReactionBody {
     if (json == null) {
         return json;
     }
     return {
-        
-        'reaction': json['reaction'] == null ? undefined : ReactionFromJSON(json['reaction']),
+        reaction: json["reaction"] == null ? undefined : ReactionFromJSON(json["reaction"]),
     };
 }
 
@@ -62,14 +62,15 @@ export function ModifyReactionBodyToJSON(json: any): ModifyReactionBody {
     return ModifyReactionBodyToJSONTyped(json, false);
 }
 
-export function ModifyReactionBodyToJSONTyped(value?: ModifyReactionBody | null, ignoreDiscriminator: boolean = false): any {
+export function ModifyReactionBodyToJSONTyped(
+    value?: ModifyReactionBody | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'reaction': ReactionToJSON(value['reaction']),
+        reaction: ReactionToJSON(value["reaction"]),
     };
 }
-

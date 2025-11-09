@@ -12,60 +12,58 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { MilestoneStatus } from './MilestoneStatus';
+import { mapValues } from "../runtime";
+import type { MilestoneStatus } from "./MilestoneStatus";
 import {
     MilestoneStatusFromJSON,
     MilestoneStatusFromJSONTyped,
     MilestoneStatusToJSON,
     MilestoneStatusToJSONTyped,
-} from './MilestoneStatus';
+} from "./MilestoneStatus";
 
 /**
- * 
+ *
  * @export
  * @interface UpdateMilestoneBody
  */
 export interface UpdateMilestoneBody {
     /**
-     * 
+     *
      * @type {Date}
      * @memberof UpdateMilestoneBody
      */
     deadline?: Date;
     /**
-     * 
+     *
      * @type {string}
      * @memberof UpdateMilestoneBody
      */
     description?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof UpdateMilestoneBody
      */
     name?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof UpdateMilestoneBody
      */
     slug?: string;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof UpdateMilestoneBody
      */
     startDate?: Date;
     /**
-     * 
+     *
      * @type {MilestoneStatus}
      * @memberof UpdateMilestoneBody
      */
     status?: MilestoneStatus;
 }
-
-
 
 /**
  * Check if a given object implements the UpdateMilestoneBody interface.
@@ -78,18 +76,20 @@ export function UpdateMilestoneBodyFromJSON(json: any): UpdateMilestoneBody {
     return UpdateMilestoneBodyFromJSONTyped(json, false);
 }
 
-export function UpdateMilestoneBodyFromJSONTyped(json: any, ignoreDiscriminator: boolean): UpdateMilestoneBody {
+export function UpdateMilestoneBodyFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): UpdateMilestoneBody {
     if (json == null) {
         return json;
     }
     return {
-        
-        'deadline': json['deadline'] == null ? undefined : (new Date(json['deadline'])),
-        'description': json['description'] == null ? undefined : json['description'],
-        'name': json['name'] == null ? undefined : json['name'],
-        'slug': json['slug'] == null ? undefined : json['slug'],
-        'startDate': json['start_date'] == null ? undefined : (new Date(json['start_date'])),
-        'status': json['status'] == null ? undefined : MilestoneStatusFromJSON(json['status']),
+        deadline: json["deadline"] == null ? undefined : new Date(json["deadline"]),
+        description: json["description"] == null ? undefined : json["description"],
+        name: json["name"] == null ? undefined : json["name"],
+        slug: json["slug"] == null ? undefined : json["slug"],
+        startDate: json["start_date"] == null ? undefined : new Date(json["start_date"]),
+        status: json["status"] == null ? undefined : MilestoneStatusFromJSON(json["status"]),
     };
 }
 
@@ -97,19 +97,21 @@ export function UpdateMilestoneBodyToJSON(json: any): UpdateMilestoneBody {
     return UpdateMilestoneBodyToJSONTyped(json, false);
 }
 
-export function UpdateMilestoneBodyToJSONTyped(value?: UpdateMilestoneBody | null, ignoreDiscriminator: boolean = false): any {
+export function UpdateMilestoneBodyToJSONTyped(
+    value?: UpdateMilestoneBody | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'deadline': value['deadline'] == null ? value['deadline'] : value['deadline'].toISOString(),
-        'description': value['description'],
-        'name': value['name'],
-        'slug': value['slug'],
-        'start_date': value['startDate'] == null ? value['startDate'] : value['startDate'].toISOString(),
-        'status': MilestoneStatusToJSON(value['status']),
+        deadline: value["deadline"] == null ? value["deadline"] : value["deadline"].toISOString(),
+        description: value["description"],
+        name: value["name"],
+        slug: value["slug"],
+        start_date:
+            value["startDate"] == null ? value["startDate"] : value["startDate"].toISOString(),
+        status: MilestoneStatusToJSON(value["status"]),
     };
 }
-

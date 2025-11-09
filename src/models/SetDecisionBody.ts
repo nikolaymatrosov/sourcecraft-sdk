@@ -12,30 +12,28 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { ReviewDecision } from './ReviewDecision';
+import { mapValues } from "../runtime";
+import type { ReviewDecision } from "./ReviewDecision";
 import {
     ReviewDecisionFromJSON,
     ReviewDecisionFromJSONTyped,
     ReviewDecisionToJSON,
     ReviewDecisionToJSONTyped,
-} from './ReviewDecision';
+} from "./ReviewDecision";
 
 /**
- * 
+ *
  * @export
  * @interface SetDecisionBody
  */
 export interface SetDecisionBody {
     /**
-     * 
+     *
      * @type {ReviewDecision}
      * @memberof SetDecisionBody
      */
     reviewDecision?: ReviewDecision;
 }
-
-
 
 /**
  * Check if a given object implements the SetDecisionBody interface.
@@ -48,13 +46,18 @@ export function SetDecisionBodyFromJSON(json: any): SetDecisionBody {
     return SetDecisionBodyFromJSONTyped(json, false);
 }
 
-export function SetDecisionBodyFromJSONTyped(json: any, ignoreDiscriminator: boolean): SetDecisionBody {
+export function SetDecisionBodyFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): SetDecisionBody {
     if (json == null) {
         return json;
     }
     return {
-        
-        'reviewDecision': json['review_decision'] == null ? undefined : ReviewDecisionFromJSON(json['review_decision']),
+        reviewDecision:
+            json["review_decision"] == null
+                ? undefined
+                : ReviewDecisionFromJSON(json["review_decision"]),
     };
 }
 
@@ -62,14 +65,15 @@ export function SetDecisionBodyToJSON(json: any): SetDecisionBody {
     return SetDecisionBodyToJSONTyped(json, false);
 }
 
-export function SetDecisionBodyToJSONTyped(value?: SetDecisionBody | null, ignoreDiscriminator: boolean = false): any {
+export function SetDecisionBodyToJSONTyped(
+    value?: SetDecisionBody | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'review_decision': ReviewDecisionToJSON(value['reviewDecision']),
+        review_decision: ReviewDecisionToJSON(value["reviewDecision"]),
     };
 }
-

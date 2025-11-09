@@ -12,17 +12,17 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { PRReviewer } from './PRReviewer';
+import { mapValues } from "../runtime";
+import type { PRReviewer } from "./PRReviewer";
 import {
     PRReviewerFromJSON,
     PRReviewerFromJSONTyped,
     PRReviewerToJSON,
     PRReviewerToJSONTyped,
-} from './PRReviewer';
+} from "./PRReviewer";
 
 /**
- * 
+ *
  * @export
  * @interface ListReviewersResponse
  */
@@ -35,7 +35,7 @@ export interface ListReviewersResponse {
      */
     nextPageToken?: string;
     /**
-     * 
+     *
      * @type {Array<PRReviewer>}
      * @memberof ListReviewersResponse
      */
@@ -53,14 +53,19 @@ export function ListReviewersResponseFromJSON(json: any): ListReviewersResponse 
     return ListReviewersResponseFromJSONTyped(json, false);
 }
 
-export function ListReviewersResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): ListReviewersResponse {
+export function ListReviewersResponseFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): ListReviewersResponse {
     if (json == null) {
         return json;
     }
     return {
-        
-        'nextPageToken': json['next_page_token'] == null ? undefined : json['next_page_token'],
-        'reviewers': json['reviewers'] == null ? undefined : ((json['reviewers'] as Array<any>).map(PRReviewerFromJSON)),
+        nextPageToken: json["next_page_token"] == null ? undefined : json["next_page_token"],
+        reviewers:
+            json["reviewers"] == null
+                ? undefined
+                : (json["reviewers"] as Array<any>).map(PRReviewerFromJSON),
     };
 }
 
@@ -68,15 +73,19 @@ export function ListReviewersResponseToJSON(json: any): ListReviewersResponse {
     return ListReviewersResponseToJSONTyped(json, false);
 }
 
-export function ListReviewersResponseToJSONTyped(value?: ListReviewersResponse | null, ignoreDiscriminator: boolean = false): any {
+export function ListReviewersResponseToJSONTyped(
+    value?: ListReviewersResponse | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'next_page_token': value['nextPageToken'],
-        'reviewers': value['reviewers'] == null ? undefined : ((value['reviewers'] as Array<any>).map(PRReviewerToJSON)),
+        next_page_token: value["nextPageToken"],
+        reviewers:
+            value["reviewers"] == null
+                ? undefined
+                : (value["reviewers"] as Array<any>).map(PRReviewerToJSON),
     };
 }
-

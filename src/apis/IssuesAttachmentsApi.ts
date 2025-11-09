@@ -12,14 +12,13 @@
  * Do not edit the class manually.
  */
 
-
-import * as runtime from '../runtime';
+import * as runtime from "../runtime";
 import type {
-  ApiErrorResponse,
-  Attachment,
-  AttachmentDownloadable,
-  AttachmentsResponse,
-} from '../models/index';
+    ApiErrorResponse,
+    Attachment,
+    AttachmentDownloadable,
+    AttachmentsResponse,
+} from "../models/index";
 import {
     ApiErrorResponseFromJSON,
     ApiErrorResponseToJSON,
@@ -29,7 +28,7 @@ import {
     AttachmentDownloadableToJSON,
     AttachmentsResponseFromJSON,
     AttachmentsResponseToJSON,
-} from '../models/index';
+} from "../models/index";
 
 export interface DeleteIssueAttachmentRequest {
     orgSlug: string;
@@ -76,7 +75,7 @@ export interface UploadIssueAttachmentRequest {
 
 /**
  * IssuesAttachmentsApi - interface
- * 
+ *
  * @export
  * @interface IssuesAttachmentsApiInterface
  */
@@ -84,174 +83,217 @@ export interface IssuesAttachmentsApiInterface {
     /**
      * Permanently removes an attachment from an issue. The file will be deleted and cannot be reused.
      * @summary Remove attachment
-     * @param {string} orgSlug 
-     * @param {string} repoSlug 
-     * @param {string} issueSlug 
-     * @param {string} attachmentId 
+     * @param {string} orgSlug
+     * @param {string} repoSlug
+     * @param {string} issueSlug
+     * @param {string} attachmentId
      * @param {boolean} [silent] creation options (query)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesAttachmentsApiInterface
      */
-    deleteIssueAttachmentRaw(requestParameters: DeleteIssueAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    deleteIssueAttachmentRaw(
+        requestParameters: DeleteIssueAttachmentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<void>>;
 
     /**
      * Permanently removes an attachment from an issue. The file will be deleted and cannot be reused.
      * Remove attachment
      */
-    deleteIssueAttachment(requestParameters: DeleteIssueAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    deleteIssueAttachment(
+        requestParameters: DeleteIssueAttachmentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<void>;
 
     /**
      * Permanently removes an attachment from an issue. The file will be deleted and cannot be reused.
      * @summary Remove attachment (by Issue ID)
-     * @param {string} issueId 
-     * @param {string} attachmentId 
+     * @param {string} issueId
+     * @param {string} attachmentId
      * @param {boolean} [silent] creation options (query)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesAttachmentsApiInterface
      */
-    deleteIssueAttachmentByIDRaw(requestParameters: DeleteIssueAttachmentByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    deleteIssueAttachmentByIDRaw(
+        requestParameters: DeleteIssueAttachmentByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<void>>;
 
     /**
      * Permanently removes an attachment from an issue. The file will be deleted and cannot be reused.
      * Remove attachment (by Issue ID)
      */
-    deleteIssueAttachmentByID(requestParameters: DeleteIssueAttachmentByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    deleteIssueAttachmentByID(
+        requestParameters: DeleteIssueAttachmentByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<void>;
 
     /**
      * Gets attachment details and download URL
      * @summary Get attachment
-     * @param {string} orgSlug 
-     * @param {string} repoSlug 
-     * @param {string} issueSlug 
-     * @param {string} attachmentId 
+     * @param {string} orgSlug
+     * @param {string} repoSlug
+     * @param {string} issueSlug
+     * @param {string} attachmentId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesAttachmentsApiInterface
      */
-    getIssueAttachmentRaw(requestParameters: GetIssueAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AttachmentDownloadable>>;
+    getIssueAttachmentRaw(
+        requestParameters: GetIssueAttachmentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<AttachmentDownloadable>>;
 
     /**
      * Gets attachment details and download URL
      * Get attachment
      */
-    getIssueAttachment(requestParameters: GetIssueAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AttachmentDownloadable>;
+    getIssueAttachment(
+        requestParameters: GetIssueAttachmentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<AttachmentDownloadable>;
 
     /**
      * Gets attachment details and download URL
      * @summary Get attachment (By Issue ID)
-     * @param {string} issueId 
-     * @param {string} attachmentId 
+     * @param {string} issueId
+     * @param {string} attachmentId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesAttachmentsApiInterface
      */
-    getIssueAttachmentByIDRaw(requestParameters: GetIssueAttachmentByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AttachmentDownloadable>>;
+    getIssueAttachmentByIDRaw(
+        requestParameters: GetIssueAttachmentByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<AttachmentDownloadable>>;
 
     /**
      * Gets attachment details and download URL
      * Get attachment (By Issue ID)
      */
-    getIssueAttachmentByID(requestParameters: GetIssueAttachmentByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AttachmentDownloadable>;
+    getIssueAttachmentByID(
+        requestParameters: GetIssueAttachmentByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<AttachmentDownloadable>;
 
     /**
      * Retrieves all attachments from an issue
      * @summary List attachments
-     * @param {string} orgSlug 
-     * @param {string} repoSlug 
-     * @param {string} issueSlug 
+     * @param {string} orgSlug
+     * @param {string} repoSlug
+     * @param {string} issueSlug
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesAttachmentsApiInterface
      */
-    listIssueAttachmentsRaw(requestParameters: ListIssueAttachmentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AttachmentsResponse>>;
+    listIssueAttachmentsRaw(
+        requestParameters: ListIssueAttachmentsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<AttachmentsResponse>>;
 
     /**
      * Retrieves all attachments from an issue
      * List attachments
      */
-    listIssueAttachments(requestParameters: ListIssueAttachmentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AttachmentsResponse>;
+    listIssueAttachments(
+        requestParameters: ListIssueAttachmentsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<AttachmentsResponse>;
 
     /**
      * Retrieves all attachments from an issue
      * @summary List attachments (By Issue ID)
-     * @param {string} issueId 
+     * @param {string} issueId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesAttachmentsApiInterface
      */
-    listIssueAttachmentsByIDRaw(requestParameters: ListIssueAttachmentsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AttachmentsResponse>>;
+    listIssueAttachmentsByIDRaw(
+        requestParameters: ListIssueAttachmentsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<AttachmentsResponse>>;
 
     /**
      * Retrieves all attachments from an issue
      * List attachments (By Issue ID)
      */
-    listIssueAttachmentsByID(requestParameters: ListIssueAttachmentsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AttachmentsResponse>;
+    listIssueAttachmentsByID(
+        requestParameters: ListIssueAttachmentsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<AttachmentsResponse>;
 
     /**
      * Uploads attachment to an issue
      * @summary Upload attachment
-     * @param {string} orgSlug 
-     * @param {string} repoSlug 
-     * @param {string} issueSlug 
+     * @param {string} orgSlug
+     * @param {string} repoSlug
+     * @param {string} issueSlug
      * @param {Blob} file The file to upload
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesAttachmentsApiInterface
      */
-    uploadIssueAttachmentRaw(requestParameters: UploadIssueAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Attachment>>;
+    uploadIssueAttachmentRaw(
+        requestParameters: UploadIssueAttachmentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Attachment>>;
 
     /**
      * Uploads attachment to an issue
      * Upload attachment
      */
-    uploadIssueAttachment(requestParameters: UploadIssueAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Attachment>;
-
+    uploadIssueAttachment(
+        requestParameters: UploadIssueAttachmentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Attachment>;
 }
 
 /**
- * 
+ *
  */
 export class IssuesAttachmentsApi extends runtime.BaseAPI implements IssuesAttachmentsApiInterface {
-
     /**
      * Permanently removes an attachment from an issue. The file will be deleted and cannot be reused.
      * Remove attachment
      */
-    async deleteIssueAttachmentRaw(requestParameters: DeleteIssueAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        if (requestParameters['orgSlug'] == null) {
+    async deleteIssueAttachmentRaw(
+        requestParameters: DeleteIssueAttachmentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling deleteIssueAttachment().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling deleteIssueAttachment().'
             );
         }
 
-        if (requestParameters['issueSlug'] == null) {
+        if (requestParameters["issueSlug"] == null) {
             throw new runtime.RequiredError(
-                'issueSlug',
+                "issueSlug",
                 'Required parameter "issueSlug" was null or undefined when calling deleteIssueAttachment().'
             );
         }
 
-        if (requestParameters['attachmentId'] == null) {
+        if (requestParameters["attachmentId"] == null) {
             throw new runtime.RequiredError(
-                'attachmentId',
+                "attachmentId",
                 'Required parameter "attachmentId" was null or undefined when calling deleteIssueAttachment().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -266,17 +308,32 @@ export class IssuesAttachmentsApi extends runtime.BaseAPI implements IssuesAttac
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/issues/{issue_slug}/attachments/{attachment_id}`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
-        urlPath = urlPath.replace(`{${"issue_slug"}}`, encodeURIComponent(String(requestParameters['issueSlug'])));
-        urlPath = urlPath.replace(`{${"attachment_id"}}`, encodeURIComponent(String(requestParameters['attachmentId'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"issue_slug"}}`,
+            encodeURIComponent(String(requestParameters["issueSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"attachment_id"}}`,
+            encodeURIComponent(String(requestParameters["attachmentId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "DELETE",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
         return new runtime.VoidApiResponse(response);
     }
@@ -285,7 +342,10 @@ export class IssuesAttachmentsApi extends runtime.BaseAPI implements IssuesAttac
      * Permanently removes an attachment from an issue. The file will be deleted and cannot be reused.
      * Remove attachment
      */
-    async deleteIssueAttachment(requestParameters: DeleteIssueAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+    async deleteIssueAttachment(
+        requestParameters: DeleteIssueAttachmentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<void> {
         await this.deleteIssueAttachmentRaw(requestParameters, initOverrides);
     }
 
@@ -293,25 +353,28 @@ export class IssuesAttachmentsApi extends runtime.BaseAPI implements IssuesAttac
      * Permanently removes an attachment from an issue. The file will be deleted and cannot be reused.
      * Remove attachment (by Issue ID)
      */
-    async deleteIssueAttachmentByIDRaw(requestParameters: DeleteIssueAttachmentByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        if (requestParameters['issueId'] == null) {
+    async deleteIssueAttachmentByIDRaw(
+        requestParameters: DeleteIssueAttachmentByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters["issueId"] == null) {
             throw new runtime.RequiredError(
-                'issueId',
+                "issueId",
                 'Required parameter "issueId" was null or undefined when calling deleteIssueAttachmentByID().'
             );
         }
 
-        if (requestParameters['attachmentId'] == null) {
+        if (requestParameters["attachmentId"] == null) {
             throw new runtime.RequiredError(
-                'attachmentId',
+                "attachmentId",
                 'Required parameter "attachmentId" was null or undefined when calling deleteIssueAttachmentByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -326,15 +389,24 @@ export class IssuesAttachmentsApi extends runtime.BaseAPI implements IssuesAttac
         }
 
         let urlPath = `/issues/id:{issue_id}/attachments/{attachment_id}`;
-        urlPath = urlPath.replace(`{${"issue_id"}}`, encodeURIComponent(String(requestParameters['issueId'])));
-        urlPath = urlPath.replace(`{${"attachment_id"}}`, encodeURIComponent(String(requestParameters['attachmentId'])));
+        urlPath = urlPath.replace(
+            `{${"issue_id"}}`,
+            encodeURIComponent(String(requestParameters["issueId"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"attachment_id"}}`,
+            encodeURIComponent(String(requestParameters["attachmentId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "DELETE",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
         return new runtime.VoidApiResponse(response);
     }
@@ -343,7 +415,10 @@ export class IssuesAttachmentsApi extends runtime.BaseAPI implements IssuesAttac
      * Permanently removes an attachment from an issue. The file will be deleted and cannot be reused.
      * Remove attachment (by Issue ID)
      */
-    async deleteIssueAttachmentByID(requestParameters: DeleteIssueAttachmentByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+    async deleteIssueAttachmentByID(
+        requestParameters: DeleteIssueAttachmentByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<void> {
         await this.deleteIssueAttachmentByIDRaw(requestParameters, initOverrides);
     }
 
@@ -351,31 +426,34 @@ export class IssuesAttachmentsApi extends runtime.BaseAPI implements IssuesAttac
      * Gets attachment details and download URL
      * Get attachment
      */
-    async getIssueAttachmentRaw(requestParameters: GetIssueAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AttachmentDownloadable>> {
-        if (requestParameters['orgSlug'] == null) {
+    async getIssueAttachmentRaw(
+        requestParameters: GetIssueAttachmentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<AttachmentDownloadable>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling getIssueAttachment().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling getIssueAttachment().'
             );
         }
 
-        if (requestParameters['issueSlug'] == null) {
+        if (requestParameters["issueSlug"] == null) {
             throw new runtime.RequiredError(
-                'issueSlug',
+                "issueSlug",
                 'Required parameter "issueSlug" was null or undefined when calling getIssueAttachment().'
             );
         }
 
-        if (requestParameters['attachmentId'] == null) {
+        if (requestParameters["attachmentId"] == null) {
             throw new runtime.RequiredError(
-                'attachmentId',
+                "attachmentId",
                 'Required parameter "attachmentId" was null or undefined when calling getIssueAttachment().'
             );
         }
@@ -394,26 +472,46 @@ export class IssuesAttachmentsApi extends runtime.BaseAPI implements IssuesAttac
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/issues/{issue_slug}/attachments/{attachment_id}`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
-        urlPath = urlPath.replace(`{${"issue_slug"}}`, encodeURIComponent(String(requestParameters['issueSlug'])));
-        urlPath = urlPath.replace(`{${"attachment_id"}}`, encodeURIComponent(String(requestParameters['attachmentId'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"issue_slug"}}`,
+            encodeURIComponent(String(requestParameters["issueSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"attachment_id"}}`,
+            encodeURIComponent(String(requestParameters["attachmentId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => AttachmentDownloadableFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            AttachmentDownloadableFromJSON(jsonValue)
+        );
     }
 
     /**
      * Gets attachment details and download URL
      * Get attachment
      */
-    async getIssueAttachment(requestParameters: GetIssueAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AttachmentDownloadable> {
+    async getIssueAttachment(
+        requestParameters: GetIssueAttachmentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<AttachmentDownloadable> {
         const response = await this.getIssueAttachmentRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -422,17 +520,20 @@ export class IssuesAttachmentsApi extends runtime.BaseAPI implements IssuesAttac
      * Gets attachment details and download URL
      * Get attachment (By Issue ID)
      */
-    async getIssueAttachmentByIDRaw(requestParameters: GetIssueAttachmentByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AttachmentDownloadable>> {
-        if (requestParameters['issueId'] == null) {
+    async getIssueAttachmentByIDRaw(
+        requestParameters: GetIssueAttachmentByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<AttachmentDownloadable>> {
+        if (requestParameters["issueId"] == null) {
             throw new runtime.RequiredError(
-                'issueId',
+                "issueId",
                 'Required parameter "issueId" was null or undefined when calling getIssueAttachmentByID().'
             );
         }
 
-        if (requestParameters['attachmentId'] == null) {
+        if (requestParameters["attachmentId"] == null) {
             throw new runtime.RequiredError(
-                'attachmentId',
+                "attachmentId",
                 'Required parameter "attachmentId" was null or undefined when calling getIssueAttachmentByID().'
             );
         }
@@ -451,24 +552,38 @@ export class IssuesAttachmentsApi extends runtime.BaseAPI implements IssuesAttac
         }
 
         let urlPath = `/issues/id:{issue_id}/attachments/{attachment_id}`;
-        urlPath = urlPath.replace(`{${"issue_id"}}`, encodeURIComponent(String(requestParameters['issueId'])));
-        urlPath = urlPath.replace(`{${"attachment_id"}}`, encodeURIComponent(String(requestParameters['attachmentId'])));
+        urlPath = urlPath.replace(
+            `{${"issue_id"}}`,
+            encodeURIComponent(String(requestParameters["issueId"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"attachment_id"}}`,
+            encodeURIComponent(String(requestParameters["attachmentId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => AttachmentDownloadableFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            AttachmentDownloadableFromJSON(jsonValue)
+        );
     }
 
     /**
      * Gets attachment details and download URL
      * Get attachment (By Issue ID)
      */
-    async getIssueAttachmentByID(requestParameters: GetIssueAttachmentByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AttachmentDownloadable> {
+    async getIssueAttachmentByID(
+        requestParameters: GetIssueAttachmentByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<AttachmentDownloadable> {
         const response = await this.getIssueAttachmentByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -477,24 +592,27 @@ export class IssuesAttachmentsApi extends runtime.BaseAPI implements IssuesAttac
      * Retrieves all attachments from an issue
      * List attachments
      */
-    async listIssueAttachmentsRaw(requestParameters: ListIssueAttachmentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AttachmentsResponse>> {
-        if (requestParameters['orgSlug'] == null) {
+    async listIssueAttachmentsRaw(
+        requestParameters: ListIssueAttachmentsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<AttachmentsResponse>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling listIssueAttachments().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling listIssueAttachments().'
             );
         }
 
-        if (requestParameters['issueSlug'] == null) {
+        if (requestParameters["issueSlug"] == null) {
             throw new runtime.RequiredError(
-                'issueSlug',
+                "issueSlug",
                 'Required parameter "issueSlug" was null or undefined when calling listIssueAttachments().'
             );
         }
@@ -513,25 +631,42 @@ export class IssuesAttachmentsApi extends runtime.BaseAPI implements IssuesAttac
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/issues/{issue_slug}/attachments`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
-        urlPath = urlPath.replace(`{${"issue_slug"}}`, encodeURIComponent(String(requestParameters['issueSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"issue_slug"}}`,
+            encodeURIComponent(String(requestParameters["issueSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => AttachmentsResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            AttachmentsResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * Retrieves all attachments from an issue
      * List attachments
      */
-    async listIssueAttachments(requestParameters: ListIssueAttachmentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AttachmentsResponse> {
+    async listIssueAttachments(
+        requestParameters: ListIssueAttachmentsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<AttachmentsResponse> {
         const response = await this.listIssueAttachmentsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -540,10 +675,13 @@ export class IssuesAttachmentsApi extends runtime.BaseAPI implements IssuesAttac
      * Retrieves all attachments from an issue
      * List attachments (By Issue ID)
      */
-    async listIssueAttachmentsByIDRaw(requestParameters: ListIssueAttachmentsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AttachmentsResponse>> {
-        if (requestParameters['issueId'] == null) {
+    async listIssueAttachmentsByIDRaw(
+        requestParameters: ListIssueAttachmentsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<AttachmentsResponse>> {
+        if (requestParameters["issueId"] == null) {
             throw new runtime.RequiredError(
-                'issueId',
+                "issueId",
                 'Required parameter "issueId" was null or undefined when calling listIssueAttachmentsByID().'
             );
         }
@@ -562,23 +700,34 @@ export class IssuesAttachmentsApi extends runtime.BaseAPI implements IssuesAttac
         }
 
         let urlPath = `/issues/id:{issue_id}/attachments`;
-        urlPath = urlPath.replace(`{${"issue_id"}}`, encodeURIComponent(String(requestParameters['issueId'])));
+        urlPath = urlPath.replace(
+            `{${"issue_id"}}`,
+            encodeURIComponent(String(requestParameters["issueId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => AttachmentsResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            AttachmentsResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * Retrieves all attachments from an issue
      * List attachments (By Issue ID)
      */
-    async listIssueAttachmentsByID(requestParameters: ListIssueAttachmentsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AttachmentsResponse> {
+    async listIssueAttachmentsByID(
+        requestParameters: ListIssueAttachmentsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<AttachmentsResponse> {
         const response = await this.listIssueAttachmentsByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -587,31 +736,34 @@ export class IssuesAttachmentsApi extends runtime.BaseAPI implements IssuesAttac
      * Uploads attachment to an issue
      * Upload attachment
      */
-    async uploadIssueAttachmentRaw(requestParameters: UploadIssueAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Attachment>> {
-        if (requestParameters['orgSlug'] == null) {
+    async uploadIssueAttachmentRaw(
+        requestParameters: UploadIssueAttachmentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Attachment>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling uploadIssueAttachment().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling uploadIssueAttachment().'
             );
         }
 
-        if (requestParameters['issueSlug'] == null) {
+        if (requestParameters["issueSlug"] == null) {
             throw new runtime.RequiredError(
-                'issueSlug',
+                "issueSlug",
                 'Required parameter "issueSlug" was null or undefined when calling uploadIssueAttachment().'
             );
         }
 
-        if (requestParameters['file'] == null) {
+        if (requestParameters["file"] == null) {
             throw new runtime.RequiredError(
-                'file',
+                "file",
                 'Required parameter "file" was null or undefined when calling uploadIssueAttachment().'
             );
         }
@@ -628,9 +780,7 @@ export class IssuesAttachmentsApi extends runtime.BaseAPI implements IssuesAttac
                 headerParameters["Authorization"] = `Bearer ${tokenString}`;
             }
         }
-        const consumes: runtime.Consume[] = [
-            { contentType: 'multipart/form-data' },
-        ];
+        const consumes: runtime.Consume[] = [{ contentType: "multipart/form-data" }];
         // @ts-ignore: canConsumeForm may be unused
         const canConsumeForm = runtime.canConsumeForm(consumes);
 
@@ -644,23 +794,34 @@ export class IssuesAttachmentsApi extends runtime.BaseAPI implements IssuesAttac
             formParams = new URLSearchParams();
         }
 
-        if (requestParameters['file'] != null) {
-            formParams.append('file', requestParameters['file'] as any);
+        if (requestParameters["file"] != null) {
+            formParams.append("file", requestParameters["file"] as any);
         }
 
-
         let urlPath = `/repos/{org_slug}/{repo_slug}/issues/{issue_slug}/attachments`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
-        urlPath = urlPath.replace(`{${"issue_slug"}}`, encodeURIComponent(String(requestParameters['issueSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"issue_slug"}}`,
+            encodeURIComponent(String(requestParameters["issueSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: formParams,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+                body: formParams,
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => AttachmentFromJSON(jsonValue));
     }
@@ -669,9 +830,11 @@ export class IssuesAttachmentsApi extends runtime.BaseAPI implements IssuesAttac
      * Uploads attachment to an issue
      * Upload attachment
      */
-    async uploadIssueAttachment(requestParameters: UploadIssueAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Attachment> {
+    async uploadIssueAttachment(
+        requestParameters: UploadIssueAttachmentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Attachment> {
         const response = await this.uploadIssueAttachmentRaw(requestParameters, initOverrides);
         return await response.value();
     }
-
 }

@@ -12,68 +12,61 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { RepositoryVisibility } from './RepositoryVisibility';
+import { mapValues } from "../runtime";
+import type { RepositoryVisibility } from "./RepositoryVisibility";
 import {
     RepositoryVisibilityFromJSON,
     RepositoryVisibilityFromJSONTyped,
     RepositoryVisibilityToJSON,
     RepositoryVisibilityToJSONTyped,
-} from './RepositoryVisibility';
-import type { RepoTemplate } from './RepoTemplate';
+} from "./RepositoryVisibility";
+import type { RepoTemplate } from "./RepoTemplate";
 import {
     RepoTemplateFromJSON,
     RepoTemplateFromJSONTyped,
     RepoTemplateToJSON,
     RepoTemplateToJSONTyped,
-} from './RepoTemplate';
-import type { Link } from './Link';
-import {
-    LinkFromJSON,
-    LinkFromJSONTyped,
-    LinkToJSON,
-    LinkToJSONTyped,
-} from './Link';
+} from "./RepoTemplate";
+import type { Link } from "./Link";
+import { LinkFromJSON, LinkFromJSONTyped, LinkToJSON, LinkToJSONTyped } from "./Link";
 
 /**
- * 
+ *
  * @export
  * @interface UpdateRepositoryBody
  */
 export interface UpdateRepositoryBody {
     /**
-     * 
+     *
      * @type {string}
      * @memberof UpdateRepositoryBody
      */
     defaultBranch?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof UpdateRepositoryBody
      */
     description?: string;
     /**
-     * 
+     *
      * @type {Array<Link>}
      * @memberof UpdateRepositoryBody
      */
     links?: Array<Link>;
     /**
-     * 
+     *
      * @type {RepoTemplate}
      * @memberof UpdateRepositoryBody
      */
     templateType?: RepoTemplate;
     /**
-     * 
+     *
      * @type {RepositoryVisibility}
      * @memberof UpdateRepositoryBody
      */
     visibility?: RepositoryVisibility;
 }
-
-
 
 /**
  * Check if a given object implements the UpdateRepositoryBody interface.
@@ -86,17 +79,23 @@ export function UpdateRepositoryBodyFromJSON(json: any): UpdateRepositoryBody {
     return UpdateRepositoryBodyFromJSONTyped(json, false);
 }
 
-export function UpdateRepositoryBodyFromJSONTyped(json: any, ignoreDiscriminator: boolean): UpdateRepositoryBody {
+export function UpdateRepositoryBodyFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): UpdateRepositoryBody {
     if (json == null) {
         return json;
     }
     return {
-        
-        'defaultBranch': json['default_branch'] == null ? undefined : json['default_branch'],
-        'description': json['description'] == null ? undefined : json['description'],
-        'links': json['links'] == null ? undefined : ((json['links'] as Array<any>).map(LinkFromJSON)),
-        'templateType': json['template_type'] == null ? undefined : RepoTemplateFromJSON(json['template_type']),
-        'visibility': json['visibility'] == null ? undefined : RepositoryVisibilityFromJSON(json['visibility']),
+        defaultBranch: json["default_branch"] == null ? undefined : json["default_branch"],
+        description: json["description"] == null ? undefined : json["description"],
+        links: json["links"] == null ? undefined : (json["links"] as Array<any>).map(LinkFromJSON),
+        templateType:
+            json["template_type"] == null ? undefined : RepoTemplateFromJSON(json["template_type"]),
+        visibility:
+            json["visibility"] == null
+                ? undefined
+                : RepositoryVisibilityFromJSON(json["visibility"]),
     };
 }
 
@@ -104,18 +103,19 @@ export function UpdateRepositoryBodyToJSON(json: any): UpdateRepositoryBody {
     return UpdateRepositoryBodyToJSONTyped(json, false);
 }
 
-export function UpdateRepositoryBodyToJSONTyped(value?: UpdateRepositoryBody | null, ignoreDiscriminator: boolean = false): any {
+export function UpdateRepositoryBodyToJSONTyped(
+    value?: UpdateRepositoryBody | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'default_branch': value['defaultBranch'],
-        'description': value['description'],
-        'links': value['links'] == null ? undefined : ((value['links'] as Array<any>).map(LinkToJSON)),
-        'template_type': RepoTemplateToJSON(value['templateType']),
-        'visibility': RepositoryVisibilityToJSON(value['visibility']),
+        default_branch: value["defaultBranch"],
+        description: value["description"],
+        links: value["links"] == null ? undefined : (value["links"] as Array<any>).map(LinkToJSON),
+        template_type: RepoTemplateToJSON(value["templateType"]),
+        visibility: RepositoryVisibilityToJSON(value["visibility"]),
     };
 }
-

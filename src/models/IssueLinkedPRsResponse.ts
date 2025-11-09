@@ -12,23 +12,23 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { PullRequest } from './PullRequest';
+import { mapValues } from "../runtime";
+import type { PullRequest } from "./PullRequest";
 import {
     PullRequestFromJSON,
     PullRequestFromJSONTyped,
     PullRequestToJSON,
     PullRequestToJSONTyped,
-} from './PullRequest';
+} from "./PullRequest";
 
 /**
- * 
+ *
  * @export
  * @interface IssueLinkedPRsResponse
  */
 export interface IssueLinkedPRsResponse {
     /**
-     * 
+     *
      * @type {Array<PullRequest>}
      * @memberof IssueLinkedPRsResponse
      */
@@ -46,13 +46,18 @@ export function IssueLinkedPRsResponseFromJSON(json: any): IssueLinkedPRsRespons
     return IssueLinkedPRsResponseFromJSONTyped(json, false);
 }
 
-export function IssueLinkedPRsResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): IssueLinkedPRsResponse {
+export function IssueLinkedPRsResponseFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): IssueLinkedPRsResponse {
     if (json == null) {
         return json;
     }
     return {
-        
-        'pullRequests': json['pull_requests'] == null ? undefined : ((json['pull_requests'] as Array<any>).map(PullRequestFromJSON)),
+        pullRequests:
+            json["pull_requests"] == null
+                ? undefined
+                : (json["pull_requests"] as Array<any>).map(PullRequestFromJSON),
     };
 }
 
@@ -60,14 +65,18 @@ export function IssueLinkedPRsResponseToJSON(json: any): IssueLinkedPRsResponse 
     return IssueLinkedPRsResponseToJSONTyped(json, false);
 }
 
-export function IssueLinkedPRsResponseToJSONTyped(value?: IssueLinkedPRsResponse | null, ignoreDiscriminator: boolean = false): any {
+export function IssueLinkedPRsResponseToJSONTyped(
+    value?: IssueLinkedPRsResponse | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'pull_requests': value['pullRequests'] == null ? undefined : ((value['pullRequests'] as Array<any>).map(PullRequestToJSON)),
+        pull_requests:
+            value["pullRequests"] == null
+                ? undefined
+                : (value["pullRequests"] as Array<any>).map(PullRequestToJSON),
     };
 }
-

@@ -12,86 +12,84 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { IssueLinkLinkType } from './IssueLinkLinkType';
+import { mapValues } from "../runtime";
+import type { IssueLinkLinkType } from "./IssueLinkLinkType";
 import {
     IssueLinkLinkTypeFromJSON,
     IssueLinkLinkTypeFromJSONTyped,
     IssueLinkLinkTypeToJSON,
     IssueLinkLinkTypeToJSONTyped,
-} from './IssueLinkLinkType';
-import type { UserEmbedded } from './UserEmbedded';
+} from "./IssueLinkLinkType";
+import type { UserEmbedded } from "./UserEmbedded";
 import {
     UserEmbeddedFromJSON,
     UserEmbeddedFromJSONTyped,
     UserEmbeddedToJSON,
     UserEmbeddedToJSONTyped,
-} from './UserEmbedded';
-import type { IssueEmbedded } from './IssueEmbedded';
+} from "./UserEmbedded";
+import type { IssueEmbedded } from "./IssueEmbedded";
 import {
     IssueEmbeddedFromJSON,
     IssueEmbeddedFromJSONTyped,
     IssueEmbeddedToJSON,
     IssueEmbeddedToJSONTyped,
-} from './IssueEmbedded';
+} from "./IssueEmbedded";
 
 /**
- * 
+ *
  * @export
  * @interface IssueLink
  */
 export interface IssueLink {
     /**
-     * 
+     *
      * @type {UserEmbedded}
      * @memberof IssueLink
      */
     author?: UserEmbedded;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof IssueLink
      */
     createdAt?: Date;
     /**
-     * 
+     *
      * @type {string}
      * @memberof IssueLink
      */
     id?: string;
     /**
-     * 
+     *
      * @type {IssueLinkLinkType}
      * @memberof IssueLink
      */
     linkType?: IssueLinkLinkType;
     /**
-     * 
+     *
      * @type {IssueEmbedded}
      * @memberof IssueLink
      */
     source?: IssueEmbedded;
     /**
-     * 
+     *
      * @type {IssueEmbedded}
      * @memberof IssueLink
      */
     target?: IssueEmbedded;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof IssueLink
      */
     updatedAt?: Date;
     /**
-     * 
+     *
      * @type {UserEmbedded}
      * @memberof IssueLink
      */
     updatedBy?: UserEmbedded;
 }
-
-
 
 /**
  * Check if a given object implements the IssueLink interface.
@@ -109,15 +107,16 @@ export function IssueLinkFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         return json;
     }
     return {
-        
-        'author': json['author'] == null ? undefined : UserEmbeddedFromJSON(json['author']),
-        'createdAt': json['created_at'] == null ? undefined : (new Date(json['created_at'])),
-        'id': json['id'] == null ? undefined : json['id'],
-        'linkType': json['link_type'] == null ? undefined : IssueLinkLinkTypeFromJSON(json['link_type']),
-        'source': json['source'] == null ? undefined : IssueEmbeddedFromJSON(json['source']),
-        'target': json['target'] == null ? undefined : IssueEmbeddedFromJSON(json['target']),
-        'updatedAt': json['updated_at'] == null ? undefined : (new Date(json['updated_at'])),
-        'updatedBy': json['updated_by'] == null ? undefined : UserEmbeddedFromJSON(json['updated_by']),
+        author: json["author"] == null ? undefined : UserEmbeddedFromJSON(json["author"]),
+        createdAt: json["created_at"] == null ? undefined : new Date(json["created_at"]),
+        id: json["id"] == null ? undefined : json["id"],
+        linkType:
+            json["link_type"] == null ? undefined : IssueLinkLinkTypeFromJSON(json["link_type"]),
+        source: json["source"] == null ? undefined : IssueEmbeddedFromJSON(json["source"]),
+        target: json["target"] == null ? undefined : IssueEmbeddedFromJSON(json["target"]),
+        updatedAt: json["updated_at"] == null ? undefined : new Date(json["updated_at"]),
+        updatedBy:
+            json["updated_by"] == null ? undefined : UserEmbeddedFromJSON(json["updated_by"]),
     };
 }
 
@@ -125,21 +124,24 @@ export function IssueLinkToJSON(json: any): IssueLink {
     return IssueLinkToJSONTyped(json, false);
 }
 
-export function IssueLinkToJSONTyped(value?: IssueLink | null, ignoreDiscriminator: boolean = false): any {
+export function IssueLinkToJSONTyped(
+    value?: IssueLink | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'author': UserEmbeddedToJSON(value['author']),
-        'created_at': value['createdAt'] == null ? value['createdAt'] : value['createdAt'].toISOString(),
-        'id': value['id'],
-        'link_type': IssueLinkLinkTypeToJSON(value['linkType']),
-        'source': IssueEmbeddedToJSON(value['source']),
-        'target': IssueEmbeddedToJSON(value['target']),
-        'updated_at': value['updatedAt'] == null ? value['updatedAt'] : value['updatedAt'].toISOString(),
-        'updated_by': UserEmbeddedToJSON(value['updatedBy']),
+        author: UserEmbeddedToJSON(value["author"]),
+        created_at:
+            value["createdAt"] == null ? value["createdAt"] : value["createdAt"].toISOString(),
+        id: value["id"],
+        link_type: IssueLinkLinkTypeToJSON(value["linkType"]),
+        source: IssueEmbeddedToJSON(value["source"]),
+        target: IssueEmbeddedToJSON(value["target"]),
+        updated_at:
+            value["updatedAt"] == null ? value["updatedAt"] : value["updatedAt"].toISOString(),
+        updated_by: UserEmbeddedToJSON(value["updatedBy"]),
     };
 }
-

@@ -12,13 +12,8 @@
  * Do not edit the class manually.
  */
 
-
-import * as runtime from '../runtime';
-import type {
-  ApiErrorResponse,
-  ModifyReactionBody,
-  Reactions,
-} from '../models/index';
+import * as runtime from "../runtime";
+import type { ApiErrorResponse, ModifyReactionBody, Reactions } from "../models/index";
 import {
     ApiErrorResponseFromJSON,
     ApiErrorResponseToJSON,
@@ -26,7 +21,7 @@ import {
     ModifyReactionBodyToJSON,
     ReactionsFromJSON,
     ReactionsToJSON,
-} from '../models/index';
+} from "../models/index";
 
 export interface AddReactionRequest {
     issueCommentId: string;
@@ -40,7 +35,7 @@ export interface RemoveReactionRequest {
 
 /**
  * IssuesCommentsReactionsApi - interface
- * 
+ *
  * @export
  * @interface IssuesCommentsReactionsApiInterface
  */
@@ -48,59 +43,75 @@ export interface IssuesCommentsReactionsApiInterface {
     /**
      * Adds a reaction to an issue comment
      * @summary Add Reaction
-     * @param {string} issueCommentId 
-     * @param {ModifyReactionBody} modifyReactionBody 
+     * @param {string} issueCommentId
+     * @param {ModifyReactionBody} modifyReactionBody
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesCommentsReactionsApiInterface
      */
-    addReactionRaw(requestParameters: AddReactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Reactions>>;
+    addReactionRaw(
+        requestParameters: AddReactionRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Reactions>>;
 
     /**
      * Adds a reaction to an issue comment
      * Add Reaction
      */
-    addReaction(requestParameters: AddReactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Reactions>;
+    addReaction(
+        requestParameters: AddReactionRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Reactions>;
 
     /**
      * Remove a reaction from an issue comment
      * @summary Remove Reaction
-     * @param {string} issueCommentId 
-     * @param {ModifyReactionBody} modifyReactionBody 
+     * @param {string} issueCommentId
+     * @param {ModifyReactionBody} modifyReactionBody
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesCommentsReactionsApiInterface
      */
-    removeReactionRaw(requestParameters: RemoveReactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Reactions>>;
+    removeReactionRaw(
+        requestParameters: RemoveReactionRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Reactions>>;
 
     /**
      * Remove a reaction from an issue comment
      * Remove Reaction
      */
-    removeReaction(requestParameters: RemoveReactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Reactions>;
-
+    removeReaction(
+        requestParameters: RemoveReactionRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Reactions>;
 }
 
 /**
- * 
+ *
  */
-export class IssuesCommentsReactionsApi extends runtime.BaseAPI implements IssuesCommentsReactionsApiInterface {
-
+export class IssuesCommentsReactionsApi
+    extends runtime.BaseAPI
+    implements IssuesCommentsReactionsApiInterface
+{
     /**
      * Adds a reaction to an issue comment
      * Add Reaction
      */
-    async addReactionRaw(requestParameters: AddReactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Reactions>> {
-        if (requestParameters['issueCommentId'] == null) {
+    async addReactionRaw(
+        requestParameters: AddReactionRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Reactions>> {
+        if (requestParameters["issueCommentId"] == null) {
             throw new runtime.RequiredError(
-                'issueCommentId',
+                "issueCommentId",
                 'Required parameter "issueCommentId" was null or undefined when calling addReaction().'
             );
         }
 
-        if (requestParameters['modifyReactionBody'] == null) {
+        if (requestParameters["modifyReactionBody"] == null) {
             throw new runtime.RequiredError(
-                'modifyReactionBody',
+                "modifyReactionBody",
                 'Required parameter "modifyReactionBody" was null or undefined when calling addReaction().'
             );
         }
@@ -109,7 +120,7 @@ export class IssuesCommentsReactionsApi extends runtime.BaseAPI implements Issue
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -121,15 +132,21 @@ export class IssuesCommentsReactionsApi extends runtime.BaseAPI implements Issue
         }
 
         let urlPath = `/issue_comments/id:{issue_comment_id}/reactions`;
-        urlPath = urlPath.replace(`{${"issue_comment_id"}}`, encodeURIComponent(String(requestParameters['issueCommentId'])));
+        urlPath = urlPath.replace(
+            `{${"issue_comment_id"}}`,
+            encodeURIComponent(String(requestParameters["issueCommentId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ModifyReactionBodyToJSON(requestParameters['modifyReactionBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+                body: ModifyReactionBodyToJSON(requestParameters["modifyReactionBody"]),
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ReactionsFromJSON(jsonValue));
     }
@@ -138,7 +155,10 @@ export class IssuesCommentsReactionsApi extends runtime.BaseAPI implements Issue
      * Adds a reaction to an issue comment
      * Add Reaction
      */
-    async addReaction(requestParameters: AddReactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Reactions> {
+    async addReaction(
+        requestParameters: AddReactionRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Reactions> {
         const response = await this.addReactionRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -147,17 +167,20 @@ export class IssuesCommentsReactionsApi extends runtime.BaseAPI implements Issue
      * Remove a reaction from an issue comment
      * Remove Reaction
      */
-    async removeReactionRaw(requestParameters: RemoveReactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Reactions>> {
-        if (requestParameters['issueCommentId'] == null) {
+    async removeReactionRaw(
+        requestParameters: RemoveReactionRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Reactions>> {
+        if (requestParameters["issueCommentId"] == null) {
             throw new runtime.RequiredError(
-                'issueCommentId',
+                "issueCommentId",
                 'Required parameter "issueCommentId" was null or undefined when calling removeReaction().'
             );
         }
 
-        if (requestParameters['modifyReactionBody'] == null) {
+        if (requestParameters["modifyReactionBody"] == null) {
             throw new runtime.RequiredError(
-                'modifyReactionBody',
+                "modifyReactionBody",
                 'Required parameter "modifyReactionBody" was null or undefined when calling removeReaction().'
             );
         }
@@ -166,7 +189,7 @@ export class IssuesCommentsReactionsApi extends runtime.BaseAPI implements Issue
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -178,15 +201,21 @@ export class IssuesCommentsReactionsApi extends runtime.BaseAPI implements Issue
         }
 
         let urlPath = `/issue_comments/id:{issue_comment_id}/reactions`;
-        urlPath = urlPath.replace(`{${"issue_comment_id"}}`, encodeURIComponent(String(requestParameters['issueCommentId'])));
+        urlPath = urlPath.replace(
+            `{${"issue_comment_id"}}`,
+            encodeURIComponent(String(requestParameters["issueCommentId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ModifyReactionBodyToJSON(requestParameters['modifyReactionBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "DELETE",
+                headers: headerParameters,
+                query: queryParameters,
+                body: ModifyReactionBodyToJSON(requestParameters["modifyReactionBody"]),
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ReactionsFromJSON(jsonValue));
     }
@@ -195,9 +224,11 @@ export class IssuesCommentsReactionsApi extends runtime.BaseAPI implements Issue
      * Remove a reaction from an issue comment
      * Remove Reaction
      */
-    async removeReaction(requestParameters: RemoveReactionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Reactions> {
+    async removeReaction(
+        requestParameters: RemoveReactionRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Reactions> {
         const response = await this.removeReactionRaw(requestParameters, initOverrides);
         return await response.value();
     }
-
 }

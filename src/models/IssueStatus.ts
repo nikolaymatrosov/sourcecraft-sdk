@@ -12,48 +12,46 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { StatusType } from './StatusType';
+import { mapValues } from "../runtime";
+import type { StatusType } from "./StatusType";
 import {
     StatusTypeFromJSON,
     StatusTypeFromJSONTyped,
     StatusTypeToJSON,
     StatusTypeToJSONTyped,
-} from './StatusType';
+} from "./StatusType";
 
 /**
- * 
+ *
  * @export
  * @interface IssueStatus
  */
 export interface IssueStatus {
     /**
-     * 
+     *
      * @type {string}
      * @memberof IssueStatus
      */
     id?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof IssueStatus
      */
     name?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof IssueStatus
      */
     slug?: string;
     /**
-     * 
+     *
      * @type {StatusType}
      * @memberof IssueStatus
      */
     statusType?: StatusType;
 }
-
-
 
 /**
  * Check if a given object implements the IssueStatus interface.
@@ -71,11 +69,11 @@ export function IssueStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean
         return json;
     }
     return {
-        
-        'id': json['id'] == null ? undefined : json['id'],
-        'name': json['name'] == null ? undefined : json['name'],
-        'slug': json['slug'] == null ? undefined : json['slug'],
-        'statusType': json['status_type'] == null ? undefined : StatusTypeFromJSON(json['status_type']),
+        id: json["id"] == null ? undefined : json["id"],
+        name: json["name"] == null ? undefined : json["name"],
+        slug: json["slug"] == null ? undefined : json["slug"],
+        statusType:
+            json["status_type"] == null ? undefined : StatusTypeFromJSON(json["status_type"]),
     };
 }
 
@@ -83,17 +81,18 @@ export function IssueStatusToJSON(json: any): IssueStatus {
     return IssueStatusToJSONTyped(json, false);
 }
 
-export function IssueStatusToJSONTyped(value?: IssueStatus | null, ignoreDiscriminator: boolean = false): any {
+export function IssueStatusToJSONTyped(
+    value?: IssueStatus | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'id': value['id'],
-        'name': value['name'],
-        'slug': value['slug'],
-        'status_type': StatusTypeToJSON(value['statusType']),
+        id: value["id"],
+        name: value["name"],
+        slug: value["slug"],
+        status_type: StatusTypeToJSON(value["statusType"]),
     };
 }
-

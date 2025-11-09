@@ -12,17 +12,17 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { SubjectRole } from './SubjectRole';
+import { mapValues } from "../runtime";
+import type { SubjectRole } from "./SubjectRole";
 import {
     SubjectRoleFromJSON,
     SubjectRoleFromJSONTyped,
     SubjectRoleToJSON,
     SubjectRoleToJSONTyped,
-} from './SubjectRole';
+} from "./SubjectRole";
 
 /**
- * 
+ *
  * @export
  * @interface ListRepoRolesResponse
  */
@@ -35,7 +35,7 @@ export interface ListRepoRolesResponse {
      */
     nextPageToken?: string;
     /**
-     * 
+     *
      * @type {Array<SubjectRole>}
      * @memberof ListRepoRolesResponse
      */
@@ -53,14 +53,19 @@ export function ListRepoRolesResponseFromJSON(json: any): ListRepoRolesResponse 
     return ListRepoRolesResponseFromJSONTyped(json, false);
 }
 
-export function ListRepoRolesResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): ListRepoRolesResponse {
+export function ListRepoRolesResponseFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): ListRepoRolesResponse {
     if (json == null) {
         return json;
     }
     return {
-        
-        'nextPageToken': json['next_page_token'] == null ? undefined : json['next_page_token'],
-        'subjectRoles': json['subject_roles'] == null ? undefined : ((json['subject_roles'] as Array<any>).map(SubjectRoleFromJSON)),
+        nextPageToken: json["next_page_token"] == null ? undefined : json["next_page_token"],
+        subjectRoles:
+            json["subject_roles"] == null
+                ? undefined
+                : (json["subject_roles"] as Array<any>).map(SubjectRoleFromJSON),
     };
 }
 
@@ -68,15 +73,19 @@ export function ListRepoRolesResponseToJSON(json: any): ListRepoRolesResponse {
     return ListRepoRolesResponseToJSONTyped(json, false);
 }
 
-export function ListRepoRolesResponseToJSONTyped(value?: ListRepoRolesResponse | null, ignoreDiscriminator: boolean = false): any {
+export function ListRepoRolesResponseToJSONTyped(
+    value?: ListRepoRolesResponse | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'next_page_token': value['nextPageToken'],
-        'subject_roles': value['subjectRoles'] == null ? undefined : ((value['subjectRoles'] as Array<any>).map(SubjectRoleToJSON)),
+        next_page_token: value["nextPageToken"],
+        subject_roles:
+            value["subjectRoles"] == null
+                ? undefined
+                : (value["subjectRoles"] as Array<any>).map(SubjectRoleToJSON),
     };
 }
-

@@ -12,23 +12,18 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { Branch } from './Branch';
-import {
-    BranchFromJSON,
-    BranchFromJSONTyped,
-    BranchToJSON,
-    BranchToJSONTyped,
-} from './Branch';
+import { mapValues } from "../runtime";
+import type { Branch } from "./Branch";
+import { BranchFromJSON, BranchFromJSONTyped, BranchToJSON, BranchToJSONTyped } from "./Branch";
 
 /**
- * 
+ *
  * @export
  * @interface ListBranchesResponse
  */
 export interface ListBranchesResponse {
     /**
-     * 
+     *
      * @type {Array<Branch>}
      * @memberof ListBranchesResponse
      */
@@ -53,14 +48,19 @@ export function ListBranchesResponseFromJSON(json: any): ListBranchesResponse {
     return ListBranchesResponseFromJSONTyped(json, false);
 }
 
-export function ListBranchesResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): ListBranchesResponse {
+export function ListBranchesResponseFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): ListBranchesResponse {
     if (json == null) {
         return json;
     }
     return {
-        
-        'branches': json['branches'] == null ? undefined : ((json['branches'] as Array<any>).map(BranchFromJSON)),
-        'nextPageToken': json['next_page_token'] == null ? undefined : json['next_page_token'],
+        branches:
+            json["branches"] == null
+                ? undefined
+                : (json["branches"] as Array<any>).map(BranchFromJSON),
+        nextPageToken: json["next_page_token"] == null ? undefined : json["next_page_token"],
     };
 }
 
@@ -68,15 +68,19 @@ export function ListBranchesResponseToJSON(json: any): ListBranchesResponse {
     return ListBranchesResponseToJSONTyped(json, false);
 }
 
-export function ListBranchesResponseToJSONTyped(value?: ListBranchesResponse | null, ignoreDiscriminator: boolean = false): any {
+export function ListBranchesResponseToJSONTyped(
+    value?: ListBranchesResponse | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'branches': value['branches'] == null ? undefined : ((value['branches'] as Array<any>).map(BranchToJSON)),
-        'next_page_token': value['nextPageToken'],
+        branches:
+            value["branches"] == null
+                ? undefined
+                : (value["branches"] as Array<any>).map(BranchToJSON),
+        next_page_token: value["nextPageToken"],
     };
 }
-

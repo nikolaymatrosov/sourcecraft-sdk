@@ -12,21 +12,21 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues } from "../runtime";
 /**
- * 
+ *
  * @export
  * @interface InputValue
  */
 export interface InputValue {
     /**
-     * 
+     *
      * @type {string}
      * @memberof InputValue
      */
     name?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof InputValue
      */
@@ -49,9 +49,8 @@ export function InputValueFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         return json;
     }
     return {
-        
-        'name': json['name'] == null ? undefined : json['name'],
-        'value': json['value'] == null ? undefined : json['value'],
+        name: json["name"] == null ? undefined : json["name"],
+        value: json["value"] == null ? undefined : json["value"],
     };
 }
 
@@ -59,15 +58,16 @@ export function InputValueToJSON(json: any): InputValue {
     return InputValueToJSONTyped(json, false);
 }
 
-export function InputValueToJSONTyped(value?: InputValue | null, ignoreDiscriminator: boolean = false): any {
+export function InputValueToJSONTyped(
+    value?: InputValue | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'name': value['name'],
-        'value': value['value'],
+        name: value["name"],
+        value: value["value"],
     };
 }
-

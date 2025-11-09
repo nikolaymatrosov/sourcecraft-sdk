@@ -12,20 +12,18 @@
  * Do not edit the class manually.
  */
 
-
 /**
- * 
+ *
  * @export
  */
 export const TreeEntryType = {
-    File: 'file',
-    Executable: 'executable',
-    Dir: 'dir',
-    Symlink: 'symlink',
-    Submodule: 'submodule'
+    File: "file",
+    Executable: "executable",
+    Dir: "dir",
+    Symlink: "symlink",
+    Submodule: "submodule",
 } as const;
-export type TreeEntryType = typeof TreeEntryType[keyof typeof TreeEntryType];
-
+export type TreeEntryType = (typeof TreeEntryType)[keyof typeof TreeEntryType];
 
 export function instanceOfTreeEntryType(value: any): boolean {
     for (const key in TreeEntryType) {
@@ -53,4 +51,3 @@ export function TreeEntryTypeToJSON(value?: TreeEntryType | null): any {
 export function TreeEntryTypeToJSONTyped(value: any, ignoreDiscriminator: boolean): TreeEntryType {
     return value as TreeEntryType;
 }
-

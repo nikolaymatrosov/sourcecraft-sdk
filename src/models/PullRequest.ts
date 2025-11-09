@@ -12,123 +12,121 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { MergeInfo } from './MergeInfo';
+import { mapValues } from "../runtime";
+import type { MergeInfo } from "./MergeInfo";
 import {
     MergeInfoFromJSON,
     MergeInfoFromJSONTyped,
     MergeInfoToJSON,
     MergeInfoToJSONTyped,
-} from './MergeInfo';
-import type { UserEmbedded } from './UserEmbedded';
+} from "./MergeInfo";
+import type { UserEmbedded } from "./UserEmbedded";
 import {
     UserEmbeddedFromJSON,
     UserEmbeddedFromJSONTyped,
     UserEmbeddedToJSON,
     UserEmbeddedToJSONTyped,
-} from './UserEmbedded';
-import type { PullRequestStatus } from './PullRequestStatus';
+} from "./UserEmbedded";
+import type { PullRequestStatus } from "./PullRequestStatus";
 import {
     PullRequestStatusFromJSON,
     PullRequestStatusFromJSONTyped,
     PullRequestStatusToJSON,
     PullRequestStatusToJSONTyped,
-} from './PullRequestStatus';
-import type { RepositoryEmbedded } from './RepositoryEmbedded';
+} from "./PullRequestStatus";
+import type { RepositoryEmbedded } from "./RepositoryEmbedded";
 import {
     RepositoryEmbeddedFromJSON,
     RepositoryEmbeddedFromJSONTyped,
     RepositoryEmbeddedToJSON,
     RepositoryEmbeddedToJSONTyped,
-} from './RepositoryEmbedded';
+} from "./RepositoryEmbedded";
 
 /**
- * 
+ *
  * @export
  * @interface PullRequest
  */
 export interface PullRequest {
     /**
-     * 
+     *
      * @type {UserEmbedded}
      * @memberof PullRequest
      */
     author?: UserEmbedded;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof PullRequest
      */
     createdAt?: Date;
     /**
-     * 
+     *
      * @type {string}
      * @memberof PullRequest
      */
     description?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof PullRequest
      */
     id?: string;
     /**
-     * 
+     *
      * @type {MergeInfo}
      * @memberof PullRequest
      */
     mergeInfo?: MergeInfo;
     /**
-     * 
+     *
      * @type {RepositoryEmbedded}
      * @memberof PullRequest
      */
     repository?: RepositoryEmbedded;
     /**
-     * 
+     *
      * @type {string}
      * @memberof PullRequest
      */
     slug?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof PullRequest
      */
     sourceBranch?: string;
     /**
-     * 
+     *
      * @type {PullRequestStatus}
      * @memberof PullRequest
      */
     status?: PullRequestStatus;
     /**
-     * 
+     *
      * @type {string}
      * @memberof PullRequest
      */
     targetBranch?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof PullRequest
      */
     title?: string;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof PullRequest
      */
     updatedAt?: Date;
     /**
-     * 
+     *
      * @type {UserEmbedded}
      * @memberof PullRequest
      */
     updatedBy?: UserEmbedded;
 }
-
-
 
 /**
  * Check if a given object implements the PullRequest interface.
@@ -146,20 +144,21 @@ export function PullRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean
         return json;
     }
     return {
-        
-        'author': json['author'] == null ? undefined : UserEmbeddedFromJSON(json['author']),
-        'createdAt': json['created_at'] == null ? undefined : (new Date(json['created_at'])),
-        'description': json['description'] == null ? undefined : json['description'],
-        'id': json['id'] == null ? undefined : json['id'],
-        'mergeInfo': json['merge_info'] == null ? undefined : MergeInfoFromJSON(json['merge_info']),
-        'repository': json['repository'] == null ? undefined : RepositoryEmbeddedFromJSON(json['repository']),
-        'slug': json['slug'] == null ? undefined : json['slug'],
-        'sourceBranch': json['source_branch'] == null ? undefined : json['source_branch'],
-        'status': json['status'] == null ? undefined : PullRequestStatusFromJSON(json['status']),
-        'targetBranch': json['target_branch'] == null ? undefined : json['target_branch'],
-        'title': json['title'] == null ? undefined : json['title'],
-        'updatedAt': json['updated_at'] == null ? undefined : (new Date(json['updated_at'])),
-        'updatedBy': json['updated_by'] == null ? undefined : UserEmbeddedFromJSON(json['updated_by']),
+        author: json["author"] == null ? undefined : UserEmbeddedFromJSON(json["author"]),
+        createdAt: json["created_at"] == null ? undefined : new Date(json["created_at"]),
+        description: json["description"] == null ? undefined : json["description"],
+        id: json["id"] == null ? undefined : json["id"],
+        mergeInfo: json["merge_info"] == null ? undefined : MergeInfoFromJSON(json["merge_info"]),
+        repository:
+            json["repository"] == null ? undefined : RepositoryEmbeddedFromJSON(json["repository"]),
+        slug: json["slug"] == null ? undefined : json["slug"],
+        sourceBranch: json["source_branch"] == null ? undefined : json["source_branch"],
+        status: json["status"] == null ? undefined : PullRequestStatusFromJSON(json["status"]),
+        targetBranch: json["target_branch"] == null ? undefined : json["target_branch"],
+        title: json["title"] == null ? undefined : json["title"],
+        updatedAt: json["updated_at"] == null ? undefined : new Date(json["updated_at"]),
+        updatedBy:
+            json["updated_by"] == null ? undefined : UserEmbeddedFromJSON(json["updated_by"]),
     };
 }
 
@@ -167,26 +166,29 @@ export function PullRequestToJSON(json: any): PullRequest {
     return PullRequestToJSONTyped(json, false);
 }
 
-export function PullRequestToJSONTyped(value?: PullRequest | null, ignoreDiscriminator: boolean = false): any {
+export function PullRequestToJSONTyped(
+    value?: PullRequest | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'author': UserEmbeddedToJSON(value['author']),
-        'created_at': value['createdAt'] == null ? value['createdAt'] : value['createdAt'].toISOString(),
-        'description': value['description'],
-        'id': value['id'],
-        'merge_info': MergeInfoToJSON(value['mergeInfo']),
-        'repository': RepositoryEmbeddedToJSON(value['repository']),
-        'slug': value['slug'],
-        'source_branch': value['sourceBranch'],
-        'status': PullRequestStatusToJSON(value['status']),
-        'target_branch': value['targetBranch'],
-        'title': value['title'],
-        'updated_at': value['updatedAt'] == null ? value['updatedAt'] : value['updatedAt'].toISOString(),
-        'updated_by': UserEmbeddedToJSON(value['updatedBy']),
+        author: UserEmbeddedToJSON(value["author"]),
+        created_at:
+            value["createdAt"] == null ? value["createdAt"] : value["createdAt"].toISOString(),
+        description: value["description"],
+        id: value["id"],
+        merge_info: MergeInfoToJSON(value["mergeInfo"]),
+        repository: RepositoryEmbeddedToJSON(value["repository"]),
+        slug: value["slug"],
+        source_branch: value["sourceBranch"],
+        status: PullRequestStatusToJSON(value["status"]),
+        target_branch: value["targetBranch"],
+        title: value["title"],
+        updated_at:
+            value["updatedAt"] == null ? value["updatedAt"] : value["updatedAt"].toISOString(),
+        updated_by: UserEmbeddedToJSON(value["updatedBy"]),
     };
 }
-

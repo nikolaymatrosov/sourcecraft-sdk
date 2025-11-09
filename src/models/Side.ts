@@ -12,17 +12,15 @@
  * Do not edit the class manually.
  */
 
-
 /**
- * 
+ *
  * @export
  */
 export const Side = {
-    Target: 'target',
-    Source: 'source'
+    Target: "target",
+    Source: "source",
 } as const;
-export type Side = typeof Side[keyof typeof Side];
-
+export type Side = (typeof Side)[keyof typeof Side];
 
 export function instanceOfSide(value: any): boolean {
     for (const key in Side) {
@@ -50,4 +48,3 @@ export function SideToJSON(value?: Side | null): any {
 export function SideToJSONTyped(value: any, ignoreDiscriminator: boolean): Side {
     return value as Side;
 }
-

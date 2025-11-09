@@ -12,15 +12,15 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues } from "../runtime";
 /**
- * 
+ *
  * @export
  * @interface AutoAssignBody
  */
 export interface AutoAssignBody {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof AutoAssignBody
      */
@@ -38,13 +38,15 @@ export function AutoAssignBodyFromJSON(json: any): AutoAssignBody {
     return AutoAssignBodyFromJSONTyped(json, false);
 }
 
-export function AutoAssignBodyFromJSONTyped(json: any, ignoreDiscriminator: boolean): AutoAssignBody {
+export function AutoAssignBodyFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): AutoAssignBody {
     if (json == null) {
         return json;
     }
     return {
-        
-        'silent': json['silent'] == null ? undefined : json['silent'],
+        silent: json["silent"] == null ? undefined : json["silent"],
     };
 }
 
@@ -52,14 +54,15 @@ export function AutoAssignBodyToJSON(json: any): AutoAssignBody {
     return AutoAssignBodyToJSONTyped(json, false);
 }
 
-export function AutoAssignBodyToJSONTyped(value?: AutoAssignBody | null, ignoreDiscriminator: boolean = false): any {
+export function AutoAssignBodyToJSONTyped(
+    value?: AutoAssignBody | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'silent': value['silent'],
+        silent: value["silent"],
     };
 }
-

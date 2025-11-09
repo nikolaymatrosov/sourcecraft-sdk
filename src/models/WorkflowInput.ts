@@ -12,23 +12,23 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { InputValue } from './InputValue';
+import { mapValues } from "../runtime";
+import type { InputValue } from "./InputValue";
 import {
     InputValueFromJSON,
     InputValueFromJSONTyped,
     InputValueToJSON,
     InputValueToJSONTyped,
-} from './InputValue';
+} from "./InputValue";
 
 /**
- * 
+ *
  * @export
  * @interface WorkflowInput
  */
 export interface WorkflowInput {
     /**
-     * 
+     *
      * @type {Array<InputValue>}
      * @memberof WorkflowInput
      */
@@ -51,8 +51,10 @@ export function WorkflowInputFromJSONTyped(json: any, ignoreDiscriminator: boole
         return json;
     }
     return {
-        
-        'values': json['values'] == null ? undefined : ((json['values'] as Array<any>).map(InputValueFromJSON)),
+        values:
+            json["values"] == null
+                ? undefined
+                : (json["values"] as Array<any>).map(InputValueFromJSON),
     };
 }
 
@@ -60,14 +62,18 @@ export function WorkflowInputToJSON(json: any): WorkflowInput {
     return WorkflowInputToJSONTyped(json, false);
 }
 
-export function WorkflowInputToJSONTyped(value?: WorkflowInput | null, ignoreDiscriminator: boolean = false): any {
+export function WorkflowInputToJSONTyped(
+    value?: WorkflowInput | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'values': value['values'] == null ? undefined : ((value['values'] as Array<any>).map(InputValueToJSON)),
+        values:
+            value["values"] == null
+                ? undefined
+                : (value["values"] as Array<any>).map(InputValueToJSON),
     };
 }
-

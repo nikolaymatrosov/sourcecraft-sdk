@@ -12,27 +12,27 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues } from "../runtime";
 /**
- * 
+ *
  * @export
  * @interface UpdateLabelBody
  */
 export interface UpdateLabelBody {
     /**
-     * 
+     *
      * @type {string}
      * @memberof UpdateLabelBody
      */
     color?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof UpdateLabelBody
      */
     name?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof UpdateLabelBody
      */
@@ -50,15 +50,17 @@ export function UpdateLabelBodyFromJSON(json: any): UpdateLabelBody {
     return UpdateLabelBodyFromJSONTyped(json, false);
 }
 
-export function UpdateLabelBodyFromJSONTyped(json: any, ignoreDiscriminator: boolean): UpdateLabelBody {
+export function UpdateLabelBodyFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): UpdateLabelBody {
     if (json == null) {
         return json;
     }
     return {
-        
-        'color': json['color'] == null ? undefined : json['color'],
-        'name': json['name'] == null ? undefined : json['name'],
-        'slug': json['slug'] == null ? undefined : json['slug'],
+        color: json["color"] == null ? undefined : json["color"],
+        name: json["name"] == null ? undefined : json["name"],
+        slug: json["slug"] == null ? undefined : json["slug"],
     };
 }
 
@@ -66,16 +68,17 @@ export function UpdateLabelBodyToJSON(json: any): UpdateLabelBody {
     return UpdateLabelBodyToJSONTyped(json, false);
 }
 
-export function UpdateLabelBodyToJSONTyped(value?: UpdateLabelBody | null, ignoreDiscriminator: boolean = false): any {
+export function UpdateLabelBodyToJSONTyped(
+    value?: UpdateLabelBody | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'color': value['color'],
-        'name': value['name'],
-        'slug': value['slug'],
+        color: value["color"],
+        name: value["name"],
+        slug: value["slug"],
     };
 }
-

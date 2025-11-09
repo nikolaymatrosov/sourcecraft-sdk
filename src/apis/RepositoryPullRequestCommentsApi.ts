@@ -12,14 +12,13 @@
  * Do not edit the class manually.
  */
 
-
-import * as runtime from '../runtime';
+import * as runtime from "../runtime";
 import type {
-  ApiErrorResponse,
-  CreatePullRequestCommentBody,
-  ListPullRequestCommentsResponse,
-  PullRequestComment,
-} from '../models/index';
+    ApiErrorResponse,
+    CreatePullRequestCommentBody,
+    ListPullRequestCommentsResponse,
+    PullRequestComment,
+} from "../models/index";
 import {
     ApiErrorResponseFromJSON,
     ApiErrorResponseToJSON,
@@ -29,7 +28,7 @@ import {
     ListPullRequestCommentsResponseToJSON,
     PullRequestCommentFromJSON,
     PullRequestCommentToJSON,
-} from '../models/index';
+} from "../models/index";
 
 export interface CreatePullRequestCommentRequest {
     orgSlug: string;
@@ -75,72 +74,90 @@ export interface ListPullRequestCommentsByIDRequest {
 
 /**
  * RepositoryPullRequestCommentsApi - interface
- * 
+ *
  * @export
  * @interface RepositoryPullRequestCommentsApiInterface
  */
 export interface RepositoryPullRequestCommentsApiInterface {
     /**
-     * 
+     *
      * @summary Create comment
-     * @param {string} orgSlug 
-     * @param {string} repoSlug 
-     * @param {string} pullRequestSlug 
-     * @param {CreatePullRequestCommentBody} createPullRequestCommentBody 
-     * @param {string} [pullRequestId] 
+     * @param {string} orgSlug
+     * @param {string} repoSlug
+     * @param {string} pullRequestSlug
+     * @param {CreatePullRequestCommentBody} createPullRequestCommentBody
+     * @param {string} [pullRequestId]
      * @param {boolean} [silent] do not notify subscribers
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryPullRequestCommentsApiInterface
      */
-    createPullRequestCommentRaw(requestParameters: CreatePullRequestCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequestComment>>;
+    createPullRequestCommentRaw(
+        requestParameters: CreatePullRequestCommentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<PullRequestComment>>;
 
     /**
      * Create comment
      */
-    createPullRequestComment(requestParameters: CreatePullRequestCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequestComment>;
+    createPullRequestComment(
+        requestParameters: CreatePullRequestCommentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<PullRequestComment>;
 
     /**
-     * 
+     *
      * @summary Create comment (by PullRequest ID)
-     * @param {string} pullRequestId 
-     * @param {CreatePullRequestCommentBody} createPullRequestCommentBody 
-     * @param {string} [pullRequestSlug] 
+     * @param {string} pullRequestId
+     * @param {CreatePullRequestCommentBody} createPullRequestCommentBody
+     * @param {string} [pullRequestSlug]
      * @param {boolean} [silent] do not notify subscribers
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryPullRequestCommentsApiInterface
      */
-    createPullRequestCommentByIDRaw(requestParameters: CreatePullRequestCommentByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequestComment>>;
+    createPullRequestCommentByIDRaw(
+        requestParameters: CreatePullRequestCommentByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<PullRequestComment>>;
 
     /**
      * Create comment (by PullRequest ID)
      */
-    createPullRequestCommentByID(requestParameters: CreatePullRequestCommentByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequestComment>;
+    createPullRequestCommentByID(
+        requestParameters: CreatePullRequestCommentByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<PullRequestComment>;
 
     /**
-     * 
+     *
      * @summary Get Comment
-     * @param {string} pullRequestCommentId 
+     * @param {string} pullRequestCommentId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryPullRequestCommentsApiInterface
      */
-    getPullRequestCommentRaw(requestParameters: GetPullRequestCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequestComment>>;
+    getPullRequestCommentRaw(
+        requestParameters: GetPullRequestCommentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<PullRequestComment>>;
 
     /**
      * Get Comment
      */
-    getPullRequestComment(requestParameters: GetPullRequestCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequestComment>;
+    getPullRequestComment(
+        requestParameters: GetPullRequestCommentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<PullRequestComment>;
 
     /**
-     * 
+     *
      * @summary List Comments
-     * @param {string} orgSlug 
-     * @param {string} repoSlug 
-     * @param {string} pullRequestSlug 
-     * @param {string} [pullRequestId] 
-     * @param {string} [iteration] 
+     * @param {string} orgSlug
+     * @param {string} repoSlug
+     * @param {string} pullRequestSlug
+     * @param {string} [pullRequestId]
+     * @param {string} [iteration]
      * @param {boolean} [onlyDrafts] Only drafts (unpublished) comments
      * @param {string} [pageSize] The maximum number of comments to return. The service may return fewer than this value
      * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
@@ -149,19 +166,25 @@ export interface RepositoryPullRequestCommentsApiInterface {
      * @throws {RequiredError}
      * @memberof RepositoryPullRequestCommentsApiInterface
      */
-    listPullRequestCommentsRaw(requestParameters: ListPullRequestCommentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListPullRequestCommentsResponse>>;
+    listPullRequestCommentsRaw(
+        requestParameters: ListPullRequestCommentsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListPullRequestCommentsResponse>>;
 
     /**
      * List Comments
      */
-    listPullRequestComments(requestParameters: ListPullRequestCommentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListPullRequestCommentsResponse>;
+    listPullRequestComments(
+        requestParameters: ListPullRequestCommentsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListPullRequestCommentsResponse>;
 
     /**
-     * 
+     *
      * @summary List Comments (by ID)
-     * @param {string} pullRequestId 
-     * @param {string} [pullRequestSlug] 
-     * @param {string} [iteration] 
+     * @param {string} pullRequestId
+     * @param {string} [pullRequestSlug]
+     * @param {string} [iteration]
      * @param {boolean} [onlyDrafts] Only drafts (unpublished) comments
      * @param {string} [pageSize] The maximum number of comments to return. The service may return fewer than this value
      * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
@@ -170,65 +193,75 @@ export interface RepositoryPullRequestCommentsApiInterface {
      * @throws {RequiredError}
      * @memberof RepositoryPullRequestCommentsApiInterface
      */
-    listPullRequestCommentsByIDRaw(requestParameters: ListPullRequestCommentsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListPullRequestCommentsResponse>>;
+    listPullRequestCommentsByIDRaw(
+        requestParameters: ListPullRequestCommentsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListPullRequestCommentsResponse>>;
 
     /**
      * List Comments (by ID)
      */
-    listPullRequestCommentsByID(requestParameters: ListPullRequestCommentsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListPullRequestCommentsResponse>;
-
+    listPullRequestCommentsByID(
+        requestParameters: ListPullRequestCommentsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListPullRequestCommentsResponse>;
 }
 
 /**
- * 
+ *
  */
-export class RepositoryPullRequestCommentsApi extends runtime.BaseAPI implements RepositoryPullRequestCommentsApiInterface {
-
+export class RepositoryPullRequestCommentsApi
+    extends runtime.BaseAPI
+    implements RepositoryPullRequestCommentsApiInterface
+{
     /**
      * Create comment
      */
-    async createPullRequestCommentRaw(requestParameters: CreatePullRequestCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequestComment>> {
-        if (requestParameters['orgSlug'] == null) {
+    async createPullRequestCommentRaw(
+        requestParameters: CreatePullRequestCommentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<PullRequestComment>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling createPullRequestComment().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling createPullRequestComment().'
             );
         }
 
-        if (requestParameters['pullRequestSlug'] == null) {
+        if (requestParameters["pullRequestSlug"] == null) {
             throw new runtime.RequiredError(
-                'pullRequestSlug',
+                "pullRequestSlug",
                 'Required parameter "pullRequestSlug" was null or undefined when calling createPullRequestComment().'
             );
         }
 
-        if (requestParameters['createPullRequestCommentBody'] == null) {
+        if (requestParameters["createPullRequestCommentBody"] == null) {
             throw new runtime.RequiredError(
-                'createPullRequestCommentBody',
+                "createPullRequestCommentBody",
                 'Required parameter "createPullRequestCommentBody" was null or undefined when calling createPullRequestComment().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['pullRequestId'] != null) {
-            queryParameters['pull_request_id'] = requestParameters['pullRequestId'];
+        if (requestParameters["pullRequestId"] != null) {
+            queryParameters["pull_request_id"] = requestParameters["pullRequestId"];
         }
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -240,25 +273,44 @@ export class RepositoryPullRequestCommentsApi extends runtime.BaseAPI implements
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/pulls/{pull_request_slug}/comments`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
-        urlPath = urlPath.replace(`{${"pull_request_slug"}}`, encodeURIComponent(String(requestParameters['pullRequestSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"pull_request_slug"}}`,
+            encodeURIComponent(String(requestParameters["pullRequestSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CreatePullRequestCommentBodyToJSON(requestParameters['createPullRequestCommentBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+                body: CreatePullRequestCommentBodyToJSON(
+                    requestParameters["createPullRequestCommentBody"]
+                ),
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => PullRequestCommentFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            PullRequestCommentFromJSON(jsonValue)
+        );
     }
 
     /**
      * Create comment
      */
-    async createPullRequestComment(requestParameters: CreatePullRequestCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequestComment> {
+    async createPullRequestComment(
+        requestParameters: CreatePullRequestCommentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<PullRequestComment> {
         const response = await this.createPullRequestCommentRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -266,34 +318,37 @@ export class RepositoryPullRequestCommentsApi extends runtime.BaseAPI implements
     /**
      * Create comment (by PullRequest ID)
      */
-    async createPullRequestCommentByIDRaw(requestParameters: CreatePullRequestCommentByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequestComment>> {
-        if (requestParameters['pullRequestId'] == null) {
+    async createPullRequestCommentByIDRaw(
+        requestParameters: CreatePullRequestCommentByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<PullRequestComment>> {
+        if (requestParameters["pullRequestId"] == null) {
             throw new runtime.RequiredError(
-                'pullRequestId',
+                "pullRequestId",
                 'Required parameter "pullRequestId" was null or undefined when calling createPullRequestCommentByID().'
             );
         }
 
-        if (requestParameters['createPullRequestCommentBody'] == null) {
+        if (requestParameters["createPullRequestCommentBody"] == null) {
             throw new runtime.RequiredError(
-                'createPullRequestCommentBody',
+                "createPullRequestCommentBody",
                 'Required parameter "createPullRequestCommentBody" was null or undefined when calling createPullRequestCommentByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['pullRequestSlug'] != null) {
-            queryParameters['pull_request_slug'] = requestParameters['pullRequestSlug'];
+        if (requestParameters["pullRequestSlug"] != null) {
+            queryParameters["pull_request_slug"] = requestParameters["pullRequestSlug"];
         }
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -305,34 +360,53 @@ export class RepositoryPullRequestCommentsApi extends runtime.BaseAPI implements
         }
 
         let urlPath = `/pulls/id:{pull_request_id}/comments`;
-        urlPath = urlPath.replace(`{${"pull_request_id"}}`, encodeURIComponent(String(requestParameters['pullRequestId'])));
+        urlPath = urlPath.replace(
+            `{${"pull_request_id"}}`,
+            encodeURIComponent(String(requestParameters["pullRequestId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CreatePullRequestCommentBodyToJSON(requestParameters['createPullRequestCommentBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+                body: CreatePullRequestCommentBodyToJSON(
+                    requestParameters["createPullRequestCommentBody"]
+                ),
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => PullRequestCommentFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            PullRequestCommentFromJSON(jsonValue)
+        );
     }
 
     /**
      * Create comment (by PullRequest ID)
      */
-    async createPullRequestCommentByID(requestParameters: CreatePullRequestCommentByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequestComment> {
-        const response = await this.createPullRequestCommentByIDRaw(requestParameters, initOverrides);
+    async createPullRequestCommentByID(
+        requestParameters: CreatePullRequestCommentByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<PullRequestComment> {
+        const response = await this.createPullRequestCommentByIDRaw(
+            requestParameters,
+            initOverrides
+        );
         return await response.value();
     }
 
     /**
      * Get Comment
      */
-    async getPullRequestCommentRaw(requestParameters: GetPullRequestCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequestComment>> {
-        if (requestParameters['pullRequestCommentId'] == null) {
+    async getPullRequestCommentRaw(
+        requestParameters: GetPullRequestCommentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<PullRequestComment>> {
+        if (requestParameters["pullRequestCommentId"] == null) {
             throw new runtime.RequiredError(
-                'pullRequestCommentId',
+                "pullRequestCommentId",
                 'Required parameter "pullRequestCommentId" was null or undefined when calling getPullRequestComment().'
             );
         }
@@ -351,22 +425,33 @@ export class RepositoryPullRequestCommentsApi extends runtime.BaseAPI implements
         }
 
         let urlPath = `/pull_comments/id:{pull_request_comment_id}`;
-        urlPath = urlPath.replace(`{${"pull_request_comment_id"}}`, encodeURIComponent(String(requestParameters['pullRequestCommentId'])));
+        urlPath = urlPath.replace(
+            `{${"pull_request_comment_id"}}`,
+            encodeURIComponent(String(requestParameters["pullRequestCommentId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => PullRequestCommentFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            PullRequestCommentFromJSON(jsonValue)
+        );
     }
 
     /**
      * Get Comment
      */
-    async getPullRequestComment(requestParameters: GetPullRequestCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequestComment> {
+    async getPullRequestComment(
+        requestParameters: GetPullRequestCommentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<PullRequestComment> {
         const response = await this.getPullRequestCommentRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -374,52 +459,55 @@ export class RepositoryPullRequestCommentsApi extends runtime.BaseAPI implements
     /**
      * List Comments
      */
-    async listPullRequestCommentsRaw(requestParameters: ListPullRequestCommentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListPullRequestCommentsResponse>> {
-        if (requestParameters['orgSlug'] == null) {
+    async listPullRequestCommentsRaw(
+        requestParameters: ListPullRequestCommentsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListPullRequestCommentsResponse>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling listPullRequestComments().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling listPullRequestComments().'
             );
         }
 
-        if (requestParameters['pullRequestSlug'] == null) {
+        if (requestParameters["pullRequestSlug"] == null) {
             throw new runtime.RequiredError(
-                'pullRequestSlug',
+                "pullRequestSlug",
                 'Required parameter "pullRequestSlug" was null or undefined when calling listPullRequestComments().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['pullRequestId'] != null) {
-            queryParameters['pull_request_id'] = requestParameters['pullRequestId'];
+        if (requestParameters["pullRequestId"] != null) {
+            queryParameters["pull_request_id"] = requestParameters["pullRequestId"];
         }
 
-        if (requestParameters['iteration'] != null) {
-            queryParameters['iteration'] = requestParameters['iteration'];
+        if (requestParameters["iteration"] != null) {
+            queryParameters["iteration"] = requestParameters["iteration"];
         }
 
-        if (requestParameters['onlyDrafts'] != null) {
-            queryParameters['only_drafts'] = requestParameters['onlyDrafts'];
+        if (requestParameters["onlyDrafts"] != null) {
+            queryParameters["only_drafts"] = requestParameters["onlyDrafts"];
         }
 
-        if (requestParameters['pageSize'] != null) {
-            queryParameters['page_size'] = requestParameters['pageSize'];
+        if (requestParameters["pageSize"] != null) {
+            queryParameters["page_size"] = requestParameters["pageSize"];
         }
 
-        if (requestParameters['pageToken'] != null) {
-            queryParameters['page_token'] = requestParameters['pageToken'];
+        if (requestParameters["pageToken"] != null) {
+            queryParameters["page_token"] = requestParameters["pageToken"];
         }
 
-        if (requestParameters['sortBy'] != null) {
-            queryParameters['sort_by'] = requestParameters['sortBy'];
+        if (requestParameters["sortBy"] != null) {
+            queryParameters["sort_by"] = requestParameters["sortBy"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -434,24 +522,41 @@ export class RepositoryPullRequestCommentsApi extends runtime.BaseAPI implements
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/pulls/{pull_request_slug}/comments`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
-        urlPath = urlPath.replace(`{${"pull_request_slug"}}`, encodeURIComponent(String(requestParameters['pullRequestSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"pull_request_slug"}}`,
+            encodeURIComponent(String(requestParameters["pullRequestSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ListPullRequestCommentsResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            ListPullRequestCommentsResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * List Comments
      */
-    async listPullRequestComments(requestParameters: ListPullRequestCommentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListPullRequestCommentsResponse> {
+    async listPullRequestComments(
+        requestParameters: ListPullRequestCommentsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListPullRequestCommentsResponse> {
         const response = await this.listPullRequestCommentsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -459,38 +564,41 @@ export class RepositoryPullRequestCommentsApi extends runtime.BaseAPI implements
     /**
      * List Comments (by ID)
      */
-    async listPullRequestCommentsByIDRaw(requestParameters: ListPullRequestCommentsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListPullRequestCommentsResponse>> {
-        if (requestParameters['pullRequestId'] == null) {
+    async listPullRequestCommentsByIDRaw(
+        requestParameters: ListPullRequestCommentsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListPullRequestCommentsResponse>> {
+        if (requestParameters["pullRequestId"] == null) {
             throw new runtime.RequiredError(
-                'pullRequestId',
+                "pullRequestId",
                 'Required parameter "pullRequestId" was null or undefined when calling listPullRequestCommentsByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['pullRequestSlug'] != null) {
-            queryParameters['pull_request_slug'] = requestParameters['pullRequestSlug'];
+        if (requestParameters["pullRequestSlug"] != null) {
+            queryParameters["pull_request_slug"] = requestParameters["pullRequestSlug"];
         }
 
-        if (requestParameters['iteration'] != null) {
-            queryParameters['iteration'] = requestParameters['iteration'];
+        if (requestParameters["iteration"] != null) {
+            queryParameters["iteration"] = requestParameters["iteration"];
         }
 
-        if (requestParameters['onlyDrafts'] != null) {
-            queryParameters['only_drafts'] = requestParameters['onlyDrafts'];
+        if (requestParameters["onlyDrafts"] != null) {
+            queryParameters["only_drafts"] = requestParameters["onlyDrafts"];
         }
 
-        if (requestParameters['pageSize'] != null) {
-            queryParameters['page_size'] = requestParameters['pageSize'];
+        if (requestParameters["pageSize"] != null) {
+            queryParameters["page_size"] = requestParameters["pageSize"];
         }
 
-        if (requestParameters['pageToken'] != null) {
-            queryParameters['page_token'] = requestParameters['pageToken'];
+        if (requestParameters["pageToken"] != null) {
+            queryParameters["page_token"] = requestParameters["pageToken"];
         }
 
-        if (requestParameters['sortBy'] != null) {
-            queryParameters['sort_by'] = requestParameters['sortBy'];
+        if (requestParameters["sortBy"] != null) {
+            queryParameters["sort_by"] = requestParameters["sortBy"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -505,24 +613,37 @@ export class RepositoryPullRequestCommentsApi extends runtime.BaseAPI implements
         }
 
         let urlPath = `/pulls/id:{pull_request_id}/comments`;
-        urlPath = urlPath.replace(`{${"pull_request_id"}}`, encodeURIComponent(String(requestParameters['pullRequestId'])));
+        urlPath = urlPath.replace(
+            `{${"pull_request_id"}}`,
+            encodeURIComponent(String(requestParameters["pullRequestId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ListPullRequestCommentsResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            ListPullRequestCommentsResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * List Comments (by ID)
      */
-    async listPullRequestCommentsByID(requestParameters: ListPullRequestCommentsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListPullRequestCommentsResponse> {
-        const response = await this.listPullRequestCommentsByIDRaw(requestParameters, initOverrides);
+    async listPullRequestCommentsByID(
+        requestParameters: ListPullRequestCommentsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListPullRequestCommentsResponse> {
+        const response = await this.listPullRequestCommentsByIDRaw(
+            requestParameters,
+            initOverrides
+        );
         return await response.value();
     }
-
 }

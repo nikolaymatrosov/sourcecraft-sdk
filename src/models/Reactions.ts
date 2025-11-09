@@ -12,27 +12,27 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { ReactionCount } from './ReactionCount';
+import { mapValues } from "../runtime";
+import type { ReactionCount } from "./ReactionCount";
 import {
     ReactionCountFromJSON,
     ReactionCountFromJSONTyped,
     ReactionCountToJSON,
     ReactionCountToJSONTyped,
-} from './ReactionCount';
+} from "./ReactionCount";
 
 /**
- * 
+ *
  * @export
  * @interface Reactions
  */
 export interface Reactions {
     /**
-     * 
+     *
      * @type {{ [key: string]: ReactionCount; }}
      * @memberof Reactions
      */
-    reactions?: { [key: string]: ReactionCount; };
+    reactions?: { [key: string]: ReactionCount };
 }
 
 /**
@@ -51,8 +51,10 @@ export function ReactionsFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         return json;
     }
     return {
-        
-        'reactions': json['reactions'] == null ? undefined : (mapValues(json['reactions'], ReactionCountFromJSON)),
+        reactions:
+            json["reactions"] == null
+                ? undefined
+                : mapValues(json["reactions"], ReactionCountFromJSON),
     };
 }
 
@@ -60,14 +62,18 @@ export function ReactionsToJSON(json: any): Reactions {
     return ReactionsToJSONTyped(json, false);
 }
 
-export function ReactionsToJSONTyped(value?: Reactions | null, ignoreDiscriminator: boolean = false): any {
+export function ReactionsToJSONTyped(
+    value?: Reactions | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'reactions': value['reactions'] == null ? undefined : (mapValues(value['reactions'], ReactionCountToJSON)),
+        reactions:
+            value["reactions"] == null
+                ? undefined
+                : mapValues(value["reactions"], ReactionCountToJSON),
     };
 }
-

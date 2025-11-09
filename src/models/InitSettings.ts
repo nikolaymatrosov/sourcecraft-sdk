@@ -12,39 +12,39 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues } from "../runtime";
 /**
- * 
+ *
  * @export
  * @interface InitSettings
  */
 export interface InitSettings {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof InitSettings
      */
     createReadme?: boolean;
     /**
-     * 
+     *
      * @type {string}
      * @memberof InitSettings
      */
     defaultBranch?: string;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof InitSettings
      */
     gitignorePresets?: Array<string>;
     /**
-     * 
+     *
      * @type {string}
      * @memberof InitSettings
      */
     licenseSlug?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof InitSettings
      */
@@ -67,12 +67,12 @@ export function InitSettingsFromJSONTyped(json: any, ignoreDiscriminator: boolea
         return json;
     }
     return {
-        
-        'createReadme': json['create_readme'] == null ? undefined : json['create_readme'],
-        'defaultBranch': json['default_branch'] == null ? undefined : json['default_branch'],
-        'gitignorePresets': json['gitignore_presets'] == null ? undefined : json['gitignore_presets'],
-        'licenseSlug': json['license_slug'] == null ? undefined : json['license_slug'],
-        'srcYamlTemplateSlug': json['src_yaml_template_slug'] == null ? undefined : json['src_yaml_template_slug'],
+        createReadme: json["create_readme"] == null ? undefined : json["create_readme"],
+        defaultBranch: json["default_branch"] == null ? undefined : json["default_branch"],
+        gitignorePresets: json["gitignore_presets"] == null ? undefined : json["gitignore_presets"],
+        licenseSlug: json["license_slug"] == null ? undefined : json["license_slug"],
+        srcYamlTemplateSlug:
+            json["src_yaml_template_slug"] == null ? undefined : json["src_yaml_template_slug"],
     };
 }
 
@@ -80,18 +80,19 @@ export function InitSettingsToJSON(json: any): InitSettings {
     return InitSettingsToJSONTyped(json, false);
 }
 
-export function InitSettingsToJSONTyped(value?: InitSettings | null, ignoreDiscriminator: boolean = false): any {
+export function InitSettingsToJSONTyped(
+    value?: InitSettings | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'create_readme': value['createReadme'],
-        'default_branch': value['defaultBranch'],
-        'gitignore_presets': value['gitignorePresets'],
-        'license_slug': value['licenseSlug'],
-        'src_yaml_template_slug': value['srcYamlTemplateSlug'],
+        create_readme: value["createReadme"],
+        default_branch: value["defaultBranch"],
+        gitignore_presets: value["gitignorePresets"],
+        license_slug: value["licenseSlug"],
+        src_yaml_template_slug: value["srcYamlTemplateSlug"],
     };
 }
-

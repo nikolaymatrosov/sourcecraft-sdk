@@ -12,16 +12,14 @@
  * Do not edit the class manually.
  */
 
-
 /**
- * 
+ *
  * @export
  */
 export const SubjectType = {
-    User: 'user'
+    User: "user",
 } as const;
-export type SubjectType = typeof SubjectType[keyof typeof SubjectType];
-
+export type SubjectType = (typeof SubjectType)[keyof typeof SubjectType];
 
 export function instanceOfSubjectType(value: any): boolean {
     for (const key in SubjectType) {
@@ -49,4 +47,3 @@ export function SubjectTypeToJSON(value?: SubjectType | null): any {
 export function SubjectTypeToJSONTyped(value: any, ignoreDiscriminator: boolean): SubjectType {
     return value as SubjectType;
 }
-

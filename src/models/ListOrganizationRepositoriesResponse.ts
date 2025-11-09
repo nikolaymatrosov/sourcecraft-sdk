@@ -12,17 +12,17 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { Repository } from './Repository';
+import { mapValues } from "../runtime";
+import type { Repository } from "./Repository";
 import {
     RepositoryFromJSON,
     RepositoryFromJSONTyped,
     RepositoryToJSON,
     RepositoryToJSONTyped,
-} from './Repository';
+} from "./Repository";
 
 /**
- * 
+ *
  * @export
  * @interface ListOrganizationRepositoriesResponse
  */
@@ -35,7 +35,7 @@ export interface ListOrganizationRepositoriesResponse {
      */
     nextPageToken?: string;
     /**
-     * 
+     *
      * @type {Array<Repository>}
      * @memberof ListOrganizationRepositoriesResponse
      */
@@ -45,38 +45,53 @@ export interface ListOrganizationRepositoriesResponse {
 /**
  * Check if a given object implements the ListOrganizationRepositoriesResponse interface.
  */
-export function instanceOfListOrganizationRepositoriesResponse(value: object): value is ListOrganizationRepositoriesResponse {
+export function instanceOfListOrganizationRepositoriesResponse(
+    value: object
+): value is ListOrganizationRepositoriesResponse {
     return true;
 }
 
-export function ListOrganizationRepositoriesResponseFromJSON(json: any): ListOrganizationRepositoriesResponse {
+export function ListOrganizationRepositoriesResponseFromJSON(
+    json: any
+): ListOrganizationRepositoriesResponse {
     return ListOrganizationRepositoriesResponseFromJSONTyped(json, false);
 }
 
-export function ListOrganizationRepositoriesResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): ListOrganizationRepositoriesResponse {
+export function ListOrganizationRepositoriesResponseFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): ListOrganizationRepositoriesResponse {
     if (json == null) {
         return json;
     }
     return {
-        
-        'nextPageToken': json['next_page_token'] == null ? undefined : json['next_page_token'],
-        'repositories': json['repositories'] == null ? undefined : ((json['repositories'] as Array<any>).map(RepositoryFromJSON)),
+        nextPageToken: json["next_page_token"] == null ? undefined : json["next_page_token"],
+        repositories:
+            json["repositories"] == null
+                ? undefined
+                : (json["repositories"] as Array<any>).map(RepositoryFromJSON),
     };
 }
 
-export function ListOrganizationRepositoriesResponseToJSON(json: any): ListOrganizationRepositoriesResponse {
+export function ListOrganizationRepositoriesResponseToJSON(
+    json: any
+): ListOrganizationRepositoriesResponse {
     return ListOrganizationRepositoriesResponseToJSONTyped(json, false);
 }
 
-export function ListOrganizationRepositoriesResponseToJSONTyped(value?: ListOrganizationRepositoriesResponse | null, ignoreDiscriminator: boolean = false): any {
+export function ListOrganizationRepositoriesResponseToJSONTyped(
+    value?: ListOrganizationRepositoriesResponse | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'next_page_token': value['nextPageToken'],
-        'repositories': value['repositories'] == null ? undefined : ((value['repositories'] as Array<any>).map(RepositoryToJSON)),
+        next_page_token: value["nextPageToken"],
+        repositories:
+            value["repositories"] == null
+                ? undefined
+                : (value["repositories"] as Array<any>).map(RepositoryToJSON),
     };
 }
-

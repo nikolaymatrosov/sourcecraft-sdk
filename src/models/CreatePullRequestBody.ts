@@ -12,27 +12,27 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues } from "../runtime";
 /**
- * 
+ *
  * @export
  * @interface CreatePullRequestBody
  */
 export interface CreatePullRequestBody {
     /**
-     * 
+     *
      * @type {string}
      * @memberof CreatePullRequestBody
      */
     description?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof CreatePullRequestBody
      */
     forkRepoId?: string;
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof CreatePullRequestBody
      */
@@ -44,19 +44,19 @@ export interface CreatePullRequestBody {
      */
     reviewerIds?: Array<string>;
     /**
-     * 
+     *
      * @type {string}
      * @memberof CreatePullRequestBody
      */
     sourceBranch?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof CreatePullRequestBody
      */
     targetBranch?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof CreatePullRequestBody
      */
@@ -74,19 +74,21 @@ export function CreatePullRequestBodyFromJSON(json: any): CreatePullRequestBody 
     return CreatePullRequestBodyFromJSONTyped(json, false);
 }
 
-export function CreatePullRequestBodyFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreatePullRequestBody {
+export function CreatePullRequestBodyFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): CreatePullRequestBody {
     if (json == null) {
         return json;
     }
     return {
-        
-        'description': json['description'] == null ? undefined : json['description'],
-        'forkRepoId': json['fork_repo_id'] == null ? undefined : json['fork_repo_id'],
-        'publish': json['publish'] == null ? undefined : json['publish'],
-        'reviewerIds': json['reviewer_ids'] == null ? undefined : json['reviewer_ids'],
-        'sourceBranch': json['source_branch'] == null ? undefined : json['source_branch'],
-        'targetBranch': json['target_branch'] == null ? undefined : json['target_branch'],
-        'title': json['title'] == null ? undefined : json['title'],
+        description: json["description"] == null ? undefined : json["description"],
+        forkRepoId: json["fork_repo_id"] == null ? undefined : json["fork_repo_id"],
+        publish: json["publish"] == null ? undefined : json["publish"],
+        reviewerIds: json["reviewer_ids"] == null ? undefined : json["reviewer_ids"],
+        sourceBranch: json["source_branch"] == null ? undefined : json["source_branch"],
+        targetBranch: json["target_branch"] == null ? undefined : json["target_branch"],
+        title: json["title"] == null ? undefined : json["title"],
     };
 }
 
@@ -94,20 +96,21 @@ export function CreatePullRequestBodyToJSON(json: any): CreatePullRequestBody {
     return CreatePullRequestBodyToJSONTyped(json, false);
 }
 
-export function CreatePullRequestBodyToJSONTyped(value?: CreatePullRequestBody | null, ignoreDiscriminator: boolean = false): any {
+export function CreatePullRequestBodyToJSONTyped(
+    value?: CreatePullRequestBody | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'description': value['description'],
-        'fork_repo_id': value['forkRepoId'],
-        'publish': value['publish'],
-        'reviewer_ids': value['reviewerIds'],
-        'source_branch': value['sourceBranch'],
-        'target_branch': value['targetBranch'],
-        'title': value['title'],
+        description: value["description"],
+        fork_repo_id: value["forkRepoId"],
+        publish: value["publish"],
+        reviewer_ids: value["reviewerIds"],
+        source_branch: value["sourceBranch"],
+        target_branch: value["targetBranch"],
+        title: value["title"],
     };
 }
-

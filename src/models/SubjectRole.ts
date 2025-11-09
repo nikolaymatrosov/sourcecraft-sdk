@@ -12,43 +12,41 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { Subject } from './Subject';
+import { mapValues } from "../runtime";
+import type { Subject } from "./Subject";
 import {
     SubjectFromJSON,
     SubjectFromJSONTyped,
     SubjectToJSON,
     SubjectToJSONTyped,
-} from './Subject';
-import type { RepoRole } from './RepoRole';
+} from "./Subject";
+import type { RepoRole } from "./RepoRole";
 import {
     RepoRoleFromJSON,
     RepoRoleFromJSONTyped,
     RepoRoleToJSON,
     RepoRoleToJSONTyped,
-} from './RepoRole';
+} from "./RepoRole";
 
 /**
- * 
+ *
  * @export
  * @interface SubjectRole
  */
 export interface SubjectRole {
     /**
-     * 
+     *
      * @type {RepoRole}
      * @memberof SubjectRole
      */
     role?: RepoRole;
     /**
-     * 
+     *
      * @type {Subject}
      * @memberof SubjectRole
      */
     subject?: Subject;
 }
-
-
 
 /**
  * Check if a given object implements the SubjectRole interface.
@@ -66,9 +64,8 @@ export function SubjectRoleFromJSONTyped(json: any, ignoreDiscriminator: boolean
         return json;
     }
     return {
-        
-        'role': json['role'] == null ? undefined : RepoRoleFromJSON(json['role']),
-        'subject': json['subject'] == null ? undefined : SubjectFromJSON(json['subject']),
+        role: json["role"] == null ? undefined : RepoRoleFromJSON(json["role"]),
+        subject: json["subject"] == null ? undefined : SubjectFromJSON(json["subject"]),
     };
 }
 
@@ -76,15 +73,16 @@ export function SubjectRoleToJSON(json: any): SubjectRole {
     return SubjectRoleToJSONTyped(json, false);
 }
 
-export function SubjectRoleToJSONTyped(value?: SubjectRole | null, ignoreDiscriminator: boolean = false): any {
+export function SubjectRoleToJSONTyped(
+    value?: SubjectRole | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'role': RepoRoleToJSON(value['role']),
-        'subject': SubjectToJSON(value['subject']),
+        role: RepoRoleToJSON(value["role"]),
+        subject: SubjectToJSON(value["subject"]),
     };
 }
-

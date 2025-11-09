@@ -12,16 +12,15 @@
  * Do not edit the class manually.
  */
 
-
-import * as runtime from '../runtime';
+import * as runtime from "../runtime";
 import type {
-  ApiErrorResponse,
-  CreateIssueBody,
-  Issue,
-  ListIssuesAssignedToAuthenticatedUserResponse,
-  ListRepositoryIssuesResponse,
-  UpdateIssueBody,
-} from '../models/index';
+    ApiErrorResponse,
+    CreateIssueBody,
+    Issue,
+    ListIssuesAssignedToAuthenticatedUserResponse,
+    ListRepositoryIssuesResponse,
+    UpdateIssueBody,
+} from "../models/index";
 import {
     ApiErrorResponseFromJSON,
     ApiErrorResponseToJSON,
@@ -35,7 +34,7 @@ import {
     ListRepositoryIssuesResponseToJSON,
     UpdateIssueBodyFromJSON,
     UpdateIssueBodyToJSON,
-} from '../models/index';
+} from "../models/index";
 
 export interface CreateIssueRequest {
     orgSlug: string;
@@ -112,136 +111,178 @@ export interface UpdateIssueByIDRequest {
 
 /**
  * IssuesApi - interface
- * 
+ *
  * @export
  * @interface IssuesApiInterface
  */
 export interface IssuesApiInterface {
     /**
-     * 
+     *
      * @summary Create Issue in Repository
-     * @param {string} orgSlug 
-     * @param {string} repoSlug 
-     * @param {CreateIssueBody} createIssueBody 
+     * @param {string} orgSlug
+     * @param {string} repoSlug
+     * @param {CreateIssueBody} createIssueBody
      * @param {boolean} [silent] do not notify subscribers
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesApiInterface
      */
-    createIssueRaw(requestParameters: CreateIssueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Issue>>;
+    createIssueRaw(
+        requestParameters: CreateIssueRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Issue>>;
 
     /**
      * Create Issue in Repository
      */
-    createIssue(requestParameters: CreateIssueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Issue>;
+    createIssue(
+        requestParameters: CreateIssueRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Issue>;
 
     /**
-     * 
+     *
      * @summary Create Issue in Repository (By Repo ID)
-     * @param {string} repoId 
-     * @param {CreateIssueBody} createIssueBody 
+     * @param {string} repoId
+     * @param {CreateIssueBody} createIssueBody
      * @param {boolean} [silent] do not notify subscribers
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesApiInterface
      */
-    createIssueByIDRaw(requestParameters: CreateIssueByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Issue>>;
+    createIssueByIDRaw(
+        requestParameters: CreateIssueByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Issue>>;
 
     /**
      * Create Issue in Repository (By Repo ID)
      */
-    createIssueByID(requestParameters: CreateIssueByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Issue>;
+    createIssueByID(
+        requestParameters: CreateIssueByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Issue>;
 
     /**
-     * 
+     *
      * @summary Delete Issue
-     * @param {string} orgSlug 
-     * @param {string} repoSlug 
-     * @param {string} issueSlug 
+     * @param {string} orgSlug
+     * @param {string} repoSlug
+     * @param {string} issueSlug
      * @param {boolean} [silent] do not notify subscribers
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesApiInterface
      */
-    deleteIssueRaw(requestParameters: DeleteIssueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    deleteIssueRaw(
+        requestParameters: DeleteIssueRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<void>>;
 
     /**
      * Delete Issue
      */
-    deleteIssue(requestParameters: DeleteIssueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    deleteIssue(
+        requestParameters: DeleteIssueRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<void>;
 
     /**
-     * 
+     *
      * @summary Delete Issue (By Issue ID)
-     * @param {string} issueId 
+     * @param {string} issueId
      * @param {boolean} [silent] do not notify subscribers
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesApiInterface
      */
-    deleteIssueByIDRaw(requestParameters: DeleteIssueByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    deleteIssueByIDRaw(
+        requestParameters: DeleteIssueByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<void>>;
 
     /**
      * Delete Issue (By Issue ID)
      */
-    deleteIssueByID(requestParameters: DeleteIssueByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    deleteIssueByID(
+        requestParameters: DeleteIssueByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<void>;
 
     /**
-     * 
+     *
      * @summary Get Issue
-     * @param {string} orgSlug 
-     * @param {string} repoSlug 
-     * @param {string} issueSlug 
+     * @param {string} orgSlug
+     * @param {string} repoSlug
+     * @param {string} issueSlug
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesApiInterface
      */
-    getIssueRaw(requestParameters: GetIssueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Issue>>;
+    getIssueRaw(
+        requestParameters: GetIssueRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Issue>>;
 
     /**
      * Get Issue
      */
-    getIssue(requestParameters: GetIssueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Issue>;
+    getIssue(
+        requestParameters: GetIssueRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Issue>;
 
     /**
-     * 
+     *
      * @summary Get Issue (By ID)
-     * @param {string} issueId 
+     * @param {string} issueId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesApiInterface
      */
-    getIssueByIDRaw(requestParameters: GetIssueByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Issue>>;
+    getIssueByIDRaw(
+        requestParameters: GetIssueByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Issue>>;
 
     /**
      * Get Issue (By ID)
      */
-    getIssueByID(requestParameters: GetIssueByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Issue>;
+    getIssueByID(
+        requestParameters: GetIssueByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Issue>;
 
     /**
      * Returns a list of issues that are either assigned to or created by the currently authenticated user.
      * @summary My Issues
-     * @param {string} [pageSize] 
-     * @param {string} [pageToken] 
-     * @param {string} [sortBy] 
-     * @param {string} [filter] 
+     * @param {string} [pageSize]
+     * @param {string} [pageToken]
+     * @param {string} [sortBy]
+     * @param {string} [filter]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesApiInterface
      */
-    listIssuesAssignedToAuthenticatedUserRaw(requestParameters: ListIssuesAssignedToAuthenticatedUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListIssuesAssignedToAuthenticatedUserResponse>>;
+    listIssuesAssignedToAuthenticatedUserRaw(
+        requestParameters: ListIssuesAssignedToAuthenticatedUserRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListIssuesAssignedToAuthenticatedUserResponse>>;
 
     /**
      * Returns a list of issues that are either assigned to or created by the currently authenticated user.
      * My Issues
      */
-    listIssuesAssignedToAuthenticatedUser(requestParameters: ListIssuesAssignedToAuthenticatedUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListIssuesAssignedToAuthenticatedUserResponse>;
+    listIssuesAssignedToAuthenticatedUser(
+        requestParameters: ListIssuesAssignedToAuthenticatedUserRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListIssuesAssignedToAuthenticatedUserResponse>;
 
     /**
-     * 
+     *
      * @summary List Repository Issues
-     * @param {string} orgSlug 
-     * @param {string} repoSlug 
+     * @param {string} orgSlug
+     * @param {string} repoSlug
      * @param {string} [pageSize] The maximum number of issues to return. The service may return fewer than this value
      * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
      * @param {string} [sortBy] Ordering options: comma separated list of fields. For example: \&quot;name, created_at\&quot; Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;name, -created_at\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent.
@@ -250,17 +291,23 @@ export interface IssuesApiInterface {
      * @throws {RequiredError}
      * @memberof IssuesApiInterface
      */
-    listRepositoryIssuesRaw(requestParameters: ListRepositoryIssuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListRepositoryIssuesResponse>>;
+    listRepositoryIssuesRaw(
+        requestParameters: ListRepositoryIssuesRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListRepositoryIssuesResponse>>;
 
     /**
      * List Repository Issues
      */
-    listRepositoryIssues(requestParameters: ListRepositoryIssuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListRepositoryIssuesResponse>;
+    listRepositoryIssues(
+        requestParameters: ListRepositoryIssuesRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListRepositoryIssuesResponse>;
 
     /**
-     * 
+     *
      * @summary List Repository Issues (By Repo ID)
-     * @param {string} repoId 
+     * @param {string} repoId
      * @param {string} [pageSize] The maximum number of issues to return. The service may return fewer than this value
      * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
      * @param {string} [sortBy] Ordering options: comma separated list of fields. For example: \&quot;name, created_at\&quot; Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;name, -created_at\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent.
@@ -269,90 +316,109 @@ export interface IssuesApiInterface {
      * @throws {RequiredError}
      * @memberof IssuesApiInterface
      */
-    listRepositoryIssuesByIDRaw(requestParameters: ListRepositoryIssuesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListRepositoryIssuesResponse>>;
+    listRepositoryIssuesByIDRaw(
+        requestParameters: ListRepositoryIssuesByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListRepositoryIssuesResponse>>;
 
     /**
      * List Repository Issues (By Repo ID)
      */
-    listRepositoryIssuesByID(requestParameters: ListRepositoryIssuesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListRepositoryIssuesResponse>;
+    listRepositoryIssuesByID(
+        requestParameters: ListRepositoryIssuesByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListRepositoryIssuesResponse>;
 
     /**
-     * 
+     *
      * @summary Update Issue
-     * @param {string} orgSlug 
-     * @param {string} repoSlug 
-     * @param {string} issueSlug 
-     * @param {UpdateIssueBody} updateIssueBody 
-     * @param {boolean} [silent] 
+     * @param {string} orgSlug
+     * @param {string} repoSlug
+     * @param {string} issueSlug
+     * @param {UpdateIssueBody} updateIssueBody
+     * @param {boolean} [silent]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesApiInterface
      */
-    updateIssueRaw(requestParameters: UpdateIssueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Issue>>;
+    updateIssueRaw(
+        requestParameters: UpdateIssueRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Issue>>;
 
     /**
      * Update Issue
      */
-    updateIssue(requestParameters: UpdateIssueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Issue>;
+    updateIssue(
+        requestParameters: UpdateIssueRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Issue>;
 
     /**
-     * 
+     *
      * @summary Update Issue (By Issue ID)
-     * @param {string} issueId 
-     * @param {UpdateIssueBody} updateIssueBody 
-     * @param {boolean} [silent] 
+     * @param {string} issueId
+     * @param {UpdateIssueBody} updateIssueBody
+     * @param {boolean} [silent]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesApiInterface
      */
-    updateIssueByIDRaw(requestParameters: UpdateIssueByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Issue>>;
+    updateIssueByIDRaw(
+        requestParameters: UpdateIssueByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Issue>>;
 
     /**
      * Update Issue (By Issue ID)
      */
-    updateIssueByID(requestParameters: UpdateIssueByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Issue>;
-
+    updateIssueByID(
+        requestParameters: UpdateIssueByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Issue>;
 }
 
 /**
- * 
+ *
  */
 export class IssuesApi extends runtime.BaseAPI implements IssuesApiInterface {
-
     /**
      * Create Issue in Repository
      */
-    async createIssueRaw(requestParameters: CreateIssueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Issue>> {
-        if (requestParameters['orgSlug'] == null) {
+    async createIssueRaw(
+        requestParameters: CreateIssueRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Issue>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling createIssue().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling createIssue().'
             );
         }
 
-        if (requestParameters['createIssueBody'] == null) {
+        if (requestParameters["createIssueBody"] == null) {
             throw new runtime.RequiredError(
-                'createIssueBody',
+                "createIssueBody",
                 'Required parameter "createIssueBody" was null or undefined when calling createIssue().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -364,16 +430,25 @@ export class IssuesApi extends runtime.BaseAPI implements IssuesApiInterface {
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/issues`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CreateIssueBodyToJSON(requestParameters['createIssueBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+                body: CreateIssueBodyToJSON(requestParameters["createIssueBody"]),
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => IssueFromJSON(jsonValue));
     }
@@ -381,7 +456,10 @@ export class IssuesApi extends runtime.BaseAPI implements IssuesApiInterface {
     /**
      * Create Issue in Repository
      */
-    async createIssue(requestParameters: CreateIssueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Issue> {
+    async createIssue(
+        requestParameters: CreateIssueRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Issue> {
         const response = await this.createIssueRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -389,30 +467,33 @@ export class IssuesApi extends runtime.BaseAPI implements IssuesApiInterface {
     /**
      * Create Issue in Repository (By Repo ID)
      */
-    async createIssueByIDRaw(requestParameters: CreateIssueByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Issue>> {
-        if (requestParameters['repoId'] == null) {
+    async createIssueByIDRaw(
+        requestParameters: CreateIssueByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Issue>> {
+        if (requestParameters["repoId"] == null) {
             throw new runtime.RequiredError(
-                'repoId',
+                "repoId",
                 'Required parameter "repoId" was null or undefined when calling createIssueByID().'
             );
         }
 
-        if (requestParameters['createIssueBody'] == null) {
+        if (requestParameters["createIssueBody"] == null) {
             throw new runtime.RequiredError(
-                'createIssueBody',
+                "createIssueBody",
                 'Required parameter "createIssueBody" was null or undefined when calling createIssueByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -424,15 +505,21 @@ export class IssuesApi extends runtime.BaseAPI implements IssuesApiInterface {
         }
 
         let urlPath = `/repos/id:{repo_id}/issues`;
-        urlPath = urlPath.replace(`{${"repo_id"}}`, encodeURIComponent(String(requestParameters['repoId'])));
+        urlPath = urlPath.replace(
+            `{${"repo_id"}}`,
+            encodeURIComponent(String(requestParameters["repoId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CreateIssueBodyToJSON(requestParameters['createIssueBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+                body: CreateIssueBodyToJSON(requestParameters["createIssueBody"]),
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => IssueFromJSON(jsonValue));
     }
@@ -440,7 +527,10 @@ export class IssuesApi extends runtime.BaseAPI implements IssuesApiInterface {
     /**
      * Create Issue in Repository (By Repo ID)
      */
-    async createIssueByID(requestParameters: CreateIssueByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Issue> {
+    async createIssueByID(
+        requestParameters: CreateIssueByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Issue> {
         const response = await this.createIssueByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -448,32 +538,35 @@ export class IssuesApi extends runtime.BaseAPI implements IssuesApiInterface {
     /**
      * Delete Issue
      */
-    async deleteIssueRaw(requestParameters: DeleteIssueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        if (requestParameters['orgSlug'] == null) {
+    async deleteIssueRaw(
+        requestParameters: DeleteIssueRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling deleteIssue().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling deleteIssue().'
             );
         }
 
-        if (requestParameters['issueSlug'] == null) {
+        if (requestParameters["issueSlug"] == null) {
             throw new runtime.RequiredError(
-                'issueSlug',
+                "issueSlug",
                 'Required parameter "issueSlug" was null or undefined when calling deleteIssue().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -488,16 +581,28 @@ export class IssuesApi extends runtime.BaseAPI implements IssuesApiInterface {
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/issues/{issue_slug}`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
-        urlPath = urlPath.replace(`{${"issue_slug"}}`, encodeURIComponent(String(requestParameters['issueSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"issue_slug"}}`,
+            encodeURIComponent(String(requestParameters["issueSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "DELETE",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
         return new runtime.VoidApiResponse(response);
     }
@@ -505,25 +610,31 @@ export class IssuesApi extends runtime.BaseAPI implements IssuesApiInterface {
     /**
      * Delete Issue
      */
-    async deleteIssue(requestParameters: DeleteIssueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+    async deleteIssue(
+        requestParameters: DeleteIssueRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<void> {
         await this.deleteIssueRaw(requestParameters, initOverrides);
     }
 
     /**
      * Delete Issue (By Issue ID)
      */
-    async deleteIssueByIDRaw(requestParameters: DeleteIssueByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        if (requestParameters['issueId'] == null) {
+    async deleteIssueByIDRaw(
+        requestParameters: DeleteIssueByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters["issueId"] == null) {
             throw new runtime.RequiredError(
-                'issueId',
+                "issueId",
                 'Required parameter "issueId" was null or undefined when calling deleteIssueByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -538,14 +649,20 @@ export class IssuesApi extends runtime.BaseAPI implements IssuesApiInterface {
         }
 
         let urlPath = `/issues/id:{issue_id}`;
-        urlPath = urlPath.replace(`{${"issue_id"}}`, encodeURIComponent(String(requestParameters['issueId'])));
+        urlPath = urlPath.replace(
+            `{${"issue_id"}}`,
+            encodeURIComponent(String(requestParameters["issueId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "DELETE",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
         return new runtime.VoidApiResponse(response);
     }
@@ -553,31 +670,37 @@ export class IssuesApi extends runtime.BaseAPI implements IssuesApiInterface {
     /**
      * Delete Issue (By Issue ID)
      */
-    async deleteIssueByID(requestParameters: DeleteIssueByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+    async deleteIssueByID(
+        requestParameters: DeleteIssueByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<void> {
         await this.deleteIssueByIDRaw(requestParameters, initOverrides);
     }
 
     /**
      * Get Issue
      */
-    async getIssueRaw(requestParameters: GetIssueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Issue>> {
-        if (requestParameters['orgSlug'] == null) {
+    async getIssueRaw(
+        requestParameters: GetIssueRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Issue>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling getIssue().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling getIssue().'
             );
         }
 
-        if (requestParameters['issueSlug'] == null) {
+        if (requestParameters["issueSlug"] == null) {
             throw new runtime.RequiredError(
-                'issueSlug',
+                "issueSlug",
                 'Required parameter "issueSlug" was null or undefined when calling getIssue().'
             );
         }
@@ -596,16 +719,28 @@ export class IssuesApi extends runtime.BaseAPI implements IssuesApiInterface {
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/issues/{issue_slug}`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
-        urlPath = urlPath.replace(`{${"issue_slug"}}`, encodeURIComponent(String(requestParameters['issueSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"issue_slug"}}`,
+            encodeURIComponent(String(requestParameters["issueSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => IssueFromJSON(jsonValue));
     }
@@ -613,7 +748,10 @@ export class IssuesApi extends runtime.BaseAPI implements IssuesApiInterface {
     /**
      * Get Issue
      */
-    async getIssue(requestParameters: GetIssueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Issue> {
+    async getIssue(
+        requestParameters: GetIssueRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Issue> {
         const response = await this.getIssueRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -621,10 +759,13 @@ export class IssuesApi extends runtime.BaseAPI implements IssuesApiInterface {
     /**
      * Get Issue (By ID)
      */
-    async getIssueByIDRaw(requestParameters: GetIssueByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Issue>> {
-        if (requestParameters['issueId'] == null) {
+    async getIssueByIDRaw(
+        requestParameters: GetIssueByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Issue>> {
+        if (requestParameters["issueId"] == null) {
             throw new runtime.RequiredError(
-                'issueId',
+                "issueId",
                 'Required parameter "issueId" was null or undefined when calling getIssueByID().'
             );
         }
@@ -643,14 +784,20 @@ export class IssuesApi extends runtime.BaseAPI implements IssuesApiInterface {
         }
 
         let urlPath = `/issues/id:{issue_id}`;
-        urlPath = urlPath.replace(`{${"issue_id"}}`, encodeURIComponent(String(requestParameters['issueId'])));
+        urlPath = urlPath.replace(
+            `{${"issue_id"}}`,
+            encodeURIComponent(String(requestParameters["issueId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => IssueFromJSON(jsonValue));
     }
@@ -658,7 +805,10 @@ export class IssuesApi extends runtime.BaseAPI implements IssuesApiInterface {
     /**
      * Get Issue (By ID)
      */
-    async getIssueByID(requestParameters: GetIssueByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Issue> {
+    async getIssueByID(
+        requestParameters: GetIssueByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Issue> {
         const response = await this.getIssueByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -667,23 +817,26 @@ export class IssuesApi extends runtime.BaseAPI implements IssuesApiInterface {
      * Returns a list of issues that are either assigned to or created by the currently authenticated user.
      * My Issues
      */
-    async listIssuesAssignedToAuthenticatedUserRaw(requestParameters: ListIssuesAssignedToAuthenticatedUserRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListIssuesAssignedToAuthenticatedUserResponse>> {
+    async listIssuesAssignedToAuthenticatedUserRaw(
+        requestParameters: ListIssuesAssignedToAuthenticatedUserRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListIssuesAssignedToAuthenticatedUserResponse>> {
         const queryParameters: any = {};
 
-        if (requestParameters['pageSize'] != null) {
-            queryParameters['page_size'] = requestParameters['pageSize'];
+        if (requestParameters["pageSize"] != null) {
+            queryParameters["page_size"] = requestParameters["pageSize"];
         }
 
-        if (requestParameters['pageToken'] != null) {
-            queryParameters['page_token'] = requestParameters['pageToken'];
+        if (requestParameters["pageToken"] != null) {
+            queryParameters["page_token"] = requestParameters["pageToken"];
         }
 
-        if (requestParameters['sortBy'] != null) {
-            queryParameters['sort_by'] = requestParameters['sortBy'];
+        if (requestParameters["sortBy"] != null) {
+            queryParameters["sort_by"] = requestParameters["sortBy"];
         }
 
-        if (requestParameters['filter'] != null) {
-            queryParameters['filter'] = requestParameters['filter'];
+        if (requestParameters["filter"] != null) {
+            queryParameters["filter"] = requestParameters["filter"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -699,59 +852,73 @@ export class IssuesApi extends runtime.BaseAPI implements IssuesApiInterface {
 
         let urlPath = `/me/issues`;
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ListIssuesAssignedToAuthenticatedUserResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            ListIssuesAssignedToAuthenticatedUserResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * Returns a list of issues that are either assigned to or created by the currently authenticated user.
      * My Issues
      */
-    async listIssuesAssignedToAuthenticatedUser(requestParameters: ListIssuesAssignedToAuthenticatedUserRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListIssuesAssignedToAuthenticatedUserResponse> {
-        const response = await this.listIssuesAssignedToAuthenticatedUserRaw(requestParameters, initOverrides);
+    async listIssuesAssignedToAuthenticatedUser(
+        requestParameters: ListIssuesAssignedToAuthenticatedUserRequest = {},
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListIssuesAssignedToAuthenticatedUserResponse> {
+        const response = await this.listIssuesAssignedToAuthenticatedUserRaw(
+            requestParameters,
+            initOverrides
+        );
         return await response.value();
     }
 
     /**
      * List Repository Issues
      */
-    async listRepositoryIssuesRaw(requestParameters: ListRepositoryIssuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListRepositoryIssuesResponse>> {
-        if (requestParameters['orgSlug'] == null) {
+    async listRepositoryIssuesRaw(
+        requestParameters: ListRepositoryIssuesRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListRepositoryIssuesResponse>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling listRepositoryIssues().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling listRepositoryIssues().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['pageSize'] != null) {
-            queryParameters['page_size'] = requestParameters['pageSize'];
+        if (requestParameters["pageSize"] != null) {
+            queryParameters["page_size"] = requestParameters["pageSize"];
         }
 
-        if (requestParameters['pageToken'] != null) {
-            queryParameters['page_token'] = requestParameters['pageToken'];
+        if (requestParameters["pageToken"] != null) {
+            queryParameters["page_token"] = requestParameters["pageToken"];
         }
 
-        if (requestParameters['sortBy'] != null) {
-            queryParameters['sort_by'] = requestParameters['sortBy'];
+        if (requestParameters["sortBy"] != null) {
+            queryParameters["sort_by"] = requestParameters["sortBy"];
         }
 
-        if (requestParameters['filter'] != null) {
-            queryParameters['filter'] = requestParameters['filter'];
+        if (requestParameters["filter"] != null) {
+            queryParameters["filter"] = requestParameters["filter"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -766,23 +933,37 @@ export class IssuesApi extends runtime.BaseAPI implements IssuesApiInterface {
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/issues`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ListRepositoryIssuesResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            ListRepositoryIssuesResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * List Repository Issues
      */
-    async listRepositoryIssues(requestParameters: ListRepositoryIssuesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListRepositoryIssuesResponse> {
+    async listRepositoryIssues(
+        requestParameters: ListRepositoryIssuesRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListRepositoryIssuesResponse> {
         const response = await this.listRepositoryIssuesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -790,30 +971,33 @@ export class IssuesApi extends runtime.BaseAPI implements IssuesApiInterface {
     /**
      * List Repository Issues (By Repo ID)
      */
-    async listRepositoryIssuesByIDRaw(requestParameters: ListRepositoryIssuesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListRepositoryIssuesResponse>> {
-        if (requestParameters['repoId'] == null) {
+    async listRepositoryIssuesByIDRaw(
+        requestParameters: ListRepositoryIssuesByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListRepositoryIssuesResponse>> {
+        if (requestParameters["repoId"] == null) {
             throw new runtime.RequiredError(
-                'repoId',
+                "repoId",
                 'Required parameter "repoId" was null or undefined when calling listRepositoryIssuesByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['pageSize'] != null) {
-            queryParameters['page_size'] = requestParameters['pageSize'];
+        if (requestParameters["pageSize"] != null) {
+            queryParameters["page_size"] = requestParameters["pageSize"];
         }
 
-        if (requestParameters['pageToken'] != null) {
-            queryParameters['page_token'] = requestParameters['pageToken'];
+        if (requestParameters["pageToken"] != null) {
+            queryParameters["page_token"] = requestParameters["pageToken"];
         }
 
-        if (requestParameters['sortBy'] != null) {
-            queryParameters['sort_by'] = requestParameters['sortBy'];
+        if (requestParameters["sortBy"] != null) {
+            queryParameters["sort_by"] = requestParameters["sortBy"];
         }
 
-        if (requestParameters['filter'] != null) {
-            queryParameters['filter'] = requestParameters['filter'];
+        if (requestParameters["filter"] != null) {
+            queryParameters["filter"] = requestParameters["filter"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -828,22 +1012,33 @@ export class IssuesApi extends runtime.BaseAPI implements IssuesApiInterface {
         }
 
         let urlPath = `/repos/id:{repo_id}/issues`;
-        urlPath = urlPath.replace(`{${"repo_id"}}`, encodeURIComponent(String(requestParameters['repoId'])));
+        urlPath = urlPath.replace(
+            `{${"repo_id"}}`,
+            encodeURIComponent(String(requestParameters["repoId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ListRepositoryIssuesResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            ListRepositoryIssuesResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * List Repository Issues (By Repo ID)
      */
-    async listRepositoryIssuesByID(requestParameters: ListRepositoryIssuesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListRepositoryIssuesResponse> {
+    async listRepositoryIssuesByID(
+        requestParameters: ListRepositoryIssuesByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListRepositoryIssuesResponse> {
         const response = await this.listRepositoryIssuesByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -851,44 +1046,47 @@ export class IssuesApi extends runtime.BaseAPI implements IssuesApiInterface {
     /**
      * Update Issue
      */
-    async updateIssueRaw(requestParameters: UpdateIssueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Issue>> {
-        if (requestParameters['orgSlug'] == null) {
+    async updateIssueRaw(
+        requestParameters: UpdateIssueRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Issue>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling updateIssue().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling updateIssue().'
             );
         }
 
-        if (requestParameters['issueSlug'] == null) {
+        if (requestParameters["issueSlug"] == null) {
             throw new runtime.RequiredError(
-                'issueSlug',
+                "issueSlug",
                 'Required parameter "issueSlug" was null or undefined when calling updateIssue().'
             );
         }
 
-        if (requestParameters['updateIssueBody'] == null) {
+        if (requestParameters["updateIssueBody"] == null) {
             throw new runtime.RequiredError(
-                'updateIssueBody',
+                "updateIssueBody",
                 'Required parameter "updateIssueBody" was null or undefined when calling updateIssue().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -900,17 +1098,29 @@ export class IssuesApi extends runtime.BaseAPI implements IssuesApiInterface {
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/issues/{issue_slug}`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
-        urlPath = urlPath.replace(`{${"issue_slug"}}`, encodeURIComponent(String(requestParameters['issueSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"issue_slug"}}`,
+            encodeURIComponent(String(requestParameters["issueSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'PATCH',
-            headers: headerParameters,
-            query: queryParameters,
-            body: UpdateIssueBodyToJSON(requestParameters['updateIssueBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "PATCH",
+                headers: headerParameters,
+                query: queryParameters,
+                body: UpdateIssueBodyToJSON(requestParameters["updateIssueBody"]),
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => IssueFromJSON(jsonValue));
     }
@@ -918,7 +1128,10 @@ export class IssuesApi extends runtime.BaseAPI implements IssuesApiInterface {
     /**
      * Update Issue
      */
-    async updateIssue(requestParameters: UpdateIssueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Issue> {
+    async updateIssue(
+        requestParameters: UpdateIssueRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Issue> {
         const response = await this.updateIssueRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -926,30 +1139,33 @@ export class IssuesApi extends runtime.BaseAPI implements IssuesApiInterface {
     /**
      * Update Issue (By Issue ID)
      */
-    async updateIssueByIDRaw(requestParameters: UpdateIssueByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Issue>> {
-        if (requestParameters['issueId'] == null) {
+    async updateIssueByIDRaw(
+        requestParameters: UpdateIssueByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Issue>> {
+        if (requestParameters["issueId"] == null) {
             throw new runtime.RequiredError(
-                'issueId',
+                "issueId",
                 'Required parameter "issueId" was null or undefined when calling updateIssueByID().'
             );
         }
 
-        if (requestParameters['updateIssueBody'] == null) {
+        if (requestParameters["updateIssueBody"] == null) {
             throw new runtime.RequiredError(
-                'updateIssueBody',
+                "updateIssueBody",
                 'Required parameter "updateIssueBody" was null or undefined when calling updateIssueByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -961,15 +1177,21 @@ export class IssuesApi extends runtime.BaseAPI implements IssuesApiInterface {
         }
 
         let urlPath = `/issues/id:{issue_id}`;
-        urlPath = urlPath.replace(`{${"issue_id"}}`, encodeURIComponent(String(requestParameters['issueId'])));
+        urlPath = urlPath.replace(
+            `{${"issue_id"}}`,
+            encodeURIComponent(String(requestParameters["issueId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'PATCH',
-            headers: headerParameters,
-            query: queryParameters,
-            body: UpdateIssueBodyToJSON(requestParameters['updateIssueBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "PATCH",
+                headers: headerParameters,
+                query: queryParameters,
+                body: UpdateIssueBodyToJSON(requestParameters["updateIssueBody"]),
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => IssueFromJSON(jsonValue));
     }
@@ -977,9 +1199,11 @@ export class IssuesApi extends runtime.BaseAPI implements IssuesApiInterface {
     /**
      * Update Issue (By Issue ID)
      */
-    async updateIssueByID(requestParameters: UpdateIssueByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Issue> {
+    async updateIssueByID(
+        requestParameters: UpdateIssueByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Issue> {
         const response = await this.updateIssueByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
-
 }

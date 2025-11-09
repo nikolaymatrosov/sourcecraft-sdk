@@ -12,21 +12,21 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues } from "../runtime";
 /**
- * 
+ *
  * @export
  * @interface Commit
  */
 export interface Commit {
     /**
-     * 
+     *
      * @type {string}
      * @memberof Commit
      */
     hash?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof Commit
      */
@@ -49,9 +49,8 @@ export function CommitFromJSONTyped(json: any, ignoreDiscriminator: boolean): Co
         return json;
     }
     return {
-        
-        'hash': json['hash'] == null ? undefined : json['hash'],
-        'message': json['message'] == null ? undefined : json['message'],
+        hash: json["hash"] == null ? undefined : json["hash"],
+        message: json["message"] == null ? undefined : json["message"],
     };
 }
 
@@ -59,15 +58,16 @@ export function CommitToJSON(json: any): Commit {
     return CommitToJSONTyped(json, false);
 }
 
-export function CommitToJSONTyped(value?: Commit | null, ignoreDiscriminator: boolean = false): any {
+export function CommitToJSONTyped(
+    value?: Commit | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'hash': value['hash'],
-        'message': value['message'],
+        hash: value["hash"],
+        message: value["message"],
     };
 }
-

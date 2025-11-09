@@ -12,20 +12,18 @@
  * Do not edit the class manually.
  */
 
-
 /**
- * 
+ *
  * @export
  */
 export const PullRequestStatus = {
-    Draft: 'draft',
-    Open: 'open',
-    Discarded: 'discarded',
-    Merging: 'merging',
-    Merged: 'merged'
+    Draft: "draft",
+    Open: "open",
+    Discarded: "discarded",
+    Merging: "merging",
+    Merged: "merged",
 } as const;
-export type PullRequestStatus = typeof PullRequestStatus[keyof typeof PullRequestStatus];
-
+export type PullRequestStatus = (typeof PullRequestStatus)[keyof typeof PullRequestStatus];
 
 export function instanceOfPullRequestStatus(value: any): boolean {
     for (const key in PullRequestStatus) {
@@ -42,7 +40,10 @@ export function PullRequestStatusFromJSON(json: any): PullRequestStatus {
     return PullRequestStatusFromJSONTyped(json, false);
 }
 
-export function PullRequestStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): PullRequestStatus {
+export function PullRequestStatusFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): PullRequestStatus {
     return json as PullRequestStatus;
 }
 
@@ -50,7 +51,9 @@ export function PullRequestStatusToJSON(value?: PullRequestStatus | null): any {
     return value as any;
 }
 
-export function PullRequestStatusToJSONTyped(value: any, ignoreDiscriminator: boolean): PullRequestStatus {
+export function PullRequestStatusToJSONTyped(
+    value: any,
+    ignoreDiscriminator: boolean
+): PullRequestStatus {
     return value as PullRequestStatus;
 }
-

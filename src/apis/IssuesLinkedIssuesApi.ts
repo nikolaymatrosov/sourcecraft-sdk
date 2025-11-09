@@ -12,14 +12,13 @@
  * Do not edit the class manually.
  */
 
-
-import * as runtime from '../runtime';
+import * as runtime from "../runtime";
 import type {
-  ApiErrorResponse,
-  CreateLinkBody,
-  IssueLink,
-  ListLinksResponse,
-} from '../models/index';
+    ApiErrorResponse,
+    CreateLinkBody,
+    IssueLink,
+    ListLinksResponse,
+} from "../models/index";
 import {
     ApiErrorResponseFromJSON,
     ApiErrorResponseToJSON,
@@ -29,7 +28,7 @@ import {
     IssueLinkToJSON,
     ListLinksResponseFromJSON,
     ListLinksResponseToJSON,
-} from '../models/index';
+} from "../models/index";
 
 export interface CreateIssueLinkRequest {
     orgSlug: string;
@@ -68,7 +67,7 @@ export interface ListIssueLinksByIDRequest {
 
 /**
  * IssuesLinkedIssuesApi - interface
- * 
+ *
  * @export
  * @interface IssuesLinkedIssuesApiInterface
  */
@@ -76,64 +75,82 @@ export interface IssuesLinkedIssuesApiInterface {
     /**
      * Creates a two-way relation from source issue to target issue of a specific type. Only one link can exist between two given issues.
      * @summary Create Link between Issues
-     * @param {string} orgSlug 
-     * @param {string} repoSlug 
-     * @param {string} issueSlug 
-     * @param {CreateLinkBody} createLinkBody 
-     * @param {boolean} [silent] 
+     * @param {string} orgSlug
+     * @param {string} repoSlug
+     * @param {string} issueSlug
+     * @param {CreateLinkBody} createLinkBody
+     * @param {boolean} [silent]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesLinkedIssuesApiInterface
      */
-    createIssueLinkRaw(requestParameters: CreateIssueLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLink>>;
+    createIssueLinkRaw(
+        requestParameters: CreateIssueLinkRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<IssueLink>>;
 
     /**
      * Creates a two-way relation from source issue to target issue of a specific type. Only one link can exist between two given issues.
      * Create Link between Issues
      */
-    createIssueLink(requestParameters: CreateIssueLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLink>;
+    createIssueLink(
+        requestParameters: CreateIssueLinkRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<IssueLink>;
 
     /**
      * Creates a two-way relation from source issue to target issue of a specific type. Only one link can exist between two given issues.
      * @summary Create Link between Issues (By Issue ID)
-     * @param {string} issueId 
-     * @param {CreateLinkBody} createLinkBody 
-     * @param {boolean} [silent] 
+     * @param {string} issueId
+     * @param {CreateLinkBody} createLinkBody
+     * @param {boolean} [silent]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesLinkedIssuesApiInterface
      */
-    createIssueLinkByIDRaw(requestParameters: CreateIssueLinkByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLink>>;
+    createIssueLinkByIDRaw(
+        requestParameters: CreateIssueLinkByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<IssueLink>>;
 
     /**
      * Creates a two-way relation from source issue to target issue of a specific type. Only one link can exist between two given issues.
      * Create Link between Issues (By Issue ID)
      */
-    createIssueLinkByID(requestParameters: CreateIssueLinkByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLink>;
+    createIssueLinkByID(
+        requestParameters: CreateIssueLinkByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<IssueLink>;
 
     /**
      * Removes links between issues by ID
      * @summary Delete Link (By Link ID)
-     * @param {string} issueLinkId 
-     * @param {boolean} [silent] 
+     * @param {string} issueLinkId
+     * @param {boolean} [silent]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesLinkedIssuesApiInterface
      */
-    deleteIssueLinkRaw(requestParameters: DeleteIssueLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    deleteIssueLinkRaw(
+        requestParameters: DeleteIssueLinkRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<void>>;
 
     /**
      * Removes links between issues by ID
      * Delete Link (By Link ID)
      */
-    deleteIssueLink(requestParameters: DeleteIssueLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    deleteIssueLink(
+        requestParameters: DeleteIssueLinkRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<void>;
 
     /**
      * Retrieves links between this issue and other issues
      * @summary List Issue Links
-     * @param {string} orgSlug 
-     * @param {string} repoSlug 
-     * @param {string} issueSlug 
+     * @param {string} orgSlug
+     * @param {string} repoSlug
+     * @param {string} issueSlug
      * @param {string} [pageSize] The maximum number of issues to return. The service may return fewer than this value
      * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
      * @param {string} [sortBy] Ordering options: comma separated list of fields. For example: \&quot;name, created_at\&quot; Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;name, -created_at\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent.
@@ -141,18 +158,24 @@ export interface IssuesLinkedIssuesApiInterface {
      * @throws {RequiredError}
      * @memberof IssuesLinkedIssuesApiInterface
      */
-    listIssueLinksRaw(requestParameters: ListIssueLinksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListLinksResponse>>;
+    listIssueLinksRaw(
+        requestParameters: ListIssueLinksRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListLinksResponse>>;
 
     /**
      * Retrieves links between this issue and other issues
      * List Issue Links
      */
-    listIssueLinks(requestParameters: ListIssueLinksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListLinksResponse>;
+    listIssueLinks(
+        requestParameters: ListIssueLinksRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListLinksResponse>;
 
     /**
      * Retrieves links between this issue and other issues
      * @summary List Issue Links (By Issue ID)
-     * @param {string} issueId 
+     * @param {string} issueId
      * @param {string} [pageSize] The maximum number of issues to return. The service may return fewer than this value
      * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
      * @param {string} [sortBy] Ordering options: comma separated list of fields. For example: \&quot;name, created_at\&quot; Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;name, -created_at\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent.
@@ -160,63 +183,73 @@ export interface IssuesLinkedIssuesApiInterface {
      * @throws {RequiredError}
      * @memberof IssuesLinkedIssuesApiInterface
      */
-    listIssueLinksByIDRaw(requestParameters: ListIssueLinksByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListLinksResponse>>;
+    listIssueLinksByIDRaw(
+        requestParameters: ListIssueLinksByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListLinksResponse>>;
 
     /**
      * Retrieves links between this issue and other issues
      * List Issue Links (By Issue ID)
      */
-    listIssueLinksByID(requestParameters: ListIssueLinksByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListLinksResponse>;
-
+    listIssueLinksByID(
+        requestParameters: ListIssueLinksByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListLinksResponse>;
 }
 
 /**
- * 
+ *
  */
-export class IssuesLinkedIssuesApi extends runtime.BaseAPI implements IssuesLinkedIssuesApiInterface {
-
+export class IssuesLinkedIssuesApi
+    extends runtime.BaseAPI
+    implements IssuesLinkedIssuesApiInterface
+{
     /**
      * Creates a two-way relation from source issue to target issue of a specific type. Only one link can exist between two given issues.
      * Create Link between Issues
      */
-    async createIssueLinkRaw(requestParameters: CreateIssueLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLink>> {
-        if (requestParameters['orgSlug'] == null) {
+    async createIssueLinkRaw(
+        requestParameters: CreateIssueLinkRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<IssueLink>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling createIssueLink().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling createIssueLink().'
             );
         }
 
-        if (requestParameters['issueSlug'] == null) {
+        if (requestParameters["issueSlug"] == null) {
             throw new runtime.RequiredError(
-                'issueSlug',
+                "issueSlug",
                 'Required parameter "issueSlug" was null or undefined when calling createIssueLink().'
             );
         }
 
-        if (requestParameters['createLinkBody'] == null) {
+        if (requestParameters["createLinkBody"] == null) {
             throw new runtime.RequiredError(
-                'createLinkBody',
+                "createLinkBody",
                 'Required parameter "createLinkBody" was null or undefined when calling createIssueLink().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -228,17 +261,29 @@ export class IssuesLinkedIssuesApi extends runtime.BaseAPI implements IssuesLink
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/issues/{issue_slug}/issue_links`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
-        urlPath = urlPath.replace(`{${"issue_slug"}}`, encodeURIComponent(String(requestParameters['issueSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"issue_slug"}}`,
+            encodeURIComponent(String(requestParameters["issueSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CreateLinkBodyToJSON(requestParameters['createLinkBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+                body: CreateLinkBodyToJSON(requestParameters["createLinkBody"]),
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => IssueLinkFromJSON(jsonValue));
     }
@@ -247,7 +292,10 @@ export class IssuesLinkedIssuesApi extends runtime.BaseAPI implements IssuesLink
      * Creates a two-way relation from source issue to target issue of a specific type. Only one link can exist between two given issues.
      * Create Link between Issues
      */
-    async createIssueLink(requestParameters: CreateIssueLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLink> {
+    async createIssueLink(
+        requestParameters: CreateIssueLinkRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<IssueLink> {
         const response = await this.createIssueLinkRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -256,30 +304,33 @@ export class IssuesLinkedIssuesApi extends runtime.BaseAPI implements IssuesLink
      * Creates a two-way relation from source issue to target issue of a specific type. Only one link can exist between two given issues.
      * Create Link between Issues (By Issue ID)
      */
-    async createIssueLinkByIDRaw(requestParameters: CreateIssueLinkByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLink>> {
-        if (requestParameters['issueId'] == null) {
+    async createIssueLinkByIDRaw(
+        requestParameters: CreateIssueLinkByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<IssueLink>> {
+        if (requestParameters["issueId"] == null) {
             throw new runtime.RequiredError(
-                'issueId',
+                "issueId",
                 'Required parameter "issueId" was null or undefined when calling createIssueLinkByID().'
             );
         }
 
-        if (requestParameters['createLinkBody'] == null) {
+        if (requestParameters["createLinkBody"] == null) {
             throw new runtime.RequiredError(
-                'createLinkBody',
+                "createLinkBody",
                 'Required parameter "createLinkBody" was null or undefined when calling createIssueLinkByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -291,15 +342,21 @@ export class IssuesLinkedIssuesApi extends runtime.BaseAPI implements IssuesLink
         }
 
         let urlPath = `/issues/id:{issue_id}/issue_links`;
-        urlPath = urlPath.replace(`{${"issue_id"}}`, encodeURIComponent(String(requestParameters['issueId'])));
+        urlPath = urlPath.replace(
+            `{${"issue_id"}}`,
+            encodeURIComponent(String(requestParameters["issueId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CreateLinkBodyToJSON(requestParameters['createLinkBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+                body: CreateLinkBodyToJSON(requestParameters["createLinkBody"]),
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => IssueLinkFromJSON(jsonValue));
     }
@@ -308,7 +365,10 @@ export class IssuesLinkedIssuesApi extends runtime.BaseAPI implements IssuesLink
      * Creates a two-way relation from source issue to target issue of a specific type. Only one link can exist between two given issues.
      * Create Link between Issues (By Issue ID)
      */
-    async createIssueLinkByID(requestParameters: CreateIssueLinkByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLink> {
+    async createIssueLinkByID(
+        requestParameters: CreateIssueLinkByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<IssueLink> {
         const response = await this.createIssueLinkByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -317,18 +377,21 @@ export class IssuesLinkedIssuesApi extends runtime.BaseAPI implements IssuesLink
      * Removes links between issues by ID
      * Delete Link (By Link ID)
      */
-    async deleteIssueLinkRaw(requestParameters: DeleteIssueLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        if (requestParameters['issueLinkId'] == null) {
+    async deleteIssueLinkRaw(
+        requestParameters: DeleteIssueLinkRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters["issueLinkId"] == null) {
             throw new runtime.RequiredError(
-                'issueLinkId',
+                "issueLinkId",
                 'Required parameter "issueLinkId" was null or undefined when calling deleteIssueLink().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -343,14 +406,20 @@ export class IssuesLinkedIssuesApi extends runtime.BaseAPI implements IssuesLink
         }
 
         let urlPath = `/issue_links/id:{issue_link_id}`;
-        urlPath = urlPath.replace(`{${"issue_link_id"}}`, encodeURIComponent(String(requestParameters['issueLinkId'])));
+        urlPath = urlPath.replace(
+            `{${"issue_link_id"}}`,
+            encodeURIComponent(String(requestParameters["issueLinkId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "DELETE",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
         return new runtime.VoidApiResponse(response);
     }
@@ -359,7 +428,10 @@ export class IssuesLinkedIssuesApi extends runtime.BaseAPI implements IssuesLink
      * Removes links between issues by ID
      * Delete Link (By Link ID)
      */
-    async deleteIssueLink(requestParameters: DeleteIssueLinkRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+    async deleteIssueLink(
+        requestParameters: DeleteIssueLinkRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<void> {
         await this.deleteIssueLinkRaw(requestParameters, initOverrides);
     }
 
@@ -367,40 +439,43 @@ export class IssuesLinkedIssuesApi extends runtime.BaseAPI implements IssuesLink
      * Retrieves links between this issue and other issues
      * List Issue Links
      */
-    async listIssueLinksRaw(requestParameters: ListIssueLinksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListLinksResponse>> {
-        if (requestParameters['orgSlug'] == null) {
+    async listIssueLinksRaw(
+        requestParameters: ListIssueLinksRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListLinksResponse>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling listIssueLinks().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling listIssueLinks().'
             );
         }
 
-        if (requestParameters['issueSlug'] == null) {
+        if (requestParameters["issueSlug"] == null) {
             throw new runtime.RequiredError(
-                'issueSlug',
+                "issueSlug",
                 'Required parameter "issueSlug" was null or undefined when calling listIssueLinks().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['pageSize'] != null) {
-            queryParameters['page_size'] = requestParameters['pageSize'];
+        if (requestParameters["pageSize"] != null) {
+            queryParameters["page_size"] = requestParameters["pageSize"];
         }
 
-        if (requestParameters['pageToken'] != null) {
-            queryParameters['page_token'] = requestParameters['pageToken'];
+        if (requestParameters["pageToken"] != null) {
+            queryParameters["page_token"] = requestParameters["pageToken"];
         }
 
-        if (requestParameters['sortBy'] != null) {
-            queryParameters['sort_by'] = requestParameters['sortBy'];
+        if (requestParameters["sortBy"] != null) {
+            queryParameters["sort_by"] = requestParameters["sortBy"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -415,25 +490,42 @@ export class IssuesLinkedIssuesApi extends runtime.BaseAPI implements IssuesLink
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/issues/{issue_slug}/issue_links`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
-        urlPath = urlPath.replace(`{${"issue_slug"}}`, encodeURIComponent(String(requestParameters['issueSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"issue_slug"}}`,
+            encodeURIComponent(String(requestParameters["issueSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ListLinksResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            ListLinksResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * Retrieves links between this issue and other issues
      * List Issue Links
      */
-    async listIssueLinks(requestParameters: ListIssueLinksRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListLinksResponse> {
+    async listIssueLinks(
+        requestParameters: ListIssueLinksRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListLinksResponse> {
         const response = await this.listIssueLinksRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -442,26 +534,29 @@ export class IssuesLinkedIssuesApi extends runtime.BaseAPI implements IssuesLink
      * Retrieves links between this issue and other issues
      * List Issue Links (By Issue ID)
      */
-    async listIssueLinksByIDRaw(requestParameters: ListIssueLinksByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListLinksResponse>> {
-        if (requestParameters['issueId'] == null) {
+    async listIssueLinksByIDRaw(
+        requestParameters: ListIssueLinksByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListLinksResponse>> {
+        if (requestParameters["issueId"] == null) {
             throw new runtime.RequiredError(
-                'issueId',
+                "issueId",
                 'Required parameter "issueId" was null or undefined when calling listIssueLinksByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['pageSize'] != null) {
-            queryParameters['page_size'] = requestParameters['pageSize'];
+        if (requestParameters["pageSize"] != null) {
+            queryParameters["page_size"] = requestParameters["pageSize"];
         }
 
-        if (requestParameters['pageToken'] != null) {
-            queryParameters['page_token'] = requestParameters['pageToken'];
+        if (requestParameters["pageToken"] != null) {
+            queryParameters["page_token"] = requestParameters["pageToken"];
         }
 
-        if (requestParameters['sortBy'] != null) {
-            queryParameters['sort_by'] = requestParameters['sortBy'];
+        if (requestParameters["sortBy"] != null) {
+            queryParameters["sort_by"] = requestParameters["sortBy"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -476,25 +571,35 @@ export class IssuesLinkedIssuesApi extends runtime.BaseAPI implements IssuesLink
         }
 
         let urlPath = `/issues/id:{issue_id}/issue_links`;
-        urlPath = urlPath.replace(`{${"issue_id"}}`, encodeURIComponent(String(requestParameters['issueId'])));
+        urlPath = urlPath.replace(
+            `{${"issue_id"}}`,
+            encodeURIComponent(String(requestParameters["issueId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ListLinksResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            ListLinksResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * Retrieves links between this issue and other issues
      * List Issue Links (By Issue ID)
      */
-    async listIssueLinksByID(requestParameters: ListIssueLinksByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListLinksResponse> {
+    async listIssueLinksByID(
+        requestParameters: ListIssueLinksByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListLinksResponse> {
         const response = await this.listIssueLinksByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
-
 }

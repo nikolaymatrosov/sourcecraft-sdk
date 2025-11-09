@@ -12,29 +12,29 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { IssueLink } from './IssueLink';
+import { mapValues } from "../runtime";
+import type { IssueLink } from "./IssueLink";
 import {
     IssueLinkFromJSON,
     IssueLinkFromJSONTyped,
     IssueLinkToJSON,
     IssueLinkToJSONTyped,
-} from './IssueLink';
+} from "./IssueLink";
 
 /**
- * 
+ *
  * @export
  * @interface ListLinksResponse
  */
 export interface ListLinksResponse {
     /**
-     * 
+     *
      * @type {Array<IssueLink>}
      * @memberof ListLinksResponse
      */
     links?: Array<IssueLink>;
     /**
-     * 
+     *
      * @type {string}
      * @memberof ListLinksResponse
      */
@@ -52,14 +52,19 @@ export function ListLinksResponseFromJSON(json: any): ListLinksResponse {
     return ListLinksResponseFromJSONTyped(json, false);
 }
 
-export function ListLinksResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): ListLinksResponse {
+export function ListLinksResponseFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): ListLinksResponse {
     if (json == null) {
         return json;
     }
     return {
-        
-        'links': json['links'] == null ? undefined : ((json['links'] as Array<any>).map(IssueLinkFromJSON)),
-        'nextPageToken': json['next_page_token'] == null ? undefined : json['next_page_token'],
+        links:
+            json["links"] == null
+                ? undefined
+                : (json["links"] as Array<any>).map(IssueLinkFromJSON),
+        nextPageToken: json["next_page_token"] == null ? undefined : json["next_page_token"],
     };
 }
 
@@ -67,15 +72,19 @@ export function ListLinksResponseToJSON(json: any): ListLinksResponse {
     return ListLinksResponseToJSONTyped(json, false);
 }
 
-export function ListLinksResponseToJSONTyped(value?: ListLinksResponse | null, ignoreDiscriminator: boolean = false): any {
+export function ListLinksResponseToJSONTyped(
+    value?: ListLinksResponse | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'links': value['links'] == null ? undefined : ((value['links'] as Array<any>).map(IssueLinkToJSON)),
-        'next_page_token': value['nextPageToken'],
+        links:
+            value["links"] == null
+                ? undefined
+                : (value["links"] as Array<any>).map(IssueLinkToJSON),
+        next_page_token: value["nextPageToken"],
     };
 }
-

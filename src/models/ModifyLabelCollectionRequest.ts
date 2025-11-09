@@ -12,21 +12,21 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues } from "../runtime";
 /**
- * 
+ *
  * @export
  * @interface ModifyLabelCollectionRequest
  */
 export interface ModifyLabelCollectionRequest {
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof ModifyLabelCollectionRequest
      */
     ids?: Array<string>;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof ModifyLabelCollectionRequest
      */
@@ -36,7 +36,9 @@ export interface ModifyLabelCollectionRequest {
 /**
  * Check if a given object implements the ModifyLabelCollectionRequest interface.
  */
-export function instanceOfModifyLabelCollectionRequest(value: object): value is ModifyLabelCollectionRequest {
+export function instanceOfModifyLabelCollectionRequest(
+    value: object
+): value is ModifyLabelCollectionRequest {
     return true;
 }
 
@@ -44,14 +46,16 @@ export function ModifyLabelCollectionRequestFromJSON(json: any): ModifyLabelColl
     return ModifyLabelCollectionRequestFromJSONTyped(json, false);
 }
 
-export function ModifyLabelCollectionRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): ModifyLabelCollectionRequest {
+export function ModifyLabelCollectionRequestFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): ModifyLabelCollectionRequest {
     if (json == null) {
         return json;
     }
     return {
-        
-        'ids': json['ids'] == null ? undefined : json['ids'],
-        'slugs': json['slugs'] == null ? undefined : json['slugs'],
+        ids: json["ids"] == null ? undefined : json["ids"],
+        slugs: json["slugs"] == null ? undefined : json["slugs"],
     };
 }
 
@@ -59,15 +63,16 @@ export function ModifyLabelCollectionRequestToJSON(json: any): ModifyLabelCollec
     return ModifyLabelCollectionRequestToJSONTyped(json, false);
 }
 
-export function ModifyLabelCollectionRequestToJSONTyped(value?: ModifyLabelCollectionRequest | null, ignoreDiscriminator: boolean = false): any {
+export function ModifyLabelCollectionRequestToJSONTyped(
+    value?: ModifyLabelCollectionRequest | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'ids': value['ids'],
-        'slugs': value['slugs'],
+        ids: value["ids"],
+        slugs: value["slugs"],
     };
 }
-

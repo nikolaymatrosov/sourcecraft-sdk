@@ -12,21 +12,21 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues } from "../runtime";
 /**
- * 
+ *
  * @export
  * @interface CloneURL
  */
 export interface CloneURL {
     /**
-     * 
+     *
      * @type {string}
      * @memberof CloneURL
      */
     https?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof CloneURL
      */
@@ -49,9 +49,8 @@ export function CloneURLFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         return json;
     }
     return {
-        
-        'https': json['https'] == null ? undefined : json['https'],
-        'ssh': json['ssh'] == null ? undefined : json['ssh'],
+        https: json["https"] == null ? undefined : json["https"],
+        ssh: json["ssh"] == null ? undefined : json["ssh"],
     };
 }
 
@@ -59,15 +58,16 @@ export function CloneURLToJSON(json: any): CloneURL {
     return CloneURLToJSONTyped(json, false);
 }
 
-export function CloneURLToJSONTyped(value?: CloneURL | null, ignoreDiscriminator: boolean = false): any {
+export function CloneURLToJSONTyped(
+    value?: CloneURL | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'https': value['https'],
-        'ssh': value['ssh'],
+        https: value["https"],
+        ssh: value["ssh"],
     };
 }
-

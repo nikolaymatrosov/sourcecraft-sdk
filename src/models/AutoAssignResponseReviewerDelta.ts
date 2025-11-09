@@ -12,63 +12,67 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { UserEmbedded } from './UserEmbedded';
+import { mapValues } from "../runtime";
+import type { UserEmbedded } from "./UserEmbedded";
 import {
     UserEmbeddedFromJSON,
     UserEmbeddedFromJSONTyped,
     UserEmbeddedToJSON,
     UserEmbeddedToJSONTyped,
-} from './UserEmbedded';
-import type { DeltaAction } from './DeltaAction';
+} from "./UserEmbedded";
+import type { DeltaAction } from "./DeltaAction";
 import {
     DeltaActionFromJSON,
     DeltaActionFromJSONTyped,
     DeltaActionToJSON,
     DeltaActionToJSONTyped,
-} from './DeltaAction';
+} from "./DeltaAction";
 
 /**
- * 
+ *
  * @export
  * @interface AutoAssignResponseReviewerDelta
  */
 export interface AutoAssignResponseReviewerDelta {
     /**
-     * 
+     *
      * @type {DeltaAction}
      * @memberof AutoAssignResponseReviewerDelta
      */
     action?: DeltaAction;
     /**
-     * 
+     *
      * @type {UserEmbedded}
      * @memberof AutoAssignResponseReviewerDelta
      */
     user?: UserEmbedded;
 }
 
-
-
 /**
  * Check if a given object implements the AutoAssignResponseReviewerDelta interface.
  */
-export function instanceOfAutoAssignResponseReviewerDelta(value: object): value is AutoAssignResponseReviewerDelta {
+export function instanceOfAutoAssignResponseReviewerDelta(
+    value: object
+): value is AutoAssignResponseReviewerDelta {
     return true;
 }
 
-export function AutoAssignResponseReviewerDeltaFromJSON(json: any): AutoAssignResponseReviewerDelta {
+export function AutoAssignResponseReviewerDeltaFromJSON(
+    json: any
+): AutoAssignResponseReviewerDelta {
     return AutoAssignResponseReviewerDeltaFromJSONTyped(json, false);
 }
 
-export function AutoAssignResponseReviewerDeltaFromJSONTyped(json: any, ignoreDiscriminator: boolean): AutoAssignResponseReviewerDelta {
+export function AutoAssignResponseReviewerDeltaFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): AutoAssignResponseReviewerDelta {
     if (json == null) {
         return json;
     }
     return {
-        
-        'action': json['action'] == null ? undefined : DeltaActionFromJSON(json['action']),
-        'user': json['user'] == null ? undefined : UserEmbeddedFromJSON(json['user']),
+        action: json["action"] == null ? undefined : DeltaActionFromJSON(json["action"]),
+        user: json["user"] == null ? undefined : UserEmbeddedFromJSON(json["user"]),
     };
 }
 
@@ -76,15 +80,16 @@ export function AutoAssignResponseReviewerDeltaToJSON(json: any): AutoAssignResp
     return AutoAssignResponseReviewerDeltaToJSONTyped(json, false);
 }
 
-export function AutoAssignResponseReviewerDeltaToJSONTyped(value?: AutoAssignResponseReviewerDelta | null, ignoreDiscriminator: boolean = false): any {
+export function AutoAssignResponseReviewerDeltaToJSONTyped(
+    value?: AutoAssignResponseReviewerDelta | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'action': DeltaActionToJSON(value['action']),
-        'user': UserEmbeddedToJSON(value['user']),
+        action: DeltaActionToJSON(value["action"]),
+        user: UserEmbeddedToJSON(value["user"]),
     };
 }
-

@@ -12,23 +12,23 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { AutoAssignResponseReviewerDelta } from './AutoAssignResponseReviewerDelta';
+import { mapValues } from "../runtime";
+import type { AutoAssignResponseReviewerDelta } from "./AutoAssignResponseReviewerDelta";
 import {
     AutoAssignResponseReviewerDeltaFromJSON,
     AutoAssignResponseReviewerDeltaFromJSONTyped,
     AutoAssignResponseReviewerDeltaToJSON,
     AutoAssignResponseReviewerDeltaToJSONTyped,
-} from './AutoAssignResponseReviewerDelta';
+} from "./AutoAssignResponseReviewerDelta";
 
 /**
- * 
+ *
  * @export
  * @interface AutoAssignResponse
  */
 export interface AutoAssignResponse {
     /**
-     * 
+     *
      * @type {Array<AutoAssignResponseReviewerDelta>}
      * @memberof AutoAssignResponse
      */
@@ -46,13 +46,20 @@ export function AutoAssignResponseFromJSON(json: any): AutoAssignResponse {
     return AutoAssignResponseFromJSONTyped(json, false);
 }
 
-export function AutoAssignResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): AutoAssignResponse {
+export function AutoAssignResponseFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): AutoAssignResponse {
     if (json == null) {
         return json;
     }
     return {
-        
-        'reviewersDelta': json['reviewers_delta'] == null ? undefined : ((json['reviewers_delta'] as Array<any>).map(AutoAssignResponseReviewerDeltaFromJSON)),
+        reviewersDelta:
+            json["reviewers_delta"] == null
+                ? undefined
+                : (json["reviewers_delta"] as Array<any>).map(
+                      AutoAssignResponseReviewerDeltaFromJSON
+                  ),
     };
 }
 
@@ -60,14 +67,20 @@ export function AutoAssignResponseToJSON(json: any): AutoAssignResponse {
     return AutoAssignResponseToJSONTyped(json, false);
 }
 
-export function AutoAssignResponseToJSONTyped(value?: AutoAssignResponse | null, ignoreDiscriminator: boolean = false): any {
+export function AutoAssignResponseToJSONTyped(
+    value?: AutoAssignResponse | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'reviewers_delta': value['reviewersDelta'] == null ? undefined : ((value['reviewersDelta'] as Array<any>).map(AutoAssignResponseReviewerDeltaToJSON)),
+        reviewers_delta:
+            value["reviewersDelta"] == null
+                ? undefined
+                : (value["reviewersDelta"] as Array<any>).map(
+                      AutoAssignResponseReviewerDeltaToJSON
+                  ),
     };
 }
-

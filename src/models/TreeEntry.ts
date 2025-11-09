@@ -12,42 +12,40 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { TreeEntryType } from './TreeEntryType';
+import { mapValues } from "../runtime";
+import type { TreeEntryType } from "./TreeEntryType";
 import {
     TreeEntryTypeFromJSON,
     TreeEntryTypeFromJSONTyped,
     TreeEntryTypeToJSON,
     TreeEntryTypeToJSONTyped,
-} from './TreeEntryType';
+} from "./TreeEntryType";
 
 /**
- * 
+ *
  * @export
  * @interface TreeEntry
  */
 export interface TreeEntry {
     /**
-     * 
+     *
      * @type {string}
      * @memberof TreeEntry
      */
     name?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof TreeEntry
      */
     path?: string;
     /**
-     * 
+     *
      * @type {TreeEntryType}
      * @memberof TreeEntry
      */
     type?: TreeEntryType;
 }
-
-
 
 /**
  * Check if a given object implements the TreeEntry interface.
@@ -65,10 +63,9 @@ export function TreeEntryFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         return json;
     }
     return {
-        
-        'name': json['name'] == null ? undefined : json['name'],
-        'path': json['path'] == null ? undefined : json['path'],
-        'type': json['type'] == null ? undefined : TreeEntryTypeFromJSON(json['type']),
+        name: json["name"] == null ? undefined : json["name"],
+        path: json["path"] == null ? undefined : json["path"],
+        type: json["type"] == null ? undefined : TreeEntryTypeFromJSON(json["type"]),
     };
 }
 
@@ -76,16 +73,17 @@ export function TreeEntryToJSON(json: any): TreeEntry {
     return TreeEntryToJSONTyped(json, false);
 }
 
-export function TreeEntryToJSONTyped(value?: TreeEntry | null, ignoreDiscriminator: boolean = false): any {
+export function TreeEntryToJSONTyped(
+    value?: TreeEntry | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'name': value['name'],
-        'path': value['path'],
-        'type': TreeEntryTypeToJSON(value['type']),
+        name: value["name"],
+        path: value["path"],
+        type: TreeEntryTypeToJSON(value["type"]),
     };
 }
-

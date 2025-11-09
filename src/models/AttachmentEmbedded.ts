@@ -12,15 +12,15 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues } from "../runtime";
 /**
- * 
+ *
  * @export
  * @interface AttachmentEmbedded
  */
 export interface AttachmentEmbedded {
     /**
-     * 
+     *
      * @type {string}
      * @memberof AttachmentEmbedded
      */
@@ -38,13 +38,15 @@ export function AttachmentEmbeddedFromJSON(json: any): AttachmentEmbedded {
     return AttachmentEmbeddedFromJSONTyped(json, false);
 }
 
-export function AttachmentEmbeddedFromJSONTyped(json: any, ignoreDiscriminator: boolean): AttachmentEmbedded {
+export function AttachmentEmbeddedFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): AttachmentEmbedded {
     if (json == null) {
         return json;
     }
     return {
-        
-        'id': json['id'] == null ? undefined : json['id'],
+        id: json["id"] == null ? undefined : json["id"],
     };
 }
 
@@ -52,14 +54,15 @@ export function AttachmentEmbeddedToJSON(json: any): AttachmentEmbedded {
     return AttachmentEmbeddedToJSONTyped(json, false);
 }
 
-export function AttachmentEmbeddedToJSONTyped(value?: AttachmentEmbedded | null, ignoreDiscriminator: boolean = false): any {
+export function AttachmentEmbeddedToJSONTyped(
+    value?: AttachmentEmbedded | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'id': value['id'],
+        id: value["id"],
     };
 }
-

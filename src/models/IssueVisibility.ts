@@ -12,17 +12,15 @@
  * Do not edit the class manually.
  */
 
-
 /**
- * 
+ *
  * @export
  */
 export const IssueVisibility = {
-    Public: 'public',
-    Private: 'private'
+    Public: "public",
+    Private: "private",
 } as const;
-export type IssueVisibility = typeof IssueVisibility[keyof typeof IssueVisibility];
-
+export type IssueVisibility = (typeof IssueVisibility)[keyof typeof IssueVisibility];
 
 export function instanceOfIssueVisibility(value: any): boolean {
     for (const key in IssueVisibility) {
@@ -39,7 +37,10 @@ export function IssueVisibilityFromJSON(json: any): IssueVisibility {
     return IssueVisibilityFromJSONTyped(json, false);
 }
 
-export function IssueVisibilityFromJSONTyped(json: any, ignoreDiscriminator: boolean): IssueVisibility {
+export function IssueVisibilityFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): IssueVisibility {
     return json as IssueVisibility;
 }
 
@@ -47,7 +48,9 @@ export function IssueVisibilityToJSON(value?: IssueVisibility | null): any {
     return value as any;
 }
 
-export function IssueVisibilityToJSONTyped(value: any, ignoreDiscriminator: boolean): IssueVisibility {
+export function IssueVisibilityToJSONTyped(
+    value: any,
+    ignoreDiscriminator: boolean
+): IssueVisibility {
     return value as IssueVisibility;
 }
-

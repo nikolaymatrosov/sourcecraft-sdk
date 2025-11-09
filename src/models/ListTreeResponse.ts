@@ -12,17 +12,17 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { TreeEntry } from './TreeEntry';
+import { mapValues } from "../runtime";
+import type { TreeEntry } from "./TreeEntry";
 import {
     TreeEntryFromJSON,
     TreeEntryFromJSONTyped,
     TreeEntryToJSON,
     TreeEntryToJSONTyped,
-} from './TreeEntry';
+} from "./TreeEntry";
 
 /**
- * 
+ *
  * @export
  * @interface ListTreeResponse
  */
@@ -35,7 +35,7 @@ export interface ListTreeResponse {
      */
     nextPageToken?: string;
     /**
-     * 
+     *
      * @type {Array<TreeEntry>}
      * @memberof ListTreeResponse
      */
@@ -53,14 +53,19 @@ export function ListTreeResponseFromJSON(json: any): ListTreeResponse {
     return ListTreeResponseFromJSONTyped(json, false);
 }
 
-export function ListTreeResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): ListTreeResponse {
+export function ListTreeResponseFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): ListTreeResponse {
     if (json == null) {
         return json;
     }
     return {
-        
-        'nextPageToken': json['next_page_token'] == null ? undefined : json['next_page_token'],
-        'trees': json['trees'] == null ? undefined : ((json['trees'] as Array<any>).map(TreeEntryFromJSON)),
+        nextPageToken: json["next_page_token"] == null ? undefined : json["next_page_token"],
+        trees:
+            json["trees"] == null
+                ? undefined
+                : (json["trees"] as Array<any>).map(TreeEntryFromJSON),
     };
 }
 
@@ -68,15 +73,19 @@ export function ListTreeResponseToJSON(json: any): ListTreeResponse {
     return ListTreeResponseToJSONTyped(json, false);
 }
 
-export function ListTreeResponseToJSONTyped(value?: ListTreeResponse | null, ignoreDiscriminator: boolean = false): any {
+export function ListTreeResponseToJSONTyped(
+    value?: ListTreeResponse | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'next_page_token': value['nextPageToken'],
-        'trees': value['trees'] == null ? undefined : ((value['trees'] as Array<any>).map(TreeEntryToJSON)),
+        next_page_token: value["nextPageToken"],
+        trees:
+            value["trees"] == null
+                ? undefined
+                : (value["trees"] as Array<any>).map(TreeEntryToJSON),
     };
 }
-

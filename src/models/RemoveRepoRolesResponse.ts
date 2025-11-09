@@ -12,17 +12,17 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { SubjectRole } from './SubjectRole';
+import { mapValues } from "../runtime";
+import type { SubjectRole } from "./SubjectRole";
 import {
     SubjectRoleFromJSON,
     SubjectRoleFromJSONTyped,
     SubjectRoleToJSON,
     SubjectRoleToJSONTyped,
-} from './SubjectRole';
+} from "./SubjectRole";
 
 /**
- * 
+ *
  * @export
  * @interface RemoveRepoRolesResponse
  */
@@ -35,7 +35,7 @@ export interface RemoveRepoRolesResponse {
      */
     nextPageToken?: string;
     /**
-     * 
+     *
      * @type {Array<SubjectRole>}
      * @memberof RemoveRepoRolesResponse
      */
@@ -53,14 +53,19 @@ export function RemoveRepoRolesResponseFromJSON(json: any): RemoveRepoRolesRespo
     return RemoveRepoRolesResponseFromJSONTyped(json, false);
 }
 
-export function RemoveRepoRolesResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): RemoveRepoRolesResponse {
+export function RemoveRepoRolesResponseFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): RemoveRepoRolesResponse {
     if (json == null) {
         return json;
     }
     return {
-        
-        'nextPageToken': json['next_page_token'] == null ? undefined : json['next_page_token'],
-        'subjectRoles': json['subject_roles'] == null ? undefined : ((json['subject_roles'] as Array<any>).map(SubjectRoleFromJSON)),
+        nextPageToken: json["next_page_token"] == null ? undefined : json["next_page_token"],
+        subjectRoles:
+            json["subject_roles"] == null
+                ? undefined
+                : (json["subject_roles"] as Array<any>).map(SubjectRoleFromJSON),
     };
 }
 
@@ -68,15 +73,19 @@ export function RemoveRepoRolesResponseToJSON(json: any): RemoveRepoRolesRespons
     return RemoveRepoRolesResponseToJSONTyped(json, false);
 }
 
-export function RemoveRepoRolesResponseToJSONTyped(value?: RemoveRepoRolesResponse | null, ignoreDiscriminator: boolean = false): any {
+export function RemoveRepoRolesResponseToJSONTyped(
+    value?: RemoveRepoRolesResponse | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'next_page_token': value['nextPageToken'],
-        'subject_roles': value['subjectRoles'] == null ? undefined : ((value['subjectRoles'] as Array<any>).map(SubjectRoleToJSON)),
+        next_page_token: value["nextPageToken"],
+        subject_roles:
+            value["subjectRoles"] == null
+                ? undefined
+                : (value["subjectRoles"] as Array<any>).map(SubjectRoleToJSON),
     };
 }
-

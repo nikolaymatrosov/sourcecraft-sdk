@@ -12,14 +12,13 @@
  * Do not edit the class manually.
  */
 
-
-import * as runtime from '../runtime';
+import * as runtime from "../runtime";
 import type {
-  ApiErrorResponse,
-  Attachment,
-  AttachmentDownloadable,
-  AttachmentsResponse,
-} from '../models/index';
+    ApiErrorResponse,
+    Attachment,
+    AttachmentDownloadable,
+    AttachmentsResponse,
+} from "../models/index";
 import {
     ApiErrorResponseFromJSON,
     ApiErrorResponseToJSON,
@@ -29,7 +28,7 @@ import {
     AttachmentDownloadableToJSON,
     AttachmentsResponseFromJSON,
     AttachmentsResponseToJSON,
-} from '../models/index';
+} from "../models/index";
 
 export interface DeleteIssueCommentAttachmentRequest {
     issueCommentId: string;
@@ -53,7 +52,7 @@ export interface UploadIssueCommentAttachmentRequest {
 
 /**
  * IssuesCommentsAttachmentsApi - interface
- * 
+ *
  * @export
  * @interface IssuesCommentsAttachmentsApiInterface
  */
@@ -61,101 +60,129 @@ export interface IssuesCommentsAttachmentsApiInterface {
     /**
      * Permanently removes an attachment from a comment. The file will be deleted and cannot be reused.
      * @summary Remove attachment
-     * @param {string} issueCommentId 
-     * @param {string} attachmentId 
-     * @param {boolean} [silent] 
+     * @param {string} issueCommentId
+     * @param {string} attachmentId
+     * @param {boolean} [silent]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesCommentsAttachmentsApiInterface
      */
-    deleteIssueCommentAttachmentRaw(requestParameters: DeleteIssueCommentAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    deleteIssueCommentAttachmentRaw(
+        requestParameters: DeleteIssueCommentAttachmentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<void>>;
 
     /**
      * Permanently removes an attachment from a comment. The file will be deleted and cannot be reused.
      * Remove attachment
      */
-    deleteIssueCommentAttachment(requestParameters: DeleteIssueCommentAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    deleteIssueCommentAttachment(
+        requestParameters: DeleteIssueCommentAttachmentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<void>;
 
     /**
      * Gets attachment details and download URL
      * @summary Get attachment
-     * @param {string} issueCommentId 
-     * @param {string} attachmentId 
+     * @param {string} issueCommentId
+     * @param {string} attachmentId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesCommentsAttachmentsApiInterface
      */
-    getIssueCommentAttachmentRaw(requestParameters: GetIssueCommentAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AttachmentDownloadable>>;
+    getIssueCommentAttachmentRaw(
+        requestParameters: GetIssueCommentAttachmentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<AttachmentDownloadable>>;
 
     /**
      * Gets attachment details and download URL
      * Get attachment
      */
-    getIssueCommentAttachment(requestParameters: GetIssueCommentAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AttachmentDownloadable>;
+    getIssueCommentAttachment(
+        requestParameters: GetIssueCommentAttachmentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<AttachmentDownloadable>;
 
     /**
      * Retrieves all attachments from an issue
      * @summary List attachments
-     * @param {string} issueCommentId 
+     * @param {string} issueCommentId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesCommentsAttachmentsApiInterface
      */
-    listIssueCommentAttachmentsRaw(requestParameters: ListIssueCommentAttachmentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AttachmentsResponse>>;
+    listIssueCommentAttachmentsRaw(
+        requestParameters: ListIssueCommentAttachmentsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<AttachmentsResponse>>;
 
     /**
      * Retrieves all attachments from an issue
      * List attachments
      */
-    listIssueCommentAttachments(requestParameters: ListIssueCommentAttachmentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AttachmentsResponse>;
+    listIssueCommentAttachments(
+        requestParameters: ListIssueCommentAttachmentsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<AttachmentsResponse>;
 
     /**
      * Uploads attachment to an issue
      * @summary Upload attachment
-     * @param {string} issueCommentId 
+     * @param {string} issueCommentId
      * @param {Blob} file The file to upload
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesCommentsAttachmentsApiInterface
      */
-    uploadIssueCommentAttachmentRaw(requestParameters: UploadIssueCommentAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Attachment>>;
+    uploadIssueCommentAttachmentRaw(
+        requestParameters: UploadIssueCommentAttachmentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Attachment>>;
 
     /**
      * Uploads attachment to an issue
      * Upload attachment
      */
-    uploadIssueCommentAttachment(requestParameters: UploadIssueCommentAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Attachment>;
-
+    uploadIssueCommentAttachment(
+        requestParameters: UploadIssueCommentAttachmentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Attachment>;
 }
 
 /**
- * 
+ *
  */
-export class IssuesCommentsAttachmentsApi extends runtime.BaseAPI implements IssuesCommentsAttachmentsApiInterface {
-
+export class IssuesCommentsAttachmentsApi
+    extends runtime.BaseAPI
+    implements IssuesCommentsAttachmentsApiInterface
+{
     /**
      * Permanently removes an attachment from a comment. The file will be deleted and cannot be reused.
      * Remove attachment
      */
-    async deleteIssueCommentAttachmentRaw(requestParameters: DeleteIssueCommentAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        if (requestParameters['issueCommentId'] == null) {
+    async deleteIssueCommentAttachmentRaw(
+        requestParameters: DeleteIssueCommentAttachmentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters["issueCommentId"] == null) {
             throw new runtime.RequiredError(
-                'issueCommentId',
+                "issueCommentId",
                 'Required parameter "issueCommentId" was null or undefined when calling deleteIssueCommentAttachment().'
             );
         }
 
-        if (requestParameters['attachmentId'] == null) {
+        if (requestParameters["attachmentId"] == null) {
             throw new runtime.RequiredError(
-                'attachmentId',
+                "attachmentId",
                 'Required parameter "attachmentId" was null or undefined when calling deleteIssueCommentAttachment().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -170,15 +197,24 @@ export class IssuesCommentsAttachmentsApi extends runtime.BaseAPI implements Iss
         }
 
         let urlPath = `/issue_comments/id:{issue_comment_id}/attachments/{attachment_id}`;
-        urlPath = urlPath.replace(`{${"issue_comment_id"}}`, encodeURIComponent(String(requestParameters['issueCommentId'])));
-        urlPath = urlPath.replace(`{${"attachment_id"}}`, encodeURIComponent(String(requestParameters['attachmentId'])));
+        urlPath = urlPath.replace(
+            `{${"issue_comment_id"}}`,
+            encodeURIComponent(String(requestParameters["issueCommentId"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"attachment_id"}}`,
+            encodeURIComponent(String(requestParameters["attachmentId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "DELETE",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
         return new runtime.VoidApiResponse(response);
     }
@@ -187,7 +223,10 @@ export class IssuesCommentsAttachmentsApi extends runtime.BaseAPI implements Iss
      * Permanently removes an attachment from a comment. The file will be deleted and cannot be reused.
      * Remove attachment
      */
-    async deleteIssueCommentAttachment(requestParameters: DeleteIssueCommentAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+    async deleteIssueCommentAttachment(
+        requestParameters: DeleteIssueCommentAttachmentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<void> {
         await this.deleteIssueCommentAttachmentRaw(requestParameters, initOverrides);
     }
 
@@ -195,17 +234,20 @@ export class IssuesCommentsAttachmentsApi extends runtime.BaseAPI implements Iss
      * Gets attachment details and download URL
      * Get attachment
      */
-    async getIssueCommentAttachmentRaw(requestParameters: GetIssueCommentAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AttachmentDownloadable>> {
-        if (requestParameters['issueCommentId'] == null) {
+    async getIssueCommentAttachmentRaw(
+        requestParameters: GetIssueCommentAttachmentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<AttachmentDownloadable>> {
+        if (requestParameters["issueCommentId"] == null) {
             throw new runtime.RequiredError(
-                'issueCommentId',
+                "issueCommentId",
                 'Required parameter "issueCommentId" was null or undefined when calling getIssueCommentAttachment().'
             );
         }
 
-        if (requestParameters['attachmentId'] == null) {
+        if (requestParameters["attachmentId"] == null) {
             throw new runtime.RequiredError(
-                'attachmentId',
+                "attachmentId",
                 'Required parameter "attachmentId" was null or undefined when calling getIssueCommentAttachment().'
             );
         }
@@ -224,24 +266,38 @@ export class IssuesCommentsAttachmentsApi extends runtime.BaseAPI implements Iss
         }
 
         let urlPath = `/issue_comments/id:{issue_comment_id}/attachments/{attachment_id}`;
-        urlPath = urlPath.replace(`{${"issue_comment_id"}}`, encodeURIComponent(String(requestParameters['issueCommentId'])));
-        urlPath = urlPath.replace(`{${"attachment_id"}}`, encodeURIComponent(String(requestParameters['attachmentId'])));
+        urlPath = urlPath.replace(
+            `{${"issue_comment_id"}}`,
+            encodeURIComponent(String(requestParameters["issueCommentId"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"attachment_id"}}`,
+            encodeURIComponent(String(requestParameters["attachmentId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => AttachmentDownloadableFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            AttachmentDownloadableFromJSON(jsonValue)
+        );
     }
 
     /**
      * Gets attachment details and download URL
      * Get attachment
      */
-    async getIssueCommentAttachment(requestParameters: GetIssueCommentAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AttachmentDownloadable> {
+    async getIssueCommentAttachment(
+        requestParameters: GetIssueCommentAttachmentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<AttachmentDownloadable> {
         const response = await this.getIssueCommentAttachmentRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -250,10 +306,13 @@ export class IssuesCommentsAttachmentsApi extends runtime.BaseAPI implements Iss
      * Retrieves all attachments from an issue
      * List attachments
      */
-    async listIssueCommentAttachmentsRaw(requestParameters: ListIssueCommentAttachmentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AttachmentsResponse>> {
-        if (requestParameters['issueCommentId'] == null) {
+    async listIssueCommentAttachmentsRaw(
+        requestParameters: ListIssueCommentAttachmentsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<AttachmentsResponse>> {
+        if (requestParameters["issueCommentId"] == null) {
             throw new runtime.RequiredError(
-                'issueCommentId',
+                "issueCommentId",
                 'Required parameter "issueCommentId" was null or undefined when calling listIssueCommentAttachments().'
             );
         }
@@ -272,24 +331,38 @@ export class IssuesCommentsAttachmentsApi extends runtime.BaseAPI implements Iss
         }
 
         let urlPath = `/issue_comments/id:{issue_comment_id}/attachments`;
-        urlPath = urlPath.replace(`{${"issue_comment_id"}}`, encodeURIComponent(String(requestParameters['issueCommentId'])));
+        urlPath = urlPath.replace(
+            `{${"issue_comment_id"}}`,
+            encodeURIComponent(String(requestParameters["issueCommentId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => AttachmentsResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            AttachmentsResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * Retrieves all attachments from an issue
      * List attachments
      */
-    async listIssueCommentAttachments(requestParameters: ListIssueCommentAttachmentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AttachmentsResponse> {
-        const response = await this.listIssueCommentAttachmentsRaw(requestParameters, initOverrides);
+    async listIssueCommentAttachments(
+        requestParameters: ListIssueCommentAttachmentsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<AttachmentsResponse> {
+        const response = await this.listIssueCommentAttachmentsRaw(
+            requestParameters,
+            initOverrides
+        );
         return await response.value();
     }
 
@@ -297,17 +370,20 @@ export class IssuesCommentsAttachmentsApi extends runtime.BaseAPI implements Iss
      * Uploads attachment to an issue
      * Upload attachment
      */
-    async uploadIssueCommentAttachmentRaw(requestParameters: UploadIssueCommentAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Attachment>> {
-        if (requestParameters['issueCommentId'] == null) {
+    async uploadIssueCommentAttachmentRaw(
+        requestParameters: UploadIssueCommentAttachmentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Attachment>> {
+        if (requestParameters["issueCommentId"] == null) {
             throw new runtime.RequiredError(
-                'issueCommentId',
+                "issueCommentId",
                 'Required parameter "issueCommentId" was null or undefined when calling uploadIssueCommentAttachment().'
             );
         }
 
-        if (requestParameters['file'] == null) {
+        if (requestParameters["file"] == null) {
             throw new runtime.RequiredError(
-                'file',
+                "file",
                 'Required parameter "file" was null or undefined when calling uploadIssueCommentAttachment().'
             );
         }
@@ -324,9 +400,7 @@ export class IssuesCommentsAttachmentsApi extends runtime.BaseAPI implements Iss
                 headerParameters["Authorization"] = `Bearer ${tokenString}`;
             }
         }
-        const consumes: runtime.Consume[] = [
-            { contentType: 'multipart/form-data' },
-        ];
+        const consumes: runtime.Consume[] = [{ contentType: "multipart/form-data" }];
         // @ts-ignore: canConsumeForm may be unused
         const canConsumeForm = runtime.canConsumeForm(consumes);
 
@@ -340,21 +414,26 @@ export class IssuesCommentsAttachmentsApi extends runtime.BaseAPI implements Iss
             formParams = new URLSearchParams();
         }
 
-        if (requestParameters['file'] != null) {
-            formParams.append('file', requestParameters['file'] as any);
+        if (requestParameters["file"] != null) {
+            formParams.append("file", requestParameters["file"] as any);
         }
 
-
         let urlPath = `/issue_comments/id:{issue_comment_id}/attachments`;
-        urlPath = urlPath.replace(`{${"issue_comment_id"}}`, encodeURIComponent(String(requestParameters['issueCommentId'])));
+        urlPath = urlPath.replace(
+            `{${"issue_comment_id"}}`,
+            encodeURIComponent(String(requestParameters["issueCommentId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: formParams,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+                body: formParams,
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => AttachmentFromJSON(jsonValue));
     }
@@ -363,9 +442,14 @@ export class IssuesCommentsAttachmentsApi extends runtime.BaseAPI implements Iss
      * Uploads attachment to an issue
      * Upload attachment
      */
-    async uploadIssueCommentAttachment(requestParameters: UploadIssueCommentAttachmentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Attachment> {
-        const response = await this.uploadIssueCommentAttachmentRaw(requestParameters, initOverrides);
+    async uploadIssueCommentAttachment(
+        requestParameters: UploadIssueCommentAttachmentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Attachment> {
+        const response = await this.uploadIssueCommentAttachmentRaw(
+            requestParameters,
+            initOverrides
+        );
         return await response.value();
     }
-
 }

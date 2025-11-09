@@ -12,18 +12,14 @@
  * Do not edit the class manually.
  */
 
-
-import * as runtime from '../runtime';
-import type {
-  ApiErrorResponse,
-  RunCIBody,
-} from '../models/index';
+import * as runtime from "../runtime";
+import type { ApiErrorResponse, RunCIBody } from "../models/index";
 import {
     ApiErrorResponseFromJSON,
     ApiErrorResponseToJSON,
     RunCIBodyFromJSON,
     RunCIBodyToJSON,
-} from '../models/index';
+} from "../models/index";
 
 export interface RunWorkflowRequest {
     orgSlug: string;
@@ -40,81 +36,94 @@ export interface RunWorkflowByIDRequest {
 
 /**
  * CIApi - interface
- * 
+ *
  * @export
  * @interface CIApiInterface
  */
 export interface CIApiInterface {
     /**
-     * 
+     *
      * @summary Run Workflow in Repository
-     * @param {string} orgSlug 
-     * @param {string} repoSlug 
-     * @param {string} workflowName 
-     * @param {RunCIBody} runCIBody 
+     * @param {string} orgSlug
+     * @param {string} repoSlug
+     * @param {string} workflowName
+     * @param {RunCIBody} runCIBody
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CIApiInterface
      */
-    runWorkflowRaw(requestParameters: RunWorkflowRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+    runWorkflowRaw(
+        requestParameters: RunWorkflowRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<any>>;
 
     /**
      * Run Workflow in Repository
      */
-    runWorkflow(requestParameters: RunWorkflowRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    runWorkflow(
+        requestParameters: RunWorkflowRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<any>;
 
     /**
-     * 
+     *
      * @summary Run Workflow in Repository (By Repo ID)
-     * @param {string} repoId 
-     * @param {string} workflowName 
-     * @param {RunCIBody} runCIBody 
+     * @param {string} repoId
+     * @param {string} workflowName
+     * @param {RunCIBody} runCIBody
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CIApiInterface
      */
-    runWorkflowByIDRaw(requestParameters: RunWorkflowByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+    runWorkflowByIDRaw(
+        requestParameters: RunWorkflowByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<any>>;
 
     /**
      * Run Workflow in Repository (By Repo ID)
      */
-    runWorkflowByID(requestParameters: RunWorkflowByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
-
+    runWorkflowByID(
+        requestParameters: RunWorkflowByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<any>;
 }
 
 /**
- * 
+ *
  */
 export class CIApi extends runtime.BaseAPI implements CIApiInterface {
-
     /**
      * Run Workflow in Repository
      */
-    async runWorkflowRaw(requestParameters: RunWorkflowRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
-        if (requestParameters['orgSlug'] == null) {
+    async runWorkflowRaw(
+        requestParameters: RunWorkflowRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<any>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling runWorkflow().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling runWorkflow().'
             );
         }
 
-        if (requestParameters['workflowName'] == null) {
+        if (requestParameters["workflowName"] == null) {
             throw new runtime.RequiredError(
-                'workflowName',
+                "workflowName",
                 'Required parameter "workflowName" was null or undefined when calling runWorkflow().'
             );
         }
 
-        if (requestParameters['runCIBody'] == null) {
+        if (requestParameters["runCIBody"] == null) {
             throw new runtime.RequiredError(
-                'runCIBody',
+                "runCIBody",
                 'Required parameter "runCIBody" was null or undefined when calling runWorkflow().'
             );
         }
@@ -123,7 +132,7 @@ export class CIApi extends runtime.BaseAPI implements CIApiInterface {
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -135,19 +144,31 @@ export class CIApi extends runtime.BaseAPI implements CIApiInterface {
         }
 
         let urlPath = `/{org_slug}/{repo_slug}/ci_workflows/{workflow_name}/trigger`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
-        urlPath = urlPath.replace(`{${"workflow_name"}}`, encodeURIComponent(String(requestParameters['workflowName'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"workflow_name"}}`,
+            encodeURIComponent(String(requestParameters["workflowName"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: RunCIBodyToJSON(requestParameters['runCIBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+                body: RunCIBodyToJSON(requestParameters["runCIBody"]),
+            },
+            initOverrides
+        );
 
-        if (this.isJsonMime(response.headers.get('content-type'))) {
+        if (this.isJsonMime(response.headers.get("content-type"))) {
             return new runtime.JSONApiResponse<any>(response);
         } else {
             return new runtime.TextApiResponse(response) as any;
@@ -157,7 +178,10 @@ export class CIApi extends runtime.BaseAPI implements CIApiInterface {
     /**
      * Run Workflow in Repository
      */
-    async runWorkflow(requestParameters: RunWorkflowRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
+    async runWorkflow(
+        requestParameters: RunWorkflowRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<any> {
         const response = await this.runWorkflowRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -165,24 +189,27 @@ export class CIApi extends runtime.BaseAPI implements CIApiInterface {
     /**
      * Run Workflow in Repository (By Repo ID)
      */
-    async runWorkflowByIDRaw(requestParameters: RunWorkflowByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
-        if (requestParameters['repoId'] == null) {
+    async runWorkflowByIDRaw(
+        requestParameters: RunWorkflowByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<any>> {
+        if (requestParameters["repoId"] == null) {
             throw new runtime.RequiredError(
-                'repoId',
+                "repoId",
                 'Required parameter "repoId" was null or undefined when calling runWorkflowByID().'
             );
         }
 
-        if (requestParameters['workflowName'] == null) {
+        if (requestParameters["workflowName"] == null) {
             throw new runtime.RequiredError(
-                'workflowName',
+                "workflowName",
                 'Required parameter "workflowName" was null or undefined when calling runWorkflowByID().'
             );
         }
 
-        if (requestParameters['runCIBody'] == null) {
+        if (requestParameters["runCIBody"] == null) {
             throw new runtime.RequiredError(
-                'runCIBody',
+                "runCIBody",
                 'Required parameter "runCIBody" was null or undefined when calling runWorkflowByID().'
             );
         }
@@ -191,7 +218,7 @@ export class CIApi extends runtime.BaseAPI implements CIApiInterface {
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -203,18 +230,27 @@ export class CIApi extends runtime.BaseAPI implements CIApiInterface {
         }
 
         let urlPath = `/repos/id:{repo_id}/ci_workflows/{workflow_name}/trigger`;
-        urlPath = urlPath.replace(`{${"repo_id"}}`, encodeURIComponent(String(requestParameters['repoId'])));
-        urlPath = urlPath.replace(`{${"workflow_name"}}`, encodeURIComponent(String(requestParameters['workflowName'])));
+        urlPath = urlPath.replace(
+            `{${"repo_id"}}`,
+            encodeURIComponent(String(requestParameters["repoId"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"workflow_name"}}`,
+            encodeURIComponent(String(requestParameters["workflowName"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: RunCIBodyToJSON(requestParameters['runCIBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+                body: RunCIBodyToJSON(requestParameters["runCIBody"]),
+            },
+            initOverrides
+        );
 
-        if (this.isJsonMime(response.headers.get('content-type'))) {
+        if (this.isJsonMime(response.headers.get("content-type"))) {
             return new runtime.JSONApiResponse<any>(response);
         } else {
             return new runtime.TextApiResponse(response) as any;
@@ -224,9 +260,11 @@ export class CIApi extends runtime.BaseAPI implements CIApiInterface {
     /**
      * Run Workflow in Repository (By Repo ID)
      */
-    async runWorkflowByID(requestParameters: RunWorkflowByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
+    async runWorkflowByID(
+        requestParameters: RunWorkflowByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<any> {
         const response = await this.runWorkflowByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
-
 }

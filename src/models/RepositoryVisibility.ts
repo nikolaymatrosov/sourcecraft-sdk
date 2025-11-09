@@ -12,18 +12,16 @@
  * Do not edit the class manually.
  */
 
-
 /**
- * 
+ *
  * @export
  */
 export const RepositoryVisibility = {
-    Public: 'public',
-    Internal: 'internal',
-    Private: 'private'
+    Public: "public",
+    Internal: "internal",
+    Private: "private",
 } as const;
-export type RepositoryVisibility = typeof RepositoryVisibility[keyof typeof RepositoryVisibility];
-
+export type RepositoryVisibility = (typeof RepositoryVisibility)[keyof typeof RepositoryVisibility];
 
 export function instanceOfRepositoryVisibility(value: any): boolean {
     for (const key in RepositoryVisibility) {
@@ -40,7 +38,10 @@ export function RepositoryVisibilityFromJSON(json: any): RepositoryVisibility {
     return RepositoryVisibilityFromJSONTyped(json, false);
 }
 
-export function RepositoryVisibilityFromJSONTyped(json: any, ignoreDiscriminator: boolean): RepositoryVisibility {
+export function RepositoryVisibilityFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): RepositoryVisibility {
     return json as RepositoryVisibility;
 }
 
@@ -48,7 +49,9 @@ export function RepositoryVisibilityToJSON(value?: RepositoryVisibility | null):
     return value as any;
 }
 
-export function RepositoryVisibilityToJSONTyped(value: any, ignoreDiscriminator: boolean): RepositoryVisibility {
+export function RepositoryVisibilityToJSONTyped(
+    value: any,
+    ignoreDiscriminator: boolean
+): RepositoryVisibility {
     return value as RepositoryVisibility;
 }
-

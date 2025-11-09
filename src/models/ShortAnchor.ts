@@ -12,29 +12,29 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { DiffPos } from './DiffPos';
+import { mapValues } from "../runtime";
+import type { DiffPos } from "./DiffPos";
 import {
     DiffPosFromJSON,
     DiffPosFromJSONTyped,
     DiffPosToJSON,
     DiffPosToJSONTyped,
-} from './DiffPos';
+} from "./DiffPos";
 
 /**
- * 
+ *
  * @export
  * @interface ShortAnchor
  */
 export interface ShortAnchor {
     /**
-     * 
+     *
      * @type {string}
      * @memberof ShortAnchor
      */
     path?: string;
     /**
-     * 
+     *
      * @type {DiffPos}
      * @memberof ShortAnchor
      */
@@ -57,9 +57,8 @@ export function ShortAnchorFromJSONTyped(json: any, ignoreDiscriminator: boolean
         return json;
     }
     return {
-        
-        'path': json['path'] == null ? undefined : json['path'],
-        'position': json['position'] == null ? undefined : DiffPosFromJSON(json['position']),
+        path: json["path"] == null ? undefined : json["path"],
+        position: json["position"] == null ? undefined : DiffPosFromJSON(json["position"]),
     };
 }
 
@@ -67,15 +66,16 @@ export function ShortAnchorToJSON(json: any): ShortAnchor {
     return ShortAnchorToJSONTyped(json, false);
 }
 
-export function ShortAnchorToJSONTyped(value?: ShortAnchor | null, ignoreDiscriminator: boolean = false): any {
+export function ShortAnchorToJSONTyped(
+    value?: ShortAnchor | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'path': value['path'],
-        'position': DiffPosToJSON(value['position']),
+        path: value["path"],
+        position: DiffPosToJSON(value["position"]),
     };
 }
-

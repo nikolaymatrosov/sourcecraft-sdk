@@ -12,97 +12,95 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { UserEmbedded } from './UserEmbedded';
+import { mapValues } from "../runtime";
+import type { UserEmbedded } from "./UserEmbedded";
 import {
     UserEmbeddedFromJSON,
     UserEmbeddedFromJSONTyped,
     UserEmbeddedToJSON,
     UserEmbeddedToJSONTyped,
-} from './UserEmbedded';
-import type { MilestoneStatus } from './MilestoneStatus';
+} from "./UserEmbedded";
+import type { MilestoneStatus } from "./MilestoneStatus";
 import {
     MilestoneStatusFromJSON,
     MilestoneStatusFromJSONTyped,
     MilestoneStatusToJSON,
     MilestoneStatusToJSONTyped,
-} from './MilestoneStatus';
+} from "./MilestoneStatus";
 
 /**
- * 
+ *
  * @export
  * @interface Milestone
  */
 export interface Milestone {
     /**
-     * 
+     *
      * @type {UserEmbedded}
      * @memberof Milestone
      */
     author?: UserEmbedded;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof Milestone
      */
     createdAt?: Date;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof Milestone
      */
     deadline?: Date;
     /**
-     * 
+     *
      * @type {string}
      * @memberof Milestone
      */
     description?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof Milestone
      */
     id?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof Milestone
      */
     name?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof Milestone
      */
     slug?: string;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof Milestone
      */
     startDate?: Date;
     /**
-     * 
+     *
      * @type {MilestoneStatus}
      * @memberof Milestone
      */
     status?: MilestoneStatus;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof Milestone
      */
     updatedAt?: Date;
     /**
-     * 
+     *
      * @type {UserEmbedded}
      * @memberof Milestone
      */
     updatedBy?: UserEmbedded;
 }
-
-
 
 /**
  * Check if a given object implements the Milestone interface.
@@ -120,18 +118,18 @@ export function MilestoneFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         return json;
     }
     return {
-        
-        'author': json['author'] == null ? undefined : UserEmbeddedFromJSON(json['author']),
-        'createdAt': json['created_at'] == null ? undefined : (new Date(json['created_at'])),
-        'deadline': json['deadline'] == null ? undefined : (new Date(json['deadline'])),
-        'description': json['description'] == null ? undefined : json['description'],
-        'id': json['id'] == null ? undefined : json['id'],
-        'name': json['name'] == null ? undefined : json['name'],
-        'slug': json['slug'] == null ? undefined : json['slug'],
-        'startDate': json['start_date'] == null ? undefined : (new Date(json['start_date'])),
-        'status': json['status'] == null ? undefined : MilestoneStatusFromJSON(json['status']),
-        'updatedAt': json['updated_at'] == null ? undefined : (new Date(json['updated_at'])),
-        'updatedBy': json['updated_by'] == null ? undefined : UserEmbeddedFromJSON(json['updated_by']),
+        author: json["author"] == null ? undefined : UserEmbeddedFromJSON(json["author"]),
+        createdAt: json["created_at"] == null ? undefined : new Date(json["created_at"]),
+        deadline: json["deadline"] == null ? undefined : new Date(json["deadline"]),
+        description: json["description"] == null ? undefined : json["description"],
+        id: json["id"] == null ? undefined : json["id"],
+        name: json["name"] == null ? undefined : json["name"],
+        slug: json["slug"] == null ? undefined : json["slug"],
+        startDate: json["start_date"] == null ? undefined : new Date(json["start_date"]),
+        status: json["status"] == null ? undefined : MilestoneStatusFromJSON(json["status"]),
+        updatedAt: json["updated_at"] == null ? undefined : new Date(json["updated_at"]),
+        updatedBy:
+            json["updated_by"] == null ? undefined : UserEmbeddedFromJSON(json["updated_by"]),
     };
 }
 
@@ -139,24 +137,28 @@ export function MilestoneToJSON(json: any): Milestone {
     return MilestoneToJSONTyped(json, false);
 }
 
-export function MilestoneToJSONTyped(value?: Milestone | null, ignoreDiscriminator: boolean = false): any {
+export function MilestoneToJSONTyped(
+    value?: Milestone | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'author': UserEmbeddedToJSON(value['author']),
-        'created_at': value['createdAt'] == null ? value['createdAt'] : value['createdAt'].toISOString(),
-        'deadline': value['deadline'] == null ? value['deadline'] : value['deadline'].toISOString(),
-        'description': value['description'],
-        'id': value['id'],
-        'name': value['name'],
-        'slug': value['slug'],
-        'start_date': value['startDate'] == null ? value['startDate'] : value['startDate'].toISOString(),
-        'status': MilestoneStatusToJSON(value['status']),
-        'updated_at': value['updatedAt'] == null ? value['updatedAt'] : value['updatedAt'].toISOString(),
-        'updated_by': UserEmbeddedToJSON(value['updatedBy']),
+        author: UserEmbeddedToJSON(value["author"]),
+        created_at:
+            value["createdAt"] == null ? value["createdAt"] : value["createdAt"].toISOString(),
+        deadline: value["deadline"] == null ? value["deadline"] : value["deadline"].toISOString(),
+        description: value["description"],
+        id: value["id"],
+        name: value["name"],
+        slug: value["slug"],
+        start_date:
+            value["startDate"] == null ? value["startDate"] : value["startDate"].toISOString(),
+        status: MilestoneStatusToJSON(value["status"]),
+        updated_at:
+            value["updatedAt"] == null ? value["updatedAt"] : value["updatedAt"].toISOString(),
+        updated_by: UserEmbeddedToJSON(value["updatedBy"]),
     };
 }
-

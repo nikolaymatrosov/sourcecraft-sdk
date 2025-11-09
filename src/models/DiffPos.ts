@@ -12,17 +12,12 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { Side } from './Side';
-import {
-    SideFromJSON,
-    SideFromJSONTyped,
-    SideToJSON,
-    SideToJSONTyped,
-} from './Side';
+import { mapValues } from "../runtime";
+import type { Side } from "./Side";
+import { SideFromJSON, SideFromJSONTyped, SideToJSON, SideToJSONTyped } from "./Side";
 
 /**
- * 
+ *
  * @export
  * @interface DiffPos
  */
@@ -40,7 +35,7 @@ export interface DiffPos {
      */
     outdated?: boolean;
     /**
-     * 
+     *
      * @type {Side}
      * @memberof DiffPos
      */
@@ -52,8 +47,6 @@ export interface DiffPos {
      */
     to?: number;
 }
-
-
 
 /**
  * Check if a given object implements the DiffPos interface.
@@ -71,11 +64,10 @@ export function DiffPosFromJSONTyped(json: any, ignoreDiscriminator: boolean): D
         return json;
     }
     return {
-        
-        'from': json['from'] == null ? undefined : json['from'],
-        'outdated': json['outdated'] == null ? undefined : json['outdated'],
-        'side': json['side'] == null ? undefined : SideFromJSON(json['side']),
-        'to': json['to'] == null ? undefined : json['to'],
+        from: json["from"] == null ? undefined : json["from"],
+        outdated: json["outdated"] == null ? undefined : json["outdated"],
+        side: json["side"] == null ? undefined : SideFromJSON(json["side"]),
+        to: json["to"] == null ? undefined : json["to"],
     };
 }
 
@@ -83,17 +75,18 @@ export function DiffPosToJSON(json: any): DiffPos {
     return DiffPosToJSONTyped(json, false);
 }
 
-export function DiffPosToJSONTyped(value?: DiffPos | null, ignoreDiscriminator: boolean = false): any {
+export function DiffPosToJSONTyped(
+    value?: DiffPos | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'from': value['from'],
-        'outdated': value['outdated'],
-        'side': SideToJSON(value['side']),
-        'to': value['to'],
+        from: value["from"],
+        outdated: value["outdated"],
+        side: SideToJSON(value["side"]),
+        to: value["to"],
     };
 }
-

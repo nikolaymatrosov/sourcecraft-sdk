@@ -12,13 +12,12 @@
  * Do not edit the class manually.
  */
 
-
-import * as runtime from '../runtime';
+import * as runtime from "../runtime";
 import type {
-  ApiErrorResponse,
-  IssueLabelsResponse,
-  ModifyLabelCollectionRequest,
-} from '../models/index';
+    ApiErrorResponse,
+    IssueLabelsResponse,
+    ModifyLabelCollectionRequest,
+} from "../models/index";
 import {
     ApiErrorResponseFromJSON,
     ApiErrorResponseToJSON,
@@ -26,7 +25,7 @@ import {
     IssueLabelsResponseToJSON,
     ModifyLabelCollectionRequestFromJSON,
     ModifyLabelCollectionRequestToJSON,
-} from '../models/index';
+} from "../models/index";
 
 export interface AddLabelsRequest {
     orgSlug: string;
@@ -82,7 +81,7 @@ export interface ReplaceLabelsByIDRequest {
 
 /**
  * IssuesLabelsApi - interface
- * 
+ *
  * @export
  * @interface IssuesLabelsApiInterface
  */
@@ -91,199 +90,248 @@ export interface IssuesLabelsApiInterface {
      * Associates one or more labels with a specific issue. Returns resulting collection.
      * @summary Add Labels
      * @param {string} orgSlug depending on which route is used, either parent or repoId is filled
-     * @param {string} repoSlug 
-     * @param {string} issueSlug 
-     * @param {ModifyLabelCollectionRequest} modifyLabelCollectionRequest 
-     * @param {boolean} [silent] 
+     * @param {string} repoSlug
+     * @param {string} issueSlug
+     * @param {ModifyLabelCollectionRequest} modifyLabelCollectionRequest
+     * @param {boolean} [silent]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesLabelsApiInterface
      */
-    addLabelsRaw(requestParameters: AddLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLabelsResponse>>;
+    addLabelsRaw(
+        requestParameters: AddLabelsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<IssueLabelsResponse>>;
 
     /**
      * Associates one or more labels with a specific issue. Returns resulting collection.
      * Add Labels
      */
-    addLabels(requestParameters: AddLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLabelsResponse>;
+    addLabels(
+        requestParameters: AddLabelsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<IssueLabelsResponse>;
 
     /**
      * Associates one or more labels with a specific issue. Returns resulting collection.
      * @summary Add Labels (By Issue ID)
-     * @param {string} issueId 
-     * @param {ModifyLabelCollectionRequest} modifyLabelCollectionRequest 
-     * @param {boolean} [silent] 
+     * @param {string} issueId
+     * @param {ModifyLabelCollectionRequest} modifyLabelCollectionRequest
+     * @param {boolean} [silent]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesLabelsApiInterface
      */
-    addLabelsByIDRaw(requestParameters: AddLabelsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLabelsResponse>>;
+    addLabelsByIDRaw(
+        requestParameters: AddLabelsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<IssueLabelsResponse>>;
 
     /**
      * Associates one or more labels with a specific issue. Returns resulting collection.
      * Add Labels (By Issue ID)
      */
-    addLabelsByID(requestParameters: AddLabelsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLabelsResponse>;
+    addLabelsByID(
+        requestParameters: AddLabelsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<IssueLabelsResponse>;
 
     /**
      * Retrieves all labels that are linked to the specified issue.
      * @summary List Labels
      * @param {string} orgSlug depending on which route is used, either parent or repoId is filled
-     * @param {string} repoSlug 
-     * @param {string} issueSlug 
+     * @param {string} repoSlug
+     * @param {string} issueSlug
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesLabelsApiInterface
      */
-    getLabelsRaw(requestParameters: GetLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLabelsResponse>>;
+    getLabelsRaw(
+        requestParameters: GetLabelsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<IssueLabelsResponse>>;
 
     /**
      * Retrieves all labels that are linked to the specified issue.
      * List Labels
      */
-    getLabels(requestParameters: GetLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLabelsResponse>;
+    getLabels(
+        requestParameters: GetLabelsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<IssueLabelsResponse>;
 
     /**
      * Retrieves all labels that are linked to the specified issue.
      * @summary List Labels (By Issue ID)
-     * @param {string} issueId 
+     * @param {string} issueId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesLabelsApiInterface
      */
-    getLabelsByIDRaw(requestParameters: GetLabelsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLabelsResponse>>;
+    getLabelsByIDRaw(
+        requestParameters: GetLabelsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<IssueLabelsResponse>>;
 
     /**
      * Retrieves all labels that are linked to the specified issue.
      * List Labels (By Issue ID)
      */
-    getLabelsByID(requestParameters: GetLabelsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLabelsResponse>;
+    getLabelsByID(
+        requestParameters: GetLabelsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<IssueLabelsResponse>;
 
     /**
      * Removes one or more labels from a specific issue. Returns resulting collection.
      * @summary Remove labels
      * @param {string} orgSlug depending on which route is used, either parent or repoId is filled
-     * @param {string} repoSlug 
-     * @param {string} issueSlug 
-     * @param {ModifyLabelCollectionRequest} modifyLabelCollectionRequest 
+     * @param {string} repoSlug
+     * @param {string} issueSlug
+     * @param {ModifyLabelCollectionRequest} modifyLabelCollectionRequest
      * @param {boolean} [silent] creation options (query)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesLabelsApiInterface
      */
-    removeLabelsRaw(requestParameters: RemoveLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLabelsResponse>>;
+    removeLabelsRaw(
+        requestParameters: RemoveLabelsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<IssueLabelsResponse>>;
 
     /**
      * Removes one or more labels from a specific issue. Returns resulting collection.
      * Remove labels
      */
-    removeLabels(requestParameters: RemoveLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLabelsResponse>;
+    removeLabels(
+        requestParameters: RemoveLabelsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<IssueLabelsResponse>;
 
     /**
      * Removes one or more labels from a specific issue. Returns resulting collection.
      * @summary Remove labels (By Issue ID)
-     * @param {string} issueId 
-     * @param {ModifyLabelCollectionRequest} modifyLabelCollectionRequest 
+     * @param {string} issueId
+     * @param {ModifyLabelCollectionRequest} modifyLabelCollectionRequest
      * @param {boolean} [silent] creation options (query)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesLabelsApiInterface
      */
-    removeLabelsByIDRaw(requestParameters: RemoveLabelsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLabelsResponse>>;
+    removeLabelsByIDRaw(
+        requestParameters: RemoveLabelsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<IssueLabelsResponse>>;
 
     /**
      * Removes one or more labels from a specific issue. Returns resulting collection.
      * Remove labels (By Issue ID)
      */
-    removeLabelsByID(requestParameters: RemoveLabelsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLabelsResponse>;
+    removeLabelsByID(
+        requestParameters: RemoveLabelsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<IssueLabelsResponse>;
 
     /**
      * Completely replaces the current set of labels on an issue with the provided set.
      * @summary Replace Labels
-     * @param {string} orgSlug 
-     * @param {string} repoSlug 
-     * @param {string} issueSlug 
-     * @param {ModifyLabelCollectionRequest} modifyLabelCollectionRequest 
+     * @param {string} orgSlug
+     * @param {string} repoSlug
+     * @param {string} issueSlug
+     * @param {ModifyLabelCollectionRequest} modifyLabelCollectionRequest
      * @param {boolean} [silent] creation options (query)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesLabelsApiInterface
      */
-    replaceLabelsRaw(requestParameters: ReplaceLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLabelsResponse>>;
+    replaceLabelsRaw(
+        requestParameters: ReplaceLabelsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<IssueLabelsResponse>>;
 
     /**
      * Completely replaces the current set of labels on an issue with the provided set.
      * Replace Labels
      */
-    replaceLabels(requestParameters: ReplaceLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLabelsResponse>;
+    replaceLabels(
+        requestParameters: ReplaceLabelsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<IssueLabelsResponse>;
 
     /**
      * Completely replaces the current set of labels on an issue with the provided set.
      * @summary Replace Labels (By Issue ID)
-     * @param {string} issueId 
-     * @param {ModifyLabelCollectionRequest} modifyLabelCollectionRequest 
+     * @param {string} issueId
+     * @param {ModifyLabelCollectionRequest} modifyLabelCollectionRequest
      * @param {boolean} [silent] creation options (query)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesLabelsApiInterface
      */
-    replaceLabelsByIDRaw(requestParameters: ReplaceLabelsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLabelsResponse>>;
+    replaceLabelsByIDRaw(
+        requestParameters: ReplaceLabelsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<IssueLabelsResponse>>;
 
     /**
      * Completely replaces the current set of labels on an issue with the provided set.
      * Replace Labels (By Issue ID)
      */
-    replaceLabelsByID(requestParameters: ReplaceLabelsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLabelsResponse>;
-
+    replaceLabelsByID(
+        requestParameters: ReplaceLabelsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<IssueLabelsResponse>;
 }
 
 /**
- * 
+ *
  */
 export class IssuesLabelsApi extends runtime.BaseAPI implements IssuesLabelsApiInterface {
-
     /**
      * Associates one or more labels with a specific issue. Returns resulting collection.
      * Add Labels
      */
-    async addLabelsRaw(requestParameters: AddLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLabelsResponse>> {
-        if (requestParameters['orgSlug'] == null) {
+    async addLabelsRaw(
+        requestParameters: AddLabelsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<IssueLabelsResponse>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling addLabels().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling addLabels().'
             );
         }
 
-        if (requestParameters['issueSlug'] == null) {
+        if (requestParameters["issueSlug"] == null) {
             throw new runtime.RequiredError(
-                'issueSlug',
+                "issueSlug",
                 'Required parameter "issueSlug" was null or undefined when calling addLabels().'
             );
         }
 
-        if (requestParameters['modifyLabelCollectionRequest'] == null) {
+        if (requestParameters["modifyLabelCollectionRequest"] == null) {
             throw new runtime.RequiredError(
-                'modifyLabelCollectionRequest',
+                "modifyLabelCollectionRequest",
                 'Required parameter "modifyLabelCollectionRequest" was null or undefined when calling addLabels().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -295,26 +343,45 @@ export class IssuesLabelsApi extends runtime.BaseAPI implements IssuesLabelsApiI
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/issues/{issue_slug}/labels`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
-        urlPath = urlPath.replace(`{${"issue_slug"}}`, encodeURIComponent(String(requestParameters['issueSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"issue_slug"}}`,
+            encodeURIComponent(String(requestParameters["issueSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ModifyLabelCollectionRequestToJSON(requestParameters['modifyLabelCollectionRequest']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+                body: ModifyLabelCollectionRequestToJSON(
+                    requestParameters["modifyLabelCollectionRequest"]
+                ),
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => IssueLabelsResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            IssueLabelsResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * Associates one or more labels with a specific issue. Returns resulting collection.
      * Add Labels
      */
-    async addLabels(requestParameters: AddLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLabelsResponse> {
+    async addLabels(
+        requestParameters: AddLabelsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<IssueLabelsResponse> {
         const response = await this.addLabelsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -323,30 +390,33 @@ export class IssuesLabelsApi extends runtime.BaseAPI implements IssuesLabelsApiI
      * Associates one or more labels with a specific issue. Returns resulting collection.
      * Add Labels (By Issue ID)
      */
-    async addLabelsByIDRaw(requestParameters: AddLabelsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLabelsResponse>> {
-        if (requestParameters['issueId'] == null) {
+    async addLabelsByIDRaw(
+        requestParameters: AddLabelsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<IssueLabelsResponse>> {
+        if (requestParameters["issueId"] == null) {
             throw new runtime.RequiredError(
-                'issueId',
+                "issueId",
                 'Required parameter "issueId" was null or undefined when calling addLabelsByID().'
             );
         }
 
-        if (requestParameters['modifyLabelCollectionRequest'] == null) {
+        if (requestParameters["modifyLabelCollectionRequest"] == null) {
             throw new runtime.RequiredError(
-                'modifyLabelCollectionRequest',
+                "modifyLabelCollectionRequest",
                 'Required parameter "modifyLabelCollectionRequest" was null or undefined when calling addLabelsByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -358,24 +428,37 @@ export class IssuesLabelsApi extends runtime.BaseAPI implements IssuesLabelsApiI
         }
 
         let urlPath = `/issues/id:{issue_id}/labels`;
-        urlPath = urlPath.replace(`{${"issue_id"}}`, encodeURIComponent(String(requestParameters['issueId'])));
+        urlPath = urlPath.replace(
+            `{${"issue_id"}}`,
+            encodeURIComponent(String(requestParameters["issueId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ModifyLabelCollectionRequestToJSON(requestParameters['modifyLabelCollectionRequest']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+                body: ModifyLabelCollectionRequestToJSON(
+                    requestParameters["modifyLabelCollectionRequest"]
+                ),
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => IssueLabelsResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            IssueLabelsResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * Associates one or more labels with a specific issue. Returns resulting collection.
      * Add Labels (By Issue ID)
      */
-    async addLabelsByID(requestParameters: AddLabelsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLabelsResponse> {
+    async addLabelsByID(
+        requestParameters: AddLabelsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<IssueLabelsResponse> {
         const response = await this.addLabelsByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -384,24 +467,27 @@ export class IssuesLabelsApi extends runtime.BaseAPI implements IssuesLabelsApiI
      * Retrieves all labels that are linked to the specified issue.
      * List Labels
      */
-    async getLabelsRaw(requestParameters: GetLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLabelsResponse>> {
-        if (requestParameters['orgSlug'] == null) {
+    async getLabelsRaw(
+        requestParameters: GetLabelsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<IssueLabelsResponse>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling getLabels().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling getLabels().'
             );
         }
 
-        if (requestParameters['issueSlug'] == null) {
+        if (requestParameters["issueSlug"] == null) {
             throw new runtime.RequiredError(
-                'issueSlug',
+                "issueSlug",
                 'Required parameter "issueSlug" was null or undefined when calling getLabels().'
             );
         }
@@ -420,25 +506,42 @@ export class IssuesLabelsApi extends runtime.BaseAPI implements IssuesLabelsApiI
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/issues/{issue_slug}/labels`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
-        urlPath = urlPath.replace(`{${"issue_slug"}}`, encodeURIComponent(String(requestParameters['issueSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"issue_slug"}}`,
+            encodeURIComponent(String(requestParameters["issueSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => IssueLabelsResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            IssueLabelsResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * Retrieves all labels that are linked to the specified issue.
      * List Labels
      */
-    async getLabels(requestParameters: GetLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLabelsResponse> {
+    async getLabels(
+        requestParameters: GetLabelsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<IssueLabelsResponse> {
         const response = await this.getLabelsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -447,10 +550,13 @@ export class IssuesLabelsApi extends runtime.BaseAPI implements IssuesLabelsApiI
      * Retrieves all labels that are linked to the specified issue.
      * List Labels (By Issue ID)
      */
-    async getLabelsByIDRaw(requestParameters: GetLabelsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLabelsResponse>> {
-        if (requestParameters['issueId'] == null) {
+    async getLabelsByIDRaw(
+        requestParameters: GetLabelsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<IssueLabelsResponse>> {
+        if (requestParameters["issueId"] == null) {
             throw new runtime.RequiredError(
-                'issueId',
+                "issueId",
                 'Required parameter "issueId" was null or undefined when calling getLabelsByID().'
             );
         }
@@ -469,23 +575,34 @@ export class IssuesLabelsApi extends runtime.BaseAPI implements IssuesLabelsApiI
         }
 
         let urlPath = `/issues/id:{issue_id}/labels`;
-        urlPath = urlPath.replace(`{${"issue_id"}}`, encodeURIComponent(String(requestParameters['issueId'])));
+        urlPath = urlPath.replace(
+            `{${"issue_id"}}`,
+            encodeURIComponent(String(requestParameters["issueId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => IssueLabelsResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            IssueLabelsResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * Retrieves all labels that are linked to the specified issue.
      * List Labels (By Issue ID)
      */
-    async getLabelsByID(requestParameters: GetLabelsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLabelsResponse> {
+    async getLabelsByID(
+        requestParameters: GetLabelsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<IssueLabelsResponse> {
         const response = await this.getLabelsByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -494,44 +611,47 @@ export class IssuesLabelsApi extends runtime.BaseAPI implements IssuesLabelsApiI
      * Removes one or more labels from a specific issue. Returns resulting collection.
      * Remove labels
      */
-    async removeLabelsRaw(requestParameters: RemoveLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLabelsResponse>> {
-        if (requestParameters['orgSlug'] == null) {
+    async removeLabelsRaw(
+        requestParameters: RemoveLabelsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<IssueLabelsResponse>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling removeLabels().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling removeLabels().'
             );
         }
 
-        if (requestParameters['issueSlug'] == null) {
+        if (requestParameters["issueSlug"] == null) {
             throw new runtime.RequiredError(
-                'issueSlug',
+                "issueSlug",
                 'Required parameter "issueSlug" was null or undefined when calling removeLabels().'
             );
         }
 
-        if (requestParameters['modifyLabelCollectionRequest'] == null) {
+        if (requestParameters["modifyLabelCollectionRequest"] == null) {
             throw new runtime.RequiredError(
-                'modifyLabelCollectionRequest',
+                "modifyLabelCollectionRequest",
                 'Required parameter "modifyLabelCollectionRequest" was null or undefined when calling removeLabels().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -543,26 +663,45 @@ export class IssuesLabelsApi extends runtime.BaseAPI implements IssuesLabelsApiI
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/issues/{issue_slug}/labels`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
-        urlPath = urlPath.replace(`{${"issue_slug"}}`, encodeURIComponent(String(requestParameters['issueSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"issue_slug"}}`,
+            encodeURIComponent(String(requestParameters["issueSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ModifyLabelCollectionRequestToJSON(requestParameters['modifyLabelCollectionRequest']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "DELETE",
+                headers: headerParameters,
+                query: queryParameters,
+                body: ModifyLabelCollectionRequestToJSON(
+                    requestParameters["modifyLabelCollectionRequest"]
+                ),
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => IssueLabelsResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            IssueLabelsResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * Removes one or more labels from a specific issue. Returns resulting collection.
      * Remove labels
      */
-    async removeLabels(requestParameters: RemoveLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLabelsResponse> {
+    async removeLabels(
+        requestParameters: RemoveLabelsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<IssueLabelsResponse> {
         const response = await this.removeLabelsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -571,30 +710,33 @@ export class IssuesLabelsApi extends runtime.BaseAPI implements IssuesLabelsApiI
      * Removes one or more labels from a specific issue. Returns resulting collection.
      * Remove labels (By Issue ID)
      */
-    async removeLabelsByIDRaw(requestParameters: RemoveLabelsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLabelsResponse>> {
-        if (requestParameters['issueId'] == null) {
+    async removeLabelsByIDRaw(
+        requestParameters: RemoveLabelsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<IssueLabelsResponse>> {
+        if (requestParameters["issueId"] == null) {
             throw new runtime.RequiredError(
-                'issueId',
+                "issueId",
                 'Required parameter "issueId" was null or undefined when calling removeLabelsByID().'
             );
         }
 
-        if (requestParameters['modifyLabelCollectionRequest'] == null) {
+        if (requestParameters["modifyLabelCollectionRequest"] == null) {
             throw new runtime.RequiredError(
-                'modifyLabelCollectionRequest',
+                "modifyLabelCollectionRequest",
                 'Required parameter "modifyLabelCollectionRequest" was null or undefined when calling removeLabelsByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -606,24 +748,37 @@ export class IssuesLabelsApi extends runtime.BaseAPI implements IssuesLabelsApiI
         }
 
         let urlPath = `/issues/id:{issue_id}/labels`;
-        urlPath = urlPath.replace(`{${"issue_id"}}`, encodeURIComponent(String(requestParameters['issueId'])));
+        urlPath = urlPath.replace(
+            `{${"issue_id"}}`,
+            encodeURIComponent(String(requestParameters["issueId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ModifyLabelCollectionRequestToJSON(requestParameters['modifyLabelCollectionRequest']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "DELETE",
+                headers: headerParameters,
+                query: queryParameters,
+                body: ModifyLabelCollectionRequestToJSON(
+                    requestParameters["modifyLabelCollectionRequest"]
+                ),
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => IssueLabelsResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            IssueLabelsResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * Removes one or more labels from a specific issue. Returns resulting collection.
      * Remove labels (By Issue ID)
      */
-    async removeLabelsByID(requestParameters: RemoveLabelsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLabelsResponse> {
+    async removeLabelsByID(
+        requestParameters: RemoveLabelsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<IssueLabelsResponse> {
         const response = await this.removeLabelsByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -632,44 +787,47 @@ export class IssuesLabelsApi extends runtime.BaseAPI implements IssuesLabelsApiI
      * Completely replaces the current set of labels on an issue with the provided set.
      * Replace Labels
      */
-    async replaceLabelsRaw(requestParameters: ReplaceLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLabelsResponse>> {
-        if (requestParameters['orgSlug'] == null) {
+    async replaceLabelsRaw(
+        requestParameters: ReplaceLabelsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<IssueLabelsResponse>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling replaceLabels().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling replaceLabels().'
             );
         }
 
-        if (requestParameters['issueSlug'] == null) {
+        if (requestParameters["issueSlug"] == null) {
             throw new runtime.RequiredError(
-                'issueSlug',
+                "issueSlug",
                 'Required parameter "issueSlug" was null or undefined when calling replaceLabels().'
             );
         }
 
-        if (requestParameters['modifyLabelCollectionRequest'] == null) {
+        if (requestParameters["modifyLabelCollectionRequest"] == null) {
             throw new runtime.RequiredError(
-                'modifyLabelCollectionRequest',
+                "modifyLabelCollectionRequest",
                 'Required parameter "modifyLabelCollectionRequest" was null or undefined when calling replaceLabels().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -681,26 +839,45 @@ export class IssuesLabelsApi extends runtime.BaseAPI implements IssuesLabelsApiI
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/issues/{issue_slug}/labels`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
-        urlPath = urlPath.replace(`{${"issue_slug"}}`, encodeURIComponent(String(requestParameters['issueSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"issue_slug"}}`,
+            encodeURIComponent(String(requestParameters["issueSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ModifyLabelCollectionRequestToJSON(requestParameters['modifyLabelCollectionRequest']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "PUT",
+                headers: headerParameters,
+                query: queryParameters,
+                body: ModifyLabelCollectionRequestToJSON(
+                    requestParameters["modifyLabelCollectionRequest"]
+                ),
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => IssueLabelsResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            IssueLabelsResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * Completely replaces the current set of labels on an issue with the provided set.
      * Replace Labels
      */
-    async replaceLabels(requestParameters: ReplaceLabelsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLabelsResponse> {
+    async replaceLabels(
+        requestParameters: ReplaceLabelsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<IssueLabelsResponse> {
         const response = await this.replaceLabelsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -709,30 +886,33 @@ export class IssuesLabelsApi extends runtime.BaseAPI implements IssuesLabelsApiI
      * Completely replaces the current set of labels on an issue with the provided set.
      * Replace Labels (By Issue ID)
      */
-    async replaceLabelsByIDRaw(requestParameters: ReplaceLabelsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLabelsResponse>> {
-        if (requestParameters['issueId'] == null) {
+    async replaceLabelsByIDRaw(
+        requestParameters: ReplaceLabelsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<IssueLabelsResponse>> {
+        if (requestParameters["issueId"] == null) {
             throw new runtime.RequiredError(
-                'issueId',
+                "issueId",
                 'Required parameter "issueId" was null or undefined when calling replaceLabelsByID().'
             );
         }
 
-        if (requestParameters['modifyLabelCollectionRequest'] == null) {
+        if (requestParameters["modifyLabelCollectionRequest"] == null) {
             throw new runtime.RequiredError(
-                'modifyLabelCollectionRequest',
+                "modifyLabelCollectionRequest",
                 'Required parameter "modifyLabelCollectionRequest" was null or undefined when calling replaceLabelsByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -744,26 +924,38 @@ export class IssuesLabelsApi extends runtime.BaseAPI implements IssuesLabelsApiI
         }
 
         let urlPath = `/issues/id:{issue_id}/labels`;
-        urlPath = urlPath.replace(`{${"issue_id"}}`, encodeURIComponent(String(requestParameters['issueId'])));
+        urlPath = urlPath.replace(
+            `{${"issue_id"}}`,
+            encodeURIComponent(String(requestParameters["issueId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'PUT',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ModifyLabelCollectionRequestToJSON(requestParameters['modifyLabelCollectionRequest']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "PUT",
+                headers: headerParameters,
+                query: queryParameters,
+                body: ModifyLabelCollectionRequestToJSON(
+                    requestParameters["modifyLabelCollectionRequest"]
+                ),
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => IssueLabelsResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            IssueLabelsResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * Completely replaces the current set of labels on an issue with the provided set.
      * Replace Labels (By Issue ID)
      */
-    async replaceLabelsByID(requestParameters: ReplaceLabelsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLabelsResponse> {
+    async replaceLabelsByID(
+        requestParameters: ReplaceLabelsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<IssueLabelsResponse> {
         const response = await this.replaceLabelsByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
-
 }

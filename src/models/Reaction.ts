@@ -12,41 +12,39 @@
  * Do not edit the class manually.
  */
 
-
 /**
- * 
+ *
  * @export
  */
 export const Reaction = {
-    Like: 'like',
-    Dislike: 'dislike',
-    Heart: 'heart',
-    CheckMark: 'check_mark',
-    Eyes: 'eyes',
-    Fire: 'fire',
-    VictoryHand: 'victory_hand',
-    HeartEyes: 'heart_eyes',
-    HundredPoints: 'hundred_points',
-    PartyPopper: 'party_popper',
-    PartyFace: 'party_face',
-    RollingEyes: 'rolling_eyes',
-    Fist: 'fist',
-    ClappingHands: 'clapping_hands',
-    ThinkingFace: 'thinking_face',
-    NeutralFace: 'neutral_face',
-    WinkingFace: 'winking_face',
-    OpenMouth: 'open_mouth',
-    Shrug: 'shrug',
-    PleadingFace: 'pleading_face',
-    ConfusedFace: 'confused_face',
-    SmilingFace: 'smiling_face',
-    Sunglasses: 'sunglasses',
-    Rocket: 'rocket',
-    Robot: 'robot',
-    Goose: 'goose'
+    Like: "like",
+    Dislike: "dislike",
+    Heart: "heart",
+    CheckMark: "check_mark",
+    Eyes: "eyes",
+    Fire: "fire",
+    VictoryHand: "victory_hand",
+    HeartEyes: "heart_eyes",
+    HundredPoints: "hundred_points",
+    PartyPopper: "party_popper",
+    PartyFace: "party_face",
+    RollingEyes: "rolling_eyes",
+    Fist: "fist",
+    ClappingHands: "clapping_hands",
+    ThinkingFace: "thinking_face",
+    NeutralFace: "neutral_face",
+    WinkingFace: "winking_face",
+    OpenMouth: "open_mouth",
+    Shrug: "shrug",
+    PleadingFace: "pleading_face",
+    ConfusedFace: "confused_face",
+    SmilingFace: "smiling_face",
+    Sunglasses: "sunglasses",
+    Rocket: "rocket",
+    Robot: "robot",
+    Goose: "goose",
 } as const;
-export type Reaction = typeof Reaction[keyof typeof Reaction];
-
+export type Reaction = (typeof Reaction)[keyof typeof Reaction];
 
 export function instanceOfReaction(value: any): boolean {
     for (const key in Reaction) {
@@ -74,4 +72,3 @@ export function ReactionToJSON(value?: Reaction | null): any {
 export function ReactionToJSONTyped(value: any, ignoreDiscriminator: boolean): Reaction {
     return value as Reaction;
 }
-

@@ -12,19 +12,17 @@
  * Do not edit the class manually.
  */
 
-
 /**
- * 
+ *
  * @export
  */
 export const FileType = {
-    Image: 'image',
-    Document: 'document',
-    Video: 'video',
-    Container: 'container'
+    Image: "image",
+    Document: "document",
+    Video: "video",
+    Container: "container",
 } as const;
-export type FileType = typeof FileType[keyof typeof FileType];
-
+export type FileType = (typeof FileType)[keyof typeof FileType];
 
 export function instanceOfFileType(value: any): boolean {
     for (const key in FileType) {
@@ -52,4 +50,3 @@ export function FileTypeToJSON(value?: FileType | null): any {
 export function FileTypeToJSONTyped(value: any, ignoreDiscriminator: boolean): FileType {
     return value as FileType;
 }
-

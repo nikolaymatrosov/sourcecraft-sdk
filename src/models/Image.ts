@@ -12,15 +12,15 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues } from "../runtime";
 /**
- * 
+ *
  * @export
  * @interface Image
  */
 export interface Image {
     /**
-     * 
+     *
      * @type {string}
      * @memberof Image
      */
@@ -43,8 +43,7 @@ export function ImageFromJSONTyped(json: any, ignoreDiscriminator: boolean): Ima
         return json;
     }
     return {
-        
-        'url': json['url'] == null ? undefined : json['url'],
+        url: json["url"] == null ? undefined : json["url"],
     };
 }
 
@@ -58,8 +57,6 @@ export function ImageToJSONTyped(value?: Image | null, ignoreDiscriminator: bool
     }
 
     return {
-        
-        'url': value['url'],
+        url: value["url"],
     };
 }
-

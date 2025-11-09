@@ -12,39 +12,39 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues } from "../runtime";
 /**
- * 
+ *
  * @export
  * @interface RepositoryCounters
  */
 export interface RepositoryCounters {
     /**
-     * 
+     *
      * @type {string}
      * @memberof RepositoryCounters
      */
     tags?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof RepositoryCounters
      */
     branches?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof RepositoryCounters
      */
     forks?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof RepositoryCounters
      */
     issues?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof RepositoryCounters
      */
@@ -62,17 +62,19 @@ export function RepositoryCountersFromJSON(json: any): RepositoryCounters {
     return RepositoryCountersFromJSONTyped(json, false);
 }
 
-export function RepositoryCountersFromJSONTyped(json: any, ignoreDiscriminator: boolean): RepositoryCounters {
+export function RepositoryCountersFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): RepositoryCounters {
     if (json == null) {
         return json;
     }
     return {
-        
-        'tags': json['tags'] == null ? undefined : json['tags'],
-        'branches': json['branches'] == null ? undefined : json['branches'],
-        'forks': json['forks'] == null ? undefined : json['forks'],
-        'issues': json['issues'] == null ? undefined : json['issues'],
-        'pullRequests': json['pull_requests'] == null ? undefined : json['pull_requests'],
+        tags: json["tags"] == null ? undefined : json["tags"],
+        branches: json["branches"] == null ? undefined : json["branches"],
+        forks: json["forks"] == null ? undefined : json["forks"],
+        issues: json["issues"] == null ? undefined : json["issues"],
+        pullRequests: json["pull_requests"] == null ? undefined : json["pull_requests"],
     };
 }
 
@@ -80,18 +82,19 @@ export function RepositoryCountersToJSON(json: any): RepositoryCounters {
     return RepositoryCountersToJSONTyped(json, false);
 }
 
-export function RepositoryCountersToJSONTyped(value?: RepositoryCounters | null, ignoreDiscriminator: boolean = false): any {
+export function RepositoryCountersToJSONTyped(
+    value?: RepositoryCounters | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'tags': value['tags'],
-        'branches': value['branches'],
-        'forks': value['forks'],
-        'issues': value['issues'],
-        'pull_requests': value['pullRequests'],
+        tags: value["tags"],
+        branches: value["branches"],
+        forks: value["forks"],
+        issues: value["issues"],
+        pull_requests: value["pullRequests"],
     };
 }
-

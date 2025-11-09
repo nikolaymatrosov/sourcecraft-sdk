@@ -12,22 +12,20 @@
  * Do not edit the class manually.
  */
 
-
 /**
- * 
+ *
  * @export
  */
 export const IssueLinkLinkType = {
-    RelatedTo: 'related_to',
-    ParentOf: 'parent_of',
-    SubissueOf: 'subissue_of',
-    Blocks: 'blocks',
-    BlockedBy: 'blocked_by',
-    Duplicates: 'duplicates',
-    DuplicatedBy: 'duplicated_by'
+    RelatedTo: "related_to",
+    ParentOf: "parent_of",
+    SubissueOf: "subissue_of",
+    Blocks: "blocks",
+    BlockedBy: "blocked_by",
+    Duplicates: "duplicates",
+    DuplicatedBy: "duplicated_by",
 } as const;
-export type IssueLinkLinkType = typeof IssueLinkLinkType[keyof typeof IssueLinkLinkType];
-
+export type IssueLinkLinkType = (typeof IssueLinkLinkType)[keyof typeof IssueLinkLinkType];
 
 export function instanceOfIssueLinkLinkType(value: any): boolean {
     for (const key in IssueLinkLinkType) {
@@ -44,7 +42,10 @@ export function IssueLinkLinkTypeFromJSON(json: any): IssueLinkLinkType {
     return IssueLinkLinkTypeFromJSONTyped(json, false);
 }
 
-export function IssueLinkLinkTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean): IssueLinkLinkType {
+export function IssueLinkLinkTypeFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): IssueLinkLinkType {
     return json as IssueLinkLinkType;
 }
 
@@ -52,7 +53,9 @@ export function IssueLinkLinkTypeToJSON(value?: IssueLinkLinkType | null): any {
     return value as any;
 }
 
-export function IssueLinkLinkTypeToJSONTyped(value: any, ignoreDiscriminator: boolean): IssueLinkLinkType {
+export function IssueLinkLinkTypeToJSONTyped(
+    value: any,
+    ignoreDiscriminator: boolean
+): IssueLinkLinkType {
     return value as IssueLinkLinkType;
 }
-

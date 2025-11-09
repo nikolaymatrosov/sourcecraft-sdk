@@ -12,23 +12,23 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { Attachment } from './Attachment';
+import { mapValues } from "../runtime";
+import type { Attachment } from "./Attachment";
 import {
     AttachmentFromJSON,
     AttachmentFromJSONTyped,
     AttachmentToJSON,
     AttachmentToJSONTyped,
-} from './Attachment';
+} from "./Attachment";
 
 /**
- * 
+ *
  * @export
  * @interface AttachmentsResponse
  */
 export interface AttachmentsResponse {
     /**
-     * 
+     *
      * @type {Array<Attachment>}
      * @memberof AttachmentsResponse
      */
@@ -46,13 +46,18 @@ export function AttachmentsResponseFromJSON(json: any): AttachmentsResponse {
     return AttachmentsResponseFromJSONTyped(json, false);
 }
 
-export function AttachmentsResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): AttachmentsResponse {
+export function AttachmentsResponseFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): AttachmentsResponse {
     if (json == null) {
         return json;
     }
     return {
-        
-        'attachments': json['attachments'] == null ? undefined : ((json['attachments'] as Array<any>).map(AttachmentFromJSON)),
+        attachments:
+            json["attachments"] == null
+                ? undefined
+                : (json["attachments"] as Array<any>).map(AttachmentFromJSON),
     };
 }
 
@@ -60,14 +65,18 @@ export function AttachmentsResponseToJSON(json: any): AttachmentsResponse {
     return AttachmentsResponseToJSONTyped(json, false);
 }
 
-export function AttachmentsResponseToJSONTyped(value?: AttachmentsResponse | null, ignoreDiscriminator: boolean = false): any {
+export function AttachmentsResponseToJSONTyped(
+    value?: AttachmentsResponse | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'attachments': value['attachments'] == null ? undefined : ((value['attachments'] as Array<any>).map(AttachmentToJSON)),
+        attachments:
+            value["attachments"] == null
+                ? undefined
+                : (value["attachments"] as Array<any>).map(AttachmentToJSON),
     };
 }
-

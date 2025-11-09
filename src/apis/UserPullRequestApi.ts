@@ -12,18 +12,14 @@
  * Do not edit the class manually.
  */
 
-
-import * as runtime from '../runtime';
-import type {
-  ApiErrorResponse,
-  ListRepositoryPullRequestsResponse,
-} from '../models/index';
+import * as runtime from "../runtime";
+import type { ApiErrorResponse, ListRepositoryPullRequestsResponse } from "../models/index";
 import {
     ApiErrorResponseFromJSON,
     ApiErrorResponseToJSON,
     ListRepositoryPullRequestsResponseFromJSON,
     ListRepositoryPullRequestsResponseToJSON,
-} from '../models/index';
+} from "../models/index";
 
 export interface ListUserPullRequestsRequest {
     userSlug: string;
@@ -45,7 +41,7 @@ export interface ListUserPullRequestsByIDRequest {
 
 /**
  * UserPullRequestApi - interface
- * 
+ *
  * @export
  * @interface UserPullRequestApiInterface
  */
@@ -53,8 +49,8 @@ export interface UserPullRequestApiInterface {
     /**
      * Lists pull requests related to a user identified by user slug.
      * @summary List User Pull Requests
-     * @param {string} userSlug 
-     * @param {string} [userId] 
+     * @param {string} userSlug
+     * @param {string} [userId]
      * @param {'author' | 'reviewer' | 'any'} [role] Role by which PRs should be selected: author, reviewer or any
      * @param {string} [pageSize] The maximum number of pull requests to return. The service may return fewer than this value
      * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
@@ -63,19 +59,25 @@ export interface UserPullRequestApiInterface {
      * @throws {RequiredError}
      * @memberof UserPullRequestApiInterface
      */
-    listUserPullRequestsRaw(requestParameters: ListUserPullRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListRepositoryPullRequestsResponse>>;
+    listUserPullRequestsRaw(
+        requestParameters: ListUserPullRequestsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListRepositoryPullRequestsResponse>>;
 
     /**
      * Lists pull requests related to a user identified by user slug.
      * List User Pull Requests
      */
-    listUserPullRequests(requestParameters: ListUserPullRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListRepositoryPullRequestsResponse>;
+    listUserPullRequests(
+        requestParameters: ListUserPullRequestsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListRepositoryPullRequestsResponse>;
 
     /**
      * Lists pull requests related to a user identified by UUID.
      * @summary List User Pull Requests (By User ID)
-     * @param {string} userId 
-     * @param {string} [userSlug] 
+     * @param {string} userId
+     * @param {string} [userSlug]
      * @param {'author' | 'reviewer' | 'any'} [role] Role by which PRs should be selected: author, reviewer or any
      * @param {string} [pageSize] The maximum number of pull requests to return. The service may return fewer than this value
      * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
@@ -84,53 +86,60 @@ export interface UserPullRequestApiInterface {
      * @throws {RequiredError}
      * @memberof UserPullRequestApiInterface
      */
-    listUserPullRequestsByIDRaw(requestParameters: ListUserPullRequestsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListRepositoryPullRequestsResponse>>;
+    listUserPullRequestsByIDRaw(
+        requestParameters: ListUserPullRequestsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListRepositoryPullRequestsResponse>>;
 
     /**
      * Lists pull requests related to a user identified by UUID.
      * List User Pull Requests (By User ID)
      */
-    listUserPullRequestsByID(requestParameters: ListUserPullRequestsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListRepositoryPullRequestsResponse>;
-
+    listUserPullRequestsByID(
+        requestParameters: ListUserPullRequestsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListRepositoryPullRequestsResponse>;
 }
 
 /**
- * 
+ *
  */
 export class UserPullRequestApi extends runtime.BaseAPI implements UserPullRequestApiInterface {
-
     /**
      * Lists pull requests related to a user identified by user slug.
      * List User Pull Requests
      */
-    async listUserPullRequestsRaw(requestParameters: ListUserPullRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListRepositoryPullRequestsResponse>> {
-        if (requestParameters['userSlug'] == null) {
+    async listUserPullRequestsRaw(
+        requestParameters: ListUserPullRequestsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListRepositoryPullRequestsResponse>> {
+        if (requestParameters["userSlug"] == null) {
             throw new runtime.RequiredError(
-                'userSlug',
+                "userSlug",
                 'Required parameter "userSlug" was null or undefined when calling listUserPullRequests().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['userId'] != null) {
-            queryParameters['user_id'] = requestParameters['userId'];
+        if (requestParameters["userId"] != null) {
+            queryParameters["user_id"] = requestParameters["userId"];
         }
 
-        if (requestParameters['role'] != null) {
-            queryParameters['role'] = requestParameters['role'];
+        if (requestParameters["role"] != null) {
+            queryParameters["role"] = requestParameters["role"];
         }
 
-        if (requestParameters['pageSize'] != null) {
-            queryParameters['page_size'] = requestParameters['pageSize'];
+        if (requestParameters["pageSize"] != null) {
+            queryParameters["page_size"] = requestParameters["pageSize"];
         }
 
-        if (requestParameters['pageToken'] != null) {
-            queryParameters['page_token'] = requestParameters['pageToken'];
+        if (requestParameters["pageToken"] != null) {
+            queryParameters["page_token"] = requestParameters["pageToken"];
         }
 
-        if (requestParameters['sortBy'] != null) {
-            queryParameters['sort_by'] = requestParameters['sortBy'];
+        if (requestParameters["sortBy"] != null) {
+            queryParameters["sort_by"] = requestParameters["sortBy"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -145,23 +154,34 @@ export class UserPullRequestApi extends runtime.BaseAPI implements UserPullReque
         }
 
         let urlPath = `/users/{user_slug}/pulls`;
-        urlPath = urlPath.replace(`{${"user_slug"}}`, encodeURIComponent(String(requestParameters['userSlug'])));
+        urlPath = urlPath.replace(
+            `{${"user_slug"}}`,
+            encodeURIComponent(String(requestParameters["userSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ListRepositoryPullRequestsResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            ListRepositoryPullRequestsResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * Lists pull requests related to a user identified by user slug.
      * List User Pull Requests
      */
-    async listUserPullRequests(requestParameters: ListUserPullRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListRepositoryPullRequestsResponse> {
+    async listUserPullRequests(
+        requestParameters: ListUserPullRequestsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListRepositoryPullRequestsResponse> {
         const response = await this.listUserPullRequestsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -170,34 +190,37 @@ export class UserPullRequestApi extends runtime.BaseAPI implements UserPullReque
      * Lists pull requests related to a user identified by UUID.
      * List User Pull Requests (By User ID)
      */
-    async listUserPullRequestsByIDRaw(requestParameters: ListUserPullRequestsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListRepositoryPullRequestsResponse>> {
-        if (requestParameters['userId'] == null) {
+    async listUserPullRequestsByIDRaw(
+        requestParameters: ListUserPullRequestsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListRepositoryPullRequestsResponse>> {
+        if (requestParameters["userId"] == null) {
             throw new runtime.RequiredError(
-                'userId',
+                "userId",
                 'Required parameter "userId" was null or undefined when calling listUserPullRequestsByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['userSlug'] != null) {
-            queryParameters['user_slug'] = requestParameters['userSlug'];
+        if (requestParameters["userSlug"] != null) {
+            queryParameters["user_slug"] = requestParameters["userSlug"];
         }
 
-        if (requestParameters['role'] != null) {
-            queryParameters['role'] = requestParameters['role'];
+        if (requestParameters["role"] != null) {
+            queryParameters["role"] = requestParameters["role"];
         }
 
-        if (requestParameters['pageSize'] != null) {
-            queryParameters['page_size'] = requestParameters['pageSize'];
+        if (requestParameters["pageSize"] != null) {
+            queryParameters["page_size"] = requestParameters["pageSize"];
         }
 
-        if (requestParameters['pageToken'] != null) {
-            queryParameters['page_token'] = requestParameters['pageToken'];
+        if (requestParameters["pageToken"] != null) {
+            queryParameters["page_token"] = requestParameters["pageToken"];
         }
 
-        if (requestParameters['sortBy'] != null) {
-            queryParameters['sort_by'] = requestParameters['sortBy'];
+        if (requestParameters["sortBy"] != null) {
+            queryParameters["sort_by"] = requestParameters["sortBy"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -212,44 +235,56 @@ export class UserPullRequestApi extends runtime.BaseAPI implements UserPullReque
         }
 
         let urlPath = `/users/id:{user_id}/pulls`;
-        urlPath = urlPath.replace(`{${"user_id"}}`, encodeURIComponent(String(requestParameters['userId'])));
+        urlPath = urlPath.replace(
+            `{${"user_id"}}`,
+            encodeURIComponent(String(requestParameters["userId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ListRepositoryPullRequestsResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            ListRepositoryPullRequestsResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * Lists pull requests related to a user identified by UUID.
      * List User Pull Requests (By User ID)
      */
-    async listUserPullRequestsByID(requestParameters: ListUserPullRequestsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListRepositoryPullRequestsResponse> {
+    async listUserPullRequestsByID(
+        requestParameters: ListUserPullRequestsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListRepositoryPullRequestsResponse> {
         const response = await this.listUserPullRequestsByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
-
 }
 
 /**
  * @export
  */
 export const ListUserPullRequestsRoleEnum = {
-    Author: 'author',
-    Reviewer: 'reviewer',
-    Any: 'any'
+    Author: "author",
+    Reviewer: "reviewer",
+    Any: "any",
 } as const;
-export type ListUserPullRequestsRoleEnum = typeof ListUserPullRequestsRoleEnum[keyof typeof ListUserPullRequestsRoleEnum];
+export type ListUserPullRequestsRoleEnum =
+    (typeof ListUserPullRequestsRoleEnum)[keyof typeof ListUserPullRequestsRoleEnum];
 /**
  * @export
  */
 export const ListUserPullRequestsByIDRoleEnum = {
-    Author: 'author',
-    Reviewer: 'reviewer',
-    Any: 'any'
+    Author: "author",
+    Reviewer: "reviewer",
+    Any: "any",
 } as const;
-export type ListUserPullRequestsByIDRoleEnum = typeof ListUserPullRequestsByIDRoleEnum[keyof typeof ListUserPullRequestsByIDRoleEnum];
+export type ListUserPullRequestsByIDRoleEnum =
+    (typeof ListUserPullRequestsByIDRoleEnum)[keyof typeof ListUserPullRequestsByIDRoleEnum];

@@ -12,21 +12,21 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues } from "../runtime";
 /**
- * 
+ *
  * @export
  * @interface UpdatePullRequestBody
  */
 export interface UpdatePullRequestBody {
     /**
-     * 
+     *
      * @type {string}
      * @memberof UpdatePullRequestBody
      */
     description?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof UpdatePullRequestBody
      */
@@ -44,14 +44,16 @@ export function UpdatePullRequestBodyFromJSON(json: any): UpdatePullRequestBody 
     return UpdatePullRequestBodyFromJSONTyped(json, false);
 }
 
-export function UpdatePullRequestBodyFromJSONTyped(json: any, ignoreDiscriminator: boolean): UpdatePullRequestBody {
+export function UpdatePullRequestBodyFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): UpdatePullRequestBody {
     if (json == null) {
         return json;
     }
     return {
-        
-        'description': json['description'] == null ? undefined : json['description'],
-        'title': json['title'] == null ? undefined : json['title'],
+        description: json["description"] == null ? undefined : json["description"],
+        title: json["title"] == null ? undefined : json["title"],
     };
 }
 
@@ -59,15 +61,16 @@ export function UpdatePullRequestBodyToJSON(json: any): UpdatePullRequestBody {
     return UpdatePullRequestBodyToJSONTyped(json, false);
 }
 
-export function UpdatePullRequestBodyToJSONTyped(value?: UpdatePullRequestBody | null, ignoreDiscriminator: boolean = false): any {
+export function UpdatePullRequestBodyToJSONTyped(
+    value?: UpdatePullRequestBody | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'description': value['description'],
-        'title': value['title'],
+        description: value["description"],
+        title: value["title"],
     };
 }
-

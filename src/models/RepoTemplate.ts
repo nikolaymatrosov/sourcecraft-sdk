@@ -12,18 +12,16 @@
  * Do not edit the class manually.
  */
 
-
 /**
- * 
+ *
  * @export
  */
 export const RepoTemplate = {
-    NotATemplate: 'not_a_template',
-    Organizational: 'organizational',
-    System: 'system'
+    NotATemplate: "not_a_template",
+    Organizational: "organizational",
+    System: "system",
 } as const;
-export type RepoTemplate = typeof RepoTemplate[keyof typeof RepoTemplate];
-
+export type RepoTemplate = (typeof RepoTemplate)[keyof typeof RepoTemplate];
 
 export function instanceOfRepoTemplate(value: any): boolean {
     for (const key in RepoTemplate) {
@@ -51,4 +49,3 @@ export function RepoTemplateToJSON(value?: RepoTemplate | null): any {
 export function RepoTemplateToJSONTyped(value: any, ignoreDiscriminator: boolean): RepoTemplate {
     return value as RepoTemplate;
 }
-

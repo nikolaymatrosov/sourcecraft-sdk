@@ -12,53 +12,53 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { ShortAnchor } from './ShortAnchor';
+import { mapValues } from "../runtime";
+import type { ShortAnchor } from "./ShortAnchor";
 import {
     ShortAnchorFromJSON,
     ShortAnchorFromJSONTyped,
     ShortAnchorToJSON,
     ShortAnchorToJSONTyped,
-} from './ShortAnchor';
+} from "./ShortAnchor";
 
 /**
- * 
+ *
  * @export
  * @interface CreatePullRequestCommentBody
  */
 export interface CreatePullRequestCommentBody {
     /**
-     * 
+     *
      * @type {ShortAnchor}
      * @memberof CreatePullRequestCommentBody
      */
     anchor?: ShortAnchor;
     /**
-     * 
+     *
      * @type {string}
      * @memberof CreatePullRequestCommentBody
      */
     body?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof CreatePullRequestCommentBody
      */
     iteration?: string;
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof CreatePullRequestCommentBody
      */
     needResolution?: boolean;
     /**
-     * 
+     *
      * @type {string}
      * @memberof CreatePullRequestCommentBody
      */
     parentId?: string;
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof CreatePullRequestCommentBody
      */
@@ -68,7 +68,9 @@ export interface CreatePullRequestCommentBody {
 /**
  * Check if a given object implements the CreatePullRequestCommentBody interface.
  */
-export function instanceOfCreatePullRequestCommentBody(value: object): value is CreatePullRequestCommentBody {
+export function instanceOfCreatePullRequestCommentBody(
+    value: object
+): value is CreatePullRequestCommentBody {
     return true;
 }
 
@@ -76,18 +78,20 @@ export function CreatePullRequestCommentBodyFromJSON(json: any): CreatePullReque
     return CreatePullRequestCommentBodyFromJSONTyped(json, false);
 }
 
-export function CreatePullRequestCommentBodyFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreatePullRequestCommentBody {
+export function CreatePullRequestCommentBodyFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): CreatePullRequestCommentBody {
     if (json == null) {
         return json;
     }
     return {
-        
-        'anchor': json['anchor'] == null ? undefined : ShortAnchorFromJSON(json['anchor']),
-        'body': json['body'] == null ? undefined : json['body'],
-        'iteration': json['iteration'] == null ? undefined : json['iteration'],
-        'needResolution': json['need_resolution'] == null ? undefined : json['need_resolution'],
-        'parentId': json['parent_id'] == null ? undefined : json['parent_id'],
-        'publish': json['publish'] == null ? undefined : json['publish'],
+        anchor: json["anchor"] == null ? undefined : ShortAnchorFromJSON(json["anchor"]),
+        body: json["body"] == null ? undefined : json["body"],
+        iteration: json["iteration"] == null ? undefined : json["iteration"],
+        needResolution: json["need_resolution"] == null ? undefined : json["need_resolution"],
+        parentId: json["parent_id"] == null ? undefined : json["parent_id"],
+        publish: json["publish"] == null ? undefined : json["publish"],
     };
 }
 
@@ -95,19 +99,20 @@ export function CreatePullRequestCommentBodyToJSON(json: any): CreatePullRequest
     return CreatePullRequestCommentBodyToJSONTyped(json, false);
 }
 
-export function CreatePullRequestCommentBodyToJSONTyped(value?: CreatePullRequestCommentBody | null, ignoreDiscriminator: boolean = false): any {
+export function CreatePullRequestCommentBodyToJSONTyped(
+    value?: CreatePullRequestCommentBody | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'anchor': ShortAnchorToJSON(value['anchor']),
-        'body': value['body'],
-        'iteration': value['iteration'],
-        'need_resolution': value['needResolution'],
-        'parent_id': value['parentId'],
-        'publish': value['publish'],
+        anchor: ShortAnchorToJSON(value["anchor"]),
+        body: value["body"],
+        iteration: value["iteration"],
+        need_resolution: value["needResolution"],
+        parent_id: value["parentId"],
+        publish: value["publish"],
     };
 }
-

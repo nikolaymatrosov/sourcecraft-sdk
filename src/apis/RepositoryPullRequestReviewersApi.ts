@@ -12,18 +12,17 @@
  * Do not edit the class manually.
  */
 
-
-import * as runtime from '../runtime';
+import * as runtime from "../runtime";
 import type {
-  ApiErrorResponse,
-  AutoAssignBody,
-  AutoAssignResponse,
-  ListReviewersResponse,
-  SetDecisionBody,
-  SetDecisionResponse,
-  UpdateReviewersBody,
-  UpdateReviewersResponse,
-} from '../models/index';
+    ApiErrorResponse,
+    AutoAssignBody,
+    AutoAssignResponse,
+    ListReviewersResponse,
+    SetDecisionBody,
+    SetDecisionResponse,
+    UpdateReviewersBody,
+    UpdateReviewersResponse,
+} from "../models/index";
 import {
     ApiErrorResponseFromJSON,
     ApiErrorResponseToJSON,
@@ -41,7 +40,7 @@ import {
     UpdateReviewersBodyToJSON,
     UpdateReviewersResponseFromJSON,
     UpdateReviewersResponseToJSON,
-} from '../models/index';
+} from "../models/index";
 
 export interface AutoAssignRequest {
     orgSlug: string;
@@ -105,54 +104,66 @@ export interface UpdateReviewersByIDRequest {
 
 /**
  * RepositoryPullRequestReviewersApi - interface
- * 
+ *
  * @export
  * @interface RepositoryPullRequestReviewersApiInterface
  */
 export interface RepositoryPullRequestReviewersApiInterface {
     /**
-     * 
+     *
      * @summary Automatically assign reviewers to meet review requirements
-     * @param {string} orgSlug 
-     * @param {string} repoSlug 
-     * @param {string} pullRequestSlug 
-     * @param {AutoAssignBody} autoAssignBody 
-     * @param {string} [pullRequestId] 
+     * @param {string} orgSlug
+     * @param {string} repoSlug
+     * @param {string} pullRequestSlug
+     * @param {AutoAssignBody} autoAssignBody
+     * @param {string} [pullRequestId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryPullRequestReviewersApiInterface
      */
-    autoAssignRaw(requestParameters: AutoAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AutoAssignResponse>>;
+    autoAssignRaw(
+        requestParameters: AutoAssignRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<AutoAssignResponse>>;
 
     /**
      * Automatically assign reviewers to meet review requirements
      */
-    autoAssign(requestParameters: AutoAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AutoAssignResponse>;
+    autoAssign(
+        requestParameters: AutoAssignRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<AutoAssignResponse>;
 
     /**
-     * 
+     *
      * @summary Automatically assign reviewers to meet review requirements (By ID)
-     * @param {string} pullRequestId 
-     * @param {AutoAssignBody} autoAssignBody 
-     * @param {string} [pullRequestSlug] 
+     * @param {string} pullRequestId
+     * @param {AutoAssignBody} autoAssignBody
+     * @param {string} [pullRequestSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryPullRequestReviewersApiInterface
      */
-    autoAssignByIDRaw(requestParameters: AutoAssignByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AutoAssignResponse>>;
+    autoAssignByIDRaw(
+        requestParameters: AutoAssignByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<AutoAssignResponse>>;
 
     /**
      * Automatically assign reviewers to meet review requirements (By ID)
      */
-    autoAssignByID(requestParameters: AutoAssignByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AutoAssignResponse>;
+    autoAssignByID(
+        requestParameters: AutoAssignByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<AutoAssignResponse>;
 
     /**
-     * 
+     *
      * @summary List Reviewers
-     * @param {string} orgSlug 
-     * @param {string} repoSlug 
-     * @param {string} pullRequestSlug 
-     * @param {string} [pullRequestId] 
+     * @param {string} orgSlug
+     * @param {string} repoSlug
+     * @param {string} pullRequestSlug
+     * @param {string} [pullRequestId]
      * @param {string} [pageSize] The maximum number of reviewers to return. The service may return fewer than this value
      * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
      * @param {string} [sortBy] Ordering options: comma separated list of fields. For example: \&quot;name, created_at\&quot; Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;name, -created_at\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent.  Available columns: created_at, decision
@@ -160,18 +171,24 @@ export interface RepositoryPullRequestReviewersApiInterface {
      * @throws {RequiredError}
      * @memberof RepositoryPullRequestReviewersApiInterface
      */
-    listReviewersRaw(requestParameters: ListReviewersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListReviewersResponse>>;
+    listReviewersRaw(
+        requestParameters: ListReviewersRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListReviewersResponse>>;
 
     /**
      * List Reviewers
      */
-    listReviewers(requestParameters: ListReviewersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListReviewersResponse>;
+    listReviewers(
+        requestParameters: ListReviewersRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListReviewersResponse>;
 
     /**
-     * 
+     *
      * @summary List Reviewers (By ID)
-     * @param {string} pullRequestId 
-     * @param {string} [pullRequestSlug] 
+     * @param {string} pullRequestId
+     * @param {string} [pullRequestSlug]
      * @param {string} [pageSize] The maximum number of reviewers to return. The service may return fewer than this value
      * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
      * @param {string} [sortBy] Ordering options: comma separated list of fields. For example: \&quot;name, created_at\&quot; Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;name, -created_at\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent.  Available columns: created_at, decision
@@ -179,133 +196,167 @@ export interface RepositoryPullRequestReviewersApiInterface {
      * @throws {RequiredError}
      * @memberof RepositoryPullRequestReviewersApiInterface
      */
-    listReviewersByIDRaw(requestParameters: ListReviewersByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListReviewersResponse>>;
+    listReviewersByIDRaw(
+        requestParameters: ListReviewersByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListReviewersResponse>>;
 
     /**
      * List Reviewers (By ID)
      */
-    listReviewersByID(requestParameters: ListReviewersByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListReviewersResponse>;
+    listReviewersByID(
+        requestParameters: ListReviewersByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListReviewersResponse>;
 
     /**
-     * 
+     *
      * @summary Set Decision
-     * @param {string} orgSlug 
-     * @param {string} repoSlug 
-     * @param {string} pullRequestSlug 
-     * @param {SetDecisionBody} setDecisionBody 
-     * @param {string} [pullRequestId] 
+     * @param {string} orgSlug
+     * @param {string} repoSlug
+     * @param {string} pullRequestSlug
+     * @param {SetDecisionBody} setDecisionBody
+     * @param {string} [pullRequestId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryPullRequestReviewersApiInterface
      */
-    setDecisionRaw(requestParameters: SetDecisionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SetDecisionResponse>>;
+    setDecisionRaw(
+        requestParameters: SetDecisionRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<SetDecisionResponse>>;
 
     /**
      * Set Decision
      */
-    setDecision(requestParameters: SetDecisionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SetDecisionResponse>;
+    setDecision(
+        requestParameters: SetDecisionRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<SetDecisionResponse>;
 
     /**
-     * 
+     *
      * @summary Set Decision (By ID)
-     * @param {string} pullRequestId 
-     * @param {SetDecisionBody} setDecisionBody 
-     * @param {string} [pullRequestSlug] 
+     * @param {string} pullRequestId
+     * @param {SetDecisionBody} setDecisionBody
+     * @param {string} [pullRequestSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryPullRequestReviewersApiInterface
      */
-    setDecisionByIDRaw(requestParameters: SetDecisionByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SetDecisionResponse>>;
+    setDecisionByIDRaw(
+        requestParameters: SetDecisionByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<SetDecisionResponse>>;
 
     /**
      * Set Decision (By ID)
      */
-    setDecisionByID(requestParameters: SetDecisionByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SetDecisionResponse>;
+    setDecisionByID(
+        requestParameters: SetDecisionByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<SetDecisionResponse>;
 
     /**
-     * 
+     *
      * @summary Update Reviewers
-     * @param {string} orgSlug 
-     * @param {string} repoSlug 
-     * @param {string} pullRequestSlug 
-     * @param {UpdateReviewersBody} updateReviewersBody 
-     * @param {string} [pullRequestId] 
+     * @param {string} orgSlug
+     * @param {string} repoSlug
+     * @param {string} pullRequestSlug
+     * @param {UpdateReviewersBody} updateReviewersBody
+     * @param {string} [pullRequestId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryPullRequestReviewersApiInterface
      */
-    updateReviewersRaw(requestParameters: UpdateReviewersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UpdateReviewersResponse>>;
+    updateReviewersRaw(
+        requestParameters: UpdateReviewersRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<UpdateReviewersResponse>>;
 
     /**
      * Update Reviewers
      */
-    updateReviewers(requestParameters: UpdateReviewersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpdateReviewersResponse>;
+    updateReviewers(
+        requestParameters: UpdateReviewersRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<UpdateReviewersResponse>;
 
     /**
-     * 
+     *
      * @summary Update Reviewers (By ID)
-     * @param {string} pullRequestId 
-     * @param {UpdateReviewersBody} updateReviewersBody 
-     * @param {string} [pullRequestSlug] 
+     * @param {string} pullRequestId
+     * @param {UpdateReviewersBody} updateReviewersBody
+     * @param {string} [pullRequestSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryPullRequestReviewersApiInterface
      */
-    updateReviewersByIDRaw(requestParameters: UpdateReviewersByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UpdateReviewersResponse>>;
+    updateReviewersByIDRaw(
+        requestParameters: UpdateReviewersByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<UpdateReviewersResponse>>;
 
     /**
      * Update Reviewers (By ID)
      */
-    updateReviewersByID(requestParameters: UpdateReviewersByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpdateReviewersResponse>;
-
+    updateReviewersByID(
+        requestParameters: UpdateReviewersByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<UpdateReviewersResponse>;
 }
 
 /**
- * 
+ *
  */
-export class RepositoryPullRequestReviewersApi extends runtime.BaseAPI implements RepositoryPullRequestReviewersApiInterface {
-
+export class RepositoryPullRequestReviewersApi
+    extends runtime.BaseAPI
+    implements RepositoryPullRequestReviewersApiInterface
+{
     /**
      * Automatically assign reviewers to meet review requirements
      */
-    async autoAssignRaw(requestParameters: AutoAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AutoAssignResponse>> {
-        if (requestParameters['orgSlug'] == null) {
+    async autoAssignRaw(
+        requestParameters: AutoAssignRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<AutoAssignResponse>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling autoAssign().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling autoAssign().'
             );
         }
 
-        if (requestParameters['pullRequestSlug'] == null) {
+        if (requestParameters["pullRequestSlug"] == null) {
             throw new runtime.RequiredError(
-                'pullRequestSlug',
+                "pullRequestSlug",
                 'Required parameter "pullRequestSlug" was null or undefined when calling autoAssign().'
             );
         }
 
-        if (requestParameters['autoAssignBody'] == null) {
+        if (requestParameters["autoAssignBody"] == null) {
             throw new runtime.RequiredError(
-                'autoAssignBody',
+                "autoAssignBody",
                 'Required parameter "autoAssignBody" was null or undefined when calling autoAssign().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['pullRequestId'] != null) {
-            queryParameters['pull_request_id'] = requestParameters['pullRequestId'];
+        if (requestParameters["pullRequestId"] != null) {
+            queryParameters["pull_request_id"] = requestParameters["pullRequestId"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -317,25 +368,42 @@ export class RepositoryPullRequestReviewersApi extends runtime.BaseAPI implement
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/pulls/{pull_request_slug}/reviewers/auto`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
-        urlPath = urlPath.replace(`{${"pull_request_slug"}}`, encodeURIComponent(String(requestParameters['pullRequestSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"pull_request_slug"}}`,
+            encodeURIComponent(String(requestParameters["pullRequestSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: AutoAssignBodyToJSON(requestParameters['autoAssignBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+                body: AutoAssignBodyToJSON(requestParameters["autoAssignBody"]),
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => AutoAssignResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            AutoAssignResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * Automatically assign reviewers to meet review requirements
      */
-    async autoAssign(requestParameters: AutoAssignRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AutoAssignResponse> {
+    async autoAssign(
+        requestParameters: AutoAssignRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<AutoAssignResponse> {
         const response = await this.autoAssignRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -343,30 +411,33 @@ export class RepositoryPullRequestReviewersApi extends runtime.BaseAPI implement
     /**
      * Automatically assign reviewers to meet review requirements (By ID)
      */
-    async autoAssignByIDRaw(requestParameters: AutoAssignByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AutoAssignResponse>> {
-        if (requestParameters['pullRequestId'] == null) {
+    async autoAssignByIDRaw(
+        requestParameters: AutoAssignByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<AutoAssignResponse>> {
+        if (requestParameters["pullRequestId"] == null) {
             throw new runtime.RequiredError(
-                'pullRequestId',
+                "pullRequestId",
                 'Required parameter "pullRequestId" was null or undefined when calling autoAssignByID().'
             );
         }
 
-        if (requestParameters['autoAssignBody'] == null) {
+        if (requestParameters["autoAssignBody"] == null) {
             throw new runtime.RequiredError(
-                'autoAssignBody',
+                "autoAssignBody",
                 'Required parameter "autoAssignBody" was null or undefined when calling autoAssignByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['pullRequestSlug'] != null) {
-            queryParameters['pull_request_slug'] = requestParameters['pullRequestSlug'];
+        if (requestParameters["pullRequestSlug"] != null) {
+            queryParameters["pull_request_slug"] = requestParameters["pullRequestSlug"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -378,23 +449,34 @@ export class RepositoryPullRequestReviewersApi extends runtime.BaseAPI implement
         }
 
         let urlPath = `/pulls/id:{pull_request_id}/reviewers/auto`;
-        urlPath = urlPath.replace(`{${"pull_request_id"}}`, encodeURIComponent(String(requestParameters['pullRequestId'])));
+        urlPath = urlPath.replace(
+            `{${"pull_request_id"}}`,
+            encodeURIComponent(String(requestParameters["pullRequestId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: AutoAssignBodyToJSON(requestParameters['autoAssignBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+                body: AutoAssignBodyToJSON(requestParameters["autoAssignBody"]),
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => AutoAssignResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            AutoAssignResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * Automatically assign reviewers to meet review requirements (By ID)
      */
-    async autoAssignByID(requestParameters: AutoAssignByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AutoAssignResponse> {
+    async autoAssignByID(
+        requestParameters: AutoAssignByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<AutoAssignResponse> {
         const response = await this.autoAssignByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -402,44 +484,47 @@ export class RepositoryPullRequestReviewersApi extends runtime.BaseAPI implement
     /**
      * List Reviewers
      */
-    async listReviewersRaw(requestParameters: ListReviewersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListReviewersResponse>> {
-        if (requestParameters['orgSlug'] == null) {
+    async listReviewersRaw(
+        requestParameters: ListReviewersRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListReviewersResponse>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling listReviewers().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling listReviewers().'
             );
         }
 
-        if (requestParameters['pullRequestSlug'] == null) {
+        if (requestParameters["pullRequestSlug"] == null) {
             throw new runtime.RequiredError(
-                'pullRequestSlug',
+                "pullRequestSlug",
                 'Required parameter "pullRequestSlug" was null or undefined when calling listReviewers().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['pullRequestId'] != null) {
-            queryParameters['pull_request_id'] = requestParameters['pullRequestId'];
+        if (requestParameters["pullRequestId"] != null) {
+            queryParameters["pull_request_id"] = requestParameters["pullRequestId"];
         }
 
-        if (requestParameters['pageSize'] != null) {
-            queryParameters['page_size'] = requestParameters['pageSize'];
+        if (requestParameters["pageSize"] != null) {
+            queryParameters["page_size"] = requestParameters["pageSize"];
         }
 
-        if (requestParameters['pageToken'] != null) {
-            queryParameters['page_token'] = requestParameters['pageToken'];
+        if (requestParameters["pageToken"] != null) {
+            queryParameters["page_token"] = requestParameters["pageToken"];
         }
 
-        if (requestParameters['sortBy'] != null) {
-            queryParameters['sort_by'] = requestParameters['sortBy'];
+        if (requestParameters["sortBy"] != null) {
+            queryParameters["sort_by"] = requestParameters["sortBy"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -454,24 +539,41 @@ export class RepositoryPullRequestReviewersApi extends runtime.BaseAPI implement
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/pulls/{pull_request_slug}/reviewers`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
-        urlPath = urlPath.replace(`{${"pull_request_slug"}}`, encodeURIComponent(String(requestParameters['pullRequestSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"pull_request_slug"}}`,
+            encodeURIComponent(String(requestParameters["pullRequestSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ListReviewersResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            ListReviewersResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * List Reviewers
      */
-    async listReviewers(requestParameters: ListReviewersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListReviewersResponse> {
+    async listReviewers(
+        requestParameters: ListReviewersRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListReviewersResponse> {
         const response = await this.listReviewersRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -479,30 +581,33 @@ export class RepositoryPullRequestReviewersApi extends runtime.BaseAPI implement
     /**
      * List Reviewers (By ID)
      */
-    async listReviewersByIDRaw(requestParameters: ListReviewersByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListReviewersResponse>> {
-        if (requestParameters['pullRequestId'] == null) {
+    async listReviewersByIDRaw(
+        requestParameters: ListReviewersByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListReviewersResponse>> {
+        if (requestParameters["pullRequestId"] == null) {
             throw new runtime.RequiredError(
-                'pullRequestId',
+                "pullRequestId",
                 'Required parameter "pullRequestId" was null or undefined when calling listReviewersByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['pullRequestSlug'] != null) {
-            queryParameters['pull_request_slug'] = requestParameters['pullRequestSlug'];
+        if (requestParameters["pullRequestSlug"] != null) {
+            queryParameters["pull_request_slug"] = requestParameters["pullRequestSlug"];
         }
 
-        if (requestParameters['pageSize'] != null) {
-            queryParameters['page_size'] = requestParameters['pageSize'];
+        if (requestParameters["pageSize"] != null) {
+            queryParameters["page_size"] = requestParameters["pageSize"];
         }
 
-        if (requestParameters['pageToken'] != null) {
-            queryParameters['page_token'] = requestParameters['pageToken'];
+        if (requestParameters["pageToken"] != null) {
+            queryParameters["page_token"] = requestParameters["pageToken"];
         }
 
-        if (requestParameters['sortBy'] != null) {
-            queryParameters['sort_by'] = requestParameters['sortBy'];
+        if (requestParameters["sortBy"] != null) {
+            queryParameters["sort_by"] = requestParameters["sortBy"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -517,22 +622,33 @@ export class RepositoryPullRequestReviewersApi extends runtime.BaseAPI implement
         }
 
         let urlPath = `/pulls/id:{pull_request_id}/reviewers`;
-        urlPath = urlPath.replace(`{${"pull_request_id"}}`, encodeURIComponent(String(requestParameters['pullRequestId'])));
+        urlPath = urlPath.replace(
+            `{${"pull_request_id"}}`,
+            encodeURIComponent(String(requestParameters["pullRequestId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ListReviewersResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            ListReviewersResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * List Reviewers (By ID)
      */
-    async listReviewersByID(requestParameters: ListReviewersByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListReviewersResponse> {
+    async listReviewersByID(
+        requestParameters: ListReviewersByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListReviewersResponse> {
         const response = await this.listReviewersByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -540,44 +656,47 @@ export class RepositoryPullRequestReviewersApi extends runtime.BaseAPI implement
     /**
      * Set Decision
      */
-    async setDecisionRaw(requestParameters: SetDecisionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SetDecisionResponse>> {
-        if (requestParameters['orgSlug'] == null) {
+    async setDecisionRaw(
+        requestParameters: SetDecisionRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<SetDecisionResponse>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling setDecision().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling setDecision().'
             );
         }
 
-        if (requestParameters['pullRequestSlug'] == null) {
+        if (requestParameters["pullRequestSlug"] == null) {
             throw new runtime.RequiredError(
-                'pullRequestSlug',
+                "pullRequestSlug",
                 'Required parameter "pullRequestSlug" was null or undefined when calling setDecision().'
             );
         }
 
-        if (requestParameters['setDecisionBody'] == null) {
+        if (requestParameters["setDecisionBody"] == null) {
             throw new runtime.RequiredError(
-                'setDecisionBody',
+                "setDecisionBody",
                 'Required parameter "setDecisionBody" was null or undefined when calling setDecision().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['pullRequestId'] != null) {
-            queryParameters['pull_request_id'] = requestParameters['pullRequestId'];
+        if (requestParameters["pullRequestId"] != null) {
+            queryParameters["pull_request_id"] = requestParameters["pullRequestId"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -589,25 +708,42 @@ export class RepositoryPullRequestReviewersApi extends runtime.BaseAPI implement
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/pulls/{pull_request_slug}/decision`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
-        urlPath = urlPath.replace(`{${"pull_request_slug"}}`, encodeURIComponent(String(requestParameters['pullRequestSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"pull_request_slug"}}`,
+            encodeURIComponent(String(requestParameters["pullRequestSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: SetDecisionBodyToJSON(requestParameters['setDecisionBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+                body: SetDecisionBodyToJSON(requestParameters["setDecisionBody"]),
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => SetDecisionResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            SetDecisionResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * Set Decision
      */
-    async setDecision(requestParameters: SetDecisionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SetDecisionResponse> {
+    async setDecision(
+        requestParameters: SetDecisionRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<SetDecisionResponse> {
         const response = await this.setDecisionRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -615,30 +751,33 @@ export class RepositoryPullRequestReviewersApi extends runtime.BaseAPI implement
     /**
      * Set Decision (By ID)
      */
-    async setDecisionByIDRaw(requestParameters: SetDecisionByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<SetDecisionResponse>> {
-        if (requestParameters['pullRequestId'] == null) {
+    async setDecisionByIDRaw(
+        requestParameters: SetDecisionByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<SetDecisionResponse>> {
+        if (requestParameters["pullRequestId"] == null) {
             throw new runtime.RequiredError(
-                'pullRequestId',
+                "pullRequestId",
                 'Required parameter "pullRequestId" was null or undefined when calling setDecisionByID().'
             );
         }
 
-        if (requestParameters['setDecisionBody'] == null) {
+        if (requestParameters["setDecisionBody"] == null) {
             throw new runtime.RequiredError(
-                'setDecisionBody',
+                "setDecisionBody",
                 'Required parameter "setDecisionBody" was null or undefined when calling setDecisionByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['pullRequestSlug'] != null) {
-            queryParameters['pull_request_slug'] = requestParameters['pullRequestSlug'];
+        if (requestParameters["pullRequestSlug"] != null) {
+            queryParameters["pull_request_slug"] = requestParameters["pullRequestSlug"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -650,23 +789,34 @@ export class RepositoryPullRequestReviewersApi extends runtime.BaseAPI implement
         }
 
         let urlPath = `/pulls/id:{pull_request_id}/decision`;
-        urlPath = urlPath.replace(`{${"pull_request_id"}}`, encodeURIComponent(String(requestParameters['pullRequestId'])));
+        urlPath = urlPath.replace(
+            `{${"pull_request_id"}}`,
+            encodeURIComponent(String(requestParameters["pullRequestId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: SetDecisionBodyToJSON(requestParameters['setDecisionBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+                body: SetDecisionBodyToJSON(requestParameters["setDecisionBody"]),
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => SetDecisionResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            SetDecisionResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * Set Decision (By ID)
      */
-    async setDecisionByID(requestParameters: SetDecisionByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<SetDecisionResponse> {
+    async setDecisionByID(
+        requestParameters: SetDecisionByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<SetDecisionResponse> {
         const response = await this.setDecisionByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -674,44 +824,47 @@ export class RepositoryPullRequestReviewersApi extends runtime.BaseAPI implement
     /**
      * Update Reviewers
      */
-    async updateReviewersRaw(requestParameters: UpdateReviewersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UpdateReviewersResponse>> {
-        if (requestParameters['orgSlug'] == null) {
+    async updateReviewersRaw(
+        requestParameters: UpdateReviewersRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<UpdateReviewersResponse>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling updateReviewers().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling updateReviewers().'
             );
         }
 
-        if (requestParameters['pullRequestSlug'] == null) {
+        if (requestParameters["pullRequestSlug"] == null) {
             throw new runtime.RequiredError(
-                'pullRequestSlug',
+                "pullRequestSlug",
                 'Required parameter "pullRequestSlug" was null or undefined when calling updateReviewers().'
             );
         }
 
-        if (requestParameters['updateReviewersBody'] == null) {
+        if (requestParameters["updateReviewersBody"] == null) {
             throw new runtime.RequiredError(
-                'updateReviewersBody',
+                "updateReviewersBody",
                 'Required parameter "updateReviewersBody" was null or undefined when calling updateReviewers().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['pullRequestId'] != null) {
-            queryParameters['pull_request_id'] = requestParameters['pullRequestId'];
+        if (requestParameters["pullRequestId"] != null) {
+            queryParameters["pull_request_id"] = requestParameters["pullRequestId"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -723,25 +876,42 @@ export class RepositoryPullRequestReviewersApi extends runtime.BaseAPI implement
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/pulls/{pull_request_slug}/reviewers`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
-        urlPath = urlPath.replace(`{${"pull_request_slug"}}`, encodeURIComponent(String(requestParameters['pullRequestSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"pull_request_slug"}}`,
+            encodeURIComponent(String(requestParameters["pullRequestSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: UpdateReviewersBodyToJSON(requestParameters['updateReviewersBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+                body: UpdateReviewersBodyToJSON(requestParameters["updateReviewersBody"]),
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => UpdateReviewersResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            UpdateReviewersResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * Update Reviewers
      */
-    async updateReviewers(requestParameters: UpdateReviewersRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpdateReviewersResponse> {
+    async updateReviewers(
+        requestParameters: UpdateReviewersRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<UpdateReviewersResponse> {
         const response = await this.updateReviewersRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -749,30 +919,33 @@ export class RepositoryPullRequestReviewersApi extends runtime.BaseAPI implement
     /**
      * Update Reviewers (By ID)
      */
-    async updateReviewersByIDRaw(requestParameters: UpdateReviewersByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UpdateReviewersResponse>> {
-        if (requestParameters['pullRequestId'] == null) {
+    async updateReviewersByIDRaw(
+        requestParameters: UpdateReviewersByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<UpdateReviewersResponse>> {
+        if (requestParameters["pullRequestId"] == null) {
             throw new runtime.RequiredError(
-                'pullRequestId',
+                "pullRequestId",
                 'Required parameter "pullRequestId" was null or undefined when calling updateReviewersByID().'
             );
         }
 
-        if (requestParameters['updateReviewersBody'] == null) {
+        if (requestParameters["updateReviewersBody"] == null) {
             throw new runtime.RequiredError(
-                'updateReviewersBody',
+                "updateReviewersBody",
                 'Required parameter "updateReviewersBody" was null or undefined when calling updateReviewersByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['pullRequestSlug'] != null) {
-            queryParameters['pull_request_slug'] = requestParameters['pullRequestSlug'];
+        if (requestParameters["pullRequestSlug"] != null) {
+            queryParameters["pull_request_slug"] = requestParameters["pullRequestSlug"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -784,25 +957,35 @@ export class RepositoryPullRequestReviewersApi extends runtime.BaseAPI implement
         }
 
         let urlPath = `/pulls/id:{pull_request_id}/reviewers`;
-        urlPath = urlPath.replace(`{${"pull_request_id"}}`, encodeURIComponent(String(requestParameters['pullRequestId'])));
+        urlPath = urlPath.replace(
+            `{${"pull_request_id"}}`,
+            encodeURIComponent(String(requestParameters["pullRequestId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: UpdateReviewersBodyToJSON(requestParameters['updateReviewersBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+                body: UpdateReviewersBodyToJSON(requestParameters["updateReviewersBody"]),
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => UpdateReviewersResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            UpdateReviewersResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * Update Reviewers (By ID)
      */
-    async updateReviewersByID(requestParameters: UpdateReviewersByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UpdateReviewersResponse> {
+    async updateReviewersByID(
+        requestParameters: UpdateReviewersByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<UpdateReviewersResponse> {
         const response = await this.updateReviewersByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
-
 }

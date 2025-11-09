@@ -12,35 +12,35 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { WorkflowInput } from './WorkflowInput';
+import { mapValues } from "../runtime";
+import type { WorkflowInput } from "./WorkflowInput";
 import {
     WorkflowInputFromJSON,
     WorkflowInputFromJSONTyped,
     WorkflowInputToJSON,
     WorkflowInputToJSONTyped,
-} from './WorkflowInput';
+} from "./WorkflowInput";
 
 /**
- * 
+ *
  * @export
  * @interface RunCIBody
  */
 export interface RunCIBody {
     /**
-     * 
+     *
      * @type {WorkflowInput}
      * @memberof RunCIBody
      */
     input?: WorkflowInput;
     /**
-     * 
+     *
      * @type {string}
      * @memberof RunCIBody
      */
     revision?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof RunCIBody
      */
@@ -63,10 +63,9 @@ export function RunCIBodyFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         return json;
     }
     return {
-        
-        'input': json['input'] == null ? undefined : WorkflowInputFromJSON(json['input']),
-        'revision': json['revision'] == null ? undefined : json['revision'],
-        'workflowRevision': json['workflow_revision'] == null ? undefined : json['workflow_revision'],
+        input: json["input"] == null ? undefined : WorkflowInputFromJSON(json["input"]),
+        revision: json["revision"] == null ? undefined : json["revision"],
+        workflowRevision: json["workflow_revision"] == null ? undefined : json["workflow_revision"],
     };
 }
 
@@ -74,16 +73,17 @@ export function RunCIBodyToJSON(json: any): RunCIBody {
     return RunCIBodyToJSONTyped(json, false);
 }
 
-export function RunCIBodyToJSONTyped(value?: RunCIBody | null, ignoreDiscriminator: boolean = false): any {
+export function RunCIBodyToJSONTyped(
+    value?: RunCIBody | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'input': WorkflowInputToJSON(value['input']),
-        'revision': value['revision'],
-        'workflow_revision': value['workflowRevision'],
+        input: WorkflowInputToJSON(value["input"]),
+        revision: value["revision"],
+        workflow_revision: value["workflowRevision"],
     };
 }
-

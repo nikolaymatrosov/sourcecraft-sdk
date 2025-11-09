@@ -12,18 +12,16 @@
  * Do not edit the class manually.
  */
 
-
 /**
- * 
+ *
  * @export
  */
 export const TriggerStatus = {
-    AlreadyExists: 'already_exists',
-    Created: 'created',
-    NothingToStart: 'nothing_to_start'
+    AlreadyExists: "already_exists",
+    Created: "created",
+    NothingToStart: "nothing_to_start",
 } as const;
-export type TriggerStatus = typeof TriggerStatus[keyof typeof TriggerStatus];
-
+export type TriggerStatus = (typeof TriggerStatus)[keyof typeof TriggerStatus];
 
 export function instanceOfTriggerStatus(value: any): boolean {
     for (const key in TriggerStatus) {
@@ -51,4 +49,3 @@ export function TriggerStatusToJSON(value?: TriggerStatus | null): any {
 export function TriggerStatusToJSONTyped(value: any, ignoreDiscriminator: boolean): TriggerStatus {
     return value as TriggerStatus;
 }
-

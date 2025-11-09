@@ -12,41 +12,36 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { Commit } from './Commit';
-import {
-    CommitFromJSON,
-    CommitFromJSONTyped,
-    CommitToJSON,
-    CommitToJSONTyped,
-} from './Commit';
+import { mapValues } from "../runtime";
+import type { Commit } from "./Commit";
+import { CommitFromJSON, CommitFromJSONTyped, CommitToJSON, CommitToJSONTyped } from "./Commit";
 
 /**
- * 
+ *
  * @export
  * @interface V1Tag
  */
 export interface V1Tag {
     /**
-     * 
+     *
      * @type {Commit}
      * @memberof V1Tag
      */
     commit?: Commit;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Tag
      */
     message?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Tag
      */
     name?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Tag
      */
@@ -69,11 +64,10 @@ export function V1TagFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1T
         return json;
     }
     return {
-        
-        'commit': json['commit'] == null ? undefined : CommitFromJSON(json['commit']),
-        'message': json['message'] == null ? undefined : json['message'],
-        'name': json['name'] == null ? undefined : json['name'],
-        'target': json['target'] == null ? undefined : json['target'],
+        commit: json["commit"] == null ? undefined : CommitFromJSON(json["commit"]),
+        message: json["message"] == null ? undefined : json["message"],
+        name: json["name"] == null ? undefined : json["name"],
+        target: json["target"] == null ? undefined : json["target"],
     };
 }
 
@@ -87,11 +81,9 @@ export function V1TagToJSONTyped(value?: V1Tag | null, ignoreDiscriminator: bool
     }
 
     return {
-        
-        'commit': CommitToJSON(value['commit']),
-        'message': value['message'],
-        'name': value['name'],
-        'target': value['target'],
+        commit: CommitToJSON(value["commit"]),
+        message: value["message"],
+        name: value["name"],
+        target: value["target"],
     };
 }
-

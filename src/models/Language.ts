@@ -12,21 +12,21 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues } from "../runtime";
 /**
- * 
+ *
  * @export
  * @interface Language
  */
 export interface Language {
     /**
-     * 
+     *
      * @type {string}
      * @memberof Language
      */
     color?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof Language
      */
@@ -49,9 +49,8 @@ export function LanguageFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         return json;
     }
     return {
-        
-        'color': json['color'] == null ? undefined : json['color'],
-        'name': json['name'] == null ? undefined : json['name'],
+        color: json["color"] == null ? undefined : json["color"],
+        name: json["name"] == null ? undefined : json["name"],
     };
 }
 
@@ -59,15 +58,16 @@ export function LanguageToJSON(json: any): Language {
     return LanguageToJSONTyped(json, false);
 }
 
-export function LanguageToJSONTyped(value?: Language | null, ignoreDiscriminator: boolean = false): any {
+export function LanguageToJSONTyped(
+    value?: Language | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'color': value['color'],
-        'name': value['name'],
+        color: value["color"],
+        name: value["name"],
     };
 }
-

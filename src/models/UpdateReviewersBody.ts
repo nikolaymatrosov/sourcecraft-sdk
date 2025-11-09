@@ -12,29 +12,29 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { V1ReviewerDelta } from './V1ReviewerDelta';
+import { mapValues } from "../runtime";
+import type { V1ReviewerDelta } from "./V1ReviewerDelta";
 import {
     V1ReviewerDeltaFromJSON,
     V1ReviewerDeltaFromJSONTyped,
     V1ReviewerDeltaToJSON,
     V1ReviewerDeltaToJSONTyped,
-} from './V1ReviewerDelta';
+} from "./V1ReviewerDelta";
 
 /**
- * 
+ *
  * @export
  * @interface UpdateReviewersBody
  */
 export interface UpdateReviewersBody {
     /**
-     * 
+     *
      * @type {Array<V1ReviewerDelta>}
      * @memberof UpdateReviewersBody
      */
     reviewersDelta?: Array<V1ReviewerDelta>;
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof UpdateReviewersBody
      */
@@ -52,14 +52,19 @@ export function UpdateReviewersBodyFromJSON(json: any): UpdateReviewersBody {
     return UpdateReviewersBodyFromJSONTyped(json, false);
 }
 
-export function UpdateReviewersBodyFromJSONTyped(json: any, ignoreDiscriminator: boolean): UpdateReviewersBody {
+export function UpdateReviewersBodyFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): UpdateReviewersBody {
     if (json == null) {
         return json;
     }
     return {
-        
-        'reviewersDelta': json['reviewers_delta'] == null ? undefined : ((json['reviewers_delta'] as Array<any>).map(V1ReviewerDeltaFromJSON)),
-        'silent': json['silent'] == null ? undefined : json['silent'],
+        reviewersDelta:
+            json["reviewers_delta"] == null
+                ? undefined
+                : (json["reviewers_delta"] as Array<any>).map(V1ReviewerDeltaFromJSON),
+        silent: json["silent"] == null ? undefined : json["silent"],
     };
 }
 
@@ -67,15 +72,19 @@ export function UpdateReviewersBodyToJSON(json: any): UpdateReviewersBody {
     return UpdateReviewersBodyToJSONTyped(json, false);
 }
 
-export function UpdateReviewersBodyToJSONTyped(value?: UpdateReviewersBody | null, ignoreDiscriminator: boolean = false): any {
+export function UpdateReviewersBodyToJSONTyped(
+    value?: UpdateReviewersBody | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'reviewers_delta': value['reviewersDelta'] == null ? undefined : ((value['reviewersDelta'] as Array<any>).map(V1ReviewerDeltaToJSON)),
-        'silent': value['silent'],
+        reviewers_delta:
+            value["reviewersDelta"] == null
+                ? undefined
+                : (value["reviewersDelta"] as Array<any>).map(V1ReviewerDeltaToJSON),
+        silent: value["silent"],
     };
 }
-

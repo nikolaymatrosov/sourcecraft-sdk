@@ -12,23 +12,23 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { SubjectRole } from './SubjectRole';
+import { mapValues } from "../runtime";
+import type { SubjectRole } from "./SubjectRole";
 import {
     SubjectRoleFromJSON,
     SubjectRoleFromJSONTyped,
     SubjectRoleToJSON,
     SubjectRoleToJSONTyped,
-} from './SubjectRole';
+} from "./SubjectRole";
 
 /**
- * 
+ *
  * @export
  * @interface RemoveRepoRolesBody
  */
 export interface RemoveRepoRolesBody {
     /**
-     * 
+     *
      * @type {Array<SubjectRole>}
      * @memberof RemoveRepoRolesBody
      */
@@ -46,13 +46,18 @@ export function RemoveRepoRolesBodyFromJSON(json: any): RemoveRepoRolesBody {
     return RemoveRepoRolesBodyFromJSONTyped(json, false);
 }
 
-export function RemoveRepoRolesBodyFromJSONTyped(json: any, ignoreDiscriminator: boolean): RemoveRepoRolesBody {
+export function RemoveRepoRolesBodyFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): RemoveRepoRolesBody {
     if (json == null) {
         return json;
     }
     return {
-        
-        'subjectRoles': json['subject_roles'] == null ? undefined : ((json['subject_roles'] as Array<any>).map(SubjectRoleFromJSON)),
+        subjectRoles:
+            json["subject_roles"] == null
+                ? undefined
+                : (json["subject_roles"] as Array<any>).map(SubjectRoleFromJSON),
     };
 }
 
@@ -60,14 +65,18 @@ export function RemoveRepoRolesBodyToJSON(json: any): RemoveRepoRolesBody {
     return RemoveRepoRolesBodyToJSONTyped(json, false);
 }
 
-export function RemoveRepoRolesBodyToJSONTyped(value?: RemoveRepoRolesBody | null, ignoreDiscriminator: boolean = false): any {
+export function RemoveRepoRolesBodyToJSONTyped(
+    value?: RemoveRepoRolesBody | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'subject_roles': value['subjectRoles'] == null ? undefined : ((value['subjectRoles'] as Array<any>).map(SubjectRoleToJSON)),
+        subject_roles:
+            value["subjectRoles"] == null
+                ? undefined
+                : (value["subjectRoles"] as Array<any>).map(SubjectRoleToJSON),
     };
 }
-

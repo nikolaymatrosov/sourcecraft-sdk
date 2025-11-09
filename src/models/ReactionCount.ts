@@ -12,21 +12,21 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues } from "../runtime";
 /**
- * 
+ *
  * @export
  * @interface ReactionCount
  */
 export interface ReactionCount {
     /**
-     * 
+     *
      * @type {number}
      * @memberof ReactionCount
      */
     count?: number;
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof ReactionCount
      */
@@ -49,9 +49,8 @@ export function ReactionCountFromJSONTyped(json: any, ignoreDiscriminator: boole
         return json;
     }
     return {
-        
-        'count': json['count'] == null ? undefined : json['count'],
-        'selfReact': json['self_react'] == null ? undefined : json['self_react'],
+        count: json["count"] == null ? undefined : json["count"],
+        selfReact: json["self_react"] == null ? undefined : json["self_react"],
     };
 }
 
@@ -59,15 +58,16 @@ export function ReactionCountToJSON(json: any): ReactionCount {
     return ReactionCountToJSONTyped(json, false);
 }
 
-export function ReactionCountToJSONTyped(value?: ReactionCount | null, ignoreDiscriminator: boolean = false): any {
+export function ReactionCountToJSONTyped(
+    value?: ReactionCount | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'count': value['count'],
-        'self_react': value['selfReact'],
+        count: value["count"],
+        self_react: value["selfReact"],
     };
 }
-

@@ -12,65 +12,65 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { UserEmbedded } from './UserEmbedded';
+import { mapValues } from "../runtime";
+import type { UserEmbedded } from "./UserEmbedded";
 import {
     UserEmbeddedFromJSON,
     UserEmbeddedFromJSONTyped,
     UserEmbeddedToJSON,
     UserEmbeddedToJSONTyped,
-} from './UserEmbedded';
+} from "./UserEmbedded";
 
 /**
- * 
+ *
  * @export
  * @interface V1Label
  */
 export interface V1Label {
     /**
-     * 
+     *
      * @type {UserEmbedded}
      * @memberof V1Label
      */
     author?: UserEmbedded;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Label
      */
     color?: string;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof V1Label
      */
     createdAt?: Date;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Label
      */
     id?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Label
      */
     name?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Label
      */
     slug?: string;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof V1Label
      */
     updatedAt?: Date;
     /**
-     * 
+     *
      * @type {UserEmbedded}
      * @memberof V1Label
      */
@@ -93,15 +93,15 @@ export function V1LabelFromJSONTyped(json: any, ignoreDiscriminator: boolean): V
         return json;
     }
     return {
-        
-        'author': json['author'] == null ? undefined : UserEmbeddedFromJSON(json['author']),
-        'color': json['color'] == null ? undefined : json['color'],
-        'createdAt': json['created_at'] == null ? undefined : (new Date(json['created_at'])),
-        'id': json['id'] == null ? undefined : json['id'],
-        'name': json['name'] == null ? undefined : json['name'],
-        'slug': json['slug'] == null ? undefined : json['slug'],
-        'updatedAt': json['updated_at'] == null ? undefined : (new Date(json['updated_at'])),
-        'updatedBy': json['updated_by'] == null ? undefined : UserEmbeddedFromJSON(json['updated_by']),
+        author: json["author"] == null ? undefined : UserEmbeddedFromJSON(json["author"]),
+        color: json["color"] == null ? undefined : json["color"],
+        createdAt: json["created_at"] == null ? undefined : new Date(json["created_at"]),
+        id: json["id"] == null ? undefined : json["id"],
+        name: json["name"] == null ? undefined : json["name"],
+        slug: json["slug"] == null ? undefined : json["slug"],
+        updatedAt: json["updated_at"] == null ? undefined : new Date(json["updated_at"]),
+        updatedBy:
+            json["updated_by"] == null ? undefined : UserEmbeddedFromJSON(json["updated_by"]),
     };
 }
 
@@ -109,21 +109,24 @@ export function V1LabelToJSON(json: any): V1Label {
     return V1LabelToJSONTyped(json, false);
 }
 
-export function V1LabelToJSONTyped(value?: V1Label | null, ignoreDiscriminator: boolean = false): any {
+export function V1LabelToJSONTyped(
+    value?: V1Label | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'author': UserEmbeddedToJSON(value['author']),
-        'color': value['color'],
-        'created_at': value['createdAt'] == null ? value['createdAt'] : value['createdAt'].toISOString(),
-        'id': value['id'],
-        'name': value['name'],
-        'slug': value['slug'],
-        'updated_at': value['updatedAt'] == null ? value['updatedAt'] : value['updatedAt'].toISOString(),
-        'updated_by': UserEmbeddedToJSON(value['updatedBy']),
+        author: UserEmbeddedToJSON(value["author"]),
+        color: value["color"],
+        created_at:
+            value["createdAt"] == null ? value["createdAt"] : value["createdAt"].toISOString(),
+        id: value["id"],
+        name: value["name"],
+        slug: value["slug"],
+        updated_at:
+            value["updatedAt"] == null ? value["updatedAt"] : value["updatedAt"].toISOString(),
+        updated_by: UserEmbeddedToJSON(value["updatedBy"]),
     };
 }
-

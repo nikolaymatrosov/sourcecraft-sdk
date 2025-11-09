@@ -12,39 +12,39 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues } from "../runtime";
 /**
- * 
+ *
  * @export
  * @interface Hunk
  */
 export interface Hunk {
     /**
-     * 
+     *
      * @type {number}
      * @memberof Hunk
      */
     fromCount?: number;
     /**
-     * 
+     *
      * @type {number}
      * @memberof Hunk
      */
     fromStart?: number;
     /**
-     * 
+     *
      * @type {string}
      * @memberof Hunk
      */
     patch?: string;
     /**
-     * 
+     *
      * @type {number}
      * @memberof Hunk
      */
     toCount?: number;
     /**
-     * 
+     *
      * @type {number}
      * @memberof Hunk
      */
@@ -67,12 +67,11 @@ export function HunkFromJSONTyped(json: any, ignoreDiscriminator: boolean): Hunk
         return json;
     }
     return {
-        
-        'fromCount': json['from_count'] == null ? undefined : json['from_count'],
-        'fromStart': json['from_start'] == null ? undefined : json['from_start'],
-        'patch': json['patch'] == null ? undefined : json['patch'],
-        'toCount': json['to_count'] == null ? undefined : json['to_count'],
-        'toStart': json['to_start'] == null ? undefined : json['to_start'],
+        fromCount: json["from_count"] == null ? undefined : json["from_count"],
+        fromStart: json["from_start"] == null ? undefined : json["from_start"],
+        patch: json["patch"] == null ? undefined : json["patch"],
+        toCount: json["to_count"] == null ? undefined : json["to_count"],
+        toStart: json["to_start"] == null ? undefined : json["to_start"],
     };
 }
 
@@ -86,12 +85,10 @@ export function HunkToJSONTyped(value?: Hunk | null, ignoreDiscriminator: boolea
     }
 
     return {
-        
-        'from_count': value['fromCount'],
-        'from_start': value['fromStart'],
-        'patch': value['patch'],
-        'to_count': value['toCount'],
-        'to_start': value['toStart'],
+        from_count: value["fromCount"],
+        from_start: value["fromStart"],
+        patch: value["patch"],
+        to_count: value["toCount"],
+        to_start: value["toStart"],
     };
 }
-

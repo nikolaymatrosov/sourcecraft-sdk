@@ -12,33 +12,33 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues } from "../runtime";
 /**
- * 
+ *
  * @export
  * @interface ForkRepositoryBody
  */
 export interface ForkRepositoryBody {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof ForkRepositoryBody
      */
     defaultBranchOnly?: boolean;
     /**
-     * 
+     *
      * @type {string}
      * @memberof ForkRepositoryBody
      */
     orgId?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof ForkRepositoryBody
      */
     orgSlug?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof ForkRepositoryBody
      */
@@ -56,16 +56,19 @@ export function ForkRepositoryBodyFromJSON(json: any): ForkRepositoryBody {
     return ForkRepositoryBodyFromJSONTyped(json, false);
 }
 
-export function ForkRepositoryBodyFromJSONTyped(json: any, ignoreDiscriminator: boolean): ForkRepositoryBody {
+export function ForkRepositoryBodyFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): ForkRepositoryBody {
     if (json == null) {
         return json;
     }
     return {
-        
-        'defaultBranchOnly': json['default_branch_only'] == null ? undefined : json['default_branch_only'],
-        'orgId': json['org_id'] == null ? undefined : json['org_id'],
-        'orgSlug': json['org_slug'] == null ? undefined : json['org_slug'],
-        'slug': json['slug'] == null ? undefined : json['slug'],
+        defaultBranchOnly:
+            json["default_branch_only"] == null ? undefined : json["default_branch_only"],
+        orgId: json["org_id"] == null ? undefined : json["org_id"],
+        orgSlug: json["org_slug"] == null ? undefined : json["org_slug"],
+        slug: json["slug"] == null ? undefined : json["slug"],
     };
 }
 
@@ -73,17 +76,18 @@ export function ForkRepositoryBodyToJSON(json: any): ForkRepositoryBody {
     return ForkRepositoryBodyToJSONTyped(json, false);
 }
 
-export function ForkRepositoryBodyToJSONTyped(value?: ForkRepositoryBody | null, ignoreDiscriminator: boolean = false): any {
+export function ForkRepositoryBodyToJSONTyped(
+    value?: ForkRepositoryBody | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'default_branch_only': value['defaultBranchOnly'],
-        'org_id': value['orgId'],
-        'org_slug': value['orgSlug'],
-        'slug': value['slug'],
+        default_branch_only: value["defaultBranchOnly"],
+        org_id: value["orgId"],
+        org_slug: value["orgSlug"],
+        slug: value["slug"],
     };
 }
-

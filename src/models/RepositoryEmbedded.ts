@@ -12,21 +12,21 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues } from "../runtime";
 /**
- * 
+ *
  * @export
  * @interface RepositoryEmbedded
  */
 export interface RepositoryEmbedded {
     /**
-     * 
+     *
      * @type {string}
      * @memberof RepositoryEmbedded
      */
     id?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof RepositoryEmbedded
      */
@@ -44,14 +44,16 @@ export function RepositoryEmbeddedFromJSON(json: any): RepositoryEmbedded {
     return RepositoryEmbeddedFromJSONTyped(json, false);
 }
 
-export function RepositoryEmbeddedFromJSONTyped(json: any, ignoreDiscriminator: boolean): RepositoryEmbedded {
+export function RepositoryEmbeddedFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): RepositoryEmbedded {
     if (json == null) {
         return json;
     }
     return {
-        
-        'id': json['id'] == null ? undefined : json['id'],
-        'slug': json['slug'] == null ? undefined : json['slug'],
+        id: json["id"] == null ? undefined : json["id"],
+        slug: json["slug"] == null ? undefined : json["slug"],
     };
 }
 
@@ -59,15 +61,16 @@ export function RepositoryEmbeddedToJSON(json: any): RepositoryEmbedded {
     return RepositoryEmbeddedToJSONTyped(json, false);
 }
 
-export function RepositoryEmbeddedToJSONTyped(value?: RepositoryEmbedded | null, ignoreDiscriminator: boolean = false): any {
+export function RepositoryEmbeddedToJSONTyped(
+    value?: RepositoryEmbedded | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'id': value['id'],
-        'slug': value['slug'],
+        id: value["id"],
+        slug: value["slug"],
     };
 }
-

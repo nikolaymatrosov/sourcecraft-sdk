@@ -12,15 +12,14 @@
  * Do not edit the class manually.
  */
 
-
-import * as runtime from '../runtime';
+import * as runtime from "../runtime";
 import type {
-  ApiErrorResponse,
-  CreateIssueCommentBody,
-  IssueComment,
-  ListIssueCommentsResponse,
-  UpdateIssueCommentBody,
-} from '../models/index';
+    ApiErrorResponse,
+    CreateIssueCommentBody,
+    IssueComment,
+    ListIssueCommentsResponse,
+    UpdateIssueCommentBody,
+} from "../models/index";
 import {
     ApiErrorResponseFromJSON,
     ApiErrorResponseToJSON,
@@ -32,7 +31,7 @@ import {
     ListIssueCommentsResponseToJSON,
     UpdateIssueCommentBodyFromJSON,
     UpdateIssueCommentBodyToJSON,
-} from '../models/index';
+} from "../models/index";
 
 export interface CreateIssueCommentRequest {
     orgSlug: string;
@@ -81,85 +80,109 @@ export interface UpdateIssueCommentRequest {
 
 /**
  * IssuesCommentsApi - interface
- * 
+ *
  * @export
  * @interface IssuesCommentsApiInterface
  */
 export interface IssuesCommentsApiInterface {
     /**
-     * 
+     *
      * @summary Create comment
-     * @param {string} orgSlug 
-     * @param {string} repoSlug 
-     * @param {string} issueSlug 
-     * @param {CreateIssueCommentBody} createIssueCommentBody 
+     * @param {string} orgSlug
+     * @param {string} repoSlug
+     * @param {string} issueSlug
+     * @param {CreateIssueCommentBody} createIssueCommentBody
      * @param {boolean} [silent] do not notify subscribers
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesCommentsApiInterface
      */
-    createIssueCommentRaw(requestParameters: CreateIssueCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueComment>>;
+    createIssueCommentRaw(
+        requestParameters: CreateIssueCommentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<IssueComment>>;
 
     /**
      * Create comment
      */
-    createIssueComment(requestParameters: CreateIssueCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueComment>;
+    createIssueComment(
+        requestParameters: CreateIssueCommentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<IssueComment>;
 
     /**
-     * 
+     *
      * @summary Create comment (by Issue ID)
-     * @param {string} issueId 
-     * @param {CreateIssueCommentBody} createIssueCommentBody 
+     * @param {string} issueId
+     * @param {CreateIssueCommentBody} createIssueCommentBody
      * @param {boolean} [silent] do not notify subscribers
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesCommentsApiInterface
      */
-    createIssueCommentByIDRaw(requestParameters: CreateIssueCommentByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueComment>>;
+    createIssueCommentByIDRaw(
+        requestParameters: CreateIssueCommentByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<IssueComment>>;
 
     /**
      * Create comment (by Issue ID)
      */
-    createIssueCommentByID(requestParameters: CreateIssueCommentByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueComment>;
+    createIssueCommentByID(
+        requestParameters: CreateIssueCommentByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<IssueComment>;
 
     /**
      * Permanently deletes a comment from an issue. This action cannot be undone.
      * @summary Delete Comment
-     * @param {string} issueCommentId 
-     * @param {boolean} [silent] 
+     * @param {string} issueCommentId
+     * @param {boolean} [silent]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesCommentsApiInterface
      */
-    deleteIssueCommentRaw(requestParameters: DeleteIssueCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    deleteIssueCommentRaw(
+        requestParameters: DeleteIssueCommentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<void>>;
 
     /**
      * Permanently deletes a comment from an issue. This action cannot be undone.
      * Delete Comment
      */
-    deleteIssueComment(requestParameters: DeleteIssueCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    deleteIssueComment(
+        requestParameters: DeleteIssueCommentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<void>;
 
     /**
-     * 
+     *
      * @summary Get Comment
-     * @param {string} issueCommentId 
+     * @param {string} issueCommentId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesCommentsApiInterface
      */
-    getIssueCommentRaw(requestParameters: GetIssueCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueComment>>;
+    getIssueCommentRaw(
+        requestParameters: GetIssueCommentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<IssueComment>>;
 
     /**
      * Get Comment
      */
-    getIssueComment(requestParameters: GetIssueCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueComment>;
+    getIssueComment(
+        requestParameters: GetIssueCommentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<IssueComment>;
 
     /**
      * Retrieves comments for an issue
      * @summary List Comments
-     * @param {string} orgSlug 
-     * @param {string} repoSlug 
-     * @param {string} issueSlug 
+     * @param {string} orgSlug
+     * @param {string} repoSlug
+     * @param {string} issueSlug
      * @param {string} [pageSize] The maximum number of issues to return. The service may return fewer than this value
      * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
      * @param {string} [sortBy] Ordering options: comma separated list of fields. For example: \&quot;name, created_at\&quot; Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;name, -created_at\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent.
@@ -167,18 +190,24 @@ export interface IssuesCommentsApiInterface {
      * @throws {RequiredError}
      * @memberof IssuesCommentsApiInterface
      */
-    listIssueCommentsRaw(requestParameters: ListIssueCommentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListIssueCommentsResponse>>;
+    listIssueCommentsRaw(
+        requestParameters: ListIssueCommentsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListIssueCommentsResponse>>;
 
     /**
      * Retrieves comments for an issue
      * List Comments
      */
-    listIssueComments(requestParameters: ListIssueCommentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListIssueCommentsResponse>;
+    listIssueComments(
+        requestParameters: ListIssueCommentsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListIssueCommentsResponse>;
 
     /**
      * Retrieves comments for an issue
      * @summary List Comments (by ID)
-     * @param {string} issueId 
+     * @param {string} issueId
      * @param {string} [pageSize] The maximum number of issues to return. The service may return fewer than this value
      * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
      * @param {string} [sortBy] Ordering options: comma separated list of fields. For example: \&quot;name, created_at\&quot; Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;name, -created_at\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent.
@@ -186,80 +215,93 @@ export interface IssuesCommentsApiInterface {
      * @throws {RequiredError}
      * @memberof IssuesCommentsApiInterface
      */
-    listIssueCommentsByIDRaw(requestParameters: ListIssueCommentsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListIssueCommentsResponse>>;
+    listIssueCommentsByIDRaw(
+        requestParameters: ListIssueCommentsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListIssueCommentsResponse>>;
 
     /**
      * Retrieves comments for an issue
      * List Comments (by ID)
      */
-    listIssueCommentsByID(requestParameters: ListIssueCommentsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListIssueCommentsResponse>;
+    listIssueCommentsByID(
+        requestParameters: ListIssueCommentsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListIssueCommentsResponse>;
 
     /**
      * Update a comment
      * @summary Update Comment
-     * @param {string} issueCommentId 
-     * @param {UpdateIssueCommentBody} updateIssueCommentBody 
+     * @param {string} issueCommentId
+     * @param {UpdateIssueCommentBody} updateIssueCommentBody
      * @param {boolean} [silent] do not notify subscribers
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesCommentsApiInterface
      */
-    updateIssueCommentRaw(requestParameters: UpdateIssueCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueComment>>;
+    updateIssueCommentRaw(
+        requestParameters: UpdateIssueCommentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<IssueComment>>;
 
     /**
      * Update a comment
      * Update Comment
      */
-    updateIssueComment(requestParameters: UpdateIssueCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueComment>;
-
+    updateIssueComment(
+        requestParameters: UpdateIssueCommentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<IssueComment>;
 }
 
 /**
- * 
+ *
  */
 export class IssuesCommentsApi extends runtime.BaseAPI implements IssuesCommentsApiInterface {
-
     /**
      * Create comment
      */
-    async createIssueCommentRaw(requestParameters: CreateIssueCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueComment>> {
-        if (requestParameters['orgSlug'] == null) {
+    async createIssueCommentRaw(
+        requestParameters: CreateIssueCommentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<IssueComment>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling createIssueComment().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling createIssueComment().'
             );
         }
 
-        if (requestParameters['issueSlug'] == null) {
+        if (requestParameters["issueSlug"] == null) {
             throw new runtime.RequiredError(
-                'issueSlug',
+                "issueSlug",
                 'Required parameter "issueSlug" was null or undefined when calling createIssueComment().'
             );
         }
 
-        if (requestParameters['createIssueCommentBody'] == null) {
+        if (requestParameters["createIssueCommentBody"] == null) {
             throw new runtime.RequiredError(
-                'createIssueCommentBody',
+                "createIssueCommentBody",
                 'Required parameter "createIssueCommentBody" was null or undefined when calling createIssueComment().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -271,25 +313,42 @@ export class IssuesCommentsApi extends runtime.BaseAPI implements IssuesComments
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/issues/{issue_slug}/comments`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
-        urlPath = urlPath.replace(`{${"issue_slug"}}`, encodeURIComponent(String(requestParameters['issueSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"issue_slug"}}`,
+            encodeURIComponent(String(requestParameters["issueSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CreateIssueCommentBodyToJSON(requestParameters['createIssueCommentBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+                body: CreateIssueCommentBodyToJSON(requestParameters["createIssueCommentBody"]),
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => IssueCommentFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            IssueCommentFromJSON(jsonValue)
+        );
     }
 
     /**
      * Create comment
      */
-    async createIssueComment(requestParameters: CreateIssueCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueComment> {
+    async createIssueComment(
+        requestParameters: CreateIssueCommentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<IssueComment> {
         const response = await this.createIssueCommentRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -297,30 +356,33 @@ export class IssuesCommentsApi extends runtime.BaseAPI implements IssuesComments
     /**
      * Create comment (by Issue ID)
      */
-    async createIssueCommentByIDRaw(requestParameters: CreateIssueCommentByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueComment>> {
-        if (requestParameters['issueId'] == null) {
+    async createIssueCommentByIDRaw(
+        requestParameters: CreateIssueCommentByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<IssueComment>> {
+        if (requestParameters["issueId"] == null) {
             throw new runtime.RequiredError(
-                'issueId',
+                "issueId",
                 'Required parameter "issueId" was null or undefined when calling createIssueCommentByID().'
             );
         }
 
-        if (requestParameters['createIssueCommentBody'] == null) {
+        if (requestParameters["createIssueCommentBody"] == null) {
             throw new runtime.RequiredError(
-                'createIssueCommentBody',
+                "createIssueCommentBody",
                 'Required parameter "createIssueCommentBody" was null or undefined when calling createIssueCommentByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -332,23 +394,34 @@ export class IssuesCommentsApi extends runtime.BaseAPI implements IssuesComments
         }
 
         let urlPath = `/issues/id:{issue_id}/comments`;
-        urlPath = urlPath.replace(`{${"issue_id"}}`, encodeURIComponent(String(requestParameters['issueId'])));
+        urlPath = urlPath.replace(
+            `{${"issue_id"}}`,
+            encodeURIComponent(String(requestParameters["issueId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CreateIssueCommentBodyToJSON(requestParameters['createIssueCommentBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+                body: CreateIssueCommentBodyToJSON(requestParameters["createIssueCommentBody"]),
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => IssueCommentFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            IssueCommentFromJSON(jsonValue)
+        );
     }
 
     /**
      * Create comment (by Issue ID)
      */
-    async createIssueCommentByID(requestParameters: CreateIssueCommentByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueComment> {
+    async createIssueCommentByID(
+        requestParameters: CreateIssueCommentByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<IssueComment> {
         const response = await this.createIssueCommentByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -357,18 +430,21 @@ export class IssuesCommentsApi extends runtime.BaseAPI implements IssuesComments
      * Permanently deletes a comment from an issue. This action cannot be undone.
      * Delete Comment
      */
-    async deleteIssueCommentRaw(requestParameters: DeleteIssueCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        if (requestParameters['issueCommentId'] == null) {
+    async deleteIssueCommentRaw(
+        requestParameters: DeleteIssueCommentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters["issueCommentId"] == null) {
             throw new runtime.RequiredError(
-                'issueCommentId',
+                "issueCommentId",
                 'Required parameter "issueCommentId" was null or undefined when calling deleteIssueComment().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -383,14 +459,20 @@ export class IssuesCommentsApi extends runtime.BaseAPI implements IssuesComments
         }
 
         let urlPath = `/issue_comments/id:{issue_comment_id}`;
-        urlPath = urlPath.replace(`{${"issue_comment_id"}}`, encodeURIComponent(String(requestParameters['issueCommentId'])));
+        urlPath = urlPath.replace(
+            `{${"issue_comment_id"}}`,
+            encodeURIComponent(String(requestParameters["issueCommentId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "DELETE",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
         return new runtime.VoidApiResponse(response);
     }
@@ -399,17 +481,23 @@ export class IssuesCommentsApi extends runtime.BaseAPI implements IssuesComments
      * Permanently deletes a comment from an issue. This action cannot be undone.
      * Delete Comment
      */
-    async deleteIssueComment(requestParameters: DeleteIssueCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+    async deleteIssueComment(
+        requestParameters: DeleteIssueCommentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<void> {
         await this.deleteIssueCommentRaw(requestParameters, initOverrides);
     }
 
     /**
      * Get Comment
      */
-    async getIssueCommentRaw(requestParameters: GetIssueCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueComment>> {
-        if (requestParameters['issueCommentId'] == null) {
+    async getIssueCommentRaw(
+        requestParameters: GetIssueCommentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<IssueComment>> {
+        if (requestParameters["issueCommentId"] == null) {
             throw new runtime.RequiredError(
-                'issueCommentId',
+                "issueCommentId",
                 'Required parameter "issueCommentId" was null or undefined when calling getIssueComment().'
             );
         }
@@ -428,22 +516,33 @@ export class IssuesCommentsApi extends runtime.BaseAPI implements IssuesComments
         }
 
         let urlPath = `/issue_comments/id:{issue_comment_id}`;
-        urlPath = urlPath.replace(`{${"issue_comment_id"}}`, encodeURIComponent(String(requestParameters['issueCommentId'])));
+        urlPath = urlPath.replace(
+            `{${"issue_comment_id"}}`,
+            encodeURIComponent(String(requestParameters["issueCommentId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => IssueCommentFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            IssueCommentFromJSON(jsonValue)
+        );
     }
 
     /**
      * Get Comment
      */
-    async getIssueComment(requestParameters: GetIssueCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueComment> {
+    async getIssueComment(
+        requestParameters: GetIssueCommentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<IssueComment> {
         const response = await this.getIssueCommentRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -452,40 +551,43 @@ export class IssuesCommentsApi extends runtime.BaseAPI implements IssuesComments
      * Retrieves comments for an issue
      * List Comments
      */
-    async listIssueCommentsRaw(requestParameters: ListIssueCommentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListIssueCommentsResponse>> {
-        if (requestParameters['orgSlug'] == null) {
+    async listIssueCommentsRaw(
+        requestParameters: ListIssueCommentsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListIssueCommentsResponse>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling listIssueComments().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling listIssueComments().'
             );
         }
 
-        if (requestParameters['issueSlug'] == null) {
+        if (requestParameters["issueSlug"] == null) {
             throw new runtime.RequiredError(
-                'issueSlug',
+                "issueSlug",
                 'Required parameter "issueSlug" was null or undefined when calling listIssueComments().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['pageSize'] != null) {
-            queryParameters['page_size'] = requestParameters['pageSize'];
+        if (requestParameters["pageSize"] != null) {
+            queryParameters["page_size"] = requestParameters["pageSize"];
         }
 
-        if (requestParameters['pageToken'] != null) {
-            queryParameters['page_token'] = requestParameters['pageToken'];
+        if (requestParameters["pageToken"] != null) {
+            queryParameters["page_token"] = requestParameters["pageToken"];
         }
 
-        if (requestParameters['sortBy'] != null) {
-            queryParameters['sort_by'] = requestParameters['sortBy'];
+        if (requestParameters["sortBy"] != null) {
+            queryParameters["sort_by"] = requestParameters["sortBy"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -500,25 +602,42 @@ export class IssuesCommentsApi extends runtime.BaseAPI implements IssuesComments
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/issues/{issue_slug}/comments`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
-        urlPath = urlPath.replace(`{${"issue_slug"}}`, encodeURIComponent(String(requestParameters['issueSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"issue_slug"}}`,
+            encodeURIComponent(String(requestParameters["issueSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ListIssueCommentsResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            ListIssueCommentsResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * Retrieves comments for an issue
      * List Comments
      */
-    async listIssueComments(requestParameters: ListIssueCommentsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListIssueCommentsResponse> {
+    async listIssueComments(
+        requestParameters: ListIssueCommentsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListIssueCommentsResponse> {
         const response = await this.listIssueCommentsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -527,26 +646,29 @@ export class IssuesCommentsApi extends runtime.BaseAPI implements IssuesComments
      * Retrieves comments for an issue
      * List Comments (by ID)
      */
-    async listIssueCommentsByIDRaw(requestParameters: ListIssueCommentsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListIssueCommentsResponse>> {
-        if (requestParameters['issueId'] == null) {
+    async listIssueCommentsByIDRaw(
+        requestParameters: ListIssueCommentsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListIssueCommentsResponse>> {
+        if (requestParameters["issueId"] == null) {
             throw new runtime.RequiredError(
-                'issueId',
+                "issueId",
                 'Required parameter "issueId" was null or undefined when calling listIssueCommentsByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['pageSize'] != null) {
-            queryParameters['page_size'] = requestParameters['pageSize'];
+        if (requestParameters["pageSize"] != null) {
+            queryParameters["page_size"] = requestParameters["pageSize"];
         }
 
-        if (requestParameters['pageToken'] != null) {
-            queryParameters['page_token'] = requestParameters['pageToken'];
+        if (requestParameters["pageToken"] != null) {
+            queryParameters["page_token"] = requestParameters["pageToken"];
         }
 
-        if (requestParameters['sortBy'] != null) {
-            queryParameters['sort_by'] = requestParameters['sortBy'];
+        if (requestParameters["sortBy"] != null) {
+            queryParameters["sort_by"] = requestParameters["sortBy"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -561,23 +683,34 @@ export class IssuesCommentsApi extends runtime.BaseAPI implements IssuesComments
         }
 
         let urlPath = `/issues/id:{issue_id}/comments`;
-        urlPath = urlPath.replace(`{${"issue_id"}}`, encodeURIComponent(String(requestParameters['issueId'])));
+        urlPath = urlPath.replace(
+            `{${"issue_id"}}`,
+            encodeURIComponent(String(requestParameters["issueId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ListIssueCommentsResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            ListIssueCommentsResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * Retrieves comments for an issue
      * List Comments (by ID)
      */
-    async listIssueCommentsByID(requestParameters: ListIssueCommentsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListIssueCommentsResponse> {
+    async listIssueCommentsByID(
+        requestParameters: ListIssueCommentsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListIssueCommentsResponse> {
         const response = await this.listIssueCommentsByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -586,30 +719,33 @@ export class IssuesCommentsApi extends runtime.BaseAPI implements IssuesComments
      * Update a comment
      * Update Comment
      */
-    async updateIssueCommentRaw(requestParameters: UpdateIssueCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueComment>> {
-        if (requestParameters['issueCommentId'] == null) {
+    async updateIssueCommentRaw(
+        requestParameters: UpdateIssueCommentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<IssueComment>> {
+        if (requestParameters["issueCommentId"] == null) {
             throw new runtime.RequiredError(
-                'issueCommentId',
+                "issueCommentId",
                 'Required parameter "issueCommentId" was null or undefined when calling updateIssueComment().'
             );
         }
 
-        if (requestParameters['updateIssueCommentBody'] == null) {
+        if (requestParameters["updateIssueCommentBody"] == null) {
             throw new runtime.RequiredError(
-                'updateIssueCommentBody',
+                "updateIssueCommentBody",
                 'Required parameter "updateIssueCommentBody" was null or undefined when calling updateIssueComment().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -621,26 +757,36 @@ export class IssuesCommentsApi extends runtime.BaseAPI implements IssuesComments
         }
 
         let urlPath = `/issue_comments/id:{issue_comment_id}`;
-        urlPath = urlPath.replace(`{${"issue_comment_id"}}`, encodeURIComponent(String(requestParameters['issueCommentId'])));
+        urlPath = urlPath.replace(
+            `{${"issue_comment_id"}}`,
+            encodeURIComponent(String(requestParameters["issueCommentId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'PATCH',
-            headers: headerParameters,
-            query: queryParameters,
-            body: UpdateIssueCommentBodyToJSON(requestParameters['updateIssueCommentBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "PATCH",
+                headers: headerParameters,
+                query: queryParameters,
+                body: UpdateIssueCommentBodyToJSON(requestParameters["updateIssueCommentBody"]),
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => IssueCommentFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            IssueCommentFromJSON(jsonValue)
+        );
     }
 
     /**
      * Update a comment
      * Update Comment
      */
-    async updateIssueComment(requestParameters: UpdateIssueCommentRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueComment> {
+    async updateIssueComment(
+        requestParameters: UpdateIssueCommentRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<IssueComment> {
         const response = await this.updateIssueCommentRaw(requestParameters, initOverrides);
         return await response.value();
     }
-
 }

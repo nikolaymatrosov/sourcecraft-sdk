@@ -12,60 +12,58 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { FileType } from './FileType';
+import { mapValues } from "../runtime";
+import type { FileType } from "./FileType";
 import {
     FileTypeFromJSON,
     FileTypeFromJSONTyped,
     FileTypeToJSON,
     FileTypeToJSONTyped,
-} from './FileType';
+} from "./FileType";
 
 /**
- * 
+ *
  * @export
  * @interface AttachmentDownloadable
  */
 export interface AttachmentDownloadable {
     /**
-     * 
+     *
      * @type {FileType}
      * @memberof AttachmentDownloadable
      */
     fileType?: FileType;
     /**
-     * 
+     *
      * @type {string}
      * @memberof AttachmentDownloadable
      */
     id?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof AttachmentDownloadable
      */
     mimeType?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof AttachmentDownloadable
      */
     name?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof AttachmentDownloadable
      */
     size?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof AttachmentDownloadable
      */
     url?: string;
 }
-
-
 
 /**
  * Check if a given object implements the AttachmentDownloadable interface.
@@ -78,18 +76,20 @@ export function AttachmentDownloadableFromJSON(json: any): AttachmentDownloadabl
     return AttachmentDownloadableFromJSONTyped(json, false);
 }
 
-export function AttachmentDownloadableFromJSONTyped(json: any, ignoreDiscriminator: boolean): AttachmentDownloadable {
+export function AttachmentDownloadableFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): AttachmentDownloadable {
     if (json == null) {
         return json;
     }
     return {
-        
-        'fileType': json['file_type'] == null ? undefined : FileTypeFromJSON(json['file_type']),
-        'id': json['id'] == null ? undefined : json['id'],
-        'mimeType': json['mime_type'] == null ? undefined : json['mime_type'],
-        'name': json['name'] == null ? undefined : json['name'],
-        'size': json['size'] == null ? undefined : json['size'],
-        'url': json['url'] == null ? undefined : json['url'],
+        fileType: json["file_type"] == null ? undefined : FileTypeFromJSON(json["file_type"]),
+        id: json["id"] == null ? undefined : json["id"],
+        mimeType: json["mime_type"] == null ? undefined : json["mime_type"],
+        name: json["name"] == null ? undefined : json["name"],
+        size: json["size"] == null ? undefined : json["size"],
+        url: json["url"] == null ? undefined : json["url"],
     };
 }
 
@@ -97,19 +97,20 @@ export function AttachmentDownloadableToJSON(json: any): AttachmentDownloadable 
     return AttachmentDownloadableToJSONTyped(json, false);
 }
 
-export function AttachmentDownloadableToJSONTyped(value?: AttachmentDownloadable | null, ignoreDiscriminator: boolean = false): any {
+export function AttachmentDownloadableToJSONTyped(
+    value?: AttachmentDownloadable | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'file_type': FileTypeToJSON(value['fileType']),
-        'id': value['id'],
-        'mime_type': value['mimeType'],
-        'name': value['name'],
-        'size': value['size'],
-        'url': value['url'],
+        file_type: FileTypeToJSON(value["fileType"]),
+        id: value["id"],
+        mime_type: value["mimeType"],
+        name: value["name"],
+        size: value["size"],
+        url: value["url"],
     };
 }
-

@@ -12,17 +12,15 @@
  * Do not edit the class manually.
  */
 
-
 /**
- * 
+ *
  * @export
  */
 export const DeltaAction = {
-    Add: 'add',
-    Remove: 'remove'
+    Add: "add",
+    Remove: "remove",
 } as const;
-export type DeltaAction = typeof DeltaAction[keyof typeof DeltaAction];
-
+export type DeltaAction = (typeof DeltaAction)[keyof typeof DeltaAction];
 
 export function instanceOfDeltaAction(value: any): boolean {
     for (const key in DeltaAction) {
@@ -50,4 +48,3 @@ export function DeltaActionToJSON(value?: DeltaAction | null): any {
 export function DeltaActionToJSONTyped(value: any, ignoreDiscriminator: boolean): DeltaAction {
     return value as DeltaAction;
 }
-

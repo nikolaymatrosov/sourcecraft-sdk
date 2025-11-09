@@ -12,21 +12,21 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues } from "../runtime";
 /**
- * 
+ *
  * @export
  * @interface ModifyPullRequestCollectionRequest
  */
 export interface ModifyPullRequestCollectionRequest {
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof ModifyPullRequestCollectionRequest
      */
     ids?: Array<string>;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof ModifyPullRequestCollectionRequest
      */
@@ -36,38 +36,47 @@ export interface ModifyPullRequestCollectionRequest {
 /**
  * Check if a given object implements the ModifyPullRequestCollectionRequest interface.
  */
-export function instanceOfModifyPullRequestCollectionRequest(value: object): value is ModifyPullRequestCollectionRequest {
+export function instanceOfModifyPullRequestCollectionRequest(
+    value: object
+): value is ModifyPullRequestCollectionRequest {
     return true;
 }
 
-export function ModifyPullRequestCollectionRequestFromJSON(json: any): ModifyPullRequestCollectionRequest {
+export function ModifyPullRequestCollectionRequestFromJSON(
+    json: any
+): ModifyPullRequestCollectionRequest {
     return ModifyPullRequestCollectionRequestFromJSONTyped(json, false);
 }
 
-export function ModifyPullRequestCollectionRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): ModifyPullRequestCollectionRequest {
+export function ModifyPullRequestCollectionRequestFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): ModifyPullRequestCollectionRequest {
     if (json == null) {
         return json;
     }
     return {
-        
-        'ids': json['ids'] == null ? undefined : json['ids'],
-        'slugs': json['slugs'] == null ? undefined : json['slugs'],
+        ids: json["ids"] == null ? undefined : json["ids"],
+        slugs: json["slugs"] == null ? undefined : json["slugs"],
     };
 }
 
-export function ModifyPullRequestCollectionRequestToJSON(json: any): ModifyPullRequestCollectionRequest {
+export function ModifyPullRequestCollectionRequestToJSON(
+    json: any
+): ModifyPullRequestCollectionRequest {
     return ModifyPullRequestCollectionRequestToJSONTyped(json, false);
 }
 
-export function ModifyPullRequestCollectionRequestToJSONTyped(value?: ModifyPullRequestCollectionRequest | null, ignoreDiscriminator: boolean = false): any {
+export function ModifyPullRequestCollectionRequestToJSONTyped(
+    value?: ModifyPullRequestCollectionRequest | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'ids': value['ids'],
-        'slugs': value['slugs'],
+        ids: value["ids"],
+        slugs: value["slugs"],
     };
 }
-

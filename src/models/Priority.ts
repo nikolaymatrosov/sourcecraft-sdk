@@ -12,20 +12,18 @@
  * Do not edit the class manually.
  */
 
-
 /**
- * 
+ *
  * @export
  */
 export const Priority = {
-    Trivial: 'trivial',
-    Minor: 'minor',
-    Normal: 'normal',
-    Critical: 'critical',
-    Blocker: 'blocker'
+    Trivial: "trivial",
+    Minor: "minor",
+    Normal: "normal",
+    Critical: "critical",
+    Blocker: "blocker",
 } as const;
-export type Priority = typeof Priority[keyof typeof Priority];
-
+export type Priority = (typeof Priority)[keyof typeof Priority];
 
 export function instanceOfPriority(value: any): boolean {
     for (const key in Priority) {
@@ -53,4 +51,3 @@ export function PriorityToJSON(value?: Priority | null): any {
 export function PriorityToJSONTyped(value: any, ignoreDiscriminator: boolean): Priority {
     return value as Priority;
 }
-

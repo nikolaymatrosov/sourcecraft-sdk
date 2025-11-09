@@ -12,18 +12,14 @@
  * Do not edit the class manually.
  */
 
-
-import * as runtime from '../runtime';
-import type {
-  ApiErrorResponse,
-  ListOrganizationRepositoriesResponse,
-} from '../models/index';
+import * as runtime from "../runtime";
+import type { ApiErrorResponse, ListOrganizationRepositoriesResponse } from "../models/index";
 import {
     ApiErrorResponseFromJSON,
     ApiErrorResponseToJSON,
     ListOrganizationRepositoriesResponseFromJSON,
     ListOrganizationRepositoriesResponseToJSON,
-} from '../models/index';
+} from "../models/index";
 
 export interface ListOrganizationRepositoriesRequest {
     orgSlug: string;
@@ -40,76 +36,89 @@ export interface ListOrganizationRepositoriesByIDRequest {
 
 /**
  * OrganizationApi - interface
- * 
+ *
  * @export
  * @interface OrganizationApiInterface
  */
 export interface OrganizationApiInterface {
     /**
-     * 
+     *
      * @summary List Organization Repositories
-     * @param {string} orgSlug 
-     * @param {string} [orgId] 
+     * @param {string} orgSlug
+     * @param {string} [orgId]
      * @param {string} [pageSize] The maximum number of repositories to return. The service may return fewer than this value
      * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof OrganizationApiInterface
      */
-    listOrganizationRepositoriesRaw(requestParameters: ListOrganizationRepositoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListOrganizationRepositoriesResponse>>;
+    listOrganizationRepositoriesRaw(
+        requestParameters: ListOrganizationRepositoriesRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListOrganizationRepositoriesResponse>>;
 
     /**
      * List Organization Repositories
      */
-    listOrganizationRepositories(requestParameters: ListOrganizationRepositoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListOrganizationRepositoriesResponse>;
+    listOrganizationRepositories(
+        requestParameters: ListOrganizationRepositoriesRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListOrganizationRepositoriesResponse>;
 
     /**
-     * 
+     *
      * @summary List Organization Repositories (By Organization ID)
-     * @param {string} orgId 
+     * @param {string} orgId
      * @param {string} [pageSize] The maximum number of repositories to return. The service may return fewer than this value
      * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof OrganizationApiInterface
      */
-    listOrganizationRepositoriesByIDRaw(requestParameters: ListOrganizationRepositoriesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListOrganizationRepositoriesResponse>>;
+    listOrganizationRepositoriesByIDRaw(
+        requestParameters: ListOrganizationRepositoriesByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListOrganizationRepositoriesResponse>>;
 
     /**
      * List Organization Repositories (By Organization ID)
      */
-    listOrganizationRepositoriesByID(requestParameters: ListOrganizationRepositoriesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListOrganizationRepositoriesResponse>;
-
+    listOrganizationRepositoriesByID(
+        requestParameters: ListOrganizationRepositoriesByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListOrganizationRepositoriesResponse>;
 }
 
 /**
- * 
+ *
  */
 export class OrganizationApi extends runtime.BaseAPI implements OrganizationApiInterface {
-
     /**
      * List Organization Repositories
      */
-    async listOrganizationRepositoriesRaw(requestParameters: ListOrganizationRepositoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListOrganizationRepositoriesResponse>> {
-        if (requestParameters['orgSlug'] == null) {
+    async listOrganizationRepositoriesRaw(
+        requestParameters: ListOrganizationRepositoriesRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListOrganizationRepositoriesResponse>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling listOrganizationRepositories().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['orgId'] != null) {
-            queryParameters['org_id'] = requestParameters['orgId'];
+        if (requestParameters["orgId"] != null) {
+            queryParameters["org_id"] = requestParameters["orgId"];
         }
 
-        if (requestParameters['pageSize'] != null) {
-            queryParameters['page_size'] = requestParameters['pageSize'];
+        if (requestParameters["pageSize"] != null) {
+            queryParameters["page_size"] = requestParameters["pageSize"];
         }
 
-        if (requestParameters['pageToken'] != null) {
-            queryParameters['page_token'] = requestParameters['pageToken'];
+        if (requestParameters["pageToken"] != null) {
+            queryParameters["page_token"] = requestParameters["pageToken"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -124,45 +133,62 @@ export class OrganizationApi extends runtime.BaseAPI implements OrganizationApiI
         }
 
         let urlPath = `/orgs/{org_slug}/repos`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ListOrganizationRepositoriesResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            ListOrganizationRepositoriesResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * List Organization Repositories
      */
-    async listOrganizationRepositories(requestParameters: ListOrganizationRepositoriesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListOrganizationRepositoriesResponse> {
-        const response = await this.listOrganizationRepositoriesRaw(requestParameters, initOverrides);
+    async listOrganizationRepositories(
+        requestParameters: ListOrganizationRepositoriesRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListOrganizationRepositoriesResponse> {
+        const response = await this.listOrganizationRepositoriesRaw(
+            requestParameters,
+            initOverrides
+        );
         return await response.value();
     }
 
     /**
      * List Organization Repositories (By Organization ID)
      */
-    async listOrganizationRepositoriesByIDRaw(requestParameters: ListOrganizationRepositoriesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListOrganizationRepositoriesResponse>> {
-        if (requestParameters['orgId'] == null) {
+    async listOrganizationRepositoriesByIDRaw(
+        requestParameters: ListOrganizationRepositoriesByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListOrganizationRepositoriesResponse>> {
+        if (requestParameters["orgId"] == null) {
             throw new runtime.RequiredError(
-                'orgId',
+                "orgId",
                 'Required parameter "orgId" was null or undefined when calling listOrganizationRepositoriesByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['pageSize'] != null) {
-            queryParameters['page_size'] = requestParameters['pageSize'];
+        if (requestParameters["pageSize"] != null) {
+            queryParameters["page_size"] = requestParameters["pageSize"];
         }
 
-        if (requestParameters['pageToken'] != null) {
-            queryParameters['page_token'] = requestParameters['pageToken'];
+        if (requestParameters["pageToken"] != null) {
+            queryParameters["page_token"] = requestParameters["pageToken"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -177,24 +203,37 @@ export class OrganizationApi extends runtime.BaseAPI implements OrganizationApiI
         }
 
         let urlPath = `/orgs/id:{org_id}/repos`;
-        urlPath = urlPath.replace(`{${"org_id"}}`, encodeURIComponent(String(requestParameters['orgId'])));
+        urlPath = urlPath.replace(
+            `{${"org_id"}}`,
+            encodeURIComponent(String(requestParameters["orgId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ListOrganizationRepositoriesResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            ListOrganizationRepositoriesResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * List Organization Repositories (By Organization ID)
      */
-    async listOrganizationRepositoriesByID(requestParameters: ListOrganizationRepositoriesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListOrganizationRepositoriesResponse> {
-        const response = await this.listOrganizationRepositoriesByIDRaw(requestParameters, initOverrides);
+    async listOrganizationRepositoriesByID(
+        requestParameters: ListOrganizationRepositoriesByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListOrganizationRepositoriesResponse> {
+        const response = await this.listOrganizationRepositoriesByIDRaw(
+            requestParameters,
+            initOverrides
+        );
         return await response.value();
     }
-
 }

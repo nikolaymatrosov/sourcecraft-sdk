@@ -12,54 +12,52 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { FileType } from './FileType';
+import { mapValues } from "../runtime";
+import type { FileType } from "./FileType";
 import {
     FileTypeFromJSON,
     FileTypeFromJSONTyped,
     FileTypeToJSON,
     FileTypeToJSONTyped,
-} from './FileType';
+} from "./FileType";
 
 /**
- * 
+ *
  * @export
  * @interface Attachment
  */
 export interface Attachment {
     /**
-     * 
+     *
      * @type {FileType}
      * @memberof Attachment
      */
     fileType?: FileType;
     /**
-     * 
+     *
      * @type {string}
      * @memberof Attachment
      */
     id?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof Attachment
      */
     mimeType?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof Attachment
      */
     name?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof Attachment
      */
     size?: string;
 }
-
-
 
 /**
  * Check if a given object implements the Attachment interface.
@@ -77,12 +75,11 @@ export function AttachmentFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         return json;
     }
     return {
-        
-        'fileType': json['file_type'] == null ? undefined : FileTypeFromJSON(json['file_type']),
-        'id': json['id'] == null ? undefined : json['id'],
-        'mimeType': json['mime_type'] == null ? undefined : json['mime_type'],
-        'name': json['name'] == null ? undefined : json['name'],
-        'size': json['size'] == null ? undefined : json['size'],
+        fileType: json["file_type"] == null ? undefined : FileTypeFromJSON(json["file_type"]),
+        id: json["id"] == null ? undefined : json["id"],
+        mimeType: json["mime_type"] == null ? undefined : json["mime_type"],
+        name: json["name"] == null ? undefined : json["name"],
+        size: json["size"] == null ? undefined : json["size"],
     };
 }
 
@@ -90,18 +87,19 @@ export function AttachmentToJSON(json: any): Attachment {
     return AttachmentToJSONTyped(json, false);
 }
 
-export function AttachmentToJSONTyped(value?: Attachment | null, ignoreDiscriminator: boolean = false): any {
+export function AttachmentToJSONTyped(
+    value?: Attachment | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'file_type': FileTypeToJSON(value['fileType']),
-        'id': value['id'],
-        'mime_type': value['mimeType'],
-        'name': value['name'],
-        'size': value['size'],
+        file_type: FileTypeToJSON(value["fileType"]),
+        id: value["id"],
+        mime_type: value["mimeType"],
+        name: value["name"],
+        size: value["size"],
     };
 }
-

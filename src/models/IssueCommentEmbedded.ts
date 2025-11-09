@@ -12,15 +12,15 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues } from "../runtime";
 /**
- * 
+ *
  * @export
  * @interface IssueCommentEmbedded
  */
 export interface IssueCommentEmbedded {
     /**
-     * 
+     *
      * @type {string}
      * @memberof IssueCommentEmbedded
      */
@@ -38,13 +38,15 @@ export function IssueCommentEmbeddedFromJSON(json: any): IssueCommentEmbedded {
     return IssueCommentEmbeddedFromJSONTyped(json, false);
 }
 
-export function IssueCommentEmbeddedFromJSONTyped(json: any, ignoreDiscriminator: boolean): IssueCommentEmbedded {
+export function IssueCommentEmbeddedFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): IssueCommentEmbedded {
     if (json == null) {
         return json;
     }
     return {
-        
-        'id': json['id'] == null ? undefined : json['id'],
+        id: json["id"] == null ? undefined : json["id"],
     };
 }
 
@@ -52,14 +54,15 @@ export function IssueCommentEmbeddedToJSON(json: any): IssueCommentEmbedded {
     return IssueCommentEmbeddedToJSONTyped(json, false);
 }
 
-export function IssueCommentEmbeddedToJSONTyped(value?: IssueCommentEmbedded | null, ignoreDiscriminator: boolean = false): any {
+export function IssueCommentEmbeddedToJSONTyped(
+    value?: IssueCommentEmbedded | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'id': value['id'],
+        id: value["id"],
     };
 }
-

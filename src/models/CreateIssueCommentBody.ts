@@ -12,21 +12,21 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues } from "../runtime";
 /**
- * 
+ *
  * @export
  * @interface CreateIssueCommentBody
  */
 export interface CreateIssueCommentBody {
     /**
-     * 
+     *
      * @type {string}
      * @memberof CreateIssueCommentBody
      */
     body?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof CreateIssueCommentBody
      */
@@ -44,14 +44,16 @@ export function CreateIssueCommentBodyFromJSON(json: any): CreateIssueCommentBod
     return CreateIssueCommentBodyFromJSONTyped(json, false);
 }
 
-export function CreateIssueCommentBodyFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateIssueCommentBody {
+export function CreateIssueCommentBodyFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): CreateIssueCommentBody {
     if (json == null) {
         return json;
     }
     return {
-        
-        'body': json['body'] == null ? undefined : json['body'],
-        'parentId': json['parent_id'] == null ? undefined : json['parent_id'],
+        body: json["body"] == null ? undefined : json["body"],
+        parentId: json["parent_id"] == null ? undefined : json["parent_id"],
     };
 }
 
@@ -59,15 +61,16 @@ export function CreateIssueCommentBodyToJSON(json: any): CreateIssueCommentBody 
     return CreateIssueCommentBodyToJSONTyped(json, false);
 }
 
-export function CreateIssueCommentBodyToJSONTyped(value?: CreateIssueCommentBody | null, ignoreDiscriminator: boolean = false): any {
+export function CreateIssueCommentBodyToJSONTyped(
+    value?: CreateIssueCommentBody | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'body': value['body'],
-        'parent_id': value['parentId'],
+        body: value["body"],
+        parent_id: value["parentId"],
     };
 }
-

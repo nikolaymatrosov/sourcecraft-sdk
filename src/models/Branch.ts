@@ -12,29 +12,24 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { Commit } from './Commit';
-import {
-    CommitFromJSON,
-    CommitFromJSONTyped,
-    CommitToJSON,
-    CommitToJSONTyped,
-} from './Commit';
+import { mapValues } from "../runtime";
+import type { Commit } from "./Commit";
+import { CommitFromJSON, CommitFromJSONTyped, CommitToJSON, CommitToJSONTyped } from "./Commit";
 
 /**
- * 
+ *
  * @export
  * @interface Branch
  */
 export interface Branch {
     /**
-     * 
+     *
      * @type {Commit}
      * @memberof Branch
      */
     commit?: Commit;
     /**
-     * 
+     *
      * @type {string}
      * @memberof Branch
      */
@@ -57,9 +52,8 @@ export function BranchFromJSONTyped(json: any, ignoreDiscriminator: boolean): Br
         return json;
     }
     return {
-        
-        'commit': json['commit'] == null ? undefined : CommitFromJSON(json['commit']),
-        'name': json['name'] == null ? undefined : json['name'],
+        commit: json["commit"] == null ? undefined : CommitFromJSON(json["commit"]),
+        name: json["name"] == null ? undefined : json["name"],
     };
 }
 
@@ -67,15 +61,16 @@ export function BranchToJSON(json: any): Branch {
     return BranchToJSONTyped(json, false);
 }
 
-export function BranchToJSONTyped(value?: Branch | null, ignoreDiscriminator: boolean = false): any {
+export function BranchToJSONTyped(
+    value?: Branch | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'commit': CommitToJSON(value['commit']),
-        'name': value['name'],
+        commit: CommitToJSON(value["commit"]),
+        name: value["name"],
     };
 }
-

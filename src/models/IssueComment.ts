@@ -12,92 +12,92 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { ReactionCount } from './ReactionCount';
+import { mapValues } from "../runtime";
+import type { ReactionCount } from "./ReactionCount";
 import {
     ReactionCountFromJSON,
     ReactionCountFromJSONTyped,
     ReactionCountToJSON,
     ReactionCountToJSONTyped,
-} from './ReactionCount';
-import type { AttachmentEmbedded } from './AttachmentEmbedded';
+} from "./ReactionCount";
+import type { AttachmentEmbedded } from "./AttachmentEmbedded";
 import {
     AttachmentEmbeddedFromJSON,
     AttachmentEmbeddedFromJSONTyped,
     AttachmentEmbeddedToJSON,
     AttachmentEmbeddedToJSONTyped,
-} from './AttachmentEmbedded';
-import type { IssueCommentEmbedded } from './IssueCommentEmbedded';
+} from "./AttachmentEmbedded";
+import type { IssueCommentEmbedded } from "./IssueCommentEmbedded";
 import {
     IssueCommentEmbeddedFromJSON,
     IssueCommentEmbeddedFromJSONTyped,
     IssueCommentEmbeddedToJSON,
     IssueCommentEmbeddedToJSONTyped,
-} from './IssueCommentEmbedded';
-import type { UserEmbedded } from './UserEmbedded';
+} from "./IssueCommentEmbedded";
+import type { UserEmbedded } from "./UserEmbedded";
 import {
     UserEmbeddedFromJSON,
     UserEmbeddedFromJSONTyped,
     UserEmbeddedToJSON,
     UserEmbeddedToJSONTyped,
-} from './UserEmbedded';
+} from "./UserEmbedded";
 
 /**
- * 
+ *
  * @export
  * @interface IssueComment
  */
 export interface IssueComment {
     /**
-     * 
+     *
      * @type {Array<AttachmentEmbedded>}
      * @memberof IssueComment
      */
     attachments?: Array<AttachmentEmbedded>;
     /**
-     * 
+     *
      * @type {UserEmbedded}
      * @memberof IssueComment
      */
     author?: UserEmbedded;
     /**
-     * 
+     *
      * @type {string}
      * @memberof IssueComment
      */
     body?: string;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof IssueComment
      */
     createdAt?: Date;
     /**
-     * 
+     *
      * @type {string}
      * @memberof IssueComment
      */
     id?: string;
     /**
-     * 
+     *
      * @type {IssueCommentEmbedded}
      * @memberof IssueComment
      */
     parent?: IssueCommentEmbedded;
     /**
-     * 
+     *
      * @type {{ [key: string]: ReactionCount; }}
      * @memberof IssueComment
      */
-    reactions?: { [key: string]: ReactionCount; };
+    reactions?: { [key: string]: ReactionCount };
     /**
-     * 
+     *
      * @type {Date}
      * @memberof IssueComment
      */
     updatedAt?: Date;
     /**
-     * 
+     *
      * @type {UserEmbedded}
      * @memberof IssueComment
      */
@@ -120,16 +120,22 @@ export function IssueCommentFromJSONTyped(json: any, ignoreDiscriminator: boolea
         return json;
     }
     return {
-        
-        'attachments': json['attachments'] == null ? undefined : ((json['attachments'] as Array<any>).map(AttachmentEmbeddedFromJSON)),
-        'author': json['author'] == null ? undefined : UserEmbeddedFromJSON(json['author']),
-        'body': json['body'] == null ? undefined : json['body'],
-        'createdAt': json['created_at'] == null ? undefined : (new Date(json['created_at'])),
-        'id': json['id'] == null ? undefined : json['id'],
-        'parent': json['parent'] == null ? undefined : IssueCommentEmbeddedFromJSON(json['parent']),
-        'reactions': json['reactions'] == null ? undefined : (mapValues(json['reactions'], ReactionCountFromJSON)),
-        'updatedAt': json['updated_at'] == null ? undefined : (new Date(json['updated_at'])),
-        'updatedBy': json['updated_by'] == null ? undefined : UserEmbeddedFromJSON(json['updated_by']),
+        attachments:
+            json["attachments"] == null
+                ? undefined
+                : (json["attachments"] as Array<any>).map(AttachmentEmbeddedFromJSON),
+        author: json["author"] == null ? undefined : UserEmbeddedFromJSON(json["author"]),
+        body: json["body"] == null ? undefined : json["body"],
+        createdAt: json["created_at"] == null ? undefined : new Date(json["created_at"]),
+        id: json["id"] == null ? undefined : json["id"],
+        parent: json["parent"] == null ? undefined : IssueCommentEmbeddedFromJSON(json["parent"]),
+        reactions:
+            json["reactions"] == null
+                ? undefined
+                : mapValues(json["reactions"], ReactionCountFromJSON),
+        updatedAt: json["updated_at"] == null ? undefined : new Date(json["updated_at"]),
+        updatedBy:
+            json["updated_by"] == null ? undefined : UserEmbeddedFromJSON(json["updated_by"]),
     };
 }
 
@@ -137,22 +143,31 @@ export function IssueCommentToJSON(json: any): IssueComment {
     return IssueCommentToJSONTyped(json, false);
 }
 
-export function IssueCommentToJSONTyped(value?: IssueComment | null, ignoreDiscriminator: boolean = false): any {
+export function IssueCommentToJSONTyped(
+    value?: IssueComment | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'attachments': value['attachments'] == null ? undefined : ((value['attachments'] as Array<any>).map(AttachmentEmbeddedToJSON)),
-        'author': UserEmbeddedToJSON(value['author']),
-        'body': value['body'],
-        'created_at': value['createdAt'] == null ? value['createdAt'] : value['createdAt'].toISOString(),
-        'id': value['id'],
-        'parent': IssueCommentEmbeddedToJSON(value['parent']),
-        'reactions': value['reactions'] == null ? undefined : (mapValues(value['reactions'], ReactionCountToJSON)),
-        'updated_at': value['updatedAt'] == null ? value['updatedAt'] : value['updatedAt'].toISOString(),
-        'updated_by': UserEmbeddedToJSON(value['updatedBy']),
+        attachments:
+            value["attachments"] == null
+                ? undefined
+                : (value["attachments"] as Array<any>).map(AttachmentEmbeddedToJSON),
+        author: UserEmbeddedToJSON(value["author"]),
+        body: value["body"],
+        created_at:
+            value["createdAt"] == null ? value["createdAt"] : value["createdAt"].toISOString(),
+        id: value["id"],
+        parent: IssueCommentEmbeddedToJSON(value["parent"]),
+        reactions:
+            value["reactions"] == null
+                ? undefined
+                : mapValues(value["reactions"], ReactionCountToJSON),
+        updated_at:
+            value["updatedAt"] == null ? value["updatedAt"] : value["updatedAt"].toISOString(),
+        updated_by: UserEmbeddedToJSON(value["updatedBy"]),
     };
 }
-

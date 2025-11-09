@@ -12,18 +12,16 @@
  * Do not edit the class manually.
  */
 
-
 /**
- * 
+ *
  * @export
  */
 export const Role = {
-    Author: 'author',
-    Reviewer: 'reviewer',
-    Any: 'any'
+    Author: "author",
+    Reviewer: "reviewer",
+    Any: "any",
 } as const;
-export type Role = typeof Role[keyof typeof Role];
-
+export type Role = (typeof Role)[keyof typeof Role];
 
 export function instanceOfRole(value: any): boolean {
     for (const key in Role) {
@@ -51,4 +49,3 @@ export function RoleToJSON(value?: Role | null): any {
 export function RoleToJSONTyped(value: any, ignoreDiscriminator: boolean): Role {
     return value as Role;
 }
-

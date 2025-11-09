@@ -12,81 +12,79 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { TemplatingOptions } from './TemplatingOptions';
+import { mapValues } from "../runtime";
+import type { TemplatingOptions } from "./TemplatingOptions";
 import {
     TemplatingOptionsFromJSON,
     TemplatingOptionsFromJSONTyped,
     TemplatingOptionsToJSON,
     TemplatingOptionsToJSONTyped,
-} from './TemplatingOptions';
-import type { RepositoryVisibility } from './RepositoryVisibility';
+} from "./TemplatingOptions";
+import type { RepositoryVisibility } from "./RepositoryVisibility";
 import {
     RepositoryVisibilityFromJSON,
     RepositoryVisibilityFromJSONTyped,
     RepositoryVisibilityToJSON,
     RepositoryVisibilityToJSONTyped,
-} from './RepositoryVisibility';
-import type { InitSettings } from './InitSettings';
+} from "./RepositoryVisibility";
+import type { InitSettings } from "./InitSettings";
 import {
     InitSettingsFromJSON,
     InitSettingsFromJSONTyped,
     InitSettingsToJSON,
     InitSettingsToJSONTyped,
-} from './InitSettings';
+} from "./InitSettings";
 
 /**
- * 
+ *
  * @export
  * @interface CreateRepositoryBody
  */
 export interface CreateRepositoryBody {
     /**
-     * 
+     *
      * @type {string}
      * @memberof CreateRepositoryBody
      */
     description?: string;
     /**
-     * 
+     *
      * @type {InitSettings}
      * @memberof CreateRepositoryBody
      */
     initSettings?: InitSettings;
     /**
-     * 
+     *
      * @type {string}
      * @memberof CreateRepositoryBody
      */
     name: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof CreateRepositoryBody
      */
     slug: string;
     /**
-     * 
+     *
      * @type {TemplatingOptions}
      * @memberof CreateRepositoryBody
      */
     templatingOptions?: TemplatingOptions;
     /**
-     * 
+     *
      * @type {RepositoryVisibility}
      * @memberof CreateRepositoryBody
      */
     visibility?: RepositoryVisibility;
 }
 
-
-
 /**
  * Check if a given object implements the CreateRepositoryBody interface.
  */
 export function instanceOfCreateRepositoryBody(value: object): value is CreateRepositoryBody {
-    if (!('name' in value) || value['name'] === undefined) return false;
-    if (!('slug' in value) || value['slug'] === undefined) return false;
+    if (!("name" in value) || value["name"] === undefined) return false;
+    if (!("slug" in value) || value["slug"] === undefined) return false;
     return true;
 }
 
@@ -94,18 +92,27 @@ export function CreateRepositoryBodyFromJSON(json: any): CreateRepositoryBody {
     return CreateRepositoryBodyFromJSONTyped(json, false);
 }
 
-export function CreateRepositoryBodyFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateRepositoryBody {
+export function CreateRepositoryBodyFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): CreateRepositoryBody {
     if (json == null) {
         return json;
     }
     return {
-        
-        'description': json['description'] == null ? undefined : json['description'],
-        'initSettings': json['init_settings'] == null ? undefined : InitSettingsFromJSON(json['init_settings']),
-        'name': json['name'],
-        'slug': json['slug'],
-        'templatingOptions': json['templating_options'] == null ? undefined : TemplatingOptionsFromJSON(json['templating_options']),
-        'visibility': json['visibility'] == null ? undefined : RepositoryVisibilityFromJSON(json['visibility']),
+        description: json["description"] == null ? undefined : json["description"],
+        initSettings:
+            json["init_settings"] == null ? undefined : InitSettingsFromJSON(json["init_settings"]),
+        name: json["name"],
+        slug: json["slug"],
+        templatingOptions:
+            json["templating_options"] == null
+                ? undefined
+                : TemplatingOptionsFromJSON(json["templating_options"]),
+        visibility:
+            json["visibility"] == null
+                ? undefined
+                : RepositoryVisibilityFromJSON(json["visibility"]),
     };
 }
 
@@ -113,19 +120,20 @@ export function CreateRepositoryBodyToJSON(json: any): CreateRepositoryBody {
     return CreateRepositoryBodyToJSONTyped(json, false);
 }
 
-export function CreateRepositoryBodyToJSONTyped(value?: CreateRepositoryBody | null, ignoreDiscriminator: boolean = false): any {
+export function CreateRepositoryBodyToJSONTyped(
+    value?: CreateRepositoryBody | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'description': value['description'],
-        'init_settings': InitSettingsToJSON(value['initSettings']),
-        'name': value['name'],
-        'slug': value['slug'],
-        'templating_options': TemplatingOptionsToJSON(value['templatingOptions']),
-        'visibility': RepositoryVisibilityToJSON(value['visibility']),
+        description: value["description"],
+        init_settings: InitSettingsToJSON(value["initSettings"]),
+        name: value["name"],
+        slug: value["slug"],
+        templating_options: TemplatingOptionsToJSON(value["templatingOptions"]),
+        visibility: RepositoryVisibilityToJSON(value["visibility"]),
     };
 }
-

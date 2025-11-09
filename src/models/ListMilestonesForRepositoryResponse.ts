@@ -12,29 +12,29 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { Milestone } from './Milestone';
+import { mapValues } from "../runtime";
+import type { Milestone } from "./Milestone";
 import {
     MilestoneFromJSON,
     MilestoneFromJSONTyped,
     MilestoneToJSON,
     MilestoneToJSONTyped,
-} from './Milestone';
+} from "./Milestone";
 
 /**
- * 
+ *
  * @export
  * @interface ListMilestonesForRepositoryResponse
  */
 export interface ListMilestonesForRepositoryResponse {
     /**
-     * 
+     *
      * @type {Array<Milestone>}
      * @memberof ListMilestonesForRepositoryResponse
      */
     items?: Array<Milestone>;
     /**
-     * 
+     *
      * @type {string}
      * @memberof ListMilestonesForRepositoryResponse
      */
@@ -44,38 +44,53 @@ export interface ListMilestonesForRepositoryResponse {
 /**
  * Check if a given object implements the ListMilestonesForRepositoryResponse interface.
  */
-export function instanceOfListMilestonesForRepositoryResponse(value: object): value is ListMilestonesForRepositoryResponse {
+export function instanceOfListMilestonesForRepositoryResponse(
+    value: object
+): value is ListMilestonesForRepositoryResponse {
     return true;
 }
 
-export function ListMilestonesForRepositoryResponseFromJSON(json: any): ListMilestonesForRepositoryResponse {
+export function ListMilestonesForRepositoryResponseFromJSON(
+    json: any
+): ListMilestonesForRepositoryResponse {
     return ListMilestonesForRepositoryResponseFromJSONTyped(json, false);
 }
 
-export function ListMilestonesForRepositoryResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): ListMilestonesForRepositoryResponse {
+export function ListMilestonesForRepositoryResponseFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): ListMilestonesForRepositoryResponse {
     if (json == null) {
         return json;
     }
     return {
-        
-        'items': json['items'] == null ? undefined : ((json['items'] as Array<any>).map(MilestoneFromJSON)),
-        'nextPageToken': json['next_page_token'] == null ? undefined : json['next_page_token'],
+        items:
+            json["items"] == null
+                ? undefined
+                : (json["items"] as Array<any>).map(MilestoneFromJSON),
+        nextPageToken: json["next_page_token"] == null ? undefined : json["next_page_token"],
     };
 }
 
-export function ListMilestonesForRepositoryResponseToJSON(json: any): ListMilestonesForRepositoryResponse {
+export function ListMilestonesForRepositoryResponseToJSON(
+    json: any
+): ListMilestonesForRepositoryResponse {
     return ListMilestonesForRepositoryResponseToJSONTyped(json, false);
 }
 
-export function ListMilestonesForRepositoryResponseToJSONTyped(value?: ListMilestonesForRepositoryResponse | null, ignoreDiscriminator: boolean = false): any {
+export function ListMilestonesForRepositoryResponseToJSONTyped(
+    value?: ListMilestonesForRepositoryResponse | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'items': value['items'] == null ? undefined : ((value['items'] as Array<any>).map(MilestoneToJSON)),
-        'next_page_token': value['nextPageToken'],
+        items:
+            value["items"] == null
+                ? undefined
+                : (value["items"] as Array<any>).map(MilestoneToJSON),
+        next_page_token: value["nextPageToken"],
     };
 }
-

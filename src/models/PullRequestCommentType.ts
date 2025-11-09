@@ -12,17 +12,16 @@
  * Do not edit the class manually.
  */
 
-
 /**
- * 
+ *
  * @export
  */
 export const PullRequestCommentType = {
-    Default: 'default',
-    Appsec: 'appsec'
+    Default: "default",
+    Appsec: "appsec",
 } as const;
-export type PullRequestCommentType = typeof PullRequestCommentType[keyof typeof PullRequestCommentType];
-
+export type PullRequestCommentType =
+    (typeof PullRequestCommentType)[keyof typeof PullRequestCommentType];
 
 export function instanceOfPullRequestCommentType(value: any): boolean {
     for (const key in PullRequestCommentType) {
@@ -39,7 +38,10 @@ export function PullRequestCommentTypeFromJSON(json: any): PullRequestCommentTyp
     return PullRequestCommentTypeFromJSONTyped(json, false);
 }
 
-export function PullRequestCommentTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean): PullRequestCommentType {
+export function PullRequestCommentTypeFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): PullRequestCommentType {
     return json as PullRequestCommentType;
 }
 
@@ -47,7 +49,9 @@ export function PullRequestCommentTypeToJSON(value?: PullRequestCommentType | nu
     return value as any;
 }
 
-export function PullRequestCommentTypeToJSONTyped(value: any, ignoreDiscriminator: boolean): PullRequestCommentType {
+export function PullRequestCommentTypeToJSONTyped(
+    value: any,
+    ignoreDiscriminator: boolean
+): PullRequestCommentType {
     return value as PullRequestCommentType;
 }
-

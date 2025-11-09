@@ -12,29 +12,29 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { IssueComment } from './IssueComment';
+import { mapValues } from "../runtime";
+import type { IssueComment } from "./IssueComment";
 import {
     IssueCommentFromJSON,
     IssueCommentFromJSONTyped,
     IssueCommentToJSON,
     IssueCommentToJSONTyped,
-} from './IssueComment';
+} from "./IssueComment";
 
 /**
- * 
+ *
  * @export
  * @interface ListIssueCommentsResponse
  */
 export interface ListIssueCommentsResponse {
     /**
-     * 
+     *
      * @type {Array<IssueComment>}
      * @memberof ListIssueCommentsResponse
      */
     issueComments?: Array<IssueComment>;
     /**
-     * 
+     *
      * @type {string}
      * @memberof ListIssueCommentsResponse
      */
@@ -44,7 +44,9 @@ export interface ListIssueCommentsResponse {
 /**
  * Check if a given object implements the ListIssueCommentsResponse interface.
  */
-export function instanceOfListIssueCommentsResponse(value: object): value is ListIssueCommentsResponse {
+export function instanceOfListIssueCommentsResponse(
+    value: object
+): value is ListIssueCommentsResponse {
     return true;
 }
 
@@ -52,14 +54,19 @@ export function ListIssueCommentsResponseFromJSON(json: any): ListIssueCommentsR
     return ListIssueCommentsResponseFromJSONTyped(json, false);
 }
 
-export function ListIssueCommentsResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): ListIssueCommentsResponse {
+export function ListIssueCommentsResponseFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): ListIssueCommentsResponse {
     if (json == null) {
         return json;
     }
     return {
-        
-        'issueComments': json['issue_comments'] == null ? undefined : ((json['issue_comments'] as Array<any>).map(IssueCommentFromJSON)),
-        'nextPageToken': json['next_page_token'] == null ? undefined : json['next_page_token'],
+        issueComments:
+            json["issue_comments"] == null
+                ? undefined
+                : (json["issue_comments"] as Array<any>).map(IssueCommentFromJSON),
+        nextPageToken: json["next_page_token"] == null ? undefined : json["next_page_token"],
     };
 }
 
@@ -67,15 +74,19 @@ export function ListIssueCommentsResponseToJSON(json: any): ListIssueCommentsRes
     return ListIssueCommentsResponseToJSONTyped(json, false);
 }
 
-export function ListIssueCommentsResponseToJSONTyped(value?: ListIssueCommentsResponse | null, ignoreDiscriminator: boolean = false): any {
+export function ListIssueCommentsResponseToJSONTyped(
+    value?: ListIssueCommentsResponse | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'issue_comments': value['issueComments'] == null ? undefined : ((value['issueComments'] as Array<any>).map(IssueCommentToJSON)),
-        'next_page_token': value['nextPageToken'],
+        issue_comments:
+            value["issueComments"] == null
+                ? undefined
+                : (value["issueComments"] as Array<any>).map(IssueCommentToJSON),
+        next_page_token: value["nextPageToken"],
     };
 }
-

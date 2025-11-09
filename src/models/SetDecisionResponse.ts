@@ -12,14 +12,14 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { ReviewDecision } from './ReviewDecision';
+import { mapValues } from "../runtime";
+import type { ReviewDecision } from "./ReviewDecision";
 import {
     ReviewDecisionFromJSON,
     ReviewDecisionFromJSONTyped,
     ReviewDecisionToJSON,
     ReviewDecisionToJSONTyped,
-} from './ReviewDecision';
+} from "./ReviewDecision";
 
 /**
  * SetDecisionResponse contains information about set decision and pull request id.
@@ -28,20 +28,18 @@ import {
  */
 export interface SetDecisionResponse {
     /**
-     * 
+     *
      * @type {ReviewDecision}
      * @memberof SetDecisionResponse
      */
     createdDecision?: ReviewDecision;
     /**
-     * 
+     *
      * @type {string}
      * @memberof SetDecisionResponse
      */
     pullRequestId?: string;
 }
-
-
 
 /**
  * Check if a given object implements the SetDecisionResponse interface.
@@ -54,14 +52,19 @@ export function SetDecisionResponseFromJSON(json: any): SetDecisionResponse {
     return SetDecisionResponseFromJSONTyped(json, false);
 }
 
-export function SetDecisionResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): SetDecisionResponse {
+export function SetDecisionResponseFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): SetDecisionResponse {
     if (json == null) {
         return json;
     }
     return {
-        
-        'createdDecision': json['created_decision'] == null ? undefined : ReviewDecisionFromJSON(json['created_decision']),
-        'pullRequestId': json['pull_request_id'] == null ? undefined : json['pull_request_id'],
+        createdDecision:
+            json["created_decision"] == null
+                ? undefined
+                : ReviewDecisionFromJSON(json["created_decision"]),
+        pullRequestId: json["pull_request_id"] == null ? undefined : json["pull_request_id"],
     };
 }
 
@@ -69,15 +72,16 @@ export function SetDecisionResponseToJSON(json: any): SetDecisionResponse {
     return SetDecisionResponseToJSONTyped(json, false);
 }
 
-export function SetDecisionResponseToJSONTyped(value?: SetDecisionResponse | null, ignoreDiscriminator: boolean = false): any {
+export function SetDecisionResponseToJSONTyped(
+    value?: SetDecisionResponse | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'created_decision': ReviewDecisionToJSON(value['createdDecision']),
-        'pull_request_id': value['pullRequestId'],
+        created_decision: ReviewDecisionToJSON(value["createdDecision"]),
+        pull_request_id: value["pullRequestId"],
     };
 }
-

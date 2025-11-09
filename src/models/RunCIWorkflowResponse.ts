@@ -12,36 +12,34 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { TriggerStatus } from './TriggerStatus';
+import { mapValues } from "../runtime";
+import type { TriggerStatus } from "./TriggerStatus";
 import {
     TriggerStatusFromJSON,
     TriggerStatusFromJSONTyped,
     TriggerStatusToJSON,
     TriggerStatusToJSONTyped,
-} from './TriggerStatus';
+} from "./TriggerStatus";
 
 /**
- * 
+ *
  * @export
  * @interface RunCIWorkflowResponse
  */
 export interface RunCIWorkflowResponse {
     /**
-     * 
+     *
      * @type {string}
      * @memberof RunCIWorkflowResponse
      */
     fluxId?: string;
     /**
-     * 
+     *
      * @type {TriggerStatus}
      * @memberof RunCIWorkflowResponse
      */
     triggerStatus?: TriggerStatus;
 }
-
-
 
 /**
  * Check if a given object implements the RunCIWorkflowResponse interface.
@@ -54,14 +52,19 @@ export function RunCIWorkflowResponseFromJSON(json: any): RunCIWorkflowResponse 
     return RunCIWorkflowResponseFromJSONTyped(json, false);
 }
 
-export function RunCIWorkflowResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): RunCIWorkflowResponse {
+export function RunCIWorkflowResponseFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): RunCIWorkflowResponse {
     if (json == null) {
         return json;
     }
     return {
-        
-        'fluxId': json['flux_id'] == null ? undefined : json['flux_id'],
-        'triggerStatus': json['trigger_status'] == null ? undefined : TriggerStatusFromJSON(json['trigger_status']),
+        fluxId: json["flux_id"] == null ? undefined : json["flux_id"],
+        triggerStatus:
+            json["trigger_status"] == null
+                ? undefined
+                : TriggerStatusFromJSON(json["trigger_status"]),
     };
 }
 
@@ -69,15 +72,16 @@ export function RunCIWorkflowResponseToJSON(json: any): RunCIWorkflowResponse {
     return RunCIWorkflowResponseToJSONTyped(json, false);
 }
 
-export function RunCIWorkflowResponseToJSONTyped(value?: RunCIWorkflowResponse | null, ignoreDiscriminator: boolean = false): any {
+export function RunCIWorkflowResponseToJSONTyped(
+    value?: RunCIWorkflowResponse | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'flux_id': value['fluxId'],
-        'trigger_status': TriggerStatusToJSON(value['triggerStatus']),
+        flux_id: value["fluxId"],
+        trigger_status: TriggerStatusToJSON(value["triggerStatus"]),
     };
 }
-

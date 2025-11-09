@@ -12,20 +12,19 @@
  * Do not edit the class manually.
  */
 
-
-import * as runtime from '../runtime';
+import * as runtime from "../runtime";
 import type {
-  AddRepoRolesBody,
-  ApiErrorResponse,
-  CreateRepositoryBody,
-  ForkRepositoryBody,
-  ListBranchesResponse,
-  ListTagsResponse,
-  ListTreeResponse,
-  RemoveRepoRolesBody,
-  Repository,
-  UpdateRepositoryBody,
-} from '../models/index';
+    AddRepoRolesBody,
+    ApiErrorResponse,
+    CreateRepositoryBody,
+    ForkRepositoryBody,
+    ListBranchesResponse,
+    ListTagsResponse,
+    ListTreeResponse,
+    RemoveRepoRolesBody,
+    Repository,
+    UpdateRepositoryBody,
+} from "../models/index";
 import {
     AddRepoRolesBodyFromJSON,
     AddRepoRolesBodyToJSON,
@@ -47,7 +46,7 @@ import {
     RepositoryToJSON,
     UpdateRepositoryBodyFromJSON,
     UpdateRepositoryBodyToJSON,
-} from '../models/index';
+} from "../models/index";
 
 export interface AddRepoRolesRequest {
     orgSlug: string;
@@ -196,179 +195,239 @@ export interface UpdateRepositoryByIDRequest {
 
 /**
  * RepositoryApi - interface
- * 
+ *
  * @export
  * @interface RepositoryApiInterface
  */
 export interface RepositoryApiInterface {
     /**
-     * 
+     *
      * @summary Add Repository Roles
-     * @param {string} orgSlug 
-     * @param {string} repoSlug 
-     * @param {AddRepoRolesBody} addRepoRolesBody 
+     * @param {string} orgSlug
+     * @param {string} repoSlug
+     * @param {AddRepoRolesBody} addRepoRolesBody
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryApiInterface
      */
-    addRepoRolesRaw(requestParameters: AddRepoRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+    addRepoRolesRaw(
+        requestParameters: AddRepoRolesRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<any>>;
 
     /**
      * Add Repository Roles
      */
-    addRepoRoles(requestParameters: AddRepoRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    addRepoRoles(
+        requestParameters: AddRepoRolesRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<any>;
 
     /**
-     * 
+     *
      * @summary Add Repository Roles (By ID)
-     * @param {string} repoId 
-     * @param {AddRepoRolesBody} addRepoRolesBody 
+     * @param {string} repoId
+     * @param {AddRepoRolesBody} addRepoRolesBody
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryApiInterface
      */
-    addRepoRolesByIDRaw(requestParameters: AddRepoRolesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+    addRepoRolesByIDRaw(
+        requestParameters: AddRepoRolesByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<any>>;
 
     /**
      * Add Repository Roles (By ID)
      */
-    addRepoRolesByID(requestParameters: AddRepoRolesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    addRepoRolesByID(
+        requestParameters: AddRepoRolesByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<any>;
 
     /**
-     * 
+     *
      * @summary Create Repository in Organization
-     * @param {string} orgSlug 
-     * @param {CreateRepositoryBody} createRepositoryBody 
-     * @param {string} [orgId] 
+     * @param {string} orgSlug
+     * @param {CreateRepositoryBody} createRepositoryBody
+     * @param {string} [orgId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryApiInterface
      */
-    createRepositoryRaw(requestParameters: CreateRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Repository>>;
+    createRepositoryRaw(
+        requestParameters: CreateRepositoryRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Repository>>;
 
     /**
      * Create Repository in Organization
      */
-    createRepository(requestParameters: CreateRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Repository>;
+    createRepository(
+        requestParameters: CreateRepositoryRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Repository>;
 
     /**
-     * 
+     *
      * @summary Create Repository in Organization (By Organization ID)
-     * @param {string} orgId 
-     * @param {CreateRepositoryBody} createRepositoryBody 
+     * @param {string} orgId
+     * @param {CreateRepositoryBody} createRepositoryBody
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryApiInterface
      */
-    createRepositoryByIDRaw(requestParameters: CreateRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Repository>>;
+    createRepositoryByIDRaw(
+        requestParameters: CreateRepositoryByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Repository>>;
 
     /**
      * Create Repository in Organization (By Organization ID)
      */
-    createRepositoryByID(requestParameters: CreateRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Repository>;
+    createRepositoryByID(
+        requestParameters: CreateRepositoryByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Repository>;
 
     /**
-     * 
+     *
      * @summary Delete Repository
-     * @param {string} orgSlug 
-     * @param {string} repoSlug 
+     * @param {string} orgSlug
+     * @param {string} repoSlug
      * @param {boolean} [silent] Flag for deleting without any notifications. NOT IMPLEMENTED YET.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryApiInterface
      */
-    deleteRepositoryRaw(requestParameters: DeleteRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    deleteRepositoryRaw(
+        requestParameters: DeleteRepositoryRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<void>>;
 
     /**
      * Delete Repository
      */
-    deleteRepository(requestParameters: DeleteRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    deleteRepository(
+        requestParameters: DeleteRepositoryRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<void>;
 
     /**
-     * 
+     *
      * @summary Delete Repository (By Repository ID)
-     * @param {string} repoId 
+     * @param {string} repoId
      * @param {boolean} [silent] Flag for deleting without any notifications. NOT IMPLEMENTED YET.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryApiInterface
      */
-    deleteRepositoryByIDRaw(requestParameters: DeleteRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    deleteRepositoryByIDRaw(
+        requestParameters: DeleteRepositoryByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<void>>;
 
     /**
      * Delete Repository (By Repository ID)
      */
-    deleteRepositoryByID(requestParameters: DeleteRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    deleteRepositoryByID(
+        requestParameters: DeleteRepositoryByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<void>;
 
     /**
-     * 
+     *
      * @summary Fork Repository
-     * @param {string} orgSlug 
-     * @param {string} repoSlug 
-     * @param {ForkRepositoryBody} forkRepositoryBody 
+     * @param {string} orgSlug
+     * @param {string} repoSlug
+     * @param {ForkRepositoryBody} forkRepositoryBody
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryApiInterface
      */
-    forkRepositoryRaw(requestParameters: ForkRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Repository>>;
+    forkRepositoryRaw(
+        requestParameters: ForkRepositoryRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Repository>>;
 
     /**
      * Fork Repository
      */
-    forkRepository(requestParameters: ForkRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Repository>;
+    forkRepository(
+        requestParameters: ForkRepositoryRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Repository>;
 
     /**
-     * 
+     *
      * @summary Fork Repository (By ID)
-     * @param {string} repoId 
-     * @param {ForkRepositoryBody} forkRepositoryBody 
+     * @param {string} repoId
+     * @param {ForkRepositoryBody} forkRepositoryBody
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryApiInterface
      */
-    forkRepositoryByIDRaw(requestParameters: ForkRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Repository>>;
+    forkRepositoryByIDRaw(
+        requestParameters: ForkRepositoryByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Repository>>;
 
     /**
      * Fork Repository (By ID)
      */
-    forkRepositoryByID(requestParameters: ForkRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Repository>;
+    forkRepositoryByID(
+        requestParameters: ForkRepositoryByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Repository>;
 
     /**
-     * 
+     *
      * @summary Get Repository
-     * @param {string} orgSlug 
-     * @param {string} repoSlug 
+     * @param {string} orgSlug
+     * @param {string} repoSlug
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryApiInterface
      */
-    getRepositoryRaw(requestParameters: GetRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Repository>>;
+    getRepositoryRaw(
+        requestParameters: GetRepositoryRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Repository>>;
 
     /**
      * Get Repository
      */
-    getRepository(requestParameters: GetRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Repository>;
+    getRepository(
+        requestParameters: GetRepositoryRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Repository>;
 
     /**
-     * 
+     *
      * @summary Get Repository (By ID)
-     * @param {string} repoId 
+     * @param {string} repoId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryApiInterface
      */
-    getRepositoryByIDRaw(requestParameters: GetRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Repository>>;
+    getRepositoryByIDRaw(
+        requestParameters: GetRepositoryByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Repository>>;
 
     /**
      * Get Repository (By ID)
      */
-    getRepositoryByID(requestParameters: GetRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Repository>;
+    getRepositoryByID(
+        requestParameters: GetRepositoryByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Repository>;
 
     /**
-     * 
+     *
      * @summary List Repository Branches
-     * @param {string} orgSlug 
-     * @param {string} repoSlug 
+     * @param {string} orgSlug
+     * @param {string} repoSlug
      * @param {string} [filter] Filter branches by name contains
      * @param {string} [sortBy] Ordering options: comma separated list of fields. Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;foo, -bar\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent. Available fields: name
      * @param {string} [pageSize] The maximum number of branches to return. The service may return fewer than this value
@@ -377,17 +436,23 @@ export interface RepositoryApiInterface {
      * @throws {RequiredError}
      * @memberof RepositoryApiInterface
      */
-    listBranchesRaw(requestParameters: ListBranchesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListBranchesResponse>>;
+    listBranchesRaw(
+        requestParameters: ListBranchesRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListBranchesResponse>>;
 
     /**
      * List Repository Branches
      */
-    listBranches(requestParameters: ListBranchesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListBranchesResponse>;
+    listBranches(
+        requestParameters: ListBranchesRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListBranchesResponse>;
 
     /**
-     * 
+     *
      * @summary List Repository Branches (By Repo ID)
-     * @param {string} repoId 
+     * @param {string} repoId
      * @param {string} [filter] Filter branches by name contains
      * @param {string} [sortBy] Ordering options: comma separated list of fields. Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;foo, -bar\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent. Available fields: name
      * @param {string} [pageSize] The maximum number of branches to return. The service may return fewer than this value
@@ -396,18 +461,24 @@ export interface RepositoryApiInterface {
      * @throws {RequiredError}
      * @memberof RepositoryApiInterface
      */
-    listBranchesByIDRaw(requestParameters: ListBranchesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListBranchesResponse>>;
+    listBranchesByIDRaw(
+        requestParameters: ListBranchesByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListBranchesResponse>>;
 
     /**
      * List Repository Branches (By Repo ID)
      */
-    listBranchesByID(requestParameters: ListBranchesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListBranchesResponse>;
+    listBranchesByID(
+        requestParameters: ListBranchesByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListBranchesResponse>;
 
     /**
-     * 
+     *
      * @summary List Repository Roles
-     * @param {string} orgSlug 
-     * @param {string} repoSlug 
+     * @param {string} orgSlug
+     * @param {string} repoSlug
      * @param {string} [pageSize] The maximum number of repo roles to return. The service may return fewer than this value
      * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
      * @param {string} [sortBy] Ordering options: comma separated list of fields. Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;foo, -bar\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent. Available fields: name
@@ -415,17 +486,23 @@ export interface RepositoryApiInterface {
      * @throws {RequiredError}
      * @memberof RepositoryApiInterface
      */
-    listRepoRolesRaw(requestParameters: ListRepoRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+    listRepoRolesRaw(
+        requestParameters: ListRepoRolesRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<any>>;
 
     /**
      * List Repository Roles
      */
-    listRepoRoles(requestParameters: ListRepoRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    listRepoRoles(
+        requestParameters: ListRepoRolesRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<any>;
 
     /**
-     * 
+     *
      * @summary List Repository Roles (By ID)
-     * @param {string} repoId 
+     * @param {string} repoId
      * @param {string} [pageSize] The maximum number of repo roles to return. The service may return fewer than this value
      * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
      * @param {string} [sortBy] Ordering options: comma separated list of fields. Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;foo, -bar\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent. Available fields: name
@@ -433,18 +510,24 @@ export interface RepositoryApiInterface {
      * @throws {RequiredError}
      * @memberof RepositoryApiInterface
      */
-    listRepoRolesByIDRaw(requestParameters: ListRepoRolesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+    listRepoRolesByIDRaw(
+        requestParameters: ListRepoRolesByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<any>>;
 
     /**
      * List Repository Roles (By ID)
      */
-    listRepoRolesByID(requestParameters: ListRepoRolesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    listRepoRolesByID(
+        requestParameters: ListRepoRolesByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<any>;
 
     /**
-     * 
+     *
      * @summary List Repository Tags
-     * @param {string} orgSlug 
-     * @param {string} repoSlug 
+     * @param {string} orgSlug
+     * @param {string} repoSlug
      * @param {string} [filter] Filter tags by name contains
      * @param {string} [sortBy] Ordering options: comma separated list of fields. Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;foo, -bar\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent. Available fields: name
      * @param {string} [pageSize] The maximum number of tags to return. The service may return fewer than this value
@@ -453,17 +536,23 @@ export interface RepositoryApiInterface {
      * @throws {RequiredError}
      * @memberof RepositoryApiInterface
      */
-    listTagsRaw(requestParameters: ListTagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListTagsResponse>>;
+    listTagsRaw(
+        requestParameters: ListTagsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListTagsResponse>>;
 
     /**
      * List Repository Tags
      */
-    listTags(requestParameters: ListTagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListTagsResponse>;
+    listTags(
+        requestParameters: ListTagsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListTagsResponse>;
 
     /**
-     * 
+     *
      * @summary List Repository Tags (By Repo ID)
-     * @param {string} repoId 
+     * @param {string} repoId
      * @param {string} [filter] Filter tags by name contains
      * @param {string} [sortBy] Ordering options: comma separated list of fields. Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;foo, -bar\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent. Available fields: name
      * @param {string} [pageSize] The maximum number of tags to return. The service may return fewer than this value
@@ -472,18 +561,24 @@ export interface RepositoryApiInterface {
      * @throws {RequiredError}
      * @memberof RepositoryApiInterface
      */
-    listTagsByIDRaw(requestParameters: ListTagsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListTagsResponse>>;
+    listTagsByIDRaw(
+        requestParameters: ListTagsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListTagsResponse>>;
 
     /**
      * List Repository Tags (By Repo ID)
      */
-    listTagsByID(requestParameters: ListTagsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListTagsResponse>;
+    listTagsByID(
+        requestParameters: ListTagsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListTagsResponse>;
 
     /**
-     * 
+     *
      * @summary List Repository File Tree
-     * @param {string} orgSlug 
-     * @param {string} repoSlug 
+     * @param {string} orgSlug
+     * @param {string} repoSlug
      * @param {string} [revision] Git reference (branch, tag, or commit SHA). If empty, the default branch (usually main) will be used. Examples: &#x60;mybranch&#x60;, &#x60;tags:v1.0.0&#x60;
      * @param {string} [path] Path within repository to get the tree for. If not specified, returns the root tree
      * @param {boolean} [recursive] Whether to retrieve tree entries recursively. If false, only immediate children are returned
@@ -493,17 +588,23 @@ export interface RepositoryApiInterface {
      * @throws {RequiredError}
      * @memberof RepositoryApiInterface
      */
-    listTreeRaw(requestParameters: ListTreeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListTreeResponse>>;
+    listTreeRaw(
+        requestParameters: ListTreeRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListTreeResponse>>;
 
     /**
      * List Repository File Tree
      */
-    listTree(requestParameters: ListTreeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListTreeResponse>;
+    listTree(
+        requestParameters: ListTreeRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListTreeResponse>;
 
     /**
-     * 
+     *
      * @summary List Repository File Tree (By Repo ID)
-     * @param {string} repoId 
+     * @param {string} repoId
      * @param {string} [revision] Git reference (branch, tag, or commit SHA). If empty, the default branch (usually main) will be used. Examples: &#x60;mybranch&#x60;, &#x60;tags:v1.0.0&#x60;
      * @param {string} [path] Path within repository to get the tree for. If not specified, returns the root tree
      * @param {boolean} [recursive] Whether to retrieve tree entries recursively. If false, only immediate children are returned
@@ -513,109 +614,140 @@ export interface RepositoryApiInterface {
      * @throws {RequiredError}
      * @memberof RepositoryApiInterface
      */
-    listTreeByIDRaw(requestParameters: ListTreeByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListTreeResponse>>;
+    listTreeByIDRaw(
+        requestParameters: ListTreeByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListTreeResponse>>;
 
     /**
      * List Repository File Tree (By Repo ID)
      */
-    listTreeByID(requestParameters: ListTreeByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListTreeResponse>;
+    listTreeByID(
+        requestParameters: ListTreeByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListTreeResponse>;
 
     /**
-     * 
+     *
      * @summary Remove Repository Roles
-     * @param {string} orgSlug 
-     * @param {string} repoSlug 
-     * @param {RemoveRepoRolesBody} removeRepoRolesBody 
+     * @param {string} orgSlug
+     * @param {string} repoSlug
+     * @param {RemoveRepoRolesBody} removeRepoRolesBody
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryApiInterface
      */
-    removeRepoRolesRaw(requestParameters: RemoveRepoRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+    removeRepoRolesRaw(
+        requestParameters: RemoveRepoRolesRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<any>>;
 
     /**
      * Remove Repository Roles
      */
-    removeRepoRoles(requestParameters: RemoveRepoRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    removeRepoRoles(
+        requestParameters: RemoveRepoRolesRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<any>;
 
     /**
-     * 
+     *
      * @summary Remove Repository Roles (By ID)
-     * @param {string} repoId 
-     * @param {RemoveRepoRolesBody} removeRepoRolesBody 
+     * @param {string} repoId
+     * @param {RemoveRepoRolesBody} removeRepoRolesBody
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryApiInterface
      */
-    removeRepoRolesByIDRaw(requestParameters: RemoveRepoRolesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>>;
+    removeRepoRolesByIDRaw(
+        requestParameters: RemoveRepoRolesByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<any>>;
 
     /**
      * Remove Repository Roles (By ID)
      */
-    removeRepoRolesByID(requestParameters: RemoveRepoRolesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any>;
+    removeRepoRolesByID(
+        requestParameters: RemoveRepoRolesByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<any>;
 
     /**
-     * 
+     *
      * @summary Update Repository
-     * @param {string} orgSlug 
-     * @param {string} repoSlug 
-     * @param {UpdateRepositoryBody} updateRepositoryBody 
+     * @param {string} orgSlug
+     * @param {string} repoSlug
+     * @param {UpdateRepositoryBody} updateRepositoryBody
      * @param {boolean} [silent] Flag for update without any notifications. NOT IMPLEMENTED YET.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryApiInterface
      */
-    updateRepositoryRaw(requestParameters: UpdateRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Repository>>;
+    updateRepositoryRaw(
+        requestParameters: UpdateRepositoryRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Repository>>;
 
     /**
      * Update Repository
      */
-    updateRepository(requestParameters: UpdateRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Repository>;
+    updateRepository(
+        requestParameters: UpdateRepositoryRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Repository>;
 
     /**
-     * 
+     *
      * @summary Update Repository (By Repo ID)
-     * @param {string} repoId 
-     * @param {UpdateRepositoryBody} updateRepositoryBody 
+     * @param {string} repoId
+     * @param {UpdateRepositoryBody} updateRepositoryBody
      * @param {boolean} [silent] Flag for update without any notifications. NOT IMPLEMENTED YET.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryApiInterface
      */
-    updateRepositoryByIDRaw(requestParameters: UpdateRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Repository>>;
+    updateRepositoryByIDRaw(
+        requestParameters: UpdateRepositoryByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Repository>>;
 
     /**
      * Update Repository (By Repo ID)
      */
-    updateRepositoryByID(requestParameters: UpdateRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Repository>;
-
+    updateRepositoryByID(
+        requestParameters: UpdateRepositoryByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Repository>;
 }
 
 /**
- * 
+ *
  */
 export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInterface {
-
     /**
      * Add Repository Roles
      */
-    async addRepoRolesRaw(requestParameters: AddRepoRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
-        if (requestParameters['orgSlug'] == null) {
+    async addRepoRolesRaw(
+        requestParameters: AddRepoRolesRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<any>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling addRepoRoles().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling addRepoRoles().'
             );
         }
 
-        if (requestParameters['addRepoRolesBody'] == null) {
+        if (requestParameters["addRepoRolesBody"] == null) {
             throw new runtime.RequiredError(
-                'addRepoRolesBody',
+                "addRepoRolesBody",
                 'Required parameter "addRepoRolesBody" was null or undefined when calling addRepoRoles().'
             );
         }
@@ -624,7 +756,7 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -636,18 +768,27 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/roles`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: AddRepoRolesBodyToJSON(requestParameters['addRepoRolesBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+                body: AddRepoRolesBodyToJSON(requestParameters["addRepoRolesBody"]),
+            },
+            initOverrides
+        );
 
-        if (this.isJsonMime(response.headers.get('content-type'))) {
+        if (this.isJsonMime(response.headers.get("content-type"))) {
             return new runtime.JSONApiResponse<any>(response);
         } else {
             return new runtime.TextApiResponse(response) as any;
@@ -657,7 +798,10 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
     /**
      * Add Repository Roles
      */
-    async addRepoRoles(requestParameters: AddRepoRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
+    async addRepoRoles(
+        requestParameters: AddRepoRolesRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<any> {
         const response = await this.addRepoRolesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -665,17 +809,20 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
     /**
      * Add Repository Roles (By ID)
      */
-    async addRepoRolesByIDRaw(requestParameters: AddRepoRolesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
-        if (requestParameters['repoId'] == null) {
+    async addRepoRolesByIDRaw(
+        requestParameters: AddRepoRolesByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<any>> {
+        if (requestParameters["repoId"] == null) {
             throw new runtime.RequiredError(
-                'repoId',
+                "repoId",
                 'Required parameter "repoId" was null or undefined when calling addRepoRolesByID().'
             );
         }
 
-        if (requestParameters['addRepoRolesBody'] == null) {
+        if (requestParameters["addRepoRolesBody"] == null) {
             throw new runtime.RequiredError(
-                'addRepoRolesBody',
+                "addRepoRolesBody",
                 'Required parameter "addRepoRolesBody" was null or undefined when calling addRepoRolesByID().'
             );
         }
@@ -684,7 +831,7 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -696,17 +843,23 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
         }
 
         let urlPath = `/repos/id:{repo_id}/roles`;
-        urlPath = urlPath.replace(`{${"repo_id"}}`, encodeURIComponent(String(requestParameters['repoId'])));
+        urlPath = urlPath.replace(
+            `{${"repo_id"}}`,
+            encodeURIComponent(String(requestParameters["repoId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: AddRepoRolesBodyToJSON(requestParameters['addRepoRolesBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+                body: AddRepoRolesBodyToJSON(requestParameters["addRepoRolesBody"]),
+            },
+            initOverrides
+        );
 
-        if (this.isJsonMime(response.headers.get('content-type'))) {
+        if (this.isJsonMime(response.headers.get("content-type"))) {
             return new runtime.JSONApiResponse<any>(response);
         } else {
             return new runtime.TextApiResponse(response) as any;
@@ -716,7 +869,10 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
     /**
      * Add Repository Roles (By ID)
      */
-    async addRepoRolesByID(requestParameters: AddRepoRolesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
+    async addRepoRolesByID(
+        requestParameters: AddRepoRolesByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<any> {
         const response = await this.addRepoRolesByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -724,30 +880,33 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
     /**
      * Create Repository in Organization
      */
-    async createRepositoryRaw(requestParameters: CreateRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Repository>> {
-        if (requestParameters['orgSlug'] == null) {
+    async createRepositoryRaw(
+        requestParameters: CreateRepositoryRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Repository>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling createRepository().'
             );
         }
 
-        if (requestParameters['createRepositoryBody'] == null) {
+        if (requestParameters["createRepositoryBody"] == null) {
             throw new runtime.RequiredError(
-                'createRepositoryBody',
+                "createRepositoryBody",
                 'Required parameter "createRepositoryBody" was null or undefined when calling createRepository().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['orgId'] != null) {
-            queryParameters['org_id'] = requestParameters['orgId'];
+        if (requestParameters["orgId"] != null) {
+            queryParameters["org_id"] = requestParameters["orgId"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -759,15 +918,21 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
         }
 
         let urlPath = `/orgs/{org_slug}/repos`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CreateRepositoryBodyToJSON(requestParameters['createRepositoryBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+                body: CreateRepositoryBodyToJSON(requestParameters["createRepositoryBody"]),
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RepositoryFromJSON(jsonValue));
     }
@@ -775,7 +940,10 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
     /**
      * Create Repository in Organization
      */
-    async createRepository(requestParameters: CreateRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Repository> {
+    async createRepository(
+        requestParameters: CreateRepositoryRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Repository> {
         const response = await this.createRepositoryRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -783,17 +951,20 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
     /**
      * Create Repository in Organization (By Organization ID)
      */
-    async createRepositoryByIDRaw(requestParameters: CreateRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Repository>> {
-        if (requestParameters['orgId'] == null) {
+    async createRepositoryByIDRaw(
+        requestParameters: CreateRepositoryByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Repository>> {
+        if (requestParameters["orgId"] == null) {
             throw new runtime.RequiredError(
-                'orgId',
+                "orgId",
                 'Required parameter "orgId" was null or undefined when calling createRepositoryByID().'
             );
         }
 
-        if (requestParameters['createRepositoryBody'] == null) {
+        if (requestParameters["createRepositoryBody"] == null) {
             throw new runtime.RequiredError(
-                'createRepositoryBody',
+                "createRepositoryBody",
                 'Required parameter "createRepositoryBody" was null or undefined when calling createRepositoryByID().'
             );
         }
@@ -802,7 +973,7 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -814,15 +985,21 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
         }
 
         let urlPath = `/orgs/id:{org_id}/repos`;
-        urlPath = urlPath.replace(`{${"org_id"}}`, encodeURIComponent(String(requestParameters['orgId'])));
+        urlPath = urlPath.replace(
+            `{${"org_id"}}`,
+            encodeURIComponent(String(requestParameters["orgId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CreateRepositoryBodyToJSON(requestParameters['createRepositoryBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+                body: CreateRepositoryBodyToJSON(requestParameters["createRepositoryBody"]),
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RepositoryFromJSON(jsonValue));
     }
@@ -830,7 +1007,10 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
     /**
      * Create Repository in Organization (By Organization ID)
      */
-    async createRepositoryByID(requestParameters: CreateRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Repository> {
+    async createRepositoryByID(
+        requestParameters: CreateRepositoryByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Repository> {
         const response = await this.createRepositoryByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -838,25 +1018,28 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
     /**
      * Delete Repository
      */
-    async deleteRepositoryRaw(requestParameters: DeleteRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        if (requestParameters['orgSlug'] == null) {
+    async deleteRepositoryRaw(
+        requestParameters: DeleteRepositoryRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling deleteRepository().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling deleteRepository().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -871,15 +1054,24 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
         }
 
         let urlPath = `/{org_slug}/{repo_slug}`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "DELETE",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
         return new runtime.VoidApiResponse(response);
     }
@@ -887,25 +1079,31 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
     /**
      * Delete Repository
      */
-    async deleteRepository(requestParameters: DeleteRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+    async deleteRepository(
+        requestParameters: DeleteRepositoryRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<void> {
         await this.deleteRepositoryRaw(requestParameters, initOverrides);
     }
 
     /**
      * Delete Repository (By Repository ID)
      */
-    async deleteRepositoryByIDRaw(requestParameters: DeleteRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        if (requestParameters['repoId'] == null) {
+    async deleteRepositoryByIDRaw(
+        requestParameters: DeleteRepositoryByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters["repoId"] == null) {
             throw new runtime.RequiredError(
-                'repoId',
+                "repoId",
                 'Required parameter "repoId" was null or undefined when calling deleteRepositoryByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -920,14 +1118,20 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
         }
 
         let urlPath = `/repos/id:{repo_id}`;
-        urlPath = urlPath.replace(`{${"repo_id"}}`, encodeURIComponent(String(requestParameters['repoId'])));
+        urlPath = urlPath.replace(
+            `{${"repo_id"}}`,
+            encodeURIComponent(String(requestParameters["repoId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "DELETE",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
         return new runtime.VoidApiResponse(response);
     }
@@ -935,31 +1139,37 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
     /**
      * Delete Repository (By Repository ID)
      */
-    async deleteRepositoryByID(requestParameters: DeleteRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+    async deleteRepositoryByID(
+        requestParameters: DeleteRepositoryByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<void> {
         await this.deleteRepositoryByIDRaw(requestParameters, initOverrides);
     }
 
     /**
      * Fork Repository
      */
-    async forkRepositoryRaw(requestParameters: ForkRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Repository>> {
-        if (requestParameters['orgSlug'] == null) {
+    async forkRepositoryRaw(
+        requestParameters: ForkRepositoryRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Repository>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling forkRepository().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling forkRepository().'
             );
         }
 
-        if (requestParameters['forkRepositoryBody'] == null) {
+        if (requestParameters["forkRepositoryBody"] == null) {
             throw new runtime.RequiredError(
-                'forkRepositoryBody',
+                "forkRepositoryBody",
                 'Required parameter "forkRepositoryBody" was null or undefined when calling forkRepository().'
             );
         }
@@ -968,7 +1178,7 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -980,16 +1190,25 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/fork`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ForkRepositoryBodyToJSON(requestParameters['forkRepositoryBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+                body: ForkRepositoryBodyToJSON(requestParameters["forkRepositoryBody"]),
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RepositoryFromJSON(jsonValue));
     }
@@ -997,7 +1216,10 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
     /**
      * Fork Repository
      */
-    async forkRepository(requestParameters: ForkRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Repository> {
+    async forkRepository(
+        requestParameters: ForkRepositoryRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Repository> {
         const response = await this.forkRepositoryRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1005,17 +1227,20 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
     /**
      * Fork Repository (By ID)
      */
-    async forkRepositoryByIDRaw(requestParameters: ForkRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Repository>> {
-        if (requestParameters['repoId'] == null) {
+    async forkRepositoryByIDRaw(
+        requestParameters: ForkRepositoryByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Repository>> {
+        if (requestParameters["repoId"] == null) {
             throw new runtime.RequiredError(
-                'repoId',
+                "repoId",
                 'Required parameter "repoId" was null or undefined when calling forkRepositoryByID().'
             );
         }
 
-        if (requestParameters['forkRepositoryBody'] == null) {
+        if (requestParameters["forkRepositoryBody"] == null) {
             throw new runtime.RequiredError(
-                'forkRepositoryBody',
+                "forkRepositoryBody",
                 'Required parameter "forkRepositoryBody" was null or undefined when calling forkRepositoryByID().'
             );
         }
@@ -1024,7 +1249,7 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -1036,15 +1261,21 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
         }
 
         let urlPath = `/repos/id:{repo_id}/fork`;
-        urlPath = urlPath.replace(`{${"repo_id"}}`, encodeURIComponent(String(requestParameters['repoId'])));
+        urlPath = urlPath.replace(
+            `{${"repo_id"}}`,
+            encodeURIComponent(String(requestParameters["repoId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ForkRepositoryBodyToJSON(requestParameters['forkRepositoryBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+                body: ForkRepositoryBodyToJSON(requestParameters["forkRepositoryBody"]),
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RepositoryFromJSON(jsonValue));
     }
@@ -1052,7 +1283,10 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
     /**
      * Fork Repository (By ID)
      */
-    async forkRepositoryByID(requestParameters: ForkRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Repository> {
+    async forkRepositoryByID(
+        requestParameters: ForkRepositoryByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Repository> {
         const response = await this.forkRepositoryByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1060,17 +1294,20 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
     /**
      * Get Repository
      */
-    async getRepositoryRaw(requestParameters: GetRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Repository>> {
-        if (requestParameters['orgSlug'] == null) {
+    async getRepositoryRaw(
+        requestParameters: GetRepositoryRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Repository>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling getRepository().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling getRepository().'
             );
         }
@@ -1089,15 +1326,24 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RepositoryFromJSON(jsonValue));
     }
@@ -1105,7 +1351,10 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
     /**
      * Get Repository
      */
-    async getRepository(requestParameters: GetRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Repository> {
+    async getRepository(
+        requestParameters: GetRepositoryRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Repository> {
         const response = await this.getRepositoryRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1113,10 +1362,13 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
     /**
      * Get Repository (By ID)
      */
-    async getRepositoryByIDRaw(requestParameters: GetRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Repository>> {
-        if (requestParameters['repoId'] == null) {
+    async getRepositoryByIDRaw(
+        requestParameters: GetRepositoryByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Repository>> {
+        if (requestParameters["repoId"] == null) {
             throw new runtime.RequiredError(
-                'repoId',
+                "repoId",
                 'Required parameter "repoId" was null or undefined when calling getRepositoryByID().'
             );
         }
@@ -1135,14 +1387,20 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
         }
 
         let urlPath = `/repos/id:{repo_id}`;
-        urlPath = urlPath.replace(`{${"repo_id"}}`, encodeURIComponent(String(requestParameters['repoId'])));
+        urlPath = urlPath.replace(
+            `{${"repo_id"}}`,
+            encodeURIComponent(String(requestParameters["repoId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RepositoryFromJSON(jsonValue));
     }
@@ -1150,7 +1408,10 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
     /**
      * Get Repository (By ID)
      */
-    async getRepositoryByID(requestParameters: GetRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Repository> {
+    async getRepositoryByID(
+        requestParameters: GetRepositoryByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Repository> {
         const response = await this.getRepositoryByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1158,37 +1419,40 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
     /**
      * List Repository Branches
      */
-    async listBranchesRaw(requestParameters: ListBranchesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListBranchesResponse>> {
-        if (requestParameters['orgSlug'] == null) {
+    async listBranchesRaw(
+        requestParameters: ListBranchesRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListBranchesResponse>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling listBranches().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling listBranches().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['filter'] != null) {
-            queryParameters['filter'] = requestParameters['filter'];
+        if (requestParameters["filter"] != null) {
+            queryParameters["filter"] = requestParameters["filter"];
         }
 
-        if (requestParameters['sortBy'] != null) {
-            queryParameters['sort_by'] = requestParameters['sortBy'];
+        if (requestParameters["sortBy"] != null) {
+            queryParameters["sort_by"] = requestParameters["sortBy"];
         }
 
-        if (requestParameters['pageSize'] != null) {
-            queryParameters['page_size'] = requestParameters['pageSize'];
+        if (requestParameters["pageSize"] != null) {
+            queryParameters["page_size"] = requestParameters["pageSize"];
         }
 
-        if (requestParameters['pageToken'] != null) {
-            queryParameters['page_token'] = requestParameters['pageToken'];
+        if (requestParameters["pageToken"] != null) {
+            queryParameters["page_token"] = requestParameters["pageToken"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1203,23 +1467,37 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/branches`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ListBranchesResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            ListBranchesResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * List Repository Branches
      */
-    async listBranches(requestParameters: ListBranchesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListBranchesResponse> {
+    async listBranches(
+        requestParameters: ListBranchesRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListBranchesResponse> {
         const response = await this.listBranchesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1227,30 +1505,33 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
     /**
      * List Repository Branches (By Repo ID)
      */
-    async listBranchesByIDRaw(requestParameters: ListBranchesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListBranchesResponse>> {
-        if (requestParameters['repoId'] == null) {
+    async listBranchesByIDRaw(
+        requestParameters: ListBranchesByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListBranchesResponse>> {
+        if (requestParameters["repoId"] == null) {
             throw new runtime.RequiredError(
-                'repoId',
+                "repoId",
                 'Required parameter "repoId" was null or undefined when calling listBranchesByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['filter'] != null) {
-            queryParameters['filter'] = requestParameters['filter'];
+        if (requestParameters["filter"] != null) {
+            queryParameters["filter"] = requestParameters["filter"];
         }
 
-        if (requestParameters['sortBy'] != null) {
-            queryParameters['sort_by'] = requestParameters['sortBy'];
+        if (requestParameters["sortBy"] != null) {
+            queryParameters["sort_by"] = requestParameters["sortBy"];
         }
 
-        if (requestParameters['pageSize'] != null) {
-            queryParameters['page_size'] = requestParameters['pageSize'];
+        if (requestParameters["pageSize"] != null) {
+            queryParameters["page_size"] = requestParameters["pageSize"];
         }
 
-        if (requestParameters['pageToken'] != null) {
-            queryParameters['page_token'] = requestParameters['pageToken'];
+        if (requestParameters["pageToken"] != null) {
+            queryParameters["page_token"] = requestParameters["pageToken"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1265,22 +1546,33 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
         }
 
         let urlPath = `/repos/id:{repo_id}/branches`;
-        urlPath = urlPath.replace(`{${"repo_id"}}`, encodeURIComponent(String(requestParameters['repoId'])));
+        urlPath = urlPath.replace(
+            `{${"repo_id"}}`,
+            encodeURIComponent(String(requestParameters["repoId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ListBranchesResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            ListBranchesResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * List Repository Branches (By Repo ID)
      */
-    async listBranchesByID(requestParameters: ListBranchesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListBranchesResponse> {
+    async listBranchesByID(
+        requestParameters: ListBranchesByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListBranchesResponse> {
         const response = await this.listBranchesByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1288,33 +1580,36 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
     /**
      * List Repository Roles
      */
-    async listRepoRolesRaw(requestParameters: ListRepoRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
-        if (requestParameters['orgSlug'] == null) {
+    async listRepoRolesRaw(
+        requestParameters: ListRepoRolesRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<any>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling listRepoRoles().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling listRepoRoles().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['pageSize'] != null) {
-            queryParameters['page_size'] = requestParameters['pageSize'];
+        if (requestParameters["pageSize"] != null) {
+            queryParameters["page_size"] = requestParameters["pageSize"];
         }
 
-        if (requestParameters['pageToken'] != null) {
-            queryParameters['page_token'] = requestParameters['pageToken'];
+        if (requestParameters["pageToken"] != null) {
+            queryParameters["page_token"] = requestParameters["pageToken"];
         }
 
-        if (requestParameters['sortBy'] != null) {
-            queryParameters['sort_by'] = requestParameters['sortBy'];
+        if (requestParameters["sortBy"] != null) {
+            queryParameters["sort_by"] = requestParameters["sortBy"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1329,17 +1624,26 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/roles`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        if (this.isJsonMime(response.headers.get('content-type'))) {
+        if (this.isJsonMime(response.headers.get("content-type"))) {
             return new runtime.JSONApiResponse<any>(response);
         } else {
             return new runtime.TextApiResponse(response) as any;
@@ -1349,7 +1653,10 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
     /**
      * List Repository Roles
      */
-    async listRepoRoles(requestParameters: ListRepoRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
+    async listRepoRoles(
+        requestParameters: ListRepoRolesRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<any> {
         const response = await this.listRepoRolesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1357,26 +1664,29 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
     /**
      * List Repository Roles (By ID)
      */
-    async listRepoRolesByIDRaw(requestParameters: ListRepoRolesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
-        if (requestParameters['repoId'] == null) {
+    async listRepoRolesByIDRaw(
+        requestParameters: ListRepoRolesByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<any>> {
+        if (requestParameters["repoId"] == null) {
             throw new runtime.RequiredError(
-                'repoId',
+                "repoId",
                 'Required parameter "repoId" was null or undefined when calling listRepoRolesByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['pageSize'] != null) {
-            queryParameters['page_size'] = requestParameters['pageSize'];
+        if (requestParameters["pageSize"] != null) {
+            queryParameters["page_size"] = requestParameters["pageSize"];
         }
 
-        if (requestParameters['pageToken'] != null) {
-            queryParameters['page_token'] = requestParameters['pageToken'];
+        if (requestParameters["pageToken"] != null) {
+            queryParameters["page_token"] = requestParameters["pageToken"];
         }
 
-        if (requestParameters['sortBy'] != null) {
-            queryParameters['sort_by'] = requestParameters['sortBy'];
+        if (requestParameters["sortBy"] != null) {
+            queryParameters["sort_by"] = requestParameters["sortBy"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1391,16 +1701,22 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
         }
 
         let urlPath = `/repos/id:{repo_id}/roles`;
-        urlPath = urlPath.replace(`{${"repo_id"}}`, encodeURIComponent(String(requestParameters['repoId'])));
+        urlPath = urlPath.replace(
+            `{${"repo_id"}}`,
+            encodeURIComponent(String(requestParameters["repoId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        if (this.isJsonMime(response.headers.get('content-type'))) {
+        if (this.isJsonMime(response.headers.get("content-type"))) {
             return new runtime.JSONApiResponse<any>(response);
         } else {
             return new runtime.TextApiResponse(response) as any;
@@ -1410,7 +1726,10 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
     /**
      * List Repository Roles (By ID)
      */
-    async listRepoRolesByID(requestParameters: ListRepoRolesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
+    async listRepoRolesByID(
+        requestParameters: ListRepoRolesByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<any> {
         const response = await this.listRepoRolesByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1418,37 +1737,40 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
     /**
      * List Repository Tags
      */
-    async listTagsRaw(requestParameters: ListTagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListTagsResponse>> {
-        if (requestParameters['orgSlug'] == null) {
+    async listTagsRaw(
+        requestParameters: ListTagsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListTagsResponse>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling listTags().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling listTags().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['filter'] != null) {
-            queryParameters['filter'] = requestParameters['filter'];
+        if (requestParameters["filter"] != null) {
+            queryParameters["filter"] = requestParameters["filter"];
         }
 
-        if (requestParameters['sortBy'] != null) {
-            queryParameters['sort_by'] = requestParameters['sortBy'];
+        if (requestParameters["sortBy"] != null) {
+            queryParameters["sort_by"] = requestParameters["sortBy"];
         }
 
-        if (requestParameters['pageSize'] != null) {
-            queryParameters['page_size'] = requestParameters['pageSize'];
+        if (requestParameters["pageSize"] != null) {
+            queryParameters["page_size"] = requestParameters["pageSize"];
         }
 
-        if (requestParameters['pageToken'] != null) {
-            queryParameters['page_token'] = requestParameters['pageToken'];
+        if (requestParameters["pageToken"] != null) {
+            queryParameters["page_token"] = requestParameters["pageToken"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1463,23 +1785,37 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/tags`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ListTagsResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            ListTagsResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * List Repository Tags
      */
-    async listTags(requestParameters: ListTagsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListTagsResponse> {
+    async listTags(
+        requestParameters: ListTagsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListTagsResponse> {
         const response = await this.listTagsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1487,30 +1823,33 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
     /**
      * List Repository Tags (By Repo ID)
      */
-    async listTagsByIDRaw(requestParameters: ListTagsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListTagsResponse>> {
-        if (requestParameters['repoId'] == null) {
+    async listTagsByIDRaw(
+        requestParameters: ListTagsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListTagsResponse>> {
+        if (requestParameters["repoId"] == null) {
             throw new runtime.RequiredError(
-                'repoId',
+                "repoId",
                 'Required parameter "repoId" was null or undefined when calling listTagsByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['filter'] != null) {
-            queryParameters['filter'] = requestParameters['filter'];
+        if (requestParameters["filter"] != null) {
+            queryParameters["filter"] = requestParameters["filter"];
         }
 
-        if (requestParameters['sortBy'] != null) {
-            queryParameters['sort_by'] = requestParameters['sortBy'];
+        if (requestParameters["sortBy"] != null) {
+            queryParameters["sort_by"] = requestParameters["sortBy"];
         }
 
-        if (requestParameters['pageSize'] != null) {
-            queryParameters['page_size'] = requestParameters['pageSize'];
+        if (requestParameters["pageSize"] != null) {
+            queryParameters["page_size"] = requestParameters["pageSize"];
         }
 
-        if (requestParameters['pageToken'] != null) {
-            queryParameters['page_token'] = requestParameters['pageToken'];
+        if (requestParameters["pageToken"] != null) {
+            queryParameters["page_token"] = requestParameters["pageToken"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1525,22 +1864,33 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
         }
 
         let urlPath = `/repos/id:{repo_id}/tags`;
-        urlPath = urlPath.replace(`{${"repo_id"}}`, encodeURIComponent(String(requestParameters['repoId'])));
+        urlPath = urlPath.replace(
+            `{${"repo_id"}}`,
+            encodeURIComponent(String(requestParameters["repoId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ListTagsResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            ListTagsResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * List Repository Tags (By Repo ID)
      */
-    async listTagsByID(requestParameters: ListTagsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListTagsResponse> {
+    async listTagsByID(
+        requestParameters: ListTagsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListTagsResponse> {
         const response = await this.listTagsByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1548,41 +1898,44 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
     /**
      * List Repository File Tree
      */
-    async listTreeRaw(requestParameters: ListTreeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListTreeResponse>> {
-        if (requestParameters['orgSlug'] == null) {
+    async listTreeRaw(
+        requestParameters: ListTreeRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListTreeResponse>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling listTree().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling listTree().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['revision'] != null) {
-            queryParameters['revision'] = requestParameters['revision'];
+        if (requestParameters["revision"] != null) {
+            queryParameters["revision"] = requestParameters["revision"];
         }
 
-        if (requestParameters['path'] != null) {
-            queryParameters['path'] = requestParameters['path'];
+        if (requestParameters["path"] != null) {
+            queryParameters["path"] = requestParameters["path"];
         }
 
-        if (requestParameters['recursive'] != null) {
-            queryParameters['recursive'] = requestParameters['recursive'];
+        if (requestParameters["recursive"] != null) {
+            queryParameters["recursive"] = requestParameters["recursive"];
         }
 
-        if (requestParameters['pageSize'] != null) {
-            queryParameters['page_size'] = requestParameters['pageSize'];
+        if (requestParameters["pageSize"] != null) {
+            queryParameters["page_size"] = requestParameters["pageSize"];
         }
 
-        if (requestParameters['pageToken'] != null) {
-            queryParameters['page_token'] = requestParameters['pageToken'];
+        if (requestParameters["pageToken"] != null) {
+            queryParameters["page_token"] = requestParameters["pageToken"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1597,23 +1950,37 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/trees`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ListTreeResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            ListTreeResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * List Repository File Tree
      */
-    async listTree(requestParameters: ListTreeRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListTreeResponse> {
+    async listTree(
+        requestParameters: ListTreeRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListTreeResponse> {
         const response = await this.listTreeRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1621,34 +1988,37 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
     /**
      * List Repository File Tree (By Repo ID)
      */
-    async listTreeByIDRaw(requestParameters: ListTreeByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListTreeResponse>> {
-        if (requestParameters['repoId'] == null) {
+    async listTreeByIDRaw(
+        requestParameters: ListTreeByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListTreeResponse>> {
+        if (requestParameters["repoId"] == null) {
             throw new runtime.RequiredError(
-                'repoId',
+                "repoId",
                 'Required parameter "repoId" was null or undefined when calling listTreeByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['revision'] != null) {
-            queryParameters['revision'] = requestParameters['revision'];
+        if (requestParameters["revision"] != null) {
+            queryParameters["revision"] = requestParameters["revision"];
         }
 
-        if (requestParameters['path'] != null) {
-            queryParameters['path'] = requestParameters['path'];
+        if (requestParameters["path"] != null) {
+            queryParameters["path"] = requestParameters["path"];
         }
 
-        if (requestParameters['recursive'] != null) {
-            queryParameters['recursive'] = requestParameters['recursive'];
+        if (requestParameters["recursive"] != null) {
+            queryParameters["recursive"] = requestParameters["recursive"];
         }
 
-        if (requestParameters['pageSize'] != null) {
-            queryParameters['page_size'] = requestParameters['pageSize'];
+        if (requestParameters["pageSize"] != null) {
+            queryParameters["page_size"] = requestParameters["pageSize"];
         }
 
-        if (requestParameters['pageToken'] != null) {
-            queryParameters['page_token'] = requestParameters['pageToken'];
+        if (requestParameters["pageToken"] != null) {
+            queryParameters["page_token"] = requestParameters["pageToken"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1663,22 +2033,33 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
         }
 
         let urlPath = `/repos/id:{repo_id}/trees`;
-        urlPath = urlPath.replace(`{${"repo_id"}}`, encodeURIComponent(String(requestParameters['repoId'])));
+        urlPath = urlPath.replace(
+            `{${"repo_id"}}`,
+            encodeURIComponent(String(requestParameters["repoId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ListTreeResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            ListTreeResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * List Repository File Tree (By Repo ID)
      */
-    async listTreeByID(requestParameters: ListTreeByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListTreeResponse> {
+    async listTreeByID(
+        requestParameters: ListTreeByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListTreeResponse> {
         const response = await this.listTreeByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1686,24 +2067,27 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
     /**
      * Remove Repository Roles
      */
-    async removeRepoRolesRaw(requestParameters: RemoveRepoRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
-        if (requestParameters['orgSlug'] == null) {
+    async removeRepoRolesRaw(
+        requestParameters: RemoveRepoRolesRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<any>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling removeRepoRoles().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling removeRepoRoles().'
             );
         }
 
-        if (requestParameters['removeRepoRolesBody'] == null) {
+        if (requestParameters["removeRepoRolesBody"] == null) {
             throw new runtime.RequiredError(
-                'removeRepoRolesBody',
+                "removeRepoRolesBody",
                 'Required parameter "removeRepoRolesBody" was null or undefined when calling removeRepoRoles().'
             );
         }
@@ -1712,7 +2096,7 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -1724,18 +2108,27 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/roles/remove`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: RemoveRepoRolesBodyToJSON(requestParameters['removeRepoRolesBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+                body: RemoveRepoRolesBodyToJSON(requestParameters["removeRepoRolesBody"]),
+            },
+            initOverrides
+        );
 
-        if (this.isJsonMime(response.headers.get('content-type'))) {
+        if (this.isJsonMime(response.headers.get("content-type"))) {
             return new runtime.JSONApiResponse<any>(response);
         } else {
             return new runtime.TextApiResponse(response) as any;
@@ -1745,7 +2138,10 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
     /**
      * Remove Repository Roles
      */
-    async removeRepoRoles(requestParameters: RemoveRepoRolesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
+    async removeRepoRoles(
+        requestParameters: RemoveRepoRolesRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<any> {
         const response = await this.removeRepoRolesRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1753,17 +2149,20 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
     /**
      * Remove Repository Roles (By ID)
      */
-    async removeRepoRolesByIDRaw(requestParameters: RemoveRepoRolesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<any>> {
-        if (requestParameters['repoId'] == null) {
+    async removeRepoRolesByIDRaw(
+        requestParameters: RemoveRepoRolesByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<any>> {
+        if (requestParameters["repoId"] == null) {
             throw new runtime.RequiredError(
-                'repoId',
+                "repoId",
                 'Required parameter "repoId" was null or undefined when calling removeRepoRolesByID().'
             );
         }
 
-        if (requestParameters['removeRepoRolesBody'] == null) {
+        if (requestParameters["removeRepoRolesBody"] == null) {
             throw new runtime.RequiredError(
-                'removeRepoRolesBody',
+                "removeRepoRolesBody",
                 'Required parameter "removeRepoRolesBody" was null or undefined when calling removeRepoRolesByID().'
             );
         }
@@ -1772,7 +2171,7 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -1784,17 +2183,23 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
         }
 
         let urlPath = `/repos/id:{repo_id}/roles/remove`;
-        urlPath = urlPath.replace(`{${"repo_id"}}`, encodeURIComponent(String(requestParameters['repoId'])));
+        urlPath = urlPath.replace(
+            `{${"repo_id"}}`,
+            encodeURIComponent(String(requestParameters["repoId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: RemoveRepoRolesBodyToJSON(requestParameters['removeRepoRolesBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+                body: RemoveRepoRolesBodyToJSON(requestParameters["removeRepoRolesBody"]),
+            },
+            initOverrides
+        );
 
-        if (this.isJsonMime(response.headers.get('content-type'))) {
+        if (this.isJsonMime(response.headers.get("content-type"))) {
             return new runtime.JSONApiResponse<any>(response);
         } else {
             return new runtime.TextApiResponse(response) as any;
@@ -1804,7 +2209,10 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
     /**
      * Remove Repository Roles (By ID)
      */
-    async removeRepoRolesByID(requestParameters: RemoveRepoRolesByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<any> {
+    async removeRepoRolesByID(
+        requestParameters: RemoveRepoRolesByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<any> {
         const response = await this.removeRepoRolesByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1812,37 +2220,40 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
     /**
      * Update Repository
      */
-    async updateRepositoryRaw(requestParameters: UpdateRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Repository>> {
-        if (requestParameters['orgSlug'] == null) {
+    async updateRepositoryRaw(
+        requestParameters: UpdateRepositoryRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Repository>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling updateRepository().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling updateRepository().'
             );
         }
 
-        if (requestParameters['updateRepositoryBody'] == null) {
+        if (requestParameters["updateRepositoryBody"] == null) {
             throw new runtime.RequiredError(
-                'updateRepositoryBody',
+                "updateRepositoryBody",
                 'Required parameter "updateRepositoryBody" was null or undefined when calling updateRepository().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -1854,16 +2265,25 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
         }
 
         let urlPath = `/{org_slug}/{repo_slug}`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'PATCH',
-            headers: headerParameters,
-            query: queryParameters,
-            body: UpdateRepositoryBodyToJSON(requestParameters['updateRepositoryBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "PATCH",
+                headers: headerParameters,
+                query: queryParameters,
+                body: UpdateRepositoryBodyToJSON(requestParameters["updateRepositoryBody"]),
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RepositoryFromJSON(jsonValue));
     }
@@ -1871,7 +2291,10 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
     /**
      * Update Repository
      */
-    async updateRepository(requestParameters: UpdateRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Repository> {
+    async updateRepository(
+        requestParameters: UpdateRepositoryRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Repository> {
         const response = await this.updateRepositoryRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1879,30 +2302,33 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
     /**
      * Update Repository (By Repo ID)
      */
-    async updateRepositoryByIDRaw(requestParameters: UpdateRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Repository>> {
-        if (requestParameters['repoId'] == null) {
+    async updateRepositoryByIDRaw(
+        requestParameters: UpdateRepositoryByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Repository>> {
+        if (requestParameters["repoId"] == null) {
             throw new runtime.RequiredError(
-                'repoId',
+                "repoId",
                 'Required parameter "repoId" was null or undefined when calling updateRepositoryByID().'
             );
         }
 
-        if (requestParameters['updateRepositoryBody'] == null) {
+        if (requestParameters["updateRepositoryBody"] == null) {
             throw new runtime.RequiredError(
-                'updateRepositoryBody',
+                "updateRepositoryBody",
                 'Required parameter "updateRepositoryBody" was null or undefined when calling updateRepositoryByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -1914,15 +2340,21 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
         }
 
         let urlPath = `/repos/id:{repo_id}`;
-        urlPath = urlPath.replace(`{${"repo_id"}}`, encodeURIComponent(String(requestParameters['repoId'])));
+        urlPath = urlPath.replace(
+            `{${"repo_id"}}`,
+            encodeURIComponent(String(requestParameters["repoId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'PATCH',
-            headers: headerParameters,
-            query: queryParameters,
-            body: UpdateRepositoryBodyToJSON(requestParameters['updateRepositoryBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "PATCH",
+                headers: headerParameters,
+                query: queryParameters,
+                body: UpdateRepositoryBodyToJSON(requestParameters["updateRepositoryBody"]),
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RepositoryFromJSON(jsonValue));
     }
@@ -1930,9 +2362,11 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
     /**
      * Update Repository (By Repo ID)
      */
-    async updateRepositoryByID(requestParameters: UpdateRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Repository> {
+    async updateRepositoryByID(
+        requestParameters: UpdateRepositoryByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Repository> {
         const response = await this.updateRepositoryByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
-
 }

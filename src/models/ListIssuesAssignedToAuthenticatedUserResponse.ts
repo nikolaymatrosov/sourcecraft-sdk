@@ -12,29 +12,24 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { Issue } from './Issue';
-import {
-    IssueFromJSON,
-    IssueFromJSONTyped,
-    IssueToJSON,
-    IssueToJSONTyped,
-} from './Issue';
+import { mapValues } from "../runtime";
+import type { Issue } from "./Issue";
+import { IssueFromJSON, IssueFromJSONTyped, IssueToJSON, IssueToJSONTyped } from "./Issue";
 
 /**
- * 
+ *
  * @export
  * @interface ListIssuesAssignedToAuthenticatedUserResponse
  */
 export interface ListIssuesAssignedToAuthenticatedUserResponse {
     /**
-     * 
+     *
      * @type {Array<Issue>}
      * @memberof ListIssuesAssignedToAuthenticatedUserResponse
      */
     issues?: Array<Issue>;
     /**
-     * 
+     *
      * @type {string}
      * @memberof ListIssuesAssignedToAuthenticatedUserResponse
      */
@@ -44,38 +39,49 @@ export interface ListIssuesAssignedToAuthenticatedUserResponse {
 /**
  * Check if a given object implements the ListIssuesAssignedToAuthenticatedUserResponse interface.
  */
-export function instanceOfListIssuesAssignedToAuthenticatedUserResponse(value: object): value is ListIssuesAssignedToAuthenticatedUserResponse {
+export function instanceOfListIssuesAssignedToAuthenticatedUserResponse(
+    value: object
+): value is ListIssuesAssignedToAuthenticatedUserResponse {
     return true;
 }
 
-export function ListIssuesAssignedToAuthenticatedUserResponseFromJSON(json: any): ListIssuesAssignedToAuthenticatedUserResponse {
+export function ListIssuesAssignedToAuthenticatedUserResponseFromJSON(
+    json: any
+): ListIssuesAssignedToAuthenticatedUserResponse {
     return ListIssuesAssignedToAuthenticatedUserResponseFromJSONTyped(json, false);
 }
 
-export function ListIssuesAssignedToAuthenticatedUserResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): ListIssuesAssignedToAuthenticatedUserResponse {
+export function ListIssuesAssignedToAuthenticatedUserResponseFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): ListIssuesAssignedToAuthenticatedUserResponse {
     if (json == null) {
         return json;
     }
     return {
-        
-        'issues': json['issues'] == null ? undefined : ((json['issues'] as Array<any>).map(IssueFromJSON)),
-        'nextPageToken': json['next_page_token'] == null ? undefined : json['next_page_token'],
+        issues:
+            json["issues"] == null ? undefined : (json["issues"] as Array<any>).map(IssueFromJSON),
+        nextPageToken: json["next_page_token"] == null ? undefined : json["next_page_token"],
     };
 }
 
-export function ListIssuesAssignedToAuthenticatedUserResponseToJSON(json: any): ListIssuesAssignedToAuthenticatedUserResponse {
+export function ListIssuesAssignedToAuthenticatedUserResponseToJSON(
+    json: any
+): ListIssuesAssignedToAuthenticatedUserResponse {
     return ListIssuesAssignedToAuthenticatedUserResponseToJSONTyped(json, false);
 }
 
-export function ListIssuesAssignedToAuthenticatedUserResponseToJSONTyped(value?: ListIssuesAssignedToAuthenticatedUserResponse | null, ignoreDiscriminator: boolean = false): any {
+export function ListIssuesAssignedToAuthenticatedUserResponseToJSONTyped(
+    value?: ListIssuesAssignedToAuthenticatedUserResponse | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'issues': value['issues'] == null ? undefined : ((value['issues'] as Array<any>).map(IssueToJSON)),
-        'next_page_token': value['nextPageToken'],
+        issues:
+            value["issues"] == null ? undefined : (value["issues"] as Array<any>).map(IssueToJSON),
+        next_page_token: value["nextPageToken"],
     };
 }
-

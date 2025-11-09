@@ -20,7 +20,7 @@
         "build:ts": "tsc",
         "build:watch": "tsc --watch",
         "build:examples": "tsc -p examples/tsconfig.json",
-        "build": "npm run prepare-spec && npm run generate-sdk && npm run build:ts",
+        "build": "npm run prepare-spec && npm run generate-sdk && npm run format && npm run build:ts",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
         "format": "prettier --write \"src/**/*.ts\"",

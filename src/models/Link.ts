@@ -12,36 +12,34 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { LinkLinkType } from './LinkLinkType';
+import { mapValues } from "../runtime";
+import type { LinkLinkType } from "./LinkLinkType";
 import {
     LinkLinkTypeFromJSON,
     LinkLinkTypeFromJSONTyped,
     LinkLinkTypeToJSON,
     LinkLinkTypeToJSONTyped,
-} from './LinkLinkType';
+} from "./LinkLinkType";
 
 /**
- * 
+ *
  * @export
  * @interface Link
  */
 export interface Link {
     /**
-     * 
+     *
      * @type {string}
      * @memberof Link
      */
     link?: string;
     /**
-     * 
+     *
      * @type {LinkLinkType}
      * @memberof Link
      */
     type?: LinkLinkType;
 }
-
-
 
 /**
  * Check if a given object implements the Link interface.
@@ -59,9 +57,8 @@ export function LinkFromJSONTyped(json: any, ignoreDiscriminator: boolean): Link
         return json;
     }
     return {
-        
-        'link': json['link'] == null ? undefined : json['link'],
-        'type': json['type'] == null ? undefined : LinkLinkTypeFromJSON(json['type']),
+        link: json["link"] == null ? undefined : json["link"],
+        type: json["type"] == null ? undefined : LinkLinkTypeFromJSON(json["type"]),
     };
 }
 
@@ -75,9 +72,7 @@ export function LinkToJSONTyped(value?: Link | null, ignoreDiscriminator: boolea
     }
 
     return {
-        
-        'link': value['link'],
-        'type': LinkLinkTypeToJSON(value['type']),
+        link: value["link"],
+        type: LinkLinkTypeToJSON(value["type"]),
     };
 }
-

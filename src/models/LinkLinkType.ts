@@ -12,19 +12,17 @@
  * Do not edit the class manually.
  */
 
-
 /**
- * 
+ *
  * @export
  */
 export const LinkLinkType = {
-    SocialNetwork: 'social_network',
-    Homepage: 'homepage',
-    Email: 'email',
-    Telegram: 'telegram'
+    SocialNetwork: "social_network",
+    Homepage: "homepage",
+    Email: "email",
+    Telegram: "telegram",
 } as const;
-export type LinkLinkType = typeof LinkLinkType[keyof typeof LinkLinkType];
-
+export type LinkLinkType = (typeof LinkLinkType)[keyof typeof LinkLinkType];
 
 export function instanceOfLinkLinkType(value: any): boolean {
     for (const key in LinkLinkType) {
@@ -52,4 +50,3 @@ export function LinkLinkTypeToJSON(value?: LinkLinkType | null): any {
 export function LinkLinkTypeToJSONTyped(value: any, ignoreDiscriminator: boolean): LinkLinkType {
     return value as LinkLinkType;
 }
-

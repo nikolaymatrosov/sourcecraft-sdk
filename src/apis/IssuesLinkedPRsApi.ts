@@ -12,13 +12,12 @@
  * Do not edit the class manually.
  */
 
-
-import * as runtime from '../runtime';
+import * as runtime from "../runtime";
 import type {
-  ApiErrorResponse,
-  IssueLinkedPRsResponse,
-  ModifyPullRequestCollectionRequest,
-} from '../models/index';
+    ApiErrorResponse,
+    IssueLinkedPRsResponse,
+    ModifyPullRequestCollectionRequest,
+} from "../models/index";
 import {
     ApiErrorResponseFromJSON,
     ApiErrorResponseToJSON,
@@ -26,7 +25,7 @@ import {
     IssueLinkedPRsResponseToJSON,
     ModifyPullRequestCollectionRequestFromJSON,
     ModifyPullRequestCollectionRequestToJSON,
-} from '../models/index';
+} from "../models/index";
 
 export interface AddLinkedPRsRequest {
     orgSlug: string;
@@ -68,7 +67,7 @@ export interface RemoveLinkedPRsByIDRequest {
 
 /**
  * IssuesLinkedPRsApi - interface
- * 
+ *
  * @export
  * @interface IssuesLinkedPRsApiInterface
  */
@@ -77,161 +76,198 @@ export interface IssuesLinkedPRsApiInterface {
      * Associates one or more pull requests with a specific issue. Returns resulting collection
      * @summary Add Linked PRs
      * @param {string} orgSlug depending on which route is used, either parent or repoId is filled
-     * @param {string} repoSlug 
-     * @param {string} issueSlug 
-     * @param {ModifyPullRequestCollectionRequest} modifyPullRequestCollectionRequest 
+     * @param {string} repoSlug
+     * @param {string} issueSlug
+     * @param {ModifyPullRequestCollectionRequest} modifyPullRequestCollectionRequest
      * @param {boolean} [silent] creation options (query)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesLinkedPRsApiInterface
      */
-    addLinkedPRsRaw(requestParameters: AddLinkedPRsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLinkedPRsResponse>>;
+    addLinkedPRsRaw(
+        requestParameters: AddLinkedPRsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<IssueLinkedPRsResponse>>;
 
     /**
      * Associates one or more pull requests with a specific issue. Returns resulting collection
      * Add Linked PRs
      */
-    addLinkedPRs(requestParameters: AddLinkedPRsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLinkedPRsResponse>;
+    addLinkedPRs(
+        requestParameters: AddLinkedPRsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<IssueLinkedPRsResponse>;
 
     /**
      * Associates one or more pull requests with a specific issue. Returns resulting collection
      * @summary Add linked PRs (By ID)
-     * @param {string} issueId 
-     * @param {ModifyPullRequestCollectionRequest} modifyPullRequestCollectionRequest 
+     * @param {string} issueId
+     * @param {ModifyPullRequestCollectionRequest} modifyPullRequestCollectionRequest
      * @param {boolean} [silent] creation options (query)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesLinkedPRsApiInterface
      */
-    addLinkedPRsByIDRaw(requestParameters: AddLinkedPRsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLinkedPRsResponse>>;
+    addLinkedPRsByIDRaw(
+        requestParameters: AddLinkedPRsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<IssueLinkedPRsResponse>>;
 
     /**
      * Associates one or more pull requests with a specific issue. Returns resulting collection
      * Add linked PRs (By ID)
      */
-    addLinkedPRsByID(requestParameters: AddLinkedPRsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLinkedPRsResponse>;
+    addLinkedPRsByID(
+        requestParameters: AddLinkedPRsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<IssueLinkedPRsResponse>;
 
     /**
      * Retrieves all pull requests that are linked to the specified issue.
      * @summary List Linked PRs
      * @param {string} orgSlug depending on which route is used, either parent or repoId is filled
-     * @param {string} repoSlug 
-     * @param {string} issueSlug 
+     * @param {string} repoSlug
+     * @param {string} issueSlug
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesLinkedPRsApiInterface
      */
-    getLinkedPRsRaw(requestParameters: GetLinkedPRsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLinkedPRsResponse>>;
+    getLinkedPRsRaw(
+        requestParameters: GetLinkedPRsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<IssueLinkedPRsResponse>>;
 
     /**
      * Retrieves all pull requests that are linked to the specified issue.
      * List Linked PRs
      */
-    getLinkedPRs(requestParameters: GetLinkedPRsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLinkedPRsResponse>;
+    getLinkedPRs(
+        requestParameters: GetLinkedPRsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<IssueLinkedPRsResponse>;
 
     /**
      * Retrieves all pull requests that are linked to the specified issue.
      * @summary List Linked PRs (By Issue ID)
-     * @param {string} issueId 
+     * @param {string} issueId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesLinkedPRsApiInterface
      */
-    getLinkedPRsByIDRaw(requestParameters: GetLinkedPRsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLinkedPRsResponse>>;
+    getLinkedPRsByIDRaw(
+        requestParameters: GetLinkedPRsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<IssueLinkedPRsResponse>>;
 
     /**
      * Retrieves all pull requests that are linked to the specified issue.
      * List Linked PRs (By Issue ID)
      */
-    getLinkedPRsByID(requestParameters: GetLinkedPRsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLinkedPRsResponse>;
+    getLinkedPRsByID(
+        requestParameters: GetLinkedPRsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<IssueLinkedPRsResponse>;
 
     /**
      * Removes one or more pull requests with a specific issue. Returns resulting collection
      * @summary Remove linked PRs
      * @param {string} orgSlug depending on which route is used, either parent or repoId is filled
-     * @param {string} repoSlug 
-     * @param {string} issueSlug 
-     * @param {ModifyPullRequestCollectionRequest} modifyPullRequestCollectionRequest 
+     * @param {string} repoSlug
+     * @param {string} issueSlug
+     * @param {ModifyPullRequestCollectionRequest} modifyPullRequestCollectionRequest
      * @param {boolean} [silent] creation options (query)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesLinkedPRsApiInterface
      */
-    removeLinkedPRsRaw(requestParameters: RemoveLinkedPRsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLinkedPRsResponse>>;
+    removeLinkedPRsRaw(
+        requestParameters: RemoveLinkedPRsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<IssueLinkedPRsResponse>>;
 
     /**
      * Removes one or more pull requests with a specific issue. Returns resulting collection
      * Remove linked PRs
      */
-    removeLinkedPRs(requestParameters: RemoveLinkedPRsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLinkedPRsResponse>;
+    removeLinkedPRs(
+        requestParameters: RemoveLinkedPRsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<IssueLinkedPRsResponse>;
 
     /**
      * Removes one or more pull requests with a specific issue. Returns resulting collection
      * @summary Remove linked PRs (by ID)
-     * @param {string} issueId 
-     * @param {ModifyPullRequestCollectionRequest} modifyPullRequestCollectionRequest 
+     * @param {string} issueId
+     * @param {ModifyPullRequestCollectionRequest} modifyPullRequestCollectionRequest
      * @param {boolean} [silent] creation options (query)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof IssuesLinkedPRsApiInterface
      */
-    removeLinkedPRsByIDRaw(requestParameters: RemoveLinkedPRsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLinkedPRsResponse>>;
+    removeLinkedPRsByIDRaw(
+        requestParameters: RemoveLinkedPRsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<IssueLinkedPRsResponse>>;
 
     /**
      * Removes one or more pull requests with a specific issue. Returns resulting collection
      * Remove linked PRs (by ID)
      */
-    removeLinkedPRsByID(requestParameters: RemoveLinkedPRsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLinkedPRsResponse>;
-
+    removeLinkedPRsByID(
+        requestParameters: RemoveLinkedPRsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<IssueLinkedPRsResponse>;
 }
 
 /**
- * 
+ *
  */
 export class IssuesLinkedPRsApi extends runtime.BaseAPI implements IssuesLinkedPRsApiInterface {
-
     /**
      * Associates one or more pull requests with a specific issue. Returns resulting collection
      * Add Linked PRs
      */
-    async addLinkedPRsRaw(requestParameters: AddLinkedPRsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLinkedPRsResponse>> {
-        if (requestParameters['orgSlug'] == null) {
+    async addLinkedPRsRaw(
+        requestParameters: AddLinkedPRsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<IssueLinkedPRsResponse>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling addLinkedPRs().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling addLinkedPRs().'
             );
         }
 
-        if (requestParameters['issueSlug'] == null) {
+        if (requestParameters["issueSlug"] == null) {
             throw new runtime.RequiredError(
-                'issueSlug',
+                "issueSlug",
                 'Required parameter "issueSlug" was null or undefined when calling addLinkedPRs().'
             );
         }
 
-        if (requestParameters['modifyPullRequestCollectionRequest'] == null) {
+        if (requestParameters["modifyPullRequestCollectionRequest"] == null) {
             throw new runtime.RequiredError(
-                'modifyPullRequestCollectionRequest',
+                "modifyPullRequestCollectionRequest",
                 'Required parameter "modifyPullRequestCollectionRequest" was null or undefined when calling addLinkedPRs().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -243,26 +279,45 @@ export class IssuesLinkedPRsApi extends runtime.BaseAPI implements IssuesLinkedP
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/issues/{issue_slug}/linked_prs`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
-        urlPath = urlPath.replace(`{${"issue_slug"}}`, encodeURIComponent(String(requestParameters['issueSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"issue_slug"}}`,
+            encodeURIComponent(String(requestParameters["issueSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ModifyPullRequestCollectionRequestToJSON(requestParameters['modifyPullRequestCollectionRequest']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+                body: ModifyPullRequestCollectionRequestToJSON(
+                    requestParameters["modifyPullRequestCollectionRequest"]
+                ),
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => IssueLinkedPRsResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            IssueLinkedPRsResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * Associates one or more pull requests with a specific issue. Returns resulting collection
      * Add Linked PRs
      */
-    async addLinkedPRs(requestParameters: AddLinkedPRsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLinkedPRsResponse> {
+    async addLinkedPRs(
+        requestParameters: AddLinkedPRsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<IssueLinkedPRsResponse> {
         const response = await this.addLinkedPRsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -271,30 +326,33 @@ export class IssuesLinkedPRsApi extends runtime.BaseAPI implements IssuesLinkedP
      * Associates one or more pull requests with a specific issue. Returns resulting collection
      * Add linked PRs (By ID)
      */
-    async addLinkedPRsByIDRaw(requestParameters: AddLinkedPRsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLinkedPRsResponse>> {
-        if (requestParameters['issueId'] == null) {
+    async addLinkedPRsByIDRaw(
+        requestParameters: AddLinkedPRsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<IssueLinkedPRsResponse>> {
+        if (requestParameters["issueId"] == null) {
             throw new runtime.RequiredError(
-                'issueId',
+                "issueId",
                 'Required parameter "issueId" was null or undefined when calling addLinkedPRsByID().'
             );
         }
 
-        if (requestParameters['modifyPullRequestCollectionRequest'] == null) {
+        if (requestParameters["modifyPullRequestCollectionRequest"] == null) {
             throw new runtime.RequiredError(
-                'modifyPullRequestCollectionRequest',
+                "modifyPullRequestCollectionRequest",
                 'Required parameter "modifyPullRequestCollectionRequest" was null or undefined when calling addLinkedPRsByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -306,24 +364,37 @@ export class IssuesLinkedPRsApi extends runtime.BaseAPI implements IssuesLinkedP
         }
 
         let urlPath = `/issues/id:{issue_id}/linked_prs`;
-        urlPath = urlPath.replace(`{${"issue_id"}}`, encodeURIComponent(String(requestParameters['issueId'])));
+        urlPath = urlPath.replace(
+            `{${"issue_id"}}`,
+            encodeURIComponent(String(requestParameters["issueId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ModifyPullRequestCollectionRequestToJSON(requestParameters['modifyPullRequestCollectionRequest']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+                body: ModifyPullRequestCollectionRequestToJSON(
+                    requestParameters["modifyPullRequestCollectionRequest"]
+                ),
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => IssueLinkedPRsResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            IssueLinkedPRsResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * Associates one or more pull requests with a specific issue. Returns resulting collection
      * Add linked PRs (By ID)
      */
-    async addLinkedPRsByID(requestParameters: AddLinkedPRsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLinkedPRsResponse> {
+    async addLinkedPRsByID(
+        requestParameters: AddLinkedPRsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<IssueLinkedPRsResponse> {
         const response = await this.addLinkedPRsByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -332,24 +403,27 @@ export class IssuesLinkedPRsApi extends runtime.BaseAPI implements IssuesLinkedP
      * Retrieves all pull requests that are linked to the specified issue.
      * List Linked PRs
      */
-    async getLinkedPRsRaw(requestParameters: GetLinkedPRsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLinkedPRsResponse>> {
-        if (requestParameters['orgSlug'] == null) {
+    async getLinkedPRsRaw(
+        requestParameters: GetLinkedPRsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<IssueLinkedPRsResponse>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling getLinkedPRs().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling getLinkedPRs().'
             );
         }
 
-        if (requestParameters['issueSlug'] == null) {
+        if (requestParameters["issueSlug"] == null) {
             throw new runtime.RequiredError(
-                'issueSlug',
+                "issueSlug",
                 'Required parameter "issueSlug" was null or undefined when calling getLinkedPRs().'
             );
         }
@@ -368,25 +442,42 @@ export class IssuesLinkedPRsApi extends runtime.BaseAPI implements IssuesLinkedP
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/issues/{issue_slug}/linked_prs`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
-        urlPath = urlPath.replace(`{${"issue_slug"}}`, encodeURIComponent(String(requestParameters['issueSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"issue_slug"}}`,
+            encodeURIComponent(String(requestParameters["issueSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => IssueLinkedPRsResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            IssueLinkedPRsResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * Retrieves all pull requests that are linked to the specified issue.
      * List Linked PRs
      */
-    async getLinkedPRs(requestParameters: GetLinkedPRsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLinkedPRsResponse> {
+    async getLinkedPRs(
+        requestParameters: GetLinkedPRsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<IssueLinkedPRsResponse> {
         const response = await this.getLinkedPRsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -395,10 +486,13 @@ export class IssuesLinkedPRsApi extends runtime.BaseAPI implements IssuesLinkedP
      * Retrieves all pull requests that are linked to the specified issue.
      * List Linked PRs (By Issue ID)
      */
-    async getLinkedPRsByIDRaw(requestParameters: GetLinkedPRsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLinkedPRsResponse>> {
-        if (requestParameters['issueId'] == null) {
+    async getLinkedPRsByIDRaw(
+        requestParameters: GetLinkedPRsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<IssueLinkedPRsResponse>> {
+        if (requestParameters["issueId"] == null) {
             throw new runtime.RequiredError(
-                'issueId',
+                "issueId",
                 'Required parameter "issueId" was null or undefined when calling getLinkedPRsByID().'
             );
         }
@@ -417,23 +511,34 @@ export class IssuesLinkedPRsApi extends runtime.BaseAPI implements IssuesLinkedP
         }
 
         let urlPath = `/issues/id:{issue_id}/linked_prs`;
-        urlPath = urlPath.replace(`{${"issue_id"}}`, encodeURIComponent(String(requestParameters['issueId'])));
+        urlPath = urlPath.replace(
+            `{${"issue_id"}}`,
+            encodeURIComponent(String(requestParameters["issueId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => IssueLinkedPRsResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            IssueLinkedPRsResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * Retrieves all pull requests that are linked to the specified issue.
      * List Linked PRs (By Issue ID)
      */
-    async getLinkedPRsByID(requestParameters: GetLinkedPRsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLinkedPRsResponse> {
+    async getLinkedPRsByID(
+        requestParameters: GetLinkedPRsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<IssueLinkedPRsResponse> {
         const response = await this.getLinkedPRsByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -442,44 +547,47 @@ export class IssuesLinkedPRsApi extends runtime.BaseAPI implements IssuesLinkedP
      * Removes one or more pull requests with a specific issue. Returns resulting collection
      * Remove linked PRs
      */
-    async removeLinkedPRsRaw(requestParameters: RemoveLinkedPRsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLinkedPRsResponse>> {
-        if (requestParameters['orgSlug'] == null) {
+    async removeLinkedPRsRaw(
+        requestParameters: RemoveLinkedPRsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<IssueLinkedPRsResponse>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling removeLinkedPRs().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling removeLinkedPRs().'
             );
         }
 
-        if (requestParameters['issueSlug'] == null) {
+        if (requestParameters["issueSlug"] == null) {
             throw new runtime.RequiredError(
-                'issueSlug',
+                "issueSlug",
                 'Required parameter "issueSlug" was null or undefined when calling removeLinkedPRs().'
             );
         }
 
-        if (requestParameters['modifyPullRequestCollectionRequest'] == null) {
+        if (requestParameters["modifyPullRequestCollectionRequest"] == null) {
             throw new runtime.RequiredError(
-                'modifyPullRequestCollectionRequest',
+                "modifyPullRequestCollectionRequest",
                 'Required parameter "modifyPullRequestCollectionRequest" was null or undefined when calling removeLinkedPRs().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -491,26 +599,45 @@ export class IssuesLinkedPRsApi extends runtime.BaseAPI implements IssuesLinkedP
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/issues/{issue_slug}/linked_prs`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
-        urlPath = urlPath.replace(`{${"issue_slug"}}`, encodeURIComponent(String(requestParameters['issueSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"issue_slug"}}`,
+            encodeURIComponent(String(requestParameters["issueSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ModifyPullRequestCollectionRequestToJSON(requestParameters['modifyPullRequestCollectionRequest']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "DELETE",
+                headers: headerParameters,
+                query: queryParameters,
+                body: ModifyPullRequestCollectionRequestToJSON(
+                    requestParameters["modifyPullRequestCollectionRequest"]
+                ),
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => IssueLinkedPRsResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            IssueLinkedPRsResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * Removes one or more pull requests with a specific issue. Returns resulting collection
      * Remove linked PRs
      */
-    async removeLinkedPRs(requestParameters: RemoveLinkedPRsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLinkedPRsResponse> {
+    async removeLinkedPRs(
+        requestParameters: RemoveLinkedPRsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<IssueLinkedPRsResponse> {
         const response = await this.removeLinkedPRsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -519,30 +646,33 @@ export class IssuesLinkedPRsApi extends runtime.BaseAPI implements IssuesLinkedP
      * Removes one or more pull requests with a specific issue. Returns resulting collection
      * Remove linked PRs (by ID)
      */
-    async removeLinkedPRsByIDRaw(requestParameters: RemoveLinkedPRsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IssueLinkedPRsResponse>> {
-        if (requestParameters['issueId'] == null) {
+    async removeLinkedPRsByIDRaw(
+        requestParameters: RemoveLinkedPRsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<IssueLinkedPRsResponse>> {
+        if (requestParameters["issueId"] == null) {
             throw new runtime.RequiredError(
-                'issueId',
+                "issueId",
                 'Required parameter "issueId" was null or undefined when calling removeLinkedPRsByID().'
             );
         }
 
-        if (requestParameters['modifyPullRequestCollectionRequest'] == null) {
+        if (requestParameters["modifyPullRequestCollectionRequest"] == null) {
             throw new runtime.RequiredError(
-                'modifyPullRequestCollectionRequest',
+                "modifyPullRequestCollectionRequest",
                 'Required parameter "modifyPullRequestCollectionRequest" was null or undefined when calling removeLinkedPRsByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -554,26 +684,38 @@ export class IssuesLinkedPRsApi extends runtime.BaseAPI implements IssuesLinkedP
         }
 
         let urlPath = `/issues/id:{issue_id}/linked_prs`;
-        urlPath = urlPath.replace(`{${"issue_id"}}`, encodeURIComponent(String(requestParameters['issueId'])));
+        urlPath = urlPath.replace(
+            `{${"issue_id"}}`,
+            encodeURIComponent(String(requestParameters["issueId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-            body: ModifyPullRequestCollectionRequestToJSON(requestParameters['modifyPullRequestCollectionRequest']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "DELETE",
+                headers: headerParameters,
+                query: queryParameters,
+                body: ModifyPullRequestCollectionRequestToJSON(
+                    requestParameters["modifyPullRequestCollectionRequest"]
+                ),
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => IssueLinkedPRsResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            IssueLinkedPRsResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * Removes one or more pull requests with a specific issue. Returns resulting collection
      * Remove linked PRs (by ID)
      */
-    async removeLinkedPRsByID(requestParameters: RemoveLinkedPRsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IssueLinkedPRsResponse> {
+    async removeLinkedPRsByID(
+        requestParameters: RemoveLinkedPRsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<IssueLinkedPRsResponse> {
         const response = await this.removeLinkedPRsByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
-
 }

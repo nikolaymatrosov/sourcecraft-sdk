@@ -12,22 +12,18 @@
  * Do not edit the class manually.
  */
 
-
-import * as runtime from '../runtime';
-import type {
-  ApiErrorResponse,
-  ListIssueStatusesResponse,
-} from '../models/index';
+import * as runtime from "../runtime";
+import type { ApiErrorResponse, ListIssueStatusesResponse } from "../models/index";
 import {
     ApiErrorResponseFromJSON,
     ApiErrorResponseToJSON,
     ListIssueStatusesResponseFromJSON,
     ListIssueStatusesResponseToJSON,
-} from '../models/index';
+} from "../models/index";
 
 /**
  * IssuesStatusesApi - interface
- * 
+ *
  * @export
  * @interface IssuesStatusesApiInterface
  */
@@ -39,26 +35,30 @@ export interface IssuesStatusesApiInterface {
      * @throws {RequiredError}
      * @memberof IssuesStatusesApiInterface
      */
-    listIssueStatusRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListIssueStatusesResponse>>;
+    listIssueStatusRaw(
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListIssueStatusesResponse>>;
 
     /**
      * Lists Issue Statuses available for any issue
      * List system statuses
      */
-    listIssueStatus(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListIssueStatusesResponse>;
-
+    listIssueStatus(
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListIssueStatusesResponse>;
 }
 
 /**
- * 
+ *
  */
 export class IssuesStatusesApi extends runtime.BaseAPI implements IssuesStatusesApiInterface {
-
     /**
      * Lists Issue Statuses available for any issue
      * List system statuses
      */
-    async listIssueStatusRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListIssueStatusesResponse>> {
+    async listIssueStatusRaw(
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListIssueStatusesResponse>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -74,23 +74,29 @@ export class IssuesStatusesApi extends runtime.BaseAPI implements IssuesStatuses
 
         let urlPath = `/issue_statuses`;
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ListIssueStatusesResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            ListIssueStatusesResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * Lists Issue Statuses available for any issue
      * List system statuses
      */
-    async listIssueStatus(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListIssueStatusesResponse> {
+    async listIssueStatus(
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListIssueStatusesResponse> {
         const response = await this.listIssueStatusRaw(initOverrides);
         return await response.value();
     }
-
 }

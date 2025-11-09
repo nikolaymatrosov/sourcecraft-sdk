@@ -12,29 +12,29 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { IssueStatus } from './IssueStatus';
+import { mapValues } from "../runtime";
+import type { IssueStatus } from "./IssueStatus";
 import {
     IssueStatusFromJSON,
     IssueStatusFromJSONTyped,
     IssueStatusToJSON,
     IssueStatusToJSONTyped,
-} from './IssueStatus';
+} from "./IssueStatus";
 
 /**
- * 
+ *
  * @export
  * @interface ListIssueStatusesResponse
  */
 export interface ListIssueStatusesResponse {
     /**
-     * 
+     *
      * @type {string}
      * @memberof ListIssueStatusesResponse
      */
     nextPageToken?: string;
     /**
-     * 
+     *
      * @type {Array<IssueStatus>}
      * @memberof ListIssueStatusesResponse
      */
@@ -44,7 +44,9 @@ export interface ListIssueStatusesResponse {
 /**
  * Check if a given object implements the ListIssueStatusesResponse interface.
  */
-export function instanceOfListIssueStatusesResponse(value: object): value is ListIssueStatusesResponse {
+export function instanceOfListIssueStatusesResponse(
+    value: object
+): value is ListIssueStatusesResponse {
     return true;
 }
 
@@ -52,14 +54,19 @@ export function ListIssueStatusesResponseFromJSON(json: any): ListIssueStatusesR
     return ListIssueStatusesResponseFromJSONTyped(json, false);
 }
 
-export function ListIssueStatusesResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): ListIssueStatusesResponse {
+export function ListIssueStatusesResponseFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): ListIssueStatusesResponse {
     if (json == null) {
         return json;
     }
     return {
-        
-        'nextPageToken': json['next_page_token'] == null ? undefined : json['next_page_token'],
-        'statuses': json['statuses'] == null ? undefined : ((json['statuses'] as Array<any>).map(IssueStatusFromJSON)),
+        nextPageToken: json["next_page_token"] == null ? undefined : json["next_page_token"],
+        statuses:
+            json["statuses"] == null
+                ? undefined
+                : (json["statuses"] as Array<any>).map(IssueStatusFromJSON),
     };
 }
 
@@ -67,15 +74,19 @@ export function ListIssueStatusesResponseToJSON(json: any): ListIssueStatusesRes
     return ListIssueStatusesResponseToJSONTyped(json, false);
 }
 
-export function ListIssueStatusesResponseToJSONTyped(value?: ListIssueStatusesResponse | null, ignoreDiscriminator: boolean = false): any {
+export function ListIssueStatusesResponseToJSONTyped(
+    value?: ListIssueStatusesResponse | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'next_page_token': value['nextPageToken'],
-        'statuses': value['statuses'] == null ? undefined : ((value['statuses'] as Array<any>).map(IssueStatusToJSON)),
+        next_page_token: value["nextPageToken"],
+        statuses:
+            value["statuses"] == null
+                ? undefined
+                : (value["statuses"] as Array<any>).map(IssueStatusToJSON),
     };
 }
-

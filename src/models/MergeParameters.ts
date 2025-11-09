@@ -12,27 +12,27 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues } from "../runtime";
 /**
- * 
+ *
  * @export
  * @interface MergeParameters
  */
 export interface MergeParameters {
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof MergeParameters
      */
     deleteBranch?: boolean;
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof MergeParameters
      */
     rebase?: boolean;
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof MergeParameters
      */
@@ -50,15 +50,17 @@ export function MergeParametersFromJSON(json: any): MergeParameters {
     return MergeParametersFromJSONTyped(json, false);
 }
 
-export function MergeParametersFromJSONTyped(json: any, ignoreDiscriminator: boolean): MergeParameters {
+export function MergeParametersFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): MergeParameters {
     if (json == null) {
         return json;
     }
     return {
-        
-        'deleteBranch': json['delete_branch'] == null ? undefined : json['delete_branch'],
-        'rebase': json['rebase'] == null ? undefined : json['rebase'],
-        'squash': json['squash'] == null ? undefined : json['squash'],
+        deleteBranch: json["delete_branch"] == null ? undefined : json["delete_branch"],
+        rebase: json["rebase"] == null ? undefined : json["rebase"],
+        squash: json["squash"] == null ? undefined : json["squash"],
     };
 }
 
@@ -66,16 +68,17 @@ export function MergeParametersToJSON(json: any): MergeParameters {
     return MergeParametersToJSONTyped(json, false);
 }
 
-export function MergeParametersToJSONTyped(value?: MergeParameters | null, ignoreDiscriminator: boolean = false): any {
+export function MergeParametersToJSONTyped(
+    value?: MergeParameters | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'delete_branch': value['deleteBranch'],
-        'rebase': value['rebase'],
-        'squash': value['squash'],
+        delete_branch: value["deleteBranch"],
+        rebase: value["rebase"],
+        squash: value["squash"],
     };
 }
-

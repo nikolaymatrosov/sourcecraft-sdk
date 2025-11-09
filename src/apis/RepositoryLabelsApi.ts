@@ -12,15 +12,14 @@
  * Do not edit the class manually.
  */
 
-
-import * as runtime from '../runtime';
+import * as runtime from "../runtime";
 import type {
-  ApiErrorResponse,
-  CreateLabelBody,
-  ListLabelsForRepositoryResponse,
-  UpdateLabelBody,
-  V1Label,
-} from '../models/index';
+    ApiErrorResponse,
+    CreateLabelBody,
+    ListLabelsForRepositoryResponse,
+    UpdateLabelBody,
+    V1Label,
+} from "../models/index";
 import {
     ApiErrorResponseFromJSON,
     ApiErrorResponseToJSON,
@@ -32,7 +31,7 @@ import {
     UpdateLabelBodyToJSON,
     V1LabelFromJSON,
     V1LabelToJSON,
-} from '../models/index';
+} from "../models/index";
 
 export interface CreateLabelRequest {
     orgSlug: string;
@@ -102,228 +101,289 @@ export interface UpdateLabelByIDRequest {
 
 /**
  * RepositoryLabelsApi - interface
- * 
+ *
  * @export
  * @interface RepositoryLabelsApiInterface
  */
 export interface RepositoryLabelsApiInterface {
     /**
-     * 
+     *
      * @summary Create Label
      * @param {string} orgSlug Path parameters for different routes
-     * @param {string} repoSlug 
-     * @param {CreateLabelBody} createLabelBody 
-     * @param {boolean} [silent] 
+     * @param {string} repoSlug
+     * @param {CreateLabelBody} createLabelBody
+     * @param {boolean} [silent]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryLabelsApiInterface
      */
-    createLabelRaw(requestParameters: CreateLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Label>>;
+    createLabelRaw(
+        requestParameters: CreateLabelRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<V1Label>>;
 
     /**
      * Create Label
      */
-    createLabel(requestParameters: CreateLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Label>;
+    createLabel(
+        requestParameters: CreateLabelRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<V1Label>;
 
     /**
-     * 
+     *
      * @summary Create Label (By ID)
-     * @param {string} repoId 
-     * @param {CreateLabelBody} createLabelBody 
-     * @param {boolean} [silent] 
+     * @param {string} repoId
+     * @param {CreateLabelBody} createLabelBody
+     * @param {boolean} [silent]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryLabelsApiInterface
      */
-    createLabelByIDRaw(requestParameters: CreateLabelByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Label>>;
+    createLabelByIDRaw(
+        requestParameters: CreateLabelByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<V1Label>>;
 
     /**
      * Create Label (By ID)
      */
-    createLabelByID(requestParameters: CreateLabelByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Label>;
+    createLabelByID(
+        requestParameters: CreateLabelByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<V1Label>;
 
     /**
-     * 
+     *
      * @summary Delete label (By Slug)
      * @param {string} orgSlug Path parameters for different routes
-     * @param {string} repoSlug 
-     * @param {string} labelSlug 
-     * @param {boolean} [silent] 
+     * @param {string} repoSlug
+     * @param {string} labelSlug
+     * @param {boolean} [silent]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryLabelsApiInterface
      */
-    deleteLabelRaw(requestParameters: DeleteLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    deleteLabelRaw(
+        requestParameters: DeleteLabelRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<void>>;
 
     /**
      * Delete label (By Slug)
      */
-    deleteLabel(requestParameters: DeleteLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    deleteLabel(
+        requestParameters: DeleteLabelRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<void>;
 
     /**
-     * 
+     *
      * @summary Delete label (By Label ID)
-     * @param {string} labelId 
-     * @param {boolean} [silent] 
+     * @param {string} labelId
+     * @param {boolean} [silent]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryLabelsApiInterface
      */
-    deleteLabelByIDRaw(requestParameters: DeleteLabelByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>>;
+    deleteLabelByIDRaw(
+        requestParameters: DeleteLabelByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<void>>;
 
     /**
      * Delete label (By Label ID)
      */
-    deleteLabelByID(requestParameters: DeleteLabelByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void>;
+    deleteLabelByID(
+        requestParameters: DeleteLabelByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<void>;
 
     /**
-     * 
+     *
      * @summary Get Label (By Slug)
      * @param {string} orgSlug Path parameters for different routes
-     * @param {string} repoSlug 
-     * @param {string} labelSlug 
+     * @param {string} repoSlug
+     * @param {string} labelSlug
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryLabelsApiInterface
      */
-    getLabelRaw(requestParameters: GetLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Label>>;
+    getLabelRaw(
+        requestParameters: GetLabelRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<V1Label>>;
 
     /**
      * Get Label (By Slug)
      */
-    getLabel(requestParameters: GetLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Label>;
+    getLabel(
+        requestParameters: GetLabelRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<V1Label>;
 
     /**
-     * 
+     *
      * @summary Get Label (By Label ID)
-     * @param {string} labelId 
+     * @param {string} labelId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryLabelsApiInterface
      */
-    getLabelByIDRaw(requestParameters: GetLabelByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Label>>;
+    getLabelByIDRaw(
+        requestParameters: GetLabelByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<V1Label>>;
 
     /**
      * Get Label (By Label ID)
      */
-    getLabelByID(requestParameters: GetLabelByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Label>;
+    getLabelByID(
+        requestParameters: GetLabelByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<V1Label>;
 
     /**
-     * 
+     *
      * @summary List labels
      * @param {string} orgSlug Path parameters for different routes
-     * @param {string} repoSlug 
-     * @param {string} [pageSize] 
-     * @param {string} [pageToken] 
-     * @param {string} [sortBy] 
-     * @param {string} [filter] 
+     * @param {string} repoSlug
+     * @param {string} [pageSize]
+     * @param {string} [pageToken]
+     * @param {string} [sortBy]
+     * @param {string} [filter]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryLabelsApiInterface
      */
-    listLabelsForRepositoryRaw(requestParameters: ListLabelsForRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListLabelsForRepositoryResponse>>;
+    listLabelsForRepositoryRaw(
+        requestParameters: ListLabelsForRepositoryRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListLabelsForRepositoryResponse>>;
 
     /**
      * List labels
      */
-    listLabelsForRepository(requestParameters: ListLabelsForRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListLabelsForRepositoryResponse>;
+    listLabelsForRepository(
+        requestParameters: ListLabelsForRepositoryRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListLabelsForRepositoryResponse>;
 
     /**
-     * 
+     *
      * @summary List labels (By ID)
-     * @param {string} repoId 
-     * @param {string} [pageSize] 
-     * @param {string} [pageToken] 
-     * @param {string} [sortBy] 
-     * @param {string} [filter] 
+     * @param {string} repoId
+     * @param {string} [pageSize]
+     * @param {string} [pageToken]
+     * @param {string} [sortBy]
+     * @param {string} [filter]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryLabelsApiInterface
      */
-    listLabelsForRepositoryByIDRaw(requestParameters: ListLabelsForRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListLabelsForRepositoryResponse>>;
+    listLabelsForRepositoryByIDRaw(
+        requestParameters: ListLabelsForRepositoryByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListLabelsForRepositoryResponse>>;
 
     /**
      * List labels (By ID)
      */
-    listLabelsForRepositoryByID(requestParameters: ListLabelsForRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListLabelsForRepositoryResponse>;
+    listLabelsForRepositoryByID(
+        requestParameters: ListLabelsForRepositoryByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListLabelsForRepositoryResponse>;
 
     /**
-     * 
+     *
      * @summary Update Label (By Slug)
      * @param {string} orgSlug Path parameters for different routes
-     * @param {string} repoSlug 
-     * @param {string} labelSlug 
-     * @param {UpdateLabelBody} updateLabelBody 
-     * @param {boolean} [silent] 
+     * @param {string} repoSlug
+     * @param {string} labelSlug
+     * @param {UpdateLabelBody} updateLabelBody
+     * @param {boolean} [silent]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryLabelsApiInterface
      */
-    updateLabelRaw(requestParameters: UpdateLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Label>>;
+    updateLabelRaw(
+        requestParameters: UpdateLabelRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<V1Label>>;
 
     /**
      * Update Label (By Slug)
      */
-    updateLabel(requestParameters: UpdateLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Label>;
+    updateLabel(
+        requestParameters: UpdateLabelRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<V1Label>;
 
     /**
-     * 
+     *
      * @summary Update Label (By Label ID)
-     * @param {string} labelId 
-     * @param {UpdateLabelBody} updateLabelBody 
-     * @param {boolean} [silent] 
+     * @param {string} labelId
+     * @param {UpdateLabelBody} updateLabelBody
+     * @param {boolean} [silent]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryLabelsApiInterface
      */
-    updateLabelByIDRaw(requestParameters: UpdateLabelByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Label>>;
+    updateLabelByIDRaw(
+        requestParameters: UpdateLabelByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<V1Label>>;
 
     /**
      * Update Label (By Label ID)
      */
-    updateLabelByID(requestParameters: UpdateLabelByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Label>;
-
+    updateLabelByID(
+        requestParameters: UpdateLabelByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<V1Label>;
 }
 
 /**
- * 
+ *
  */
 export class RepositoryLabelsApi extends runtime.BaseAPI implements RepositoryLabelsApiInterface {
-
     /**
      * Create Label
      */
-    async createLabelRaw(requestParameters: CreateLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Label>> {
-        if (requestParameters['orgSlug'] == null) {
+    async createLabelRaw(
+        requestParameters: CreateLabelRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<V1Label>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling createLabel().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling createLabel().'
             );
         }
 
-        if (requestParameters['createLabelBody'] == null) {
+        if (requestParameters["createLabelBody"] == null) {
             throw new runtime.RequiredError(
-                'createLabelBody',
+                "createLabelBody",
                 'Required parameter "createLabelBody" was null or undefined when calling createLabel().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -335,16 +395,25 @@ export class RepositoryLabelsApi extends runtime.BaseAPI implements RepositoryLa
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/labels`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CreateLabelBodyToJSON(requestParameters['createLabelBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+                body: CreateLabelBodyToJSON(requestParameters["createLabelBody"]),
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => V1LabelFromJSON(jsonValue));
     }
@@ -352,7 +421,10 @@ export class RepositoryLabelsApi extends runtime.BaseAPI implements RepositoryLa
     /**
      * Create Label
      */
-    async createLabel(requestParameters: CreateLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Label> {
+    async createLabel(
+        requestParameters: CreateLabelRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<V1Label> {
         const response = await this.createLabelRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -360,30 +432,33 @@ export class RepositoryLabelsApi extends runtime.BaseAPI implements RepositoryLa
     /**
      * Create Label (By ID)
      */
-    async createLabelByIDRaw(requestParameters: CreateLabelByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Label>> {
-        if (requestParameters['repoId'] == null) {
+    async createLabelByIDRaw(
+        requestParameters: CreateLabelByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<V1Label>> {
+        if (requestParameters["repoId"] == null) {
             throw new runtime.RequiredError(
-                'repoId',
+                "repoId",
                 'Required parameter "repoId" was null or undefined when calling createLabelByID().'
             );
         }
 
-        if (requestParameters['createLabelBody'] == null) {
+        if (requestParameters["createLabelBody"] == null) {
             throw new runtime.RequiredError(
-                'createLabelBody',
+                "createLabelBody",
                 'Required parameter "createLabelBody" was null or undefined when calling createLabelByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -395,15 +470,21 @@ export class RepositoryLabelsApi extends runtime.BaseAPI implements RepositoryLa
         }
 
         let urlPath = `/repos/id:{repo_id}/labels`;
-        urlPath = urlPath.replace(`{${"repo_id"}}`, encodeURIComponent(String(requestParameters['repoId'])));
+        urlPath = urlPath.replace(
+            `{${"repo_id"}}`,
+            encodeURIComponent(String(requestParameters["repoId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CreateLabelBodyToJSON(requestParameters['createLabelBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+                body: CreateLabelBodyToJSON(requestParameters["createLabelBody"]),
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => V1LabelFromJSON(jsonValue));
     }
@@ -411,7 +492,10 @@ export class RepositoryLabelsApi extends runtime.BaseAPI implements RepositoryLa
     /**
      * Create Label (By ID)
      */
-    async createLabelByID(requestParameters: CreateLabelByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Label> {
+    async createLabelByID(
+        requestParameters: CreateLabelByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<V1Label> {
         const response = await this.createLabelByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -419,32 +503,35 @@ export class RepositoryLabelsApi extends runtime.BaseAPI implements RepositoryLa
     /**
      * Delete label (By Slug)
      */
-    async deleteLabelRaw(requestParameters: DeleteLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        if (requestParameters['orgSlug'] == null) {
+    async deleteLabelRaw(
+        requestParameters: DeleteLabelRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling deleteLabel().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling deleteLabel().'
             );
         }
 
-        if (requestParameters['labelSlug'] == null) {
+        if (requestParameters["labelSlug"] == null) {
             throw new runtime.RequiredError(
-                'labelSlug',
+                "labelSlug",
                 'Required parameter "labelSlug" was null or undefined when calling deleteLabel().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -459,16 +546,28 @@ export class RepositoryLabelsApi extends runtime.BaseAPI implements RepositoryLa
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/labels/{label_slug}`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
-        urlPath = urlPath.replace(`{${"label_slug"}}`, encodeURIComponent(String(requestParameters['labelSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"label_slug"}}`,
+            encodeURIComponent(String(requestParameters["labelSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "DELETE",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
         return new runtime.VoidApiResponse(response);
     }
@@ -476,25 +575,31 @@ export class RepositoryLabelsApi extends runtime.BaseAPI implements RepositoryLa
     /**
      * Delete label (By Slug)
      */
-    async deleteLabel(requestParameters: DeleteLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+    async deleteLabel(
+        requestParameters: DeleteLabelRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<void> {
         await this.deleteLabelRaw(requestParameters, initOverrides);
     }
 
     /**
      * Delete label (By Label ID)
      */
-    async deleteLabelByIDRaw(requestParameters: DeleteLabelByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
-        if (requestParameters['labelId'] == null) {
+    async deleteLabelByIDRaw(
+        requestParameters: DeleteLabelByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<void>> {
+        if (requestParameters["labelId"] == null) {
             throw new runtime.RequiredError(
-                'labelId',
+                "labelId",
                 'Required parameter "labelId" was null or undefined when calling deleteLabelByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -509,14 +614,20 @@ export class RepositoryLabelsApi extends runtime.BaseAPI implements RepositoryLa
         }
 
         let urlPath = `/labels/id:{label_id}`;
-        urlPath = urlPath.replace(`{${"label_id"}}`, encodeURIComponent(String(requestParameters['labelId'])));
+        urlPath = urlPath.replace(
+            `{${"label_id"}}`,
+            encodeURIComponent(String(requestParameters["labelId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "DELETE",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
         return new runtime.VoidApiResponse(response);
     }
@@ -524,31 +635,37 @@ export class RepositoryLabelsApi extends runtime.BaseAPI implements RepositoryLa
     /**
      * Delete label (By Label ID)
      */
-    async deleteLabelByID(requestParameters: DeleteLabelByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
+    async deleteLabelByID(
+        requestParameters: DeleteLabelByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<void> {
         await this.deleteLabelByIDRaw(requestParameters, initOverrides);
     }
 
     /**
      * Get Label (By Slug)
      */
-    async getLabelRaw(requestParameters: GetLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Label>> {
-        if (requestParameters['orgSlug'] == null) {
+    async getLabelRaw(
+        requestParameters: GetLabelRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<V1Label>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling getLabel().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling getLabel().'
             );
         }
 
-        if (requestParameters['labelSlug'] == null) {
+        if (requestParameters["labelSlug"] == null) {
             throw new runtime.RequiredError(
-                'labelSlug',
+                "labelSlug",
                 'Required parameter "labelSlug" was null or undefined when calling getLabel().'
             );
         }
@@ -567,16 +684,28 @@ export class RepositoryLabelsApi extends runtime.BaseAPI implements RepositoryLa
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/labels/{label_slug}`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
-        urlPath = urlPath.replace(`{${"label_slug"}}`, encodeURIComponent(String(requestParameters['labelSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"label_slug"}}`,
+            encodeURIComponent(String(requestParameters["labelSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => V1LabelFromJSON(jsonValue));
     }
@@ -584,7 +713,10 @@ export class RepositoryLabelsApi extends runtime.BaseAPI implements RepositoryLa
     /**
      * Get Label (By Slug)
      */
-    async getLabel(requestParameters: GetLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Label> {
+    async getLabel(
+        requestParameters: GetLabelRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<V1Label> {
         const response = await this.getLabelRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -592,10 +724,13 @@ export class RepositoryLabelsApi extends runtime.BaseAPI implements RepositoryLa
     /**
      * Get Label (By Label ID)
      */
-    async getLabelByIDRaw(requestParameters: GetLabelByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Label>> {
-        if (requestParameters['labelId'] == null) {
+    async getLabelByIDRaw(
+        requestParameters: GetLabelByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<V1Label>> {
+        if (requestParameters["labelId"] == null) {
             throw new runtime.RequiredError(
-                'labelId',
+                "labelId",
                 'Required parameter "labelId" was null or undefined when calling getLabelByID().'
             );
         }
@@ -614,14 +749,20 @@ export class RepositoryLabelsApi extends runtime.BaseAPI implements RepositoryLa
         }
 
         let urlPath = `/labels/id:{label_id}`;
-        urlPath = urlPath.replace(`{${"label_id"}}`, encodeURIComponent(String(requestParameters['labelId'])));
+        urlPath = urlPath.replace(
+            `{${"label_id"}}`,
+            encodeURIComponent(String(requestParameters["labelId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => V1LabelFromJSON(jsonValue));
     }
@@ -629,7 +770,10 @@ export class RepositoryLabelsApi extends runtime.BaseAPI implements RepositoryLa
     /**
      * Get Label (By Label ID)
      */
-    async getLabelByID(requestParameters: GetLabelByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Label> {
+    async getLabelByID(
+        requestParameters: GetLabelByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<V1Label> {
         const response = await this.getLabelByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -637,37 +781,40 @@ export class RepositoryLabelsApi extends runtime.BaseAPI implements RepositoryLa
     /**
      * List labels
      */
-    async listLabelsForRepositoryRaw(requestParameters: ListLabelsForRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListLabelsForRepositoryResponse>> {
-        if (requestParameters['orgSlug'] == null) {
+    async listLabelsForRepositoryRaw(
+        requestParameters: ListLabelsForRepositoryRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListLabelsForRepositoryResponse>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling listLabelsForRepository().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling listLabelsForRepository().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['pageSize'] != null) {
-            queryParameters['page_size'] = requestParameters['pageSize'];
+        if (requestParameters["pageSize"] != null) {
+            queryParameters["page_size"] = requestParameters["pageSize"];
         }
 
-        if (requestParameters['pageToken'] != null) {
-            queryParameters['page_token'] = requestParameters['pageToken'];
+        if (requestParameters["pageToken"] != null) {
+            queryParameters["page_token"] = requestParameters["pageToken"];
         }
 
-        if (requestParameters['sortBy'] != null) {
-            queryParameters['sort_by'] = requestParameters['sortBy'];
+        if (requestParameters["sortBy"] != null) {
+            queryParameters["sort_by"] = requestParameters["sortBy"];
         }
 
-        if (requestParameters['filter'] != null) {
-            queryParameters['filter'] = requestParameters['filter'];
+        if (requestParameters["filter"] != null) {
+            queryParameters["filter"] = requestParameters["filter"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -682,23 +829,37 @@ export class RepositoryLabelsApi extends runtime.BaseAPI implements RepositoryLa
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/labels`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ListLabelsForRepositoryResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            ListLabelsForRepositoryResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * List labels
      */
-    async listLabelsForRepository(requestParameters: ListLabelsForRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListLabelsForRepositoryResponse> {
+    async listLabelsForRepository(
+        requestParameters: ListLabelsForRepositoryRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListLabelsForRepositoryResponse> {
         const response = await this.listLabelsForRepositoryRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -706,30 +867,33 @@ export class RepositoryLabelsApi extends runtime.BaseAPI implements RepositoryLa
     /**
      * List labels (By ID)
      */
-    async listLabelsForRepositoryByIDRaw(requestParameters: ListLabelsForRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListLabelsForRepositoryResponse>> {
-        if (requestParameters['repoId'] == null) {
+    async listLabelsForRepositoryByIDRaw(
+        requestParameters: ListLabelsForRepositoryByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListLabelsForRepositoryResponse>> {
+        if (requestParameters["repoId"] == null) {
             throw new runtime.RequiredError(
-                'repoId',
+                "repoId",
                 'Required parameter "repoId" was null or undefined when calling listLabelsForRepositoryByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['pageSize'] != null) {
-            queryParameters['page_size'] = requestParameters['pageSize'];
+        if (requestParameters["pageSize"] != null) {
+            queryParameters["page_size"] = requestParameters["pageSize"];
         }
 
-        if (requestParameters['pageToken'] != null) {
-            queryParameters['page_token'] = requestParameters['pageToken'];
+        if (requestParameters["pageToken"] != null) {
+            queryParameters["page_token"] = requestParameters["pageToken"];
         }
 
-        if (requestParameters['sortBy'] != null) {
-            queryParameters['sort_by'] = requestParameters['sortBy'];
+        if (requestParameters["sortBy"] != null) {
+            queryParameters["sort_by"] = requestParameters["sortBy"];
         }
 
-        if (requestParameters['filter'] != null) {
-            queryParameters['filter'] = requestParameters['filter'];
+        if (requestParameters["filter"] != null) {
+            queryParameters["filter"] = requestParameters["filter"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -744,67 +908,84 @@ export class RepositoryLabelsApi extends runtime.BaseAPI implements RepositoryLa
         }
 
         let urlPath = `/repos/id:{repo_id}/labels`;
-        urlPath = urlPath.replace(`{${"repo_id"}}`, encodeURIComponent(String(requestParameters['repoId'])));
+        urlPath = urlPath.replace(
+            `{${"repo_id"}}`,
+            encodeURIComponent(String(requestParameters["repoId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ListLabelsForRepositoryResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            ListLabelsForRepositoryResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * List labels (By ID)
      */
-    async listLabelsForRepositoryByID(requestParameters: ListLabelsForRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListLabelsForRepositoryResponse> {
-        const response = await this.listLabelsForRepositoryByIDRaw(requestParameters, initOverrides);
+    async listLabelsForRepositoryByID(
+        requestParameters: ListLabelsForRepositoryByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListLabelsForRepositoryResponse> {
+        const response = await this.listLabelsForRepositoryByIDRaw(
+            requestParameters,
+            initOverrides
+        );
         return await response.value();
     }
 
     /**
      * Update Label (By Slug)
      */
-    async updateLabelRaw(requestParameters: UpdateLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Label>> {
-        if (requestParameters['orgSlug'] == null) {
+    async updateLabelRaw(
+        requestParameters: UpdateLabelRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<V1Label>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling updateLabel().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling updateLabel().'
             );
         }
 
-        if (requestParameters['labelSlug'] == null) {
+        if (requestParameters["labelSlug"] == null) {
             throw new runtime.RequiredError(
-                'labelSlug',
+                "labelSlug",
                 'Required parameter "labelSlug" was null or undefined when calling updateLabel().'
             );
         }
 
-        if (requestParameters['updateLabelBody'] == null) {
+        if (requestParameters["updateLabelBody"] == null) {
             throw new runtime.RequiredError(
-                'updateLabelBody',
+                "updateLabelBody",
                 'Required parameter "updateLabelBody" was null or undefined when calling updateLabel().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -816,17 +997,29 @@ export class RepositoryLabelsApi extends runtime.BaseAPI implements RepositoryLa
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/labels/{label_slug}`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
-        urlPath = urlPath.replace(`{${"label_slug"}}`, encodeURIComponent(String(requestParameters['labelSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"label_slug"}}`,
+            encodeURIComponent(String(requestParameters["labelSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'PATCH',
-            headers: headerParameters,
-            query: queryParameters,
-            body: UpdateLabelBodyToJSON(requestParameters['updateLabelBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "PATCH",
+                headers: headerParameters,
+                query: queryParameters,
+                body: UpdateLabelBodyToJSON(requestParameters["updateLabelBody"]),
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => V1LabelFromJSON(jsonValue));
     }
@@ -834,7 +1027,10 @@ export class RepositoryLabelsApi extends runtime.BaseAPI implements RepositoryLa
     /**
      * Update Label (By Slug)
      */
-    async updateLabel(requestParameters: UpdateLabelRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Label> {
+    async updateLabel(
+        requestParameters: UpdateLabelRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<V1Label> {
         const response = await this.updateLabelRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -842,30 +1038,33 @@ export class RepositoryLabelsApi extends runtime.BaseAPI implements RepositoryLa
     /**
      * Update Label (By Label ID)
      */
-    async updateLabelByIDRaw(requestParameters: UpdateLabelByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Label>> {
-        if (requestParameters['labelId'] == null) {
+    async updateLabelByIDRaw(
+        requestParameters: UpdateLabelByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<V1Label>> {
+        if (requestParameters["labelId"] == null) {
             throw new runtime.RequiredError(
-                'labelId',
+                "labelId",
                 'Required parameter "labelId" was null or undefined when calling updateLabelByID().'
             );
         }
 
-        if (requestParameters['updateLabelBody'] == null) {
+        if (requestParameters["updateLabelBody"] == null) {
             throw new runtime.RequiredError(
-                'updateLabelBody',
+                "updateLabelBody",
                 'Required parameter "updateLabelBody" was null or undefined when calling updateLabelByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -877,15 +1076,21 @@ export class RepositoryLabelsApi extends runtime.BaseAPI implements RepositoryLa
         }
 
         let urlPath = `/labels/id:{label_id}`;
-        urlPath = urlPath.replace(`{${"label_id"}}`, encodeURIComponent(String(requestParameters['labelId'])));
+        urlPath = urlPath.replace(
+            `{${"label_id"}}`,
+            encodeURIComponent(String(requestParameters["labelId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'PATCH',
-            headers: headerParameters,
-            query: queryParameters,
-            body: UpdateLabelBodyToJSON(requestParameters['updateLabelBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "PATCH",
+                headers: headerParameters,
+                query: queryParameters,
+                body: UpdateLabelBodyToJSON(requestParameters["updateLabelBody"]),
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => V1LabelFromJSON(jsonValue));
     }
@@ -893,9 +1098,11 @@ export class RepositoryLabelsApi extends runtime.BaseAPI implements RepositoryLa
     /**
      * Update Label (By Label ID)
      */
-    async updateLabelByID(requestParameters: UpdateLabelByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Label> {
+    async updateLabelByID(
+        requestParameters: UpdateLabelByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<V1Label> {
         const response = await this.updateLabelByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
-
 }

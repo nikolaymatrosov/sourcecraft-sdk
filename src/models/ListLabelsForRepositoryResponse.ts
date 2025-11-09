@@ -12,29 +12,29 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { V1Label } from './V1Label';
+import { mapValues } from "../runtime";
+import type { V1Label } from "./V1Label";
 import {
     V1LabelFromJSON,
     V1LabelFromJSONTyped,
     V1LabelToJSON,
     V1LabelToJSONTyped,
-} from './V1Label';
+} from "./V1Label";
 
 /**
- * 
+ *
  * @export
  * @interface ListLabelsForRepositoryResponse
  */
 export interface ListLabelsForRepositoryResponse {
     /**
-     * 
+     *
      * @type {Array<V1Label>}
      * @memberof ListLabelsForRepositoryResponse
      */
     items?: Array<V1Label>;
     /**
-     * 
+     *
      * @type {string}
      * @memberof ListLabelsForRepositoryResponse
      */
@@ -44,22 +44,29 @@ export interface ListLabelsForRepositoryResponse {
 /**
  * Check if a given object implements the ListLabelsForRepositoryResponse interface.
  */
-export function instanceOfListLabelsForRepositoryResponse(value: object): value is ListLabelsForRepositoryResponse {
+export function instanceOfListLabelsForRepositoryResponse(
+    value: object
+): value is ListLabelsForRepositoryResponse {
     return true;
 }
 
-export function ListLabelsForRepositoryResponseFromJSON(json: any): ListLabelsForRepositoryResponse {
+export function ListLabelsForRepositoryResponseFromJSON(
+    json: any
+): ListLabelsForRepositoryResponse {
     return ListLabelsForRepositoryResponseFromJSONTyped(json, false);
 }
 
-export function ListLabelsForRepositoryResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): ListLabelsForRepositoryResponse {
+export function ListLabelsForRepositoryResponseFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): ListLabelsForRepositoryResponse {
     if (json == null) {
         return json;
     }
     return {
-        
-        'items': json['items'] == null ? undefined : ((json['items'] as Array<any>).map(V1LabelFromJSON)),
-        'nextPageToken': json['next_page_token'] == null ? undefined : json['next_page_token'],
+        items:
+            json["items"] == null ? undefined : (json["items"] as Array<any>).map(V1LabelFromJSON),
+        nextPageToken: json["next_page_token"] == null ? undefined : json["next_page_token"],
     };
 }
 
@@ -67,15 +74,17 @@ export function ListLabelsForRepositoryResponseToJSON(json: any): ListLabelsForR
     return ListLabelsForRepositoryResponseToJSONTyped(json, false);
 }
 
-export function ListLabelsForRepositoryResponseToJSONTyped(value?: ListLabelsForRepositoryResponse | null, ignoreDiscriminator: boolean = false): any {
+export function ListLabelsForRepositoryResponseToJSONTyped(
+    value?: ListLabelsForRepositoryResponse | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'items': value['items'] == null ? undefined : ((value['items'] as Array<any>).map(V1LabelToJSON)),
-        'next_page_token': value['nextPageToken'],
+        items:
+            value["items"] == null ? undefined : (value["items"] as Array<any>).map(V1LabelToJSON),
+        next_page_token: value["nextPageToken"],
     };
 }
-

@@ -12,55 +12,53 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { ReviewDecision } from './ReviewDecision';
+import { mapValues } from "../runtime";
+import type { ReviewDecision } from "./ReviewDecision";
 import {
     ReviewDecisionFromJSON,
     ReviewDecisionFromJSONTyped,
     ReviewDecisionToJSON,
     ReviewDecisionToJSONTyped,
-} from './ReviewDecision';
-import type { UserEmbedded } from './UserEmbedded';
+} from "./ReviewDecision";
+import type { UserEmbedded } from "./UserEmbedded";
 import {
     UserEmbeddedFromJSON,
     UserEmbeddedFromJSONTyped,
     UserEmbeddedToJSON,
     UserEmbeddedToJSONTyped,
-} from './UserEmbedded';
+} from "./UserEmbedded";
 
 /**
- * 
+ *
  * @export
  * @interface PRReviewer
  */
 export interface PRReviewer {
     /**
-     * 
+     *
      * @type {Date}
      * @memberof PRReviewer
      */
     createdAt?: Date;
     /**
-     * 
+     *
      * @type {ReviewDecision}
      * @memberof PRReviewer
      */
     reviewDecision?: ReviewDecision;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof PRReviewer
      */
     updatedAt?: Date;
     /**
-     * 
+     *
      * @type {UserEmbedded}
      * @memberof PRReviewer
      */
     user?: UserEmbedded;
 }
-
-
 
 /**
  * Check if a given object implements the PRReviewer interface.
@@ -78,11 +76,13 @@ export function PRReviewerFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         return json;
     }
     return {
-        
-        'createdAt': json['created_at'] == null ? undefined : (new Date(json['created_at'])),
-        'reviewDecision': json['review_decision'] == null ? undefined : ReviewDecisionFromJSON(json['review_decision']),
-        'updatedAt': json['updated_at'] == null ? undefined : (new Date(json['updated_at'])),
-        'user': json['user'] == null ? undefined : UserEmbeddedFromJSON(json['user']),
+        createdAt: json["created_at"] == null ? undefined : new Date(json["created_at"]),
+        reviewDecision:
+            json["review_decision"] == null
+                ? undefined
+                : ReviewDecisionFromJSON(json["review_decision"]),
+        updatedAt: json["updated_at"] == null ? undefined : new Date(json["updated_at"]),
+        user: json["user"] == null ? undefined : UserEmbeddedFromJSON(json["user"]),
     };
 }
 
@@ -90,17 +90,20 @@ export function PRReviewerToJSON(json: any): PRReviewer {
     return PRReviewerToJSONTyped(json, false);
 }
 
-export function PRReviewerToJSONTyped(value?: PRReviewer | null, ignoreDiscriminator: boolean = false): any {
+export function PRReviewerToJSONTyped(
+    value?: PRReviewer | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'created_at': value['createdAt'] == null ? value['createdAt'] : value['createdAt'].toISOString(),
-        'review_decision': ReviewDecisionToJSON(value['reviewDecision']),
-        'updated_at': value['updatedAt'] == null ? value['updatedAt'] : value['updatedAt'].toISOString(),
-        'user': UserEmbeddedToJSON(value['user']),
+        created_at:
+            value["createdAt"] == null ? value["createdAt"] : value["createdAt"].toISOString(),
+        review_decision: ReviewDecisionToJSON(value["reviewDecision"]),
+        updated_at:
+            value["updatedAt"] == null ? value["updatedAt"] : value["updatedAt"].toISOString(),
+        user: UserEmbeddedToJSON(value["user"]),
     };
 }
-

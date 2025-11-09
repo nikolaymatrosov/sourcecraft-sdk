@@ -12,23 +12,18 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { V1Tag } from './V1Tag';
-import {
-    V1TagFromJSON,
-    V1TagFromJSONTyped,
-    V1TagToJSON,
-    V1TagToJSONTyped,
-} from './V1Tag';
+import { mapValues } from "../runtime";
+import type { V1Tag } from "./V1Tag";
+import { V1TagFromJSON, V1TagFromJSONTyped, V1TagToJSON, V1TagToJSONTyped } from "./V1Tag";
 
 /**
- * 
+ *
  * @export
  * @interface ListTagsResponse
  */
 export interface ListTagsResponse {
     /**
-     * 
+     *
      * @type {Array<V1Tag>}
      * @memberof ListTagsResponse
      */
@@ -53,14 +48,16 @@ export function ListTagsResponseFromJSON(json: any): ListTagsResponse {
     return ListTagsResponseFromJSONTyped(json, false);
 }
 
-export function ListTagsResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): ListTagsResponse {
+export function ListTagsResponseFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): ListTagsResponse {
     if (json == null) {
         return json;
     }
     return {
-        
-        'tags': json['tags'] == null ? undefined : ((json['tags'] as Array<any>).map(V1TagFromJSON)),
-        'nextPageToken': json['next_page_token'] == null ? undefined : json['next_page_token'],
+        tags: json["tags"] == null ? undefined : (json["tags"] as Array<any>).map(V1TagFromJSON),
+        nextPageToken: json["next_page_token"] == null ? undefined : json["next_page_token"],
     };
 }
 
@@ -68,15 +65,16 @@ export function ListTagsResponseToJSON(json: any): ListTagsResponse {
     return ListTagsResponseToJSONTyped(json, false);
 }
 
-export function ListTagsResponseToJSONTyped(value?: ListTagsResponse | null, ignoreDiscriminator: boolean = false): any {
+export function ListTagsResponseToJSONTyped(
+    value?: ListTagsResponse | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'tags': value['tags'] == null ? undefined : ((value['tags'] as Array<any>).map(V1TagToJSON)),
-        'next_page_token': value['nextPageToken'],
+        tags: value["tags"] == null ? undefined : (value["tags"] as Array<any>).map(V1TagToJSON),
+        next_page_token: value["nextPageToken"],
     };
 }
-

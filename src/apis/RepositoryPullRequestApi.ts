@@ -12,15 +12,14 @@
  * Do not edit the class manually.
  */
 
-
-import * as runtime from '../runtime';
+import * as runtime from "../runtime";
 import type {
-  ApiErrorResponse,
-  CreatePullRequestBody,
-  ListRepositoryPullRequestsResponse,
-  PullRequest,
-  UpdatePullRequestBody,
-} from '../models/index';
+    ApiErrorResponse,
+    CreatePullRequestBody,
+    ListRepositoryPullRequestsResponse,
+    PullRequest,
+    UpdatePullRequestBody,
+} from "../models/index";
 import {
     ApiErrorResponseFromJSON,
     ApiErrorResponseToJSON,
@@ -32,7 +31,7 @@ import {
     PullRequestToJSON,
     UpdatePullRequestBodyFromJSON,
     UpdatePullRequestBodyToJSON,
-} from '../models/index';
+} from "../models/index";
 
 export interface CreatePullRequestRequest {
     orgSlug: string;
@@ -148,157 +147,205 @@ export interface UpdatePullRequestByIDRequest {
 
 /**
  * RepositoryPullRequestApi - interface
- * 
+ *
  * @export
  * @interface RepositoryPullRequestApiInterface
  */
 export interface RepositoryPullRequestApiInterface {
     /**
-     * 
+     *
      * @summary Create PullRequest in Repository
-     * @param {string} orgSlug 
-     * @param {string} repoSlug 
-     * @param {CreatePullRequestBody} createPullRequestBody 
-     * @param {boolean} [silent] 
+     * @param {string} orgSlug
+     * @param {string} repoSlug
+     * @param {CreatePullRequestBody} createPullRequestBody
+     * @param {boolean} [silent]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryPullRequestApiInterface
      */
-    createPullRequestRaw(requestParameters: CreatePullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>>;
+    createPullRequestRaw(
+        requestParameters: CreatePullRequestRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<PullRequest>>;
 
     /**
      * Create PullRequest in Repository
      */
-    createPullRequest(requestParameters: CreatePullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest>;
+    createPullRequest(
+        requestParameters: CreatePullRequestRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<PullRequest>;
 
     /**
-     * 
+     *
      * @summary Create PullRequest in Repository (By Repo ID)
-     * @param {string} repoId 
-     * @param {CreatePullRequestBody} createPullRequestBody 
-     * @param {boolean} [silent] 
+     * @param {string} repoId
+     * @param {CreatePullRequestBody} createPullRequestBody
+     * @param {boolean} [silent]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryPullRequestApiInterface
      */
-    createPullRequestByIDRaw(requestParameters: CreatePullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>>;
+    createPullRequestByIDRaw(
+        requestParameters: CreatePullRequestByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<PullRequest>>;
 
     /**
      * Create PullRequest in Repository (By Repo ID)
      */
-    createPullRequestByID(requestParameters: CreatePullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest>;
+    createPullRequestByID(
+        requestParameters: CreatePullRequestByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<PullRequest>;
 
     /**
-     * 
+     *
      * @summary Discard PullRequest
-     * @param {string} orgSlug 
-     * @param {string} repoSlug 
-     * @param {string} pullRequestSlug 
-     * @param {string} [pullRequestId] 
-     * @param {boolean} [silent] 
+     * @param {string} orgSlug
+     * @param {string} repoSlug
+     * @param {string} pullRequestSlug
+     * @param {string} [pullRequestId]
+     * @param {boolean} [silent]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryPullRequestApiInterface
      */
-    discardPullRequestRaw(requestParameters: DiscardPullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>>;
+    discardPullRequestRaw(
+        requestParameters: DiscardPullRequestRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<PullRequest>>;
 
     /**
      * Discard PullRequest
      */
-    discardPullRequest(requestParameters: DiscardPullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest>;
+    discardPullRequest(
+        requestParameters: DiscardPullRequestRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<PullRequest>;
 
     /**
-     * 
+     *
      * @summary Discard PullRequest (By ID)
-     * @param {string} pullRequestId 
-     * @param {string} [pullRequestSlug] 
-     * @param {boolean} [silent] 
+     * @param {string} pullRequestId
+     * @param {string} [pullRequestSlug]
+     * @param {boolean} [silent]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryPullRequestApiInterface
      */
-    discardPullRequestByIDRaw(requestParameters: DiscardPullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>>;
+    discardPullRequestByIDRaw(
+        requestParameters: DiscardPullRequestByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<PullRequest>>;
 
     /**
      * Discard PullRequest (By ID)
      */
-    discardPullRequestByID(requestParameters: DiscardPullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest>;
+    discardPullRequestByID(
+        requestParameters: DiscardPullRequestByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<PullRequest>;
 
     /**
-     * 
+     *
      * @summary Draft PullRequest
-     * @param {string} orgSlug 
-     * @param {string} repoSlug 
-     * @param {string} pullRequestSlug 
-     * @param {string} [pullRequestId] 
-     * @param {boolean} [silent] 
+     * @param {string} orgSlug
+     * @param {string} repoSlug
+     * @param {string} pullRequestSlug
+     * @param {string} [pullRequestId]
+     * @param {boolean} [silent]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryPullRequestApiInterface
      */
-    draftPullRequestRaw(requestParameters: DraftPullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>>;
+    draftPullRequestRaw(
+        requestParameters: DraftPullRequestRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<PullRequest>>;
 
     /**
      * Draft PullRequest
      */
-    draftPullRequest(requestParameters: DraftPullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest>;
+    draftPullRequest(
+        requestParameters: DraftPullRequestRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<PullRequest>;
 
     /**
-     * 
+     *
      * @summary Draft PullRequest (By ID)
-     * @param {string} pullRequestId 
-     * @param {string} [pullRequestSlug] 
-     * @param {boolean} [silent] 
+     * @param {string} pullRequestId
+     * @param {string} [pullRequestSlug]
+     * @param {boolean} [silent]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryPullRequestApiInterface
      */
-    draftPullRequestByIDRaw(requestParameters: DraftPullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>>;
+    draftPullRequestByIDRaw(
+        requestParameters: DraftPullRequestByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<PullRequest>>;
 
     /**
      * Draft PullRequest (By ID)
      */
-    draftPullRequestByID(requestParameters: DraftPullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest>;
+    draftPullRequestByID(
+        requestParameters: DraftPullRequestByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<PullRequest>;
 
     /**
-     * 
+     *
      * @summary Get PullRequest
-     * @param {string} orgSlug 
-     * @param {string} repoSlug 
-     * @param {string} pullRequestSlug 
-     * @param {string} [pullRequestId] 
+     * @param {string} orgSlug
+     * @param {string} repoSlug
+     * @param {string} pullRequestSlug
+     * @param {string} [pullRequestId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryPullRequestApiInterface
      */
-    getPullRequestRaw(requestParameters: GetPullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>>;
+    getPullRequestRaw(
+        requestParameters: GetPullRequestRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<PullRequest>>;
 
     /**
      * Get PullRequest
      */
-    getPullRequest(requestParameters: GetPullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest>;
+    getPullRequest(
+        requestParameters: GetPullRequestRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<PullRequest>;
 
     /**
-     * 
+     *
      * @summary Get PullRequest (By ID)
-     * @param {string} pullRequestId 
-     * @param {string} [pullRequestSlug] 
+     * @param {string} pullRequestId
+     * @param {string} [pullRequestSlug]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryPullRequestApiInterface
      */
-    getPullRequestByIDRaw(requestParameters: GetPullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>>;
+    getPullRequestByIDRaw(
+        requestParameters: GetPullRequestByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<PullRequest>>;
 
     /**
      * Get PullRequest (By ID)
      */
-    getPullRequestByID(requestParameters: GetPullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest>;
+    getPullRequestByID(
+        requestParameters: GetPullRequestByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<PullRequest>;
 
     /**
      * Retrieves all pull requests from an repository
      * @summary List Repository Pull Requests
-     * @param {string} orgSlug 
-     * @param {string} repoSlug 
+     * @param {string} orgSlug
+     * @param {string} repoSlug
      * @param {string} [pageSize] The maximum number of pull requests to return. The service may return fewer than this value
      * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
      * @param {string} [sortBy] Ordering options: comma separated list of fields. For example: \&quot;name, created_at\&quot; Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;name, -created_at\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent. Available fields: title, created_at, updated_at
@@ -306,18 +353,24 @@ export interface RepositoryPullRequestApiInterface {
      * @throws {RequiredError}
      * @memberof RepositoryPullRequestApiInterface
      */
-    listRepositoryPullRequestsRaw(requestParameters: ListRepositoryPullRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListRepositoryPullRequestsResponse>>;
+    listRepositoryPullRequestsRaw(
+        requestParameters: ListRepositoryPullRequestsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListRepositoryPullRequestsResponse>>;
 
     /**
      * Retrieves all pull requests from an repository
      * List Repository Pull Requests
      */
-    listRepositoryPullRequests(requestParameters: ListRepositoryPullRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListRepositoryPullRequestsResponse>;
+    listRepositoryPullRequests(
+        requestParameters: ListRepositoryPullRequestsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListRepositoryPullRequestsResponse>;
 
     /**
      * Retrieves all pull requests from an repository
      * @summary List Repository Pull Requests (By Repo ID)
-     * @param {string} repoId 
+     * @param {string} repoId
      * @param {string} [pageSize] The maximum number of pull requests to return. The service may return fewer than this value
      * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
      * @param {string} [sortBy] Ordering options: comma separated list of fields. For example: \&quot;name, created_at\&quot; Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;name, -created_at\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent. Available fields: title, created_at, updated_at
@@ -325,165 +378,211 @@ export interface RepositoryPullRequestApiInterface {
      * @throws {RequiredError}
      * @memberof RepositoryPullRequestApiInterface
      */
-    listRepositoryPullRequestsByIDRaw(requestParameters: ListRepositoryPullRequestsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListRepositoryPullRequestsResponse>>;
+    listRepositoryPullRequestsByIDRaw(
+        requestParameters: ListRepositoryPullRequestsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListRepositoryPullRequestsResponse>>;
 
     /**
      * Retrieves all pull requests from an repository
      * List Repository Pull Requests (By Repo ID)
      */
-    listRepositoryPullRequestsByID(requestParameters: ListRepositoryPullRequestsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListRepositoryPullRequestsResponse>;
+    listRepositoryPullRequestsByID(
+        requestParameters: ListRepositoryPullRequestsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListRepositoryPullRequestsResponse>;
 
     /**
-     * 
+     *
      * @summary Publish PullRequest (change status to open)
-     * @param {string} orgSlug 
-     * @param {string} repoSlug 
-     * @param {string} pullRequestSlug 
-     * @param {string} [pullRequestId] 
-     * @param {boolean} [silent] 
+     * @param {string} orgSlug
+     * @param {string} repoSlug
+     * @param {string} pullRequestSlug
+     * @param {string} [pullRequestId]
+     * @param {boolean} [silent]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryPullRequestApiInterface
      */
-    publishPullRequestRaw(requestParameters: PublishPullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>>;
+    publishPullRequestRaw(
+        requestParameters: PublishPullRequestRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<PullRequest>>;
 
     /**
      * Publish PullRequest (change status to open)
      */
-    publishPullRequest(requestParameters: PublishPullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest>;
+    publishPullRequest(
+        requestParameters: PublishPullRequestRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<PullRequest>;
 
     /**
-     * 
+     *
      * @summary Publish PullRequest (By ID)
-     * @param {string} pullRequestId 
-     * @param {string} [pullRequestSlug] 
-     * @param {boolean} [silent] 
+     * @param {string} pullRequestId
+     * @param {string} [pullRequestSlug]
+     * @param {boolean} [silent]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryPullRequestApiInterface
      */
-    publishPullRequestByIDRaw(requestParameters: PublishPullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>>;
+    publishPullRequestByIDRaw(
+        requestParameters: PublishPullRequestByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<PullRequest>>;
 
     /**
      * Publish PullRequest (By ID)
      */
-    publishPullRequestByID(requestParameters: PublishPullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest>;
+    publishPullRequestByID(
+        requestParameters: PublishPullRequestByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<PullRequest>;
 
     /**
-     * 
+     *
      * @summary Reopen PullRequest
-     * @param {string} orgSlug 
-     * @param {string} repoSlug 
-     * @param {string} pullRequestSlug 
-     * @param {string} [pullRequestId] 
-     * @param {boolean} [silent] 
+     * @param {string} orgSlug
+     * @param {string} repoSlug
+     * @param {string} pullRequestSlug
+     * @param {string} [pullRequestId]
+     * @param {boolean} [silent]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryPullRequestApiInterface
      */
-    reopenPullRequestRaw(requestParameters: ReopenPullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>>;
+    reopenPullRequestRaw(
+        requestParameters: ReopenPullRequestRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<PullRequest>>;
 
     /**
      * Reopen PullRequest
      */
-    reopenPullRequest(requestParameters: ReopenPullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest>;
+    reopenPullRequest(
+        requestParameters: ReopenPullRequestRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<PullRequest>;
 
     /**
-     * 
+     *
      * @summary Reopen PullRequest (By ID)
-     * @param {string} pullRequestId 
-     * @param {string} [pullRequestSlug] 
-     * @param {boolean} [silent] 
+     * @param {string} pullRequestId
+     * @param {string} [pullRequestSlug]
+     * @param {boolean} [silent]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryPullRequestApiInterface
      */
-    reopenPullRequestByIDRaw(requestParameters: ReopenPullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>>;
+    reopenPullRequestByIDRaw(
+        requestParameters: ReopenPullRequestByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<PullRequest>>;
 
     /**
      * Reopen PullRequest (By ID)
      */
-    reopenPullRequestByID(requestParameters: ReopenPullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest>;
+    reopenPullRequestByID(
+        requestParameters: ReopenPullRequestByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<PullRequest>;
 
     /**
-     * 
+     *
      * @summary Update PullRequest
-     * @param {string} orgSlug 
-     * @param {string} repoSlug 
-     * @param {string} pullRequestSlug 
-     * @param {UpdatePullRequestBody} updatePullRequestBody 
-     * @param {string} [pullRequestId] 
-     * @param {boolean} [silent] 
+     * @param {string} orgSlug
+     * @param {string} repoSlug
+     * @param {string} pullRequestSlug
+     * @param {UpdatePullRequestBody} updatePullRequestBody
+     * @param {string} [pullRequestId]
+     * @param {boolean} [silent]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryPullRequestApiInterface
      */
-    updatePullRequestRaw(requestParameters: UpdatePullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>>;
+    updatePullRequestRaw(
+        requestParameters: UpdatePullRequestRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<PullRequest>>;
 
     /**
      * Update PullRequest
      */
-    updatePullRequest(requestParameters: UpdatePullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest>;
+    updatePullRequest(
+        requestParameters: UpdatePullRequestRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<PullRequest>;
 
     /**
-     * 
+     *
      * @summary Update PullRequest (By ID)
-     * @param {string} pullRequestId 
-     * @param {UpdatePullRequestBody} updatePullRequestBody 
-     * @param {string} [pullRequestSlug] 
-     * @param {boolean} [silent] 
+     * @param {string} pullRequestId
+     * @param {UpdatePullRequestBody} updatePullRequestBody
+     * @param {string} [pullRequestSlug]
+     * @param {boolean} [silent]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryPullRequestApiInterface
      */
-    updatePullRequestByIDRaw(requestParameters: UpdatePullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>>;
+    updatePullRequestByIDRaw(
+        requestParameters: UpdatePullRequestByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<PullRequest>>;
 
     /**
      * Update PullRequest (By ID)
      */
-    updatePullRequestByID(requestParameters: UpdatePullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest>;
-
+    updatePullRequestByID(
+        requestParameters: UpdatePullRequestByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<PullRequest>;
 }
 
 /**
- * 
+ *
  */
-export class RepositoryPullRequestApi extends runtime.BaseAPI implements RepositoryPullRequestApiInterface {
-
+export class RepositoryPullRequestApi
+    extends runtime.BaseAPI
+    implements RepositoryPullRequestApiInterface
+{
     /**
      * Create PullRequest in Repository
      */
-    async createPullRequestRaw(requestParameters: CreatePullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>> {
-        if (requestParameters['orgSlug'] == null) {
+    async createPullRequestRaw(
+        requestParameters: CreatePullRequestRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<PullRequest>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling createPullRequest().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling createPullRequest().'
             );
         }
 
-        if (requestParameters['createPullRequestBody'] == null) {
+        if (requestParameters["createPullRequestBody"] == null) {
             throw new runtime.RequiredError(
-                'createPullRequestBody',
+                "createPullRequestBody",
                 'Required parameter "createPullRequestBody" was null or undefined when calling createPullRequest().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -495,16 +594,25 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/pulls`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CreatePullRequestBodyToJSON(requestParameters['createPullRequestBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+                body: CreatePullRequestBodyToJSON(requestParameters["createPullRequestBody"]),
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PullRequestFromJSON(jsonValue));
     }
@@ -512,7 +620,10 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
     /**
      * Create PullRequest in Repository
      */
-    async createPullRequest(requestParameters: CreatePullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest> {
+    async createPullRequest(
+        requestParameters: CreatePullRequestRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<PullRequest> {
         const response = await this.createPullRequestRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -520,30 +631,33 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
     /**
      * Create PullRequest in Repository (By Repo ID)
      */
-    async createPullRequestByIDRaw(requestParameters: CreatePullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>> {
-        if (requestParameters['repoId'] == null) {
+    async createPullRequestByIDRaw(
+        requestParameters: CreatePullRequestByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<PullRequest>> {
+        if (requestParameters["repoId"] == null) {
             throw new runtime.RequiredError(
-                'repoId',
+                "repoId",
                 'Required parameter "repoId" was null or undefined when calling createPullRequestByID().'
             );
         }
 
-        if (requestParameters['createPullRequestBody'] == null) {
+        if (requestParameters["createPullRequestBody"] == null) {
             throw new runtime.RequiredError(
-                'createPullRequestBody',
+                "createPullRequestBody",
                 'Required parameter "createPullRequestBody" was null or undefined when calling createPullRequestByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -555,15 +669,21 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
         }
 
         let urlPath = `/repos/id:{repo_id}/pulls`;
-        urlPath = urlPath.replace(`{${"repo_id"}}`, encodeURIComponent(String(requestParameters['repoId'])));
+        urlPath = urlPath.replace(
+            `{${"repo_id"}}`,
+            encodeURIComponent(String(requestParameters["repoId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CreatePullRequestBodyToJSON(requestParameters['createPullRequestBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+                body: CreatePullRequestBodyToJSON(requestParameters["createPullRequestBody"]),
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PullRequestFromJSON(jsonValue));
     }
@@ -571,7 +691,10 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
     /**
      * Create PullRequest in Repository (By Repo ID)
      */
-    async createPullRequestByID(requestParameters: CreatePullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest> {
+    async createPullRequestByID(
+        requestParameters: CreatePullRequestByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<PullRequest> {
         const response = await this.createPullRequestByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -579,36 +702,39 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
     /**
      * Discard PullRequest
      */
-    async discardPullRequestRaw(requestParameters: DiscardPullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>> {
-        if (requestParameters['orgSlug'] == null) {
+    async discardPullRequestRaw(
+        requestParameters: DiscardPullRequestRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<PullRequest>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling discardPullRequest().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling discardPullRequest().'
             );
         }
 
-        if (requestParameters['pullRequestSlug'] == null) {
+        if (requestParameters["pullRequestSlug"] == null) {
             throw new runtime.RequiredError(
-                'pullRequestSlug',
+                "pullRequestSlug",
                 'Required parameter "pullRequestSlug" was null or undefined when calling discardPullRequest().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['pullRequestId'] != null) {
-            queryParameters['pull_request_id'] = requestParameters['pullRequestId'];
+        if (requestParameters["pullRequestId"] != null) {
+            queryParameters["pull_request_id"] = requestParameters["pullRequestId"];
         }
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -623,16 +749,28 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/pulls/{pull_request_slug}/discard`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
-        urlPath = urlPath.replace(`{${"pull_request_slug"}}`, encodeURIComponent(String(requestParameters['pullRequestSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"pull_request_slug"}}`,
+            encodeURIComponent(String(requestParameters["pullRequestSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PullRequestFromJSON(jsonValue));
     }
@@ -640,7 +778,10 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
     /**
      * Discard PullRequest
      */
-    async discardPullRequest(requestParameters: DiscardPullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest> {
+    async discardPullRequest(
+        requestParameters: DiscardPullRequestRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<PullRequest> {
         const response = await this.discardPullRequestRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -648,22 +789,25 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
     /**
      * Discard PullRequest (By ID)
      */
-    async discardPullRequestByIDRaw(requestParameters: DiscardPullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>> {
-        if (requestParameters['pullRequestId'] == null) {
+    async discardPullRequestByIDRaw(
+        requestParameters: DiscardPullRequestByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<PullRequest>> {
+        if (requestParameters["pullRequestId"] == null) {
             throw new runtime.RequiredError(
-                'pullRequestId',
+                "pullRequestId",
                 'Required parameter "pullRequestId" was null or undefined when calling discardPullRequestByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['pullRequestSlug'] != null) {
-            queryParameters['pull_request_slug'] = requestParameters['pullRequestSlug'];
+        if (requestParameters["pullRequestSlug"] != null) {
+            queryParameters["pull_request_slug"] = requestParameters["pullRequestSlug"];
         }
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -678,14 +822,20 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
         }
 
         let urlPath = `/pulls/id:{pull_request_id}/discard`;
-        urlPath = urlPath.replace(`{${"pull_request_id"}}`, encodeURIComponent(String(requestParameters['pullRequestId'])));
+        urlPath = urlPath.replace(
+            `{${"pull_request_id"}}`,
+            encodeURIComponent(String(requestParameters["pullRequestId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PullRequestFromJSON(jsonValue));
     }
@@ -693,7 +843,10 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
     /**
      * Discard PullRequest (By ID)
      */
-    async discardPullRequestByID(requestParameters: DiscardPullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest> {
+    async discardPullRequestByID(
+        requestParameters: DiscardPullRequestByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<PullRequest> {
         const response = await this.discardPullRequestByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -701,36 +854,39 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
     /**
      * Draft PullRequest
      */
-    async draftPullRequestRaw(requestParameters: DraftPullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>> {
-        if (requestParameters['orgSlug'] == null) {
+    async draftPullRequestRaw(
+        requestParameters: DraftPullRequestRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<PullRequest>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling draftPullRequest().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling draftPullRequest().'
             );
         }
 
-        if (requestParameters['pullRequestSlug'] == null) {
+        if (requestParameters["pullRequestSlug"] == null) {
             throw new runtime.RequiredError(
-                'pullRequestSlug',
+                "pullRequestSlug",
                 'Required parameter "pullRequestSlug" was null or undefined when calling draftPullRequest().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['pullRequestId'] != null) {
-            queryParameters['pull_request_id'] = requestParameters['pullRequestId'];
+        if (requestParameters["pullRequestId"] != null) {
+            queryParameters["pull_request_id"] = requestParameters["pullRequestId"];
         }
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -745,16 +901,28 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/pulls/{pull_request_slug}/draft`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
-        urlPath = urlPath.replace(`{${"pull_request_slug"}}`, encodeURIComponent(String(requestParameters['pullRequestSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"pull_request_slug"}}`,
+            encodeURIComponent(String(requestParameters["pullRequestSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PullRequestFromJSON(jsonValue));
     }
@@ -762,7 +930,10 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
     /**
      * Draft PullRequest
      */
-    async draftPullRequest(requestParameters: DraftPullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest> {
+    async draftPullRequest(
+        requestParameters: DraftPullRequestRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<PullRequest> {
         const response = await this.draftPullRequestRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -770,22 +941,25 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
     /**
      * Draft PullRequest (By ID)
      */
-    async draftPullRequestByIDRaw(requestParameters: DraftPullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>> {
-        if (requestParameters['pullRequestId'] == null) {
+    async draftPullRequestByIDRaw(
+        requestParameters: DraftPullRequestByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<PullRequest>> {
+        if (requestParameters["pullRequestId"] == null) {
             throw new runtime.RequiredError(
-                'pullRequestId',
+                "pullRequestId",
                 'Required parameter "pullRequestId" was null or undefined when calling draftPullRequestByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['pullRequestSlug'] != null) {
-            queryParameters['pull_request_slug'] = requestParameters['pullRequestSlug'];
+        if (requestParameters["pullRequestSlug"] != null) {
+            queryParameters["pull_request_slug"] = requestParameters["pullRequestSlug"];
         }
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -800,14 +974,20 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
         }
 
         let urlPath = `/pulls/id:{pull_request_id}/draft`;
-        urlPath = urlPath.replace(`{${"pull_request_id"}}`, encodeURIComponent(String(requestParameters['pullRequestId'])));
+        urlPath = urlPath.replace(
+            `{${"pull_request_id"}}`,
+            encodeURIComponent(String(requestParameters["pullRequestId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PullRequestFromJSON(jsonValue));
     }
@@ -815,7 +995,10 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
     /**
      * Draft PullRequest (By ID)
      */
-    async draftPullRequestByID(requestParameters: DraftPullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest> {
+    async draftPullRequestByID(
+        requestParameters: DraftPullRequestByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<PullRequest> {
         const response = await this.draftPullRequestByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -823,32 +1006,35 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
     /**
      * Get PullRequest
      */
-    async getPullRequestRaw(requestParameters: GetPullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>> {
-        if (requestParameters['orgSlug'] == null) {
+    async getPullRequestRaw(
+        requestParameters: GetPullRequestRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<PullRequest>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling getPullRequest().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling getPullRequest().'
             );
         }
 
-        if (requestParameters['pullRequestSlug'] == null) {
+        if (requestParameters["pullRequestSlug"] == null) {
             throw new runtime.RequiredError(
-                'pullRequestSlug',
+                "pullRequestSlug",
                 'Required parameter "pullRequestSlug" was null or undefined when calling getPullRequest().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['pullRequestId'] != null) {
-            queryParameters['pull_request_id'] = requestParameters['pullRequestId'];
+        if (requestParameters["pullRequestId"] != null) {
+            queryParameters["pull_request_id"] = requestParameters["pullRequestId"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -863,16 +1049,28 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/pulls/{pull_request_slug}`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
-        urlPath = urlPath.replace(`{${"pull_request_slug"}}`, encodeURIComponent(String(requestParameters['pullRequestSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"pull_request_slug"}}`,
+            encodeURIComponent(String(requestParameters["pullRequestSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PullRequestFromJSON(jsonValue));
     }
@@ -880,7 +1078,10 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
     /**
      * Get PullRequest
      */
-    async getPullRequest(requestParameters: GetPullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest> {
+    async getPullRequest(
+        requestParameters: GetPullRequestRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<PullRequest> {
         const response = await this.getPullRequestRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -888,18 +1089,21 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
     /**
      * Get PullRequest (By ID)
      */
-    async getPullRequestByIDRaw(requestParameters: GetPullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>> {
-        if (requestParameters['pullRequestId'] == null) {
+    async getPullRequestByIDRaw(
+        requestParameters: GetPullRequestByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<PullRequest>> {
+        if (requestParameters["pullRequestId"] == null) {
             throw new runtime.RequiredError(
-                'pullRequestId',
+                "pullRequestId",
                 'Required parameter "pullRequestId" was null or undefined when calling getPullRequestByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['pullRequestSlug'] != null) {
-            queryParameters['pull_request_slug'] = requestParameters['pullRequestSlug'];
+        if (requestParameters["pullRequestSlug"] != null) {
+            queryParameters["pull_request_slug"] = requestParameters["pullRequestSlug"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -914,14 +1118,20 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
         }
 
         let urlPath = `/pulls/id:{pull_request_id}`;
-        urlPath = urlPath.replace(`{${"pull_request_id"}}`, encodeURIComponent(String(requestParameters['pullRequestId'])));
+        urlPath = urlPath.replace(
+            `{${"pull_request_id"}}`,
+            encodeURIComponent(String(requestParameters["pullRequestId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PullRequestFromJSON(jsonValue));
     }
@@ -929,7 +1139,10 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
     /**
      * Get PullRequest (By ID)
      */
-    async getPullRequestByID(requestParameters: GetPullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest> {
+    async getPullRequestByID(
+        requestParameters: GetPullRequestByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<PullRequest> {
         const response = await this.getPullRequestByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -938,33 +1151,36 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
      * Retrieves all pull requests from an repository
      * List Repository Pull Requests
      */
-    async listRepositoryPullRequestsRaw(requestParameters: ListRepositoryPullRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListRepositoryPullRequestsResponse>> {
-        if (requestParameters['orgSlug'] == null) {
+    async listRepositoryPullRequestsRaw(
+        requestParameters: ListRepositoryPullRequestsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListRepositoryPullRequestsResponse>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling listRepositoryPullRequests().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling listRepositoryPullRequests().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['pageSize'] != null) {
-            queryParameters['page_size'] = requestParameters['pageSize'];
+        if (requestParameters["pageSize"] != null) {
+            queryParameters["page_size"] = requestParameters["pageSize"];
         }
 
-        if (requestParameters['pageToken'] != null) {
-            queryParameters['page_token'] = requestParameters['pageToken'];
+        if (requestParameters["pageToken"] != null) {
+            queryParameters["page_token"] = requestParameters["pageToken"];
         }
 
-        if (requestParameters['sortBy'] != null) {
-            queryParameters['sort_by'] = requestParameters['sortBy'];
+        if (requestParameters["sortBy"] != null) {
+            queryParameters["sort_by"] = requestParameters["sortBy"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -979,24 +1195,38 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/pulls`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ListRepositoryPullRequestsResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            ListRepositoryPullRequestsResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * Retrieves all pull requests from an repository
      * List Repository Pull Requests
      */
-    async listRepositoryPullRequests(requestParameters: ListRepositoryPullRequestsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListRepositoryPullRequestsResponse> {
+    async listRepositoryPullRequests(
+        requestParameters: ListRepositoryPullRequestsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListRepositoryPullRequestsResponse> {
         const response = await this.listRepositoryPullRequestsRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1005,26 +1235,29 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
      * Retrieves all pull requests from an repository
      * List Repository Pull Requests (By Repo ID)
      */
-    async listRepositoryPullRequestsByIDRaw(requestParameters: ListRepositoryPullRequestsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListRepositoryPullRequestsResponse>> {
-        if (requestParameters['repoId'] == null) {
+    async listRepositoryPullRequestsByIDRaw(
+        requestParameters: ListRepositoryPullRequestsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListRepositoryPullRequestsResponse>> {
+        if (requestParameters["repoId"] == null) {
             throw new runtime.RequiredError(
-                'repoId',
+                "repoId",
                 'Required parameter "repoId" was null or undefined when calling listRepositoryPullRequestsByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['pageSize'] != null) {
-            queryParameters['page_size'] = requestParameters['pageSize'];
+        if (requestParameters["pageSize"] != null) {
+            queryParameters["page_size"] = requestParameters["pageSize"];
         }
 
-        if (requestParameters['pageToken'] != null) {
-            queryParameters['page_token'] = requestParameters['pageToken'];
+        if (requestParameters["pageToken"] != null) {
+            queryParameters["page_token"] = requestParameters["pageToken"];
         }
 
-        if (requestParameters['sortBy'] != null) {
-            queryParameters['sort_by'] = requestParameters['sortBy'];
+        if (requestParameters["sortBy"] != null) {
+            queryParameters["sort_by"] = requestParameters["sortBy"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1039,60 +1272,77 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
         }
 
         let urlPath = `/repos/id:{repo_id}/pulls`;
-        urlPath = urlPath.replace(`{${"repo_id"}}`, encodeURIComponent(String(requestParameters['repoId'])));
+        urlPath = urlPath.replace(
+            `{${"repo_id"}}`,
+            encodeURIComponent(String(requestParameters["repoId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ListRepositoryPullRequestsResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            ListRepositoryPullRequestsResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * Retrieves all pull requests from an repository
      * List Repository Pull Requests (By Repo ID)
      */
-    async listRepositoryPullRequestsByID(requestParameters: ListRepositoryPullRequestsByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListRepositoryPullRequestsResponse> {
-        const response = await this.listRepositoryPullRequestsByIDRaw(requestParameters, initOverrides);
+    async listRepositoryPullRequestsByID(
+        requestParameters: ListRepositoryPullRequestsByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListRepositoryPullRequestsResponse> {
+        const response = await this.listRepositoryPullRequestsByIDRaw(
+            requestParameters,
+            initOverrides
+        );
         return await response.value();
     }
 
     /**
      * Publish PullRequest (change status to open)
      */
-    async publishPullRequestRaw(requestParameters: PublishPullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>> {
-        if (requestParameters['orgSlug'] == null) {
+    async publishPullRequestRaw(
+        requestParameters: PublishPullRequestRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<PullRequest>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling publishPullRequest().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling publishPullRequest().'
             );
         }
 
-        if (requestParameters['pullRequestSlug'] == null) {
+        if (requestParameters["pullRequestSlug"] == null) {
             throw new runtime.RequiredError(
-                'pullRequestSlug',
+                "pullRequestSlug",
                 'Required parameter "pullRequestSlug" was null or undefined when calling publishPullRequest().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['pullRequestId'] != null) {
-            queryParameters['pull_request_id'] = requestParameters['pullRequestId'];
+        if (requestParameters["pullRequestId"] != null) {
+            queryParameters["pull_request_id"] = requestParameters["pullRequestId"];
         }
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1107,16 +1357,28 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/pulls/{pull_request_slug}/publish`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
-        urlPath = urlPath.replace(`{${"pull_request_slug"}}`, encodeURIComponent(String(requestParameters['pullRequestSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"pull_request_slug"}}`,
+            encodeURIComponent(String(requestParameters["pullRequestSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PullRequestFromJSON(jsonValue));
     }
@@ -1124,7 +1386,10 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
     /**
      * Publish PullRequest (change status to open)
      */
-    async publishPullRequest(requestParameters: PublishPullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest> {
+    async publishPullRequest(
+        requestParameters: PublishPullRequestRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<PullRequest> {
         const response = await this.publishPullRequestRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1132,22 +1397,25 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
     /**
      * Publish PullRequest (By ID)
      */
-    async publishPullRequestByIDRaw(requestParameters: PublishPullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>> {
-        if (requestParameters['pullRequestId'] == null) {
+    async publishPullRequestByIDRaw(
+        requestParameters: PublishPullRequestByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<PullRequest>> {
+        if (requestParameters["pullRequestId"] == null) {
             throw new runtime.RequiredError(
-                'pullRequestId',
+                "pullRequestId",
                 'Required parameter "pullRequestId" was null or undefined when calling publishPullRequestByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['pullRequestSlug'] != null) {
-            queryParameters['pull_request_slug'] = requestParameters['pullRequestSlug'];
+        if (requestParameters["pullRequestSlug"] != null) {
+            queryParameters["pull_request_slug"] = requestParameters["pullRequestSlug"];
         }
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1162,14 +1430,20 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
         }
 
         let urlPath = `/pulls/id:{pull_request_id}/publish`;
-        urlPath = urlPath.replace(`{${"pull_request_id"}}`, encodeURIComponent(String(requestParameters['pullRequestId'])));
+        urlPath = urlPath.replace(
+            `{${"pull_request_id"}}`,
+            encodeURIComponent(String(requestParameters["pullRequestId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PullRequestFromJSON(jsonValue));
     }
@@ -1177,7 +1451,10 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
     /**
      * Publish PullRequest (By ID)
      */
-    async publishPullRequestByID(requestParameters: PublishPullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest> {
+    async publishPullRequestByID(
+        requestParameters: PublishPullRequestByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<PullRequest> {
         const response = await this.publishPullRequestByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1185,36 +1462,39 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
     /**
      * Reopen PullRequest
      */
-    async reopenPullRequestRaw(requestParameters: ReopenPullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>> {
-        if (requestParameters['orgSlug'] == null) {
+    async reopenPullRequestRaw(
+        requestParameters: ReopenPullRequestRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<PullRequest>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling reopenPullRequest().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling reopenPullRequest().'
             );
         }
 
-        if (requestParameters['pullRequestSlug'] == null) {
+        if (requestParameters["pullRequestSlug"] == null) {
             throw new runtime.RequiredError(
-                'pullRequestSlug',
+                "pullRequestSlug",
                 'Required parameter "pullRequestSlug" was null or undefined when calling reopenPullRequest().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['pullRequestId'] != null) {
-            queryParameters['pull_request_id'] = requestParameters['pullRequestId'];
+        if (requestParameters["pullRequestId"] != null) {
+            queryParameters["pull_request_id"] = requestParameters["pullRequestId"];
         }
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1229,16 +1509,28 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/pulls/{pull_request_slug}/reopen`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
-        urlPath = urlPath.replace(`{${"pull_request_slug"}}`, encodeURIComponent(String(requestParameters['pullRequestSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"pull_request_slug"}}`,
+            encodeURIComponent(String(requestParameters["pullRequestSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PullRequestFromJSON(jsonValue));
     }
@@ -1246,7 +1538,10 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
     /**
      * Reopen PullRequest
      */
-    async reopenPullRequest(requestParameters: ReopenPullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest> {
+    async reopenPullRequest(
+        requestParameters: ReopenPullRequestRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<PullRequest> {
         const response = await this.reopenPullRequestRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1254,22 +1549,25 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
     /**
      * Reopen PullRequest (By ID)
      */
-    async reopenPullRequestByIDRaw(requestParameters: ReopenPullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>> {
-        if (requestParameters['pullRequestId'] == null) {
+    async reopenPullRequestByIDRaw(
+        requestParameters: ReopenPullRequestByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<PullRequest>> {
+        if (requestParameters["pullRequestId"] == null) {
             throw new runtime.RequiredError(
-                'pullRequestId',
+                "pullRequestId",
                 'Required parameter "pullRequestId" was null or undefined when calling reopenPullRequestByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['pullRequestSlug'] != null) {
-            queryParameters['pull_request_slug'] = requestParameters['pullRequestSlug'];
+        if (requestParameters["pullRequestSlug"] != null) {
+            queryParameters["pull_request_slug"] = requestParameters["pullRequestSlug"];
         }
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -1284,14 +1582,20 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
         }
 
         let urlPath = `/pulls/id:{pull_request_id}/reopen`;
-        urlPath = urlPath.replace(`{${"pull_request_id"}}`, encodeURIComponent(String(requestParameters['pullRequestId'])));
+        urlPath = urlPath.replace(
+            `{${"pull_request_id"}}`,
+            encodeURIComponent(String(requestParameters["pullRequestId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PullRequestFromJSON(jsonValue));
     }
@@ -1299,7 +1603,10 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
     /**
      * Reopen PullRequest (By ID)
      */
-    async reopenPullRequestByID(requestParameters: ReopenPullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest> {
+    async reopenPullRequestByID(
+        requestParameters: ReopenPullRequestByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<PullRequest> {
         const response = await this.reopenPullRequestByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1307,48 +1614,51 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
     /**
      * Update PullRequest
      */
-    async updatePullRequestRaw(requestParameters: UpdatePullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>> {
-        if (requestParameters['orgSlug'] == null) {
+    async updatePullRequestRaw(
+        requestParameters: UpdatePullRequestRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<PullRequest>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling updatePullRequest().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling updatePullRequest().'
             );
         }
 
-        if (requestParameters['pullRequestSlug'] == null) {
+        if (requestParameters["pullRequestSlug"] == null) {
             throw new runtime.RequiredError(
-                'pullRequestSlug',
+                "pullRequestSlug",
                 'Required parameter "pullRequestSlug" was null or undefined when calling updatePullRequest().'
             );
         }
 
-        if (requestParameters['updatePullRequestBody'] == null) {
+        if (requestParameters["updatePullRequestBody"] == null) {
             throw new runtime.RequiredError(
-                'updatePullRequestBody',
+                "updatePullRequestBody",
                 'Required parameter "updatePullRequestBody" was null or undefined when calling updatePullRequest().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['pullRequestId'] != null) {
-            queryParameters['pull_request_id'] = requestParameters['pullRequestId'];
+        if (requestParameters["pullRequestId"] != null) {
+            queryParameters["pull_request_id"] = requestParameters["pullRequestId"];
         }
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -1360,17 +1670,29 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/pulls/{pull_request_slug}`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
-        urlPath = urlPath.replace(`{${"pull_request_slug"}}`, encodeURIComponent(String(requestParameters['pullRequestSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"pull_request_slug"}}`,
+            encodeURIComponent(String(requestParameters["pullRequestSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'PATCH',
-            headers: headerParameters,
-            query: queryParameters,
-            body: UpdatePullRequestBodyToJSON(requestParameters['updatePullRequestBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "PATCH",
+                headers: headerParameters,
+                query: queryParameters,
+                body: UpdatePullRequestBodyToJSON(requestParameters["updatePullRequestBody"]),
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PullRequestFromJSON(jsonValue));
     }
@@ -1378,7 +1700,10 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
     /**
      * Update PullRequest
      */
-    async updatePullRequest(requestParameters: UpdatePullRequestRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest> {
+    async updatePullRequest(
+        requestParameters: UpdatePullRequestRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<PullRequest> {
         const response = await this.updatePullRequestRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -1386,34 +1711,37 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
     /**
      * Update PullRequest (By ID)
      */
-    async updatePullRequestByIDRaw(requestParameters: UpdatePullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<PullRequest>> {
-        if (requestParameters['pullRequestId'] == null) {
+    async updatePullRequestByIDRaw(
+        requestParameters: UpdatePullRequestByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<PullRequest>> {
+        if (requestParameters["pullRequestId"] == null) {
             throw new runtime.RequiredError(
-                'pullRequestId',
+                "pullRequestId",
                 'Required parameter "pullRequestId" was null or undefined when calling updatePullRequestByID().'
             );
         }
 
-        if (requestParameters['updatePullRequestBody'] == null) {
+        if (requestParameters["updatePullRequestBody"] == null) {
             throw new runtime.RequiredError(
-                'updatePullRequestBody',
+                "updatePullRequestBody",
                 'Required parameter "updatePullRequestBody" was null or undefined when calling updatePullRequestByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['pullRequestSlug'] != null) {
-            queryParameters['pull_request_slug'] = requestParameters['pullRequestSlug'];
+        if (requestParameters["pullRequestSlug"] != null) {
+            queryParameters["pull_request_slug"] = requestParameters["pullRequestSlug"];
         }
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -1425,15 +1753,21 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
         }
 
         let urlPath = `/pulls/id:{pull_request_id}`;
-        urlPath = urlPath.replace(`{${"pull_request_id"}}`, encodeURIComponent(String(requestParameters['pullRequestId'])));
+        urlPath = urlPath.replace(
+            `{${"pull_request_id"}}`,
+            encodeURIComponent(String(requestParameters["pullRequestId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'PATCH',
-            headers: headerParameters,
-            query: queryParameters,
-            body: UpdatePullRequestBodyToJSON(requestParameters['updatePullRequestBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "PATCH",
+                headers: headerParameters,
+                query: queryParameters,
+                body: UpdatePullRequestBodyToJSON(requestParameters["updatePullRequestBody"]),
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PullRequestFromJSON(jsonValue));
     }
@@ -1441,9 +1775,11 @@ export class RepositoryPullRequestApi extends runtime.BaseAPI implements Reposit
     /**
      * Update PullRequest (By ID)
      */
-    async updatePullRequestByID(requestParameters: UpdatePullRequestByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<PullRequest> {
+    async updatePullRequestByID(
+        requestParameters: UpdatePullRequestByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<PullRequest> {
         const response = await this.updatePullRequestByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
-
 }

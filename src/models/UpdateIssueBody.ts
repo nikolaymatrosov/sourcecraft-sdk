@@ -12,79 +12,77 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { Priority } from './Priority';
+import { mapValues } from "../runtime";
+import type { Priority } from "./Priority";
 import {
     PriorityFromJSON,
     PriorityFromJSONTyped,
     PriorityToJSON,
     PriorityToJSONTyped,
-} from './Priority';
-import type { IssueVisibility } from './IssueVisibility';
+} from "./Priority";
+import type { IssueVisibility } from "./IssueVisibility";
 import {
     IssueVisibilityFromJSON,
     IssueVisibilityFromJSONTyped,
     IssueVisibilityToJSON,
     IssueVisibilityToJSONTyped,
-} from './IssueVisibility';
+} from "./IssueVisibility";
 
 /**
- * 
+ *
  * @export
  * @interface UpdateIssueBody
  */
 export interface UpdateIssueBody {
     /**
-     * 
+     *
      * @type {string}
      * @memberof UpdateIssueBody
      */
     assigneeId?: string;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof UpdateIssueBody
      */
     deadline?: Date;
     /**
-     * 
+     *
      * @type {string}
      * @memberof UpdateIssueBody
      */
     description?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof UpdateIssueBody
      */
     milestoneId?: string;
     /**
-     * 
+     *
      * @type {Priority}
      * @memberof UpdateIssueBody
      */
     priority?: Priority;
     /**
-     * 
+     *
      * @type {string}
      * @memberof UpdateIssueBody
      */
     statusSlug?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof UpdateIssueBody
      */
     title?: string;
     /**
-     * 
+     *
      * @type {IssueVisibility}
      * @memberof UpdateIssueBody
      */
     visibility?: IssueVisibility;
 }
-
-
 
 /**
  * Check if a given object implements the UpdateIssueBody interface.
@@ -97,20 +95,23 @@ export function UpdateIssueBodyFromJSON(json: any): UpdateIssueBody {
     return UpdateIssueBodyFromJSONTyped(json, false);
 }
 
-export function UpdateIssueBodyFromJSONTyped(json: any, ignoreDiscriminator: boolean): UpdateIssueBody {
+export function UpdateIssueBodyFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): UpdateIssueBody {
     if (json == null) {
         return json;
     }
     return {
-        
-        'assigneeId': json['assignee_id'] == null ? undefined : json['assignee_id'],
-        'deadline': json['deadline'] == null ? undefined : (new Date(json['deadline'])),
-        'description': json['description'] == null ? undefined : json['description'],
-        'milestoneId': json['milestone_id'] == null ? undefined : json['milestone_id'],
-        'priority': json['priority'] == null ? undefined : PriorityFromJSON(json['priority']),
-        'statusSlug': json['status_slug'] == null ? undefined : json['status_slug'],
-        'title': json['title'] == null ? undefined : json['title'],
-        'visibility': json['visibility'] == null ? undefined : IssueVisibilityFromJSON(json['visibility']),
+        assigneeId: json["assignee_id"] == null ? undefined : json["assignee_id"],
+        deadline: json["deadline"] == null ? undefined : new Date(json["deadline"]),
+        description: json["description"] == null ? undefined : json["description"],
+        milestoneId: json["milestone_id"] == null ? undefined : json["milestone_id"],
+        priority: json["priority"] == null ? undefined : PriorityFromJSON(json["priority"]),
+        statusSlug: json["status_slug"] == null ? undefined : json["status_slug"],
+        title: json["title"] == null ? undefined : json["title"],
+        visibility:
+            json["visibility"] == null ? undefined : IssueVisibilityFromJSON(json["visibility"]),
     };
 }
 
@@ -118,21 +119,22 @@ export function UpdateIssueBodyToJSON(json: any): UpdateIssueBody {
     return UpdateIssueBodyToJSONTyped(json, false);
 }
 
-export function UpdateIssueBodyToJSONTyped(value?: UpdateIssueBody | null, ignoreDiscriminator: boolean = false): any {
+export function UpdateIssueBodyToJSONTyped(
+    value?: UpdateIssueBody | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'assignee_id': value['assigneeId'],
-        'deadline': value['deadline'] == null ? value['deadline'] : value['deadline'].toISOString(),
-        'description': value['description'],
-        'milestone_id': value['milestoneId'],
-        'priority': PriorityToJSON(value['priority']),
-        'status_slug': value['statusSlug'],
-        'title': value['title'],
-        'visibility': IssueVisibilityToJSON(value['visibility']),
+        assignee_id: value["assigneeId"],
+        deadline: value["deadline"] == null ? value["deadline"] : value["deadline"].toISOString(),
+        description: value["description"],
+        milestone_id: value["milestoneId"],
+        priority: PriorityToJSON(value["priority"]),
+        status_slug: value["statusSlug"],
+        title: value["title"],
+        visibility: IssueVisibilityToJSON(value["visibility"]),
     };
 }
-

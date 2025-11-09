@@ -12,36 +12,34 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { DeltaAction } from './DeltaAction';
+import { mapValues } from "../runtime";
+import type { DeltaAction } from "./DeltaAction";
 import {
     DeltaActionFromJSON,
     DeltaActionFromJSONTyped,
     DeltaActionToJSON,
     DeltaActionToJSONTyped,
-} from './DeltaAction';
+} from "./DeltaAction";
 
 /**
- * 
+ *
  * @export
  * @interface V1ReviewerDelta
  */
 export interface V1ReviewerDelta {
     /**
-     * 
+     *
      * @type {DeltaAction}
      * @memberof V1ReviewerDelta
      */
     action?: DeltaAction;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1ReviewerDelta
      */
     userId?: string;
 }
-
-
 
 /**
  * Check if a given object implements the V1ReviewerDelta interface.
@@ -54,14 +52,16 @@ export function V1ReviewerDeltaFromJSON(json: any): V1ReviewerDelta {
     return V1ReviewerDeltaFromJSONTyped(json, false);
 }
 
-export function V1ReviewerDeltaFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1ReviewerDelta {
+export function V1ReviewerDeltaFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): V1ReviewerDelta {
     if (json == null) {
         return json;
     }
     return {
-        
-        'action': json['action'] == null ? undefined : DeltaActionFromJSON(json['action']),
-        'userId': json['user_id'] == null ? undefined : json['user_id'],
+        action: json["action"] == null ? undefined : DeltaActionFromJSON(json["action"]),
+        userId: json["user_id"] == null ? undefined : json["user_id"],
     };
 }
 
@@ -69,15 +69,16 @@ export function V1ReviewerDeltaToJSON(json: any): V1ReviewerDelta {
     return V1ReviewerDeltaToJSONTyped(json, false);
 }
 
-export function V1ReviewerDeltaToJSONTyped(value?: V1ReviewerDelta | null, ignoreDiscriminator: boolean = false): any {
+export function V1ReviewerDeltaToJSONTyped(
+    value?: V1ReviewerDelta | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'action': DeltaActionToJSON(value['action']),
-        'user_id': value['userId'],
+        action: DeltaActionToJSON(value["action"]),
+        user_id: value["userId"],
     };
 }
-

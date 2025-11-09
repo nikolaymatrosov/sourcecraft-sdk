@@ -12,36 +12,34 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { SubjectType } from './SubjectType';
+import { mapValues } from "../runtime";
+import type { SubjectType } from "./SubjectType";
 import {
     SubjectTypeFromJSON,
     SubjectTypeFromJSONTyped,
     SubjectTypeToJSON,
     SubjectTypeToJSONTyped,
-} from './SubjectType';
+} from "./SubjectType";
 
 /**
- * 
+ *
  * @export
  * @interface Subject
  */
 export interface Subject {
     /**
-     * 
+     *
      * @type {string}
      * @memberof Subject
      */
     id?: string;
     /**
-     * 
+     *
      * @type {SubjectType}
      * @memberof Subject
      */
     type?: SubjectType;
 }
-
-
 
 /**
  * Check if a given object implements the Subject interface.
@@ -59,9 +57,8 @@ export function SubjectFromJSONTyped(json: any, ignoreDiscriminator: boolean): S
         return json;
     }
     return {
-        
-        'id': json['id'] == null ? undefined : json['id'],
-        'type': json['type'] == null ? undefined : SubjectTypeFromJSON(json['type']),
+        id: json["id"] == null ? undefined : json["id"],
+        type: json["type"] == null ? undefined : SubjectTypeFromJSON(json["type"]),
     };
 }
 
@@ -69,15 +66,16 @@ export function SubjectToJSON(json: any): Subject {
     return SubjectToJSONTyped(json, false);
 }
 
-export function SubjectToJSONTyped(value?: Subject | null, ignoreDiscriminator: boolean = false): any {
+export function SubjectToJSONTyped(
+    value?: Subject | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'id': value['id'],
-        'type': SubjectTypeToJSON(value['type']),
+        id: value["id"],
+        type: SubjectTypeToJSON(value["type"]),
     };
 }
-

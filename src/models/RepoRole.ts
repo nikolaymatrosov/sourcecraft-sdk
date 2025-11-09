@@ -12,20 +12,18 @@
  * Do not edit the class manually.
  */
 
-
 /**
- * 
+ *
  * @export
  */
 export const RepoRole = {
-    Viewer: 'viewer',
-    Contributor: 'contributor',
-    Developer: 'developer',
-    Maintainer: 'maintainer',
-    Admin: 'admin'
+    Viewer: "viewer",
+    Contributor: "contributor",
+    Developer: "developer",
+    Maintainer: "maintainer",
+    Admin: "admin",
 } as const;
-export type RepoRole = typeof RepoRole[keyof typeof RepoRole];
-
+export type RepoRole = (typeof RepoRole)[keyof typeof RepoRole];
 
 export function instanceOfRepoRole(value: any): boolean {
     for (const key in RepoRole) {
@@ -53,4 +51,3 @@ export function RepoRoleToJSON(value?: RepoRole | null): any {
 export function RepoRoleToJSONTyped(value: any, ignoreDiscriminator: boolean): RepoRole {
     return value as RepoRole;
 }
-

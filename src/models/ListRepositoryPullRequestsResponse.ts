@@ -12,17 +12,17 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { PullRequest } from './PullRequest';
+import { mapValues } from "../runtime";
+import type { PullRequest } from "./PullRequest";
 import {
     PullRequestFromJSON,
     PullRequestFromJSONTyped,
     PullRequestToJSON,
     PullRequestToJSONTyped,
-} from './PullRequest';
+} from "./PullRequest";
 
 /**
- * 
+ *
  * @export
  * @interface ListRepositoryPullRequestsResponse
  */
@@ -35,7 +35,7 @@ export interface ListRepositoryPullRequestsResponse {
      */
     nextPageToken?: string;
     /**
-     * 
+     *
      * @type {Array<PullRequest>}
      * @memberof ListRepositoryPullRequestsResponse
      */
@@ -45,38 +45,53 @@ export interface ListRepositoryPullRequestsResponse {
 /**
  * Check if a given object implements the ListRepositoryPullRequestsResponse interface.
  */
-export function instanceOfListRepositoryPullRequestsResponse(value: object): value is ListRepositoryPullRequestsResponse {
+export function instanceOfListRepositoryPullRequestsResponse(
+    value: object
+): value is ListRepositoryPullRequestsResponse {
     return true;
 }
 
-export function ListRepositoryPullRequestsResponseFromJSON(json: any): ListRepositoryPullRequestsResponse {
+export function ListRepositoryPullRequestsResponseFromJSON(
+    json: any
+): ListRepositoryPullRequestsResponse {
     return ListRepositoryPullRequestsResponseFromJSONTyped(json, false);
 }
 
-export function ListRepositoryPullRequestsResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): ListRepositoryPullRequestsResponse {
+export function ListRepositoryPullRequestsResponseFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): ListRepositoryPullRequestsResponse {
     if (json == null) {
         return json;
     }
     return {
-        
-        'nextPageToken': json['next_page_token'] == null ? undefined : json['next_page_token'],
-        'pullRequests': json['pull_requests'] == null ? undefined : ((json['pull_requests'] as Array<any>).map(PullRequestFromJSON)),
+        nextPageToken: json["next_page_token"] == null ? undefined : json["next_page_token"],
+        pullRequests:
+            json["pull_requests"] == null
+                ? undefined
+                : (json["pull_requests"] as Array<any>).map(PullRequestFromJSON),
     };
 }
 
-export function ListRepositoryPullRequestsResponseToJSON(json: any): ListRepositoryPullRequestsResponse {
+export function ListRepositoryPullRequestsResponseToJSON(
+    json: any
+): ListRepositoryPullRequestsResponse {
     return ListRepositoryPullRequestsResponseToJSONTyped(json, false);
 }
 
-export function ListRepositoryPullRequestsResponseToJSONTyped(value?: ListRepositoryPullRequestsResponse | null, ignoreDiscriminator: boolean = false): any {
+export function ListRepositoryPullRequestsResponseToJSONTyped(
+    value?: ListRepositoryPullRequestsResponse | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'next_page_token': value['nextPageToken'],
-        'pull_requests': value['pullRequests'] == null ? undefined : ((value['pullRequests'] as Array<any>).map(PullRequestToJSON)),
+        next_page_token: value["nextPageToken"],
+        pull_requests:
+            value["pullRequests"] == null
+                ? undefined
+                : (value["pullRequests"] as Array<any>).map(PullRequestToJSON),
     };
 }
-

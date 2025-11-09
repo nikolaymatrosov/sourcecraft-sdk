@@ -12,21 +12,21 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues } from "../runtime";
 /**
- * 
+ *
  * @export
  * @interface IssueEmbedded
  */
 export interface IssueEmbedded {
     /**
-     * 
+     *
      * @type {string}
      * @memberof IssueEmbedded
      */
     id?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof IssueEmbedded
      */
@@ -49,9 +49,8 @@ export function IssueEmbeddedFromJSONTyped(json: any, ignoreDiscriminator: boole
         return json;
     }
     return {
-        
-        'id': json['id'] == null ? undefined : json['id'],
-        'slug': json['slug'] == null ? undefined : json['slug'],
+        id: json["id"] == null ? undefined : json["id"],
+        slug: json["slug"] == null ? undefined : json["slug"],
     };
 }
 
@@ -59,15 +58,16 @@ export function IssueEmbeddedToJSON(json: any): IssueEmbedded {
     return IssueEmbeddedToJSONTyped(json, false);
 }
 
-export function IssueEmbeddedToJSONTyped(value?: IssueEmbedded | null, ignoreDiscriminator: boolean = false): any {
+export function IssueEmbeddedToJSONTyped(
+    value?: IssueEmbedded | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'id': value['id'],
-        'slug': value['slug'],
+        id: value["id"],
+        slug: value["slug"],
     };
 }
-

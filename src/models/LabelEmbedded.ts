@@ -12,33 +12,33 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues } from "../runtime";
 /**
- * 
+ *
  * @export
  * @interface LabelEmbedded
  */
 export interface LabelEmbedded {
     /**
-     * 
+     *
      * @type {string}
      * @memberof LabelEmbedded
      */
     color?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof LabelEmbedded
      */
     id?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof LabelEmbedded
      */
     name?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof LabelEmbedded
      */
@@ -61,11 +61,10 @@ export function LabelEmbeddedFromJSONTyped(json: any, ignoreDiscriminator: boole
         return json;
     }
     return {
-        
-        'color': json['color'] == null ? undefined : json['color'],
-        'id': json['id'] == null ? undefined : json['id'],
-        'name': json['name'] == null ? undefined : json['name'],
-        'slug': json['slug'] == null ? undefined : json['slug'],
+        color: json["color"] == null ? undefined : json["color"],
+        id: json["id"] == null ? undefined : json["id"],
+        name: json["name"] == null ? undefined : json["name"],
+        slug: json["slug"] == null ? undefined : json["slug"],
     };
 }
 
@@ -73,17 +72,18 @@ export function LabelEmbeddedToJSON(json: any): LabelEmbedded {
     return LabelEmbeddedToJSONTyped(json, false);
 }
 
-export function LabelEmbeddedToJSONTyped(value?: LabelEmbedded | null, ignoreDiscriminator: boolean = false): any {
+export function LabelEmbeddedToJSONTyped(
+    value?: LabelEmbedded | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'color': value['color'],
-        'id': value['id'],
-        'name': value['name'],
-        'slug': value['slug'],
+        color: value["color"],
+        id: value["id"],
+        name: value["name"],
+        slug: value["slug"],
     };
 }
-

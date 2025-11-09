@@ -12,19 +12,17 @@
  * Do not edit the class manually.
  */
 
-
 /**
- * 
+ *
  * @export
  */
 export const ReviewDecision = {
-    Approve: 'approve',
-    Trust: 'trust',
-    Block: 'block',
-    Abstain: 'abstain'
+    Approve: "approve",
+    Trust: "trust",
+    Block: "block",
+    Abstain: "abstain",
 } as const;
-export type ReviewDecision = typeof ReviewDecision[keyof typeof ReviewDecision];
-
+export type ReviewDecision = (typeof ReviewDecision)[keyof typeof ReviewDecision];
 
 export function instanceOfReviewDecision(value: any): boolean {
     for (const key in ReviewDecision) {
@@ -41,7 +39,10 @@ export function ReviewDecisionFromJSON(json: any): ReviewDecision {
     return ReviewDecisionFromJSONTyped(json, false);
 }
 
-export function ReviewDecisionFromJSONTyped(json: any, ignoreDiscriminator: boolean): ReviewDecision {
+export function ReviewDecisionFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): ReviewDecision {
     return json as ReviewDecision;
 }
 
@@ -49,7 +50,9 @@ export function ReviewDecisionToJSON(value?: ReviewDecision | null): any {
     return value as any;
 }
 
-export function ReviewDecisionToJSONTyped(value: any, ignoreDiscriminator: boolean): ReviewDecision {
+export function ReviewDecisionToJSONTyped(
+    value: any,
+    ignoreDiscriminator: boolean
+): ReviewDecision {
     return value as ReviewDecision;
 }
-

@@ -12,23 +12,23 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { V1Label } from './V1Label';
+import { mapValues } from "../runtime";
+import type { V1Label } from "./V1Label";
 import {
     V1LabelFromJSON,
     V1LabelFromJSONTyped,
     V1LabelToJSON,
     V1LabelToJSONTyped,
-} from './V1Label';
+} from "./V1Label";
 
 /**
- * 
+ *
  * @export
  * @interface IssueLabelsResponse
  */
 export interface IssueLabelsResponse {
     /**
-     * 
+     *
      * @type {Array<V1Label>}
      * @memberof IssueLabelsResponse
      */
@@ -46,13 +46,18 @@ export function IssueLabelsResponseFromJSON(json: any): IssueLabelsResponse {
     return IssueLabelsResponseFromJSONTyped(json, false);
 }
 
-export function IssueLabelsResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): IssueLabelsResponse {
+export function IssueLabelsResponseFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): IssueLabelsResponse {
     if (json == null) {
         return json;
     }
     return {
-        
-        'labels': json['labels'] == null ? undefined : ((json['labels'] as Array<any>).map(V1LabelFromJSON)),
+        labels:
+            json["labels"] == null
+                ? undefined
+                : (json["labels"] as Array<any>).map(V1LabelFromJSON),
     };
 }
 
@@ -60,14 +65,18 @@ export function IssueLabelsResponseToJSON(json: any): IssueLabelsResponse {
     return IssueLabelsResponseToJSONTyped(json, false);
 }
 
-export function IssueLabelsResponseToJSONTyped(value?: IssueLabelsResponse | null, ignoreDiscriminator: boolean = false): any {
+export function IssueLabelsResponseToJSONTyped(
+    value?: IssueLabelsResponse | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'labels': value['labels'] == null ? undefined : ((value['labels'] as Array<any>).map(V1LabelToJSON)),
+        labels:
+            value["labels"] == null
+                ? undefined
+                : (value["labels"] as Array<any>).map(V1LabelToJSON),
     };
 }
-

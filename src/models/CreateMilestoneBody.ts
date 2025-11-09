@@ -12,39 +12,39 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues } from "../runtime";
 /**
- * 
+ *
  * @export
  * @interface CreateMilestoneBody
  */
 export interface CreateMilestoneBody {
     /**
-     * 
+     *
      * @type {Date}
      * @memberof CreateMilestoneBody
      */
     deadline?: Date;
     /**
-     * 
+     *
      * @type {string}
      * @memberof CreateMilestoneBody
      */
     description?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof CreateMilestoneBody
      */
     name: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof CreateMilestoneBody
      */
     slug?: string;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof CreateMilestoneBody
      */
@@ -55,7 +55,7 @@ export interface CreateMilestoneBody {
  * Check if a given object implements the CreateMilestoneBody interface.
  */
 export function instanceOfCreateMilestoneBody(value: object): value is CreateMilestoneBody {
-    if (!('name' in value) || value['name'] === undefined) return false;
+    if (!("name" in value) || value["name"] === undefined) return false;
     return true;
 }
 
@@ -63,17 +63,19 @@ export function CreateMilestoneBodyFromJSON(json: any): CreateMilestoneBody {
     return CreateMilestoneBodyFromJSONTyped(json, false);
 }
 
-export function CreateMilestoneBodyFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateMilestoneBody {
+export function CreateMilestoneBodyFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): CreateMilestoneBody {
     if (json == null) {
         return json;
     }
     return {
-        
-        'deadline': json['deadline'] == null ? undefined : (new Date(json['deadline'])),
-        'description': json['description'] == null ? undefined : json['description'],
-        'name': json['name'],
-        'slug': json['slug'] == null ? undefined : json['slug'],
-        'startDate': json['start_date'] == null ? undefined : (new Date(json['start_date'])),
+        deadline: json["deadline"] == null ? undefined : new Date(json["deadline"]),
+        description: json["description"] == null ? undefined : json["description"],
+        name: json["name"],
+        slug: json["slug"] == null ? undefined : json["slug"],
+        startDate: json["start_date"] == null ? undefined : new Date(json["start_date"]),
     };
 }
 
@@ -81,18 +83,20 @@ export function CreateMilestoneBodyToJSON(json: any): CreateMilestoneBody {
     return CreateMilestoneBodyToJSONTyped(json, false);
 }
 
-export function CreateMilestoneBodyToJSONTyped(value?: CreateMilestoneBody | null, ignoreDiscriminator: boolean = false): any {
+export function CreateMilestoneBodyToJSONTyped(
+    value?: CreateMilestoneBody | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'deadline': value['deadline'] == null ? value['deadline'] : value['deadline'].toISOString(),
-        'description': value['description'],
-        'name': value['name'],
-        'slug': value['slug'],
-        'start_date': value['startDate'] == null ? value['startDate'] : value['startDate'].toISOString(),
+        deadline: value["deadline"] == null ? value["deadline"] : value["deadline"].toISOString(),
+        description: value["description"],
+        name: value["name"],
+        slug: value["slug"],
+        start_date:
+            value["startDate"] == null ? value["startDate"] : value["startDate"].toISOString(),
     };
 }
-

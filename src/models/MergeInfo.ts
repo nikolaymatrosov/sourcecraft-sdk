@@ -12,54 +12,54 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { MergeParameters } from './MergeParameters';
+import { mapValues } from "../runtime";
+import type { MergeParameters } from "./MergeParameters";
 import {
     MergeParametersFromJSON,
     MergeParametersFromJSONTyped,
     MergeParametersToJSON,
     MergeParametersToJSONTyped,
-} from './MergeParameters';
-import type { UserEmbedded } from './UserEmbedded';
+} from "./MergeParameters";
+import type { UserEmbedded } from "./UserEmbedded";
 import {
     UserEmbeddedFromJSON,
     UserEmbeddedFromJSONTyped,
     UserEmbeddedToJSON,
     UserEmbeddedToJSONTyped,
-} from './UserEmbedded';
+} from "./UserEmbedded";
 
 /**
- * 
+ *
  * @export
  * @interface MergeInfo
  */
 export interface MergeInfo {
     /**
-     * 
+     *
      * @type {string}
      * @memberof MergeInfo
      */
     error?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof MergeInfo
      */
     mergeCommitHash?: string;
     /**
-     * 
+     *
      * @type {MergeParameters}
      * @memberof MergeInfo
      */
     mergeParameters?: MergeParameters;
     /**
-     * 
+     *
      * @type {UserEmbedded}
      * @memberof MergeInfo
      */
     merger?: UserEmbedded;
     /**
-     * 
+     *
      * @type {string}
      * @memberof MergeInfo
      */
@@ -82,12 +82,15 @@ export function MergeInfoFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         return json;
     }
     return {
-        
-        'error': json['error'] == null ? undefined : json['error'],
-        'mergeCommitHash': json['merge_commit_hash'] == null ? undefined : json['merge_commit_hash'],
-        'mergeParameters': json['merge_parameters'] == null ? undefined : MergeParametersFromJSON(json['merge_parameters']),
-        'merger': json['merger'] == null ? undefined : UserEmbeddedFromJSON(json['merger']),
-        'targetCommitHash': json['target_commit_hash'] == null ? undefined : json['target_commit_hash'],
+        error: json["error"] == null ? undefined : json["error"],
+        mergeCommitHash: json["merge_commit_hash"] == null ? undefined : json["merge_commit_hash"],
+        mergeParameters:
+            json["merge_parameters"] == null
+                ? undefined
+                : MergeParametersFromJSON(json["merge_parameters"]),
+        merger: json["merger"] == null ? undefined : UserEmbeddedFromJSON(json["merger"]),
+        targetCommitHash:
+            json["target_commit_hash"] == null ? undefined : json["target_commit_hash"],
     };
 }
 
@@ -95,18 +98,19 @@ export function MergeInfoToJSON(json: any): MergeInfo {
     return MergeInfoToJSONTyped(json, false);
 }
 
-export function MergeInfoToJSONTyped(value?: MergeInfo | null, ignoreDiscriminator: boolean = false): any {
+export function MergeInfoToJSONTyped(
+    value?: MergeInfo | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'error': value['error'],
-        'merge_commit_hash': value['mergeCommitHash'],
-        'merge_parameters': MergeParametersToJSON(value['mergeParameters']),
-        'merger': UserEmbeddedToJSON(value['merger']),
-        'target_commit_hash': value['targetCommitHash'],
+        error: value["error"],
+        merge_commit_hash: value["mergeCommitHash"],
+        merge_parameters: MergeParametersToJSON(value["mergeParameters"]),
+        merger: UserEmbeddedToJSON(value["merger"]),
+        target_commit_hash: value["targetCommitHash"],
     };
 }
-

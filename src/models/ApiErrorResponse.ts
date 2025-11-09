@@ -12,33 +12,33 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues } from "../runtime";
 /**
- * 
+ *
  * @export
  * @interface ApiErrorResponse
  */
 export interface ApiErrorResponse {
     /**
-     * 
+     *
      * @type {{ [key: string]: string; }}
      * @memberof ApiErrorResponse
      */
-    details?: { [key: string]: string; };
+    details?: { [key: string]: string };
     /**
-     * 
+     *
      * @type {string}
      * @memberof ApiErrorResponse
      */
     errorCode?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof ApiErrorResponse
      */
     message?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof ApiErrorResponse
      */
@@ -56,16 +56,18 @@ export function ApiErrorResponseFromJSON(json: any): ApiErrorResponse {
     return ApiErrorResponseFromJSONTyped(json, false);
 }
 
-export function ApiErrorResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): ApiErrorResponse {
+export function ApiErrorResponseFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): ApiErrorResponse {
     if (json == null) {
         return json;
     }
     return {
-        
-        'details': json['details'] == null ? undefined : json['details'],
-        'errorCode': json['error_code'] == null ? undefined : json['error_code'],
-        'message': json['message'] == null ? undefined : json['message'],
-        'requestId': json['request_id'] == null ? undefined : json['request_id'],
+        details: json["details"] == null ? undefined : json["details"],
+        errorCode: json["error_code"] == null ? undefined : json["error_code"],
+        message: json["message"] == null ? undefined : json["message"],
+        requestId: json["request_id"] == null ? undefined : json["request_id"],
     };
 }
 
@@ -73,17 +75,18 @@ export function ApiErrorResponseToJSON(json: any): ApiErrorResponse {
     return ApiErrorResponseToJSONTyped(json, false);
 }
 
-export function ApiErrorResponseToJSONTyped(value?: ApiErrorResponse | null, ignoreDiscriminator: boolean = false): any {
+export function ApiErrorResponseToJSONTyped(
+    value?: ApiErrorResponse | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'details': value['details'],
-        'error_code': value['errorCode'],
-        'message': value['message'],
-        'request_id': value['requestId'],
+        details: value["details"],
+        error_code: value["errorCode"],
+        message: value["message"],
+        request_id: value["requestId"],
     };
 }
-

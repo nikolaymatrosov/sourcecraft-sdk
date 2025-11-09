@@ -12,20 +12,18 @@
  * Do not edit the class manually.
  */
 
-
 /**
- * 
+ *
  * @export
  */
 export const StatusType = {
-    Initial: 'initial',
-    InProgress: 'in_progress',
-    Paused: 'paused',
-    Completed: 'completed',
-    Cancelled: 'cancelled'
+    Initial: "initial",
+    InProgress: "in_progress",
+    Paused: "paused",
+    Completed: "completed",
+    Cancelled: "cancelled",
 } as const;
-export type StatusType = typeof StatusType[keyof typeof StatusType];
-
+export type StatusType = (typeof StatusType)[keyof typeof StatusType];
 
 export function instanceOfStatusType(value: any): boolean {
     for (const key in StatusType) {
@@ -53,4 +51,3 @@ export function StatusTypeToJSON(value?: StatusType | null): any {
 export function StatusTypeToJSONTyped(value: any, ignoreDiscriminator: boolean): StatusType {
     return value as StatusType;
 }
-

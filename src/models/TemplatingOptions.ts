@@ -12,15 +12,15 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues } from "../runtime";
 /**
- * 
+ *
  * @export
  * @interface TemplatingOptions
  */
 export interface TemplatingOptions {
     /**
-     * 
+     *
      * @type {string}
      * @memberof TemplatingOptions
      */
@@ -38,13 +38,15 @@ export function TemplatingOptionsFromJSON(json: any): TemplatingOptions {
     return TemplatingOptionsFromJSONTyped(json, false);
 }
 
-export function TemplatingOptionsFromJSONTyped(json: any, ignoreDiscriminator: boolean): TemplatingOptions {
+export function TemplatingOptionsFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): TemplatingOptions {
     if (json == null) {
         return json;
     }
     return {
-        
-        'templateId': json['template_id'] == null ? undefined : json['template_id'],
+        templateId: json["template_id"] == null ? undefined : json["template_id"],
     };
 }
 
@@ -52,14 +54,15 @@ export function TemplatingOptionsToJSON(json: any): TemplatingOptions {
     return TemplatingOptionsToJSONTyped(json, false);
 }
 
-export function TemplatingOptionsToJSONTyped(value?: TemplatingOptions | null, ignoreDiscriminator: boolean = false): any {
+export function TemplatingOptionsToJSONTyped(
+    value?: TemplatingOptions | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'template_id': value['templateId'],
+        template_id: value["templateId"],
     };
 }
-

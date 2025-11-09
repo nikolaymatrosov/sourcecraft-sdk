@@ -12,27 +12,27 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues } from "../runtime";
 /**
- * 
+ *
  * @export
  * @interface CreateLabelBody
  */
 export interface CreateLabelBody {
     /**
-     * 
+     *
      * @type {string}
      * @memberof CreateLabelBody
      */
     color?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof CreateLabelBody
      */
     name: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof CreateLabelBody
      */
@@ -43,7 +43,7 @@ export interface CreateLabelBody {
  * Check if a given object implements the CreateLabelBody interface.
  */
 export function instanceOfCreateLabelBody(value: object): value is CreateLabelBody {
-    if (!('name' in value) || value['name'] === undefined) return false;
+    if (!("name" in value) || value["name"] === undefined) return false;
     return true;
 }
 
@@ -51,15 +51,17 @@ export function CreateLabelBodyFromJSON(json: any): CreateLabelBody {
     return CreateLabelBodyFromJSONTyped(json, false);
 }
 
-export function CreateLabelBodyFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateLabelBody {
+export function CreateLabelBodyFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): CreateLabelBody {
     if (json == null) {
         return json;
     }
     return {
-        
-        'color': json['color'] == null ? undefined : json['color'],
-        'name': json['name'],
-        'slug': json['slug'] == null ? undefined : json['slug'],
+        color: json["color"] == null ? undefined : json["color"],
+        name: json["name"],
+        slug: json["slug"] == null ? undefined : json["slug"],
     };
 }
 
@@ -67,16 +69,17 @@ export function CreateLabelBodyToJSON(json: any): CreateLabelBody {
     return CreateLabelBodyToJSONTyped(json, false);
 }
 
-export function CreateLabelBodyToJSONTyped(value?: CreateLabelBody | null, ignoreDiscriminator: boolean = false): any {
+export function CreateLabelBodyToJSONTyped(
+    value?: CreateLabelBody | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'color': value['color'],
-        'name': value['name'],
-        'slug': value['slug'],
+        color: value["color"],
+        name: value["name"],
+        slug: value["slug"],
     };
 }
-

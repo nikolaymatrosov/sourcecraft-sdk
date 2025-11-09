@@ -12,17 +12,15 @@
  * Do not edit the class manually.
  */
 
-
 /**
- * 
+ *
  * @export
  */
 export const MilestoneStatus = {
-    Open: 'open',
-    Closed: 'closed'
+    Open: "open",
+    Closed: "closed",
 } as const;
-export type MilestoneStatus = typeof MilestoneStatus[keyof typeof MilestoneStatus];
-
+export type MilestoneStatus = (typeof MilestoneStatus)[keyof typeof MilestoneStatus];
 
 export function instanceOfMilestoneStatus(value: any): boolean {
     for (const key in MilestoneStatus) {
@@ -39,7 +37,10 @@ export function MilestoneStatusFromJSON(json: any): MilestoneStatus {
     return MilestoneStatusFromJSONTyped(json, false);
 }
 
-export function MilestoneStatusFromJSONTyped(json: any, ignoreDiscriminator: boolean): MilestoneStatus {
+export function MilestoneStatusFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): MilestoneStatus {
     return json as MilestoneStatus;
 }
 
@@ -47,7 +48,9 @@ export function MilestoneStatusToJSON(value?: MilestoneStatus | null): any {
     return value as any;
 }
 
-export function MilestoneStatusToJSONTyped(value: any, ignoreDiscriminator: boolean): MilestoneStatus {
+export function MilestoneStatusToJSONTyped(
+    value: any,
+    ignoreDiscriminator: boolean
+): MilestoneStatus {
     return value as MilestoneStatus;
 }
-

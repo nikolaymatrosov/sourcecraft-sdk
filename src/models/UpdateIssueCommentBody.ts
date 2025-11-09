@@ -12,15 +12,15 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues } from "../runtime";
 /**
- * 
+ *
  * @export
  * @interface UpdateIssueCommentBody
  */
 export interface UpdateIssueCommentBody {
     /**
-     * 
+     *
      * @type {string}
      * @memberof UpdateIssueCommentBody
      */
@@ -38,13 +38,15 @@ export function UpdateIssueCommentBodyFromJSON(json: any): UpdateIssueCommentBod
     return UpdateIssueCommentBodyFromJSONTyped(json, false);
 }
 
-export function UpdateIssueCommentBodyFromJSONTyped(json: any, ignoreDiscriminator: boolean): UpdateIssueCommentBody {
+export function UpdateIssueCommentBodyFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): UpdateIssueCommentBody {
     if (json == null) {
         return json;
     }
     return {
-        
-        'body': json['body'] == null ? undefined : json['body'],
+        body: json["body"] == null ? undefined : json["body"],
     };
 }
 
@@ -52,14 +54,15 @@ export function UpdateIssueCommentBodyToJSON(json: any): UpdateIssueCommentBody 
     return UpdateIssueCommentBodyToJSONTyped(json, false);
 }
 
-export function UpdateIssueCommentBodyToJSONTyped(value?: UpdateIssueCommentBody | null, ignoreDiscriminator: boolean = false): any {
+export function UpdateIssueCommentBodyToJSONTyped(
+    value?: UpdateIssueCommentBody | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'body': value['body'],
+        body: value["body"],
     };
 }
-

@@ -12,21 +12,21 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues } from "../runtime";
 /**
- * 
+ *
  * @export
  * @interface PullRequestEmbedded
  */
 export interface PullRequestEmbedded {
     /**
-     * 
+     *
      * @type {string}
      * @memberof PullRequestEmbedded
      */
     id?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof PullRequestEmbedded
      */
@@ -44,14 +44,16 @@ export function PullRequestEmbeddedFromJSON(json: any): PullRequestEmbedded {
     return PullRequestEmbeddedFromJSONTyped(json, false);
 }
 
-export function PullRequestEmbeddedFromJSONTyped(json: any, ignoreDiscriminator: boolean): PullRequestEmbedded {
+export function PullRequestEmbeddedFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): PullRequestEmbedded {
     if (json == null) {
         return json;
     }
     return {
-        
-        'id': json['id'] == null ? undefined : json['id'],
-        'slug': json['slug'] == null ? undefined : json['slug'],
+        id: json["id"] == null ? undefined : json["id"],
+        slug: json["slug"] == null ? undefined : json["slug"],
     };
 }
 
@@ -59,15 +61,16 @@ export function PullRequestEmbeddedToJSON(json: any): PullRequestEmbedded {
     return PullRequestEmbeddedToJSONTyped(json, false);
 }
 
-export function PullRequestEmbeddedToJSONTyped(value?: PullRequestEmbedded | null, ignoreDiscriminator: boolean = false): any {
+export function PullRequestEmbeddedToJSONTyped(
+    value?: PullRequestEmbedded | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'id': value['id'],
-        'slug': value['slug'],
+        id: value["id"],
+        slug: value["slug"],
     };
 }
-

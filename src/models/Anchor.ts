@@ -12,42 +12,37 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { Hunk } from './Hunk';
-import {
-    HunkFromJSON,
-    HunkFromJSONTyped,
-    HunkToJSON,
-    HunkToJSONTyped,
-} from './Hunk';
-import type { DiffPos } from './DiffPos';
+import { mapValues } from "../runtime";
+import type { Hunk } from "./Hunk";
+import { HunkFromJSON, HunkFromJSONTyped, HunkToJSON, HunkToJSONTyped } from "./Hunk";
+import type { DiffPos } from "./DiffPos";
 import {
     DiffPosFromJSON,
     DiffPosFromJSONTyped,
     DiffPosToJSON,
     DiffPosToJSONTyped,
-} from './DiffPos';
+} from "./DiffPos";
 
 /**
- * 
+ *
  * @export
  * @interface Anchor
  */
 export interface Anchor {
     /**
-     * 
+     *
      * @type {Hunk}
      * @memberof Anchor
      */
     hunk?: Hunk;
     /**
-     * 
+     *
      * @type {string}
      * @memberof Anchor
      */
     path?: string;
     /**
-     * 
+     *
      * @type {DiffPos}
      * @memberof Anchor
      */
@@ -70,10 +65,9 @@ export function AnchorFromJSONTyped(json: any, ignoreDiscriminator: boolean): An
         return json;
     }
     return {
-        
-        'hunk': json['hunk'] == null ? undefined : HunkFromJSON(json['hunk']),
-        'path': json['path'] == null ? undefined : json['path'],
-        'position': json['position'] == null ? undefined : DiffPosFromJSON(json['position']),
+        hunk: json["hunk"] == null ? undefined : HunkFromJSON(json["hunk"]),
+        path: json["path"] == null ? undefined : json["path"],
+        position: json["position"] == null ? undefined : DiffPosFromJSON(json["position"]),
     };
 }
 
@@ -81,16 +75,17 @@ export function AnchorToJSON(json: any): Anchor {
     return AnchorToJSONTyped(json, false);
 }
 
-export function AnchorToJSONTyped(value?: Anchor | null, ignoreDiscriminator: boolean = false): any {
+export function AnchorToJSONTyped(
+    value?: Anchor | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'hunk': HunkToJSON(value['hunk']),
-        'path': value['path'],
-        'position': DiffPosToJSON(value['position']),
+        hunk: HunkToJSON(value["hunk"]),
+        path: value["path"],
+        position: DiffPosToJSON(value["position"]),
     };
 }
-

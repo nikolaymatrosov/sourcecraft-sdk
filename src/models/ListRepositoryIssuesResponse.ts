@@ -12,23 +12,18 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { Issue } from './Issue';
-import {
-    IssueFromJSON,
-    IssueFromJSONTyped,
-    IssueToJSON,
-    IssueToJSONTyped,
-} from './Issue';
+import { mapValues } from "../runtime";
+import type { Issue } from "./Issue";
+import { IssueFromJSON, IssueFromJSONTyped, IssueToJSON, IssueToJSONTyped } from "./Issue";
 
 /**
- * 
+ *
  * @export
  * @interface ListRepositoryIssuesResponse
  */
 export interface ListRepositoryIssuesResponse {
     /**
-     * 
+     *
      * @type {Array<Issue>}
      * @memberof ListRepositoryIssuesResponse
      */
@@ -45,7 +40,9 @@ export interface ListRepositoryIssuesResponse {
 /**
  * Check if a given object implements the ListRepositoryIssuesResponse interface.
  */
-export function instanceOfListRepositoryIssuesResponse(value: object): value is ListRepositoryIssuesResponse {
+export function instanceOfListRepositoryIssuesResponse(
+    value: object
+): value is ListRepositoryIssuesResponse {
     return true;
 }
 
@@ -53,14 +50,17 @@ export function ListRepositoryIssuesResponseFromJSON(json: any): ListRepositoryI
     return ListRepositoryIssuesResponseFromJSONTyped(json, false);
 }
 
-export function ListRepositoryIssuesResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): ListRepositoryIssuesResponse {
+export function ListRepositoryIssuesResponseFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): ListRepositoryIssuesResponse {
     if (json == null) {
         return json;
     }
     return {
-        
-        'issues': json['issues'] == null ? undefined : ((json['issues'] as Array<any>).map(IssueFromJSON)),
-        'nextPageToken': json['next_page_token'] == null ? undefined : json['next_page_token'],
+        issues:
+            json["issues"] == null ? undefined : (json["issues"] as Array<any>).map(IssueFromJSON),
+        nextPageToken: json["next_page_token"] == null ? undefined : json["next_page_token"],
     };
 }
 
@@ -68,15 +68,17 @@ export function ListRepositoryIssuesResponseToJSON(json: any): ListRepositoryIss
     return ListRepositoryIssuesResponseToJSONTyped(json, false);
 }
 
-export function ListRepositoryIssuesResponseToJSONTyped(value?: ListRepositoryIssuesResponse | null, ignoreDiscriminator: boolean = false): any {
+export function ListRepositoryIssuesResponseToJSONTyped(
+    value?: ListRepositoryIssuesResponse | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'issues': value['issues'] == null ? undefined : ((value['issues'] as Array<any>).map(IssueToJSON)),
-        'next_page_token': value['nextPageToken'],
+        issues:
+            value["issues"] == null ? undefined : (value["issues"] as Array<any>).map(IssueToJSON),
+        next_page_token: value["nextPageToken"],
     };
 }
-

@@ -12,21 +12,21 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
+import { mapValues } from "../runtime";
 /**
- * 
+ *
  * @export
  * @interface MilestoneEmbedded
  */
 export interface MilestoneEmbedded {
     /**
-     * 
+     *
      * @type {string}
      * @memberof MilestoneEmbedded
      */
     id?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof MilestoneEmbedded
      */
@@ -44,14 +44,16 @@ export function MilestoneEmbeddedFromJSON(json: any): MilestoneEmbedded {
     return MilestoneEmbeddedFromJSONTyped(json, false);
 }
 
-export function MilestoneEmbeddedFromJSONTyped(json: any, ignoreDiscriminator: boolean): MilestoneEmbedded {
+export function MilestoneEmbeddedFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): MilestoneEmbedded {
     if (json == null) {
         return json;
     }
     return {
-        
-        'id': json['id'] == null ? undefined : json['id'],
-        'slug': json['slug'] == null ? undefined : json['slug'],
+        id: json["id"] == null ? undefined : json["id"],
+        slug: json["slug"] == null ? undefined : json["slug"],
     };
 }
 
@@ -59,15 +61,16 @@ export function MilestoneEmbeddedToJSON(json: any): MilestoneEmbedded {
     return MilestoneEmbeddedToJSONTyped(json, false);
 }
 
-export function MilestoneEmbeddedToJSONTyped(value?: MilestoneEmbedded | null, ignoreDiscriminator: boolean = false): any {
+export function MilestoneEmbeddedToJSONTyped(
+    value?: MilestoneEmbedded | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'id': value['id'],
-        'slug': value['slug'],
+        id: value["id"],
+        slug: value["slug"],
     };
 }
-

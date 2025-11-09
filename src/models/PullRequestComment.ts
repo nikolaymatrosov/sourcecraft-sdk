@@ -12,141 +12,134 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { ReactionCount } from './ReactionCount';
+import { mapValues } from "../runtime";
+import type { ReactionCount } from "./ReactionCount";
 import {
     ReactionCountFromJSON,
     ReactionCountFromJSONTyped,
     ReactionCountToJSON,
     ReactionCountToJSONTyped,
-} from './ReactionCount';
-import type { Anchor } from './Anchor';
-import {
-    AnchorFromJSON,
-    AnchorFromJSONTyped,
-    AnchorToJSON,
-    AnchorToJSONTyped,
-} from './Anchor';
-import type { PullRequestCommentType } from './PullRequestCommentType';
+} from "./ReactionCount";
+import type { Anchor } from "./Anchor";
+import { AnchorFromJSON, AnchorFromJSONTyped, AnchorToJSON, AnchorToJSONTyped } from "./Anchor";
+import type { PullRequestCommentType } from "./PullRequestCommentType";
 import {
     PullRequestCommentTypeFromJSON,
     PullRequestCommentTypeFromJSONTyped,
     PullRequestCommentTypeToJSON,
     PullRequestCommentTypeToJSONTyped,
-} from './PullRequestCommentType';
-import type { UserEmbedded } from './UserEmbedded';
+} from "./PullRequestCommentType";
+import type { UserEmbedded } from "./UserEmbedded";
 import {
     UserEmbeddedFromJSON,
     UserEmbeddedFromJSONTyped,
     UserEmbeddedToJSON,
     UserEmbeddedToJSONTyped,
-} from './UserEmbedded';
+} from "./UserEmbedded";
 
 /**
- * 
+ *
  * @export
  * @interface PullRequestComment
  */
 export interface PullRequestComment {
     /**
-     * 
+     *
      * @type {Anchor}
      * @memberof PullRequestComment
      */
     anchor?: Anchor;
     /**
-     * 
+     *
      * @type {UserEmbedded}
      * @memberof PullRequestComment
      */
     author?: UserEmbedded;
     /**
-     * 
+     *
      * @type {string}
      * @memberof PullRequestComment
      */
     body?: string;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof PullRequestComment
      */
     createdAt?: Date;
     /**
-     * 
+     *
      * @type {string}
      * @memberof PullRequestComment
      */
     id?: string;
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof PullRequestComment
      */
     isDeleted?: boolean;
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof PullRequestComment
      */
     isOutdated?: boolean;
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof PullRequestComment
      */
     isPublished?: boolean;
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof PullRequestComment
      */
     isResolved?: boolean;
     /**
-     * 
+     *
      * @type {string}
      * @memberof PullRequestComment
      */
     iteration?: string;
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof PullRequestComment
      */
     needResolution?: boolean;
     /**
-     * 
+     *
      * @type {string}
      * @memberof PullRequestComment
      */
     parentId?: string;
     /**
-     * 
+     *
      * @type {{ [key: string]: ReactionCount; }}
      * @memberof PullRequestComment
      */
-    reactions?: { [key: string]: ReactionCount; };
+    reactions?: { [key: string]: ReactionCount };
     /**
-     * 
+     *
      * @type {PullRequestCommentType}
      * @memberof PullRequestComment
      */
     type?: PullRequestCommentType;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof PullRequestComment
      */
     updatedAt?: Date;
     /**
-     * 
+     *
      * @type {UserEmbedded}
      * @memberof PullRequestComment
      */
     updatedBy?: UserEmbedded;
 }
-
-
 
 /**
  * Check if a given object implements the PullRequestComment interface.
@@ -159,28 +152,34 @@ export function PullRequestCommentFromJSON(json: any): PullRequestComment {
     return PullRequestCommentFromJSONTyped(json, false);
 }
 
-export function PullRequestCommentFromJSONTyped(json: any, ignoreDiscriminator: boolean): PullRequestComment {
+export function PullRequestCommentFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): PullRequestComment {
     if (json == null) {
         return json;
     }
     return {
-        
-        'anchor': json['anchor'] == null ? undefined : AnchorFromJSON(json['anchor']),
-        'author': json['author'] == null ? undefined : UserEmbeddedFromJSON(json['author']),
-        'body': json['body'] == null ? undefined : json['body'],
-        'createdAt': json['created_at'] == null ? undefined : (new Date(json['created_at'])),
-        'id': json['id'] == null ? undefined : json['id'],
-        'isDeleted': json['is_deleted'] == null ? undefined : json['is_deleted'],
-        'isOutdated': json['is_outdated'] == null ? undefined : json['is_outdated'],
-        'isPublished': json['is_published'] == null ? undefined : json['is_published'],
-        'isResolved': json['is_resolved'] == null ? undefined : json['is_resolved'],
-        'iteration': json['iteration'] == null ? undefined : json['iteration'],
-        'needResolution': json['need_resolution'] == null ? undefined : json['need_resolution'],
-        'parentId': json['parent_id'] == null ? undefined : json['parent_id'],
-        'reactions': json['reactions'] == null ? undefined : (mapValues(json['reactions'], ReactionCountFromJSON)),
-        'type': json['type'] == null ? undefined : PullRequestCommentTypeFromJSON(json['type']),
-        'updatedAt': json['updated_at'] == null ? undefined : (new Date(json['updated_at'])),
-        'updatedBy': json['updated_by'] == null ? undefined : UserEmbeddedFromJSON(json['updated_by']),
+        anchor: json["anchor"] == null ? undefined : AnchorFromJSON(json["anchor"]),
+        author: json["author"] == null ? undefined : UserEmbeddedFromJSON(json["author"]),
+        body: json["body"] == null ? undefined : json["body"],
+        createdAt: json["created_at"] == null ? undefined : new Date(json["created_at"]),
+        id: json["id"] == null ? undefined : json["id"],
+        isDeleted: json["is_deleted"] == null ? undefined : json["is_deleted"],
+        isOutdated: json["is_outdated"] == null ? undefined : json["is_outdated"],
+        isPublished: json["is_published"] == null ? undefined : json["is_published"],
+        isResolved: json["is_resolved"] == null ? undefined : json["is_resolved"],
+        iteration: json["iteration"] == null ? undefined : json["iteration"],
+        needResolution: json["need_resolution"] == null ? undefined : json["need_resolution"],
+        parentId: json["parent_id"] == null ? undefined : json["parent_id"],
+        reactions:
+            json["reactions"] == null
+                ? undefined
+                : mapValues(json["reactions"], ReactionCountFromJSON),
+        type: json["type"] == null ? undefined : PullRequestCommentTypeFromJSON(json["type"]),
+        updatedAt: json["updated_at"] == null ? undefined : new Date(json["updated_at"]),
+        updatedBy:
+            json["updated_by"] == null ? undefined : UserEmbeddedFromJSON(json["updated_by"]),
     };
 }
 
@@ -188,29 +187,35 @@ export function PullRequestCommentToJSON(json: any): PullRequestComment {
     return PullRequestCommentToJSONTyped(json, false);
 }
 
-export function PullRequestCommentToJSONTyped(value?: PullRequestComment | null, ignoreDiscriminator: boolean = false): any {
+export function PullRequestCommentToJSONTyped(
+    value?: PullRequestComment | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'anchor': AnchorToJSON(value['anchor']),
-        'author': UserEmbeddedToJSON(value['author']),
-        'body': value['body'],
-        'created_at': value['createdAt'] == null ? value['createdAt'] : value['createdAt'].toISOString(),
-        'id': value['id'],
-        'is_deleted': value['isDeleted'],
-        'is_outdated': value['isOutdated'],
-        'is_published': value['isPublished'],
-        'is_resolved': value['isResolved'],
-        'iteration': value['iteration'],
-        'need_resolution': value['needResolution'],
-        'parent_id': value['parentId'],
-        'reactions': value['reactions'] == null ? undefined : (mapValues(value['reactions'], ReactionCountToJSON)),
-        'type': PullRequestCommentTypeToJSON(value['type']),
-        'updated_at': value['updatedAt'] == null ? value['updatedAt'] : value['updatedAt'].toISOString(),
-        'updated_by': UserEmbeddedToJSON(value['updatedBy']),
+        anchor: AnchorToJSON(value["anchor"]),
+        author: UserEmbeddedToJSON(value["author"]),
+        body: value["body"],
+        created_at:
+            value["createdAt"] == null ? value["createdAt"] : value["createdAt"].toISOString(),
+        id: value["id"],
+        is_deleted: value["isDeleted"],
+        is_outdated: value["isOutdated"],
+        is_published: value["isPublished"],
+        is_resolved: value["isResolved"],
+        iteration: value["iteration"],
+        need_resolution: value["needResolution"],
+        parent_id: value["parentId"],
+        reactions:
+            value["reactions"] == null
+                ? undefined
+                : mapValues(value["reactions"], ReactionCountToJSON),
+        type: PullRequestCommentTypeToJSON(value["type"]),
+        updated_at:
+            value["updatedAt"] == null ? value["updatedAt"] : value["updatedAt"].toISOString(),
+        updated_by: UserEmbeddedToJSON(value["updatedBy"]),
     };
 }
-

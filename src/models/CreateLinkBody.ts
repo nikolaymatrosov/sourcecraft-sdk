@@ -12,42 +12,40 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { IssueLinkLinkType } from './IssueLinkLinkType';
+import { mapValues } from "../runtime";
+import type { IssueLinkLinkType } from "./IssueLinkLinkType";
 import {
     IssueLinkLinkTypeFromJSON,
     IssueLinkLinkTypeFromJSONTyped,
     IssueLinkLinkTypeToJSON,
     IssueLinkLinkTypeToJSONTyped,
-} from './IssueLinkLinkType';
+} from "./IssueLinkLinkType";
 
 /**
- * 
+ *
  * @export
  * @interface CreateLinkBody
  */
 export interface CreateLinkBody {
     /**
-     * 
+     *
      * @type {IssueLinkLinkType}
      * @memberof CreateLinkBody
      */
     linkType?: IssueLinkLinkType;
     /**
-     * 
+     *
      * @type {string}
      * @memberof CreateLinkBody
      */
     targetIssueId?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof CreateLinkBody
      */
     targetIssueSlug?: string;
 }
-
-
 
 /**
  * Check if a given object implements the CreateLinkBody interface.
@@ -60,15 +58,18 @@ export function CreateLinkBodyFromJSON(json: any): CreateLinkBody {
     return CreateLinkBodyFromJSONTyped(json, false);
 }
 
-export function CreateLinkBodyFromJSONTyped(json: any, ignoreDiscriminator: boolean): CreateLinkBody {
+export function CreateLinkBodyFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): CreateLinkBody {
     if (json == null) {
         return json;
     }
     return {
-        
-        'linkType': json['link_type'] == null ? undefined : IssueLinkLinkTypeFromJSON(json['link_type']),
-        'targetIssueId': json['target_issue_id'] == null ? undefined : json['target_issue_id'],
-        'targetIssueSlug': json['target_issue_slug'] == null ? undefined : json['target_issue_slug'],
+        linkType:
+            json["link_type"] == null ? undefined : IssueLinkLinkTypeFromJSON(json["link_type"]),
+        targetIssueId: json["target_issue_id"] == null ? undefined : json["target_issue_id"],
+        targetIssueSlug: json["target_issue_slug"] == null ? undefined : json["target_issue_slug"],
     };
 }
 
@@ -76,16 +77,17 @@ export function CreateLinkBodyToJSON(json: any): CreateLinkBody {
     return CreateLinkBodyToJSONTyped(json, false);
 }
 
-export function CreateLinkBodyToJSONTyped(value?: CreateLinkBody | null, ignoreDiscriminator: boolean = false): any {
+export function CreateLinkBodyToJSONTyped(
+    value?: CreateLinkBody | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'link_type': IssueLinkLinkTypeToJSON(value['linkType']),
-        'target_issue_id': value['targetIssueId'],
-        'target_issue_slug': value['targetIssueSlug'],
+        link_type: IssueLinkLinkTypeToJSON(value["linkType"]),
+        target_issue_id: value["targetIssueId"],
+        target_issue_slug: value["targetIssueSlug"],
     };
 }
-

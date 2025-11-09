@@ -12,15 +12,14 @@
  * Do not edit the class manually.
  */
 
-
-import * as runtime from '../runtime';
+import * as runtime from "../runtime";
 import type {
-  ApiErrorResponse,
-  CreateMilestoneBody,
-  ListMilestonesForRepositoryResponse,
-  Milestone,
-  UpdateMilestoneBody,
-} from '../models/index';
+    ApiErrorResponse,
+    CreateMilestoneBody,
+    ListMilestonesForRepositoryResponse,
+    Milestone,
+    UpdateMilestoneBody,
+} from "../models/index";
 import {
     ApiErrorResponseFromJSON,
     ApiErrorResponseToJSON,
@@ -32,7 +31,7 @@ import {
     MilestoneToJSON,
     UpdateMilestoneBodyFromJSON,
     UpdateMilestoneBodyToJSON,
-} from '../models/index';
+} from "../models/index";
 
 export interface CreateMilestoneRequest {
     orgSlug: string;
@@ -102,228 +101,292 @@ export interface UpdateMilestoneByIDRequest {
 
 /**
  * RepositoryMilestonesApi - interface
- * 
+ *
  * @export
  * @interface RepositoryMilestonesApiInterface
  */
 export interface RepositoryMilestonesApiInterface {
     /**
-     * 
+     *
      * @summary Create a Milestone
      * @param {string} orgSlug Path parameters for different routes
-     * @param {string} repoSlug 
-     * @param {CreateMilestoneBody} createMilestoneBody 
-     * @param {boolean} [silent] 
+     * @param {string} repoSlug
+     * @param {CreateMilestoneBody} createMilestoneBody
+     * @param {boolean} [silent]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryMilestonesApiInterface
      */
-    createMilestoneRaw(requestParameters: CreateMilestoneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Milestone>>;
+    createMilestoneRaw(
+        requestParameters: CreateMilestoneRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Milestone>>;
 
     /**
      * Create a Milestone
      */
-    createMilestone(requestParameters: CreateMilestoneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Milestone>;
+    createMilestone(
+        requestParameters: CreateMilestoneRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Milestone>;
 
     /**
-     * 
+     *
      * @summary Create a Milestone (By Repo ID)
-     * @param {string} repoId 
-     * @param {CreateMilestoneBody} createMilestoneBody 
-     * @param {boolean} [silent] 
+     * @param {string} repoId
+     * @param {CreateMilestoneBody} createMilestoneBody
+     * @param {boolean} [silent]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryMilestonesApiInterface
      */
-    createMilestoneByIDRaw(requestParameters: CreateMilestoneByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Milestone>>;
+    createMilestoneByIDRaw(
+        requestParameters: CreateMilestoneByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Milestone>>;
 
     /**
      * Create a Milestone (By Repo ID)
      */
-    createMilestoneByID(requestParameters: CreateMilestoneByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Milestone>;
+    createMilestoneByID(
+        requestParameters: CreateMilestoneByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Milestone>;
 
     /**
-     * 
+     *
      * @summary Delete a Milestone (By Slug)
      * @param {string} orgSlug Path parameters for different routes
-     * @param {string} repoSlug 
-     * @param {string} milestoneSlug 
-     * @param {boolean} [silent] 
+     * @param {string} repoSlug
+     * @param {string} milestoneSlug
+     * @param {boolean} [silent]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryMilestonesApiInterface
      */
-    deleteMilestoneRaw(requestParameters: DeleteMilestoneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>>;
+    deleteMilestoneRaw(
+        requestParameters: DeleteMilestoneRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<object>>;
 
     /**
      * Delete a Milestone (By Slug)
      */
-    deleteMilestone(requestParameters: DeleteMilestoneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object>;
+    deleteMilestone(
+        requestParameters: DeleteMilestoneRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<object>;
 
     /**
-     * 
+     *
      * @summary Delete a Milestone (By ID)
-     * @param {string} milestoneId 
-     * @param {boolean} [silent] 
+     * @param {string} milestoneId
+     * @param {boolean} [silent]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryMilestonesApiInterface
      */
-    deleteMilestoneByIDRaw(requestParameters: DeleteMilestoneByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>>;
+    deleteMilestoneByIDRaw(
+        requestParameters: DeleteMilestoneByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<object>>;
 
     /**
      * Delete a Milestone (By ID)
      */
-    deleteMilestoneByID(requestParameters: DeleteMilestoneByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object>;
+    deleteMilestoneByID(
+        requestParameters: DeleteMilestoneByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<object>;
 
     /**
-     * 
+     *
      * @summary Get a Milestone (By Slug)
      * @param {string} orgSlug Path parameters for different routes
-     * @param {string} repoSlug 
-     * @param {string} milestoneSlug 
+     * @param {string} repoSlug
+     * @param {string} milestoneSlug
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryMilestonesApiInterface
      */
-    getMilestoneRaw(requestParameters: GetMilestoneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Milestone>>;
+    getMilestoneRaw(
+        requestParameters: GetMilestoneRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Milestone>>;
 
     /**
      * Get a Milestone (By Slug)
      */
-    getMilestone(requestParameters: GetMilestoneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Milestone>;
+    getMilestone(
+        requestParameters: GetMilestoneRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Milestone>;
 
     /**
-     * 
+     *
      * @summary Get a Milestone (By ID)
-     * @param {string} milestoneId 
+     * @param {string} milestoneId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryMilestonesApiInterface
      */
-    getMilestoneByIDRaw(requestParameters: GetMilestoneByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Milestone>>;
+    getMilestoneByIDRaw(
+        requestParameters: GetMilestoneByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Milestone>>;
 
     /**
      * Get a Milestone (By ID)
      */
-    getMilestoneByID(requestParameters: GetMilestoneByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Milestone>;
+    getMilestoneByID(
+        requestParameters: GetMilestoneByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Milestone>;
 
     /**
-     * 
+     *
      * @summary List Repository Milestones
      * @param {string} orgSlug Path parameters for different routes
-     * @param {string} repoSlug 
-     * @param {string} [pageSize] 
-     * @param {string} [pageToken] 
-     * @param {string} [sortBy] 
-     * @param {string} [filter] 
+     * @param {string} repoSlug
+     * @param {string} [pageSize]
+     * @param {string} [pageToken]
+     * @param {string} [sortBy]
+     * @param {string} [filter]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryMilestonesApiInterface
      */
-    listMilestonesForRepositoryRaw(requestParameters: ListMilestonesForRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListMilestonesForRepositoryResponse>>;
+    listMilestonesForRepositoryRaw(
+        requestParameters: ListMilestonesForRepositoryRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListMilestonesForRepositoryResponse>>;
 
     /**
      * List Repository Milestones
      */
-    listMilestonesForRepository(requestParameters: ListMilestonesForRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListMilestonesForRepositoryResponse>;
+    listMilestonesForRepository(
+        requestParameters: ListMilestonesForRepositoryRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListMilestonesForRepositoryResponse>;
 
     /**
-     * 
+     *
      * @summary List Repository Milestones (By Repo ID)
-     * @param {string} repoId 
-     * @param {string} [pageSize] 
-     * @param {string} [pageToken] 
-     * @param {string} [sortBy] 
-     * @param {string} [filter] 
+     * @param {string} repoId
+     * @param {string} [pageSize]
+     * @param {string} [pageToken]
+     * @param {string} [sortBy]
+     * @param {string} [filter]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryMilestonesApiInterface
      */
-    listMilestonesForRepositoryByIDRaw(requestParameters: ListMilestonesForRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListMilestonesForRepositoryResponse>>;
+    listMilestonesForRepositoryByIDRaw(
+        requestParameters: ListMilestonesForRepositoryByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListMilestonesForRepositoryResponse>>;
 
     /**
      * List Repository Milestones (By Repo ID)
      */
-    listMilestonesForRepositoryByID(requestParameters: ListMilestonesForRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListMilestonesForRepositoryResponse>;
+    listMilestonesForRepositoryByID(
+        requestParameters: ListMilestonesForRepositoryByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListMilestonesForRepositoryResponse>;
 
     /**
-     * 
+     *
      * @summary Update a Milestone (By Slug)
      * @param {string} orgSlug Path parameters for different routes
-     * @param {string} repoSlug 
-     * @param {string} milestoneSlug 
-     * @param {UpdateMilestoneBody} updateMilestoneBody 
-     * @param {boolean} [silent] 
+     * @param {string} repoSlug
+     * @param {string} milestoneSlug
+     * @param {UpdateMilestoneBody} updateMilestoneBody
+     * @param {boolean} [silent]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryMilestonesApiInterface
      */
-    updateMilestoneRaw(requestParameters: UpdateMilestoneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Milestone>>;
+    updateMilestoneRaw(
+        requestParameters: UpdateMilestoneRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Milestone>>;
 
     /**
      * Update a Milestone (By Slug)
      */
-    updateMilestone(requestParameters: UpdateMilestoneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Milestone>;
+    updateMilestone(
+        requestParameters: UpdateMilestoneRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Milestone>;
 
     /**
-     * 
+     *
      * @summary Update a Milestone (By ID)
-     * @param {string} milestoneId 
-     * @param {UpdateMilestoneBody} updateMilestoneBody 
-     * @param {boolean} [silent] 
+     * @param {string} milestoneId
+     * @param {UpdateMilestoneBody} updateMilestoneBody
+     * @param {boolean} [silent]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryMilestonesApiInterface
      */
-    updateMilestoneByIDRaw(requestParameters: UpdateMilestoneByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Milestone>>;
+    updateMilestoneByIDRaw(
+        requestParameters: UpdateMilestoneByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Milestone>>;
 
     /**
      * Update a Milestone (By ID)
      */
-    updateMilestoneByID(requestParameters: UpdateMilestoneByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Milestone>;
-
+    updateMilestoneByID(
+        requestParameters: UpdateMilestoneByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Milestone>;
 }
 
 /**
- * 
+ *
  */
-export class RepositoryMilestonesApi extends runtime.BaseAPI implements RepositoryMilestonesApiInterface {
-
+export class RepositoryMilestonesApi
+    extends runtime.BaseAPI
+    implements RepositoryMilestonesApiInterface
+{
     /**
      * Create a Milestone
      */
-    async createMilestoneRaw(requestParameters: CreateMilestoneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Milestone>> {
-        if (requestParameters['orgSlug'] == null) {
+    async createMilestoneRaw(
+        requestParameters: CreateMilestoneRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Milestone>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling createMilestone().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling createMilestone().'
             );
         }
 
-        if (requestParameters['createMilestoneBody'] == null) {
+        if (requestParameters["createMilestoneBody"] == null) {
             throw new runtime.RequiredError(
-                'createMilestoneBody',
+                "createMilestoneBody",
                 'Required parameter "createMilestoneBody" was null or undefined when calling createMilestone().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -335,16 +398,25 @@ export class RepositoryMilestonesApi extends runtime.BaseAPI implements Reposito
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/milestones`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CreateMilestoneBodyToJSON(requestParameters['createMilestoneBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+                body: CreateMilestoneBodyToJSON(requestParameters["createMilestoneBody"]),
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MilestoneFromJSON(jsonValue));
     }
@@ -352,7 +424,10 @@ export class RepositoryMilestonesApi extends runtime.BaseAPI implements Reposito
     /**
      * Create a Milestone
      */
-    async createMilestone(requestParameters: CreateMilestoneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Milestone> {
+    async createMilestone(
+        requestParameters: CreateMilestoneRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Milestone> {
         const response = await this.createMilestoneRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -360,30 +435,33 @@ export class RepositoryMilestonesApi extends runtime.BaseAPI implements Reposito
     /**
      * Create a Milestone (By Repo ID)
      */
-    async createMilestoneByIDRaw(requestParameters: CreateMilestoneByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Milestone>> {
-        if (requestParameters['repoId'] == null) {
+    async createMilestoneByIDRaw(
+        requestParameters: CreateMilestoneByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Milestone>> {
+        if (requestParameters["repoId"] == null) {
             throw new runtime.RequiredError(
-                'repoId',
+                "repoId",
                 'Required parameter "repoId" was null or undefined when calling createMilestoneByID().'
             );
         }
 
-        if (requestParameters['createMilestoneBody'] == null) {
+        if (requestParameters["createMilestoneBody"] == null) {
             throw new runtime.RequiredError(
-                'createMilestoneBody',
+                "createMilestoneBody",
                 'Required parameter "createMilestoneBody" was null or undefined when calling createMilestoneByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -395,15 +473,21 @@ export class RepositoryMilestonesApi extends runtime.BaseAPI implements Reposito
         }
 
         let urlPath = `/repos/id:{repo_id}/milestones`;
-        urlPath = urlPath.replace(`{${"repo_id"}}`, encodeURIComponent(String(requestParameters['repoId'])));
+        urlPath = urlPath.replace(
+            `{${"repo_id"}}`,
+            encodeURIComponent(String(requestParameters["repoId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: CreateMilestoneBodyToJSON(requestParameters['createMilestoneBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "POST",
+                headers: headerParameters,
+                query: queryParameters,
+                body: CreateMilestoneBodyToJSON(requestParameters["createMilestoneBody"]),
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MilestoneFromJSON(jsonValue));
     }
@@ -411,7 +495,10 @@ export class RepositoryMilestonesApi extends runtime.BaseAPI implements Reposito
     /**
      * Create a Milestone (By Repo ID)
      */
-    async createMilestoneByID(requestParameters: CreateMilestoneByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Milestone> {
+    async createMilestoneByID(
+        requestParameters: CreateMilestoneByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Milestone> {
         const response = await this.createMilestoneByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -419,32 +506,35 @@ export class RepositoryMilestonesApi extends runtime.BaseAPI implements Reposito
     /**
      * Delete a Milestone (By Slug)
      */
-    async deleteMilestoneRaw(requestParameters: DeleteMilestoneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
-        if (requestParameters['orgSlug'] == null) {
+    async deleteMilestoneRaw(
+        requestParameters: DeleteMilestoneRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<object>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling deleteMilestone().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling deleteMilestone().'
             );
         }
 
-        if (requestParameters['milestoneSlug'] == null) {
+        if (requestParameters["milestoneSlug"] == null) {
             throw new runtime.RequiredError(
-                'milestoneSlug',
+                "milestoneSlug",
                 'Required parameter "milestoneSlug" was null or undefined when calling deleteMilestone().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -459,16 +549,28 @@ export class RepositoryMilestonesApi extends runtime.BaseAPI implements Reposito
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/milestones/{milestone_slug}`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
-        urlPath = urlPath.replace(`{${"milestone_slug"}}`, encodeURIComponent(String(requestParameters['milestoneSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"milestone_slug"}}`,
+            encodeURIComponent(String(requestParameters["milestoneSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "DELETE",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse<any>(response);
     }
@@ -476,7 +578,10 @@ export class RepositoryMilestonesApi extends runtime.BaseAPI implements Reposito
     /**
      * Delete a Milestone (By Slug)
      */
-    async deleteMilestone(requestParameters: DeleteMilestoneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
+    async deleteMilestone(
+        requestParameters: DeleteMilestoneRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<object> {
         const response = await this.deleteMilestoneRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -484,18 +589,21 @@ export class RepositoryMilestonesApi extends runtime.BaseAPI implements Reposito
     /**
      * Delete a Milestone (By ID)
      */
-    async deleteMilestoneByIDRaw(requestParameters: DeleteMilestoneByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
-        if (requestParameters['milestoneId'] == null) {
+    async deleteMilestoneByIDRaw(
+        requestParameters: DeleteMilestoneByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<object>> {
+        if (requestParameters["milestoneId"] == null) {
             throw new runtime.RequiredError(
-                'milestoneId',
+                "milestoneId",
                 'Required parameter "milestoneId" was null or undefined when calling deleteMilestoneByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -510,14 +618,20 @@ export class RepositoryMilestonesApi extends runtime.BaseAPI implements Reposito
         }
 
         let urlPath = `/milestones/id:{milestone_id}`;
-        urlPath = urlPath.replace(`{${"milestone_id"}}`, encodeURIComponent(String(requestParameters['milestoneId'])));
+        urlPath = urlPath.replace(
+            `{${"milestone_id"}}`,
+            encodeURIComponent(String(requestParameters["milestoneId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'DELETE',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "DELETE",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse<any>(response);
     }
@@ -525,7 +639,10 @@ export class RepositoryMilestonesApi extends runtime.BaseAPI implements Reposito
     /**
      * Delete a Milestone (By ID)
      */
-    async deleteMilestoneByID(requestParameters: DeleteMilestoneByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
+    async deleteMilestoneByID(
+        requestParameters: DeleteMilestoneByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<object> {
         const response = await this.deleteMilestoneByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -533,24 +650,27 @@ export class RepositoryMilestonesApi extends runtime.BaseAPI implements Reposito
     /**
      * Get a Milestone (By Slug)
      */
-    async getMilestoneRaw(requestParameters: GetMilestoneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Milestone>> {
-        if (requestParameters['orgSlug'] == null) {
+    async getMilestoneRaw(
+        requestParameters: GetMilestoneRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Milestone>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling getMilestone().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling getMilestone().'
             );
         }
 
-        if (requestParameters['milestoneSlug'] == null) {
+        if (requestParameters["milestoneSlug"] == null) {
             throw new runtime.RequiredError(
-                'milestoneSlug',
+                "milestoneSlug",
                 'Required parameter "milestoneSlug" was null or undefined when calling getMilestone().'
             );
         }
@@ -569,16 +689,28 @@ export class RepositoryMilestonesApi extends runtime.BaseAPI implements Reposito
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/milestones/{milestone_slug}`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
-        urlPath = urlPath.replace(`{${"milestone_slug"}}`, encodeURIComponent(String(requestParameters['milestoneSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"milestone_slug"}}`,
+            encodeURIComponent(String(requestParameters["milestoneSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MilestoneFromJSON(jsonValue));
     }
@@ -586,7 +718,10 @@ export class RepositoryMilestonesApi extends runtime.BaseAPI implements Reposito
     /**
      * Get a Milestone (By Slug)
      */
-    async getMilestone(requestParameters: GetMilestoneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Milestone> {
+    async getMilestone(
+        requestParameters: GetMilestoneRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Milestone> {
         const response = await this.getMilestoneRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -594,10 +729,13 @@ export class RepositoryMilestonesApi extends runtime.BaseAPI implements Reposito
     /**
      * Get a Milestone (By ID)
      */
-    async getMilestoneByIDRaw(requestParameters: GetMilestoneByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Milestone>> {
-        if (requestParameters['milestoneId'] == null) {
+    async getMilestoneByIDRaw(
+        requestParameters: GetMilestoneByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Milestone>> {
+        if (requestParameters["milestoneId"] == null) {
             throw new runtime.RequiredError(
-                'milestoneId',
+                "milestoneId",
                 'Required parameter "milestoneId" was null or undefined when calling getMilestoneByID().'
             );
         }
@@ -616,14 +754,20 @@ export class RepositoryMilestonesApi extends runtime.BaseAPI implements Reposito
         }
 
         let urlPath = `/milestones/id:{milestone_id}`;
-        urlPath = urlPath.replace(`{${"milestone_id"}}`, encodeURIComponent(String(requestParameters['milestoneId'])));
+        urlPath = urlPath.replace(
+            `{${"milestone_id"}}`,
+            encodeURIComponent(String(requestParameters["milestoneId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MilestoneFromJSON(jsonValue));
     }
@@ -631,7 +775,10 @@ export class RepositoryMilestonesApi extends runtime.BaseAPI implements Reposito
     /**
      * Get a Milestone (By ID)
      */
-    async getMilestoneByID(requestParameters: GetMilestoneByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Milestone> {
+    async getMilestoneByID(
+        requestParameters: GetMilestoneByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Milestone> {
         const response = await this.getMilestoneByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -639,37 +786,40 @@ export class RepositoryMilestonesApi extends runtime.BaseAPI implements Reposito
     /**
      * List Repository Milestones
      */
-    async listMilestonesForRepositoryRaw(requestParameters: ListMilestonesForRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListMilestonesForRepositoryResponse>> {
-        if (requestParameters['orgSlug'] == null) {
+    async listMilestonesForRepositoryRaw(
+        requestParameters: ListMilestonesForRepositoryRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListMilestonesForRepositoryResponse>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling listMilestonesForRepository().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling listMilestonesForRepository().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['pageSize'] != null) {
-            queryParameters['page_size'] = requestParameters['pageSize'];
+        if (requestParameters["pageSize"] != null) {
+            queryParameters["page_size"] = requestParameters["pageSize"];
         }
 
-        if (requestParameters['pageToken'] != null) {
-            queryParameters['page_token'] = requestParameters['pageToken'];
+        if (requestParameters["pageToken"] != null) {
+            queryParameters["page_token"] = requestParameters["pageToken"];
         }
 
-        if (requestParameters['sortBy'] != null) {
-            queryParameters['sort_by'] = requestParameters['sortBy'];
+        if (requestParameters["sortBy"] != null) {
+            queryParameters["sort_by"] = requestParameters["sortBy"];
         }
 
-        if (requestParameters['filter'] != null) {
-            queryParameters['filter'] = requestParameters['filter'];
+        if (requestParameters["filter"] != null) {
+            queryParameters["filter"] = requestParameters["filter"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -684,54 +834,74 @@ export class RepositoryMilestonesApi extends runtime.BaseAPI implements Reposito
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/milestones`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ListMilestonesForRepositoryResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            ListMilestonesForRepositoryResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * List Repository Milestones
      */
-    async listMilestonesForRepository(requestParameters: ListMilestonesForRepositoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListMilestonesForRepositoryResponse> {
-        const response = await this.listMilestonesForRepositoryRaw(requestParameters, initOverrides);
+    async listMilestonesForRepository(
+        requestParameters: ListMilestonesForRepositoryRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListMilestonesForRepositoryResponse> {
+        const response = await this.listMilestonesForRepositoryRaw(
+            requestParameters,
+            initOverrides
+        );
         return await response.value();
     }
 
     /**
      * List Repository Milestones (By Repo ID)
      */
-    async listMilestonesForRepositoryByIDRaw(requestParameters: ListMilestonesForRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ListMilestonesForRepositoryResponse>> {
-        if (requestParameters['repoId'] == null) {
+    async listMilestonesForRepositoryByIDRaw(
+        requestParameters: ListMilestonesForRepositoryByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<ListMilestonesForRepositoryResponse>> {
+        if (requestParameters["repoId"] == null) {
             throw new runtime.RequiredError(
-                'repoId',
+                "repoId",
                 'Required parameter "repoId" was null or undefined when calling listMilestonesForRepositoryByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['pageSize'] != null) {
-            queryParameters['page_size'] = requestParameters['pageSize'];
+        if (requestParameters["pageSize"] != null) {
+            queryParameters["page_size"] = requestParameters["pageSize"];
         }
 
-        if (requestParameters['pageToken'] != null) {
-            queryParameters['page_token'] = requestParameters['pageToken'];
+        if (requestParameters["pageToken"] != null) {
+            queryParameters["page_token"] = requestParameters["pageToken"];
         }
 
-        if (requestParameters['sortBy'] != null) {
-            queryParameters['sort_by'] = requestParameters['sortBy'];
+        if (requestParameters["sortBy"] != null) {
+            queryParameters["sort_by"] = requestParameters["sortBy"];
         }
 
-        if (requestParameters['filter'] != null) {
-            queryParameters['filter'] = requestParameters['filter'];
+        if (requestParameters["filter"] != null) {
+            queryParameters["filter"] = requestParameters["filter"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -746,67 +916,84 @@ export class RepositoryMilestonesApi extends runtime.BaseAPI implements Reposito
         }
 
         let urlPath = `/repos/id:{repo_id}/milestones`;
-        urlPath = urlPath.replace(`{${"repo_id"}}`, encodeURIComponent(String(requestParameters['repoId'])));
+        urlPath = urlPath.replace(
+            `{${"repo_id"}}`,
+            encodeURIComponent(String(requestParameters["repoId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => ListMilestonesForRepositoryResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            ListMilestonesForRepositoryResponseFromJSON(jsonValue)
+        );
     }
 
     /**
      * List Repository Milestones (By Repo ID)
      */
-    async listMilestonesForRepositoryByID(requestParameters: ListMilestonesForRepositoryByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ListMilestonesForRepositoryResponse> {
-        const response = await this.listMilestonesForRepositoryByIDRaw(requestParameters, initOverrides);
+    async listMilestonesForRepositoryByID(
+        requestParameters: ListMilestonesForRepositoryByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<ListMilestonesForRepositoryResponse> {
+        const response = await this.listMilestonesForRepositoryByIDRaw(
+            requestParameters,
+            initOverrides
+        );
         return await response.value();
     }
 
     /**
      * Update a Milestone (By Slug)
      */
-    async updateMilestoneRaw(requestParameters: UpdateMilestoneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Milestone>> {
-        if (requestParameters['orgSlug'] == null) {
+    async updateMilestoneRaw(
+        requestParameters: UpdateMilestoneRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Milestone>> {
+        if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
-                'orgSlug',
+                "orgSlug",
                 'Required parameter "orgSlug" was null or undefined when calling updateMilestone().'
             );
         }
 
-        if (requestParameters['repoSlug'] == null) {
+        if (requestParameters["repoSlug"] == null) {
             throw new runtime.RequiredError(
-                'repoSlug',
+                "repoSlug",
                 'Required parameter "repoSlug" was null or undefined when calling updateMilestone().'
             );
         }
 
-        if (requestParameters['milestoneSlug'] == null) {
+        if (requestParameters["milestoneSlug"] == null) {
             throw new runtime.RequiredError(
-                'milestoneSlug',
+                "milestoneSlug",
                 'Required parameter "milestoneSlug" was null or undefined when calling updateMilestone().'
             );
         }
 
-        if (requestParameters['updateMilestoneBody'] == null) {
+        if (requestParameters["updateMilestoneBody"] == null) {
             throw new runtime.RequiredError(
-                'updateMilestoneBody',
+                "updateMilestoneBody",
                 'Required parameter "updateMilestoneBody" was null or undefined when calling updateMilestone().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -818,17 +1005,29 @@ export class RepositoryMilestonesApi extends runtime.BaseAPI implements Reposito
         }
 
         let urlPath = `/repos/{org_slug}/{repo_slug}/milestones/{milestone_slug}`;
-        urlPath = urlPath.replace(`{${"org_slug"}}`, encodeURIComponent(String(requestParameters['orgSlug'])));
-        urlPath = urlPath.replace(`{${"repo_slug"}}`, encodeURIComponent(String(requestParameters['repoSlug'])));
-        urlPath = urlPath.replace(`{${"milestone_slug"}}`, encodeURIComponent(String(requestParameters['milestoneSlug'])));
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"milestone_slug"}}`,
+            encodeURIComponent(String(requestParameters["milestoneSlug"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'PATCH',
-            headers: headerParameters,
-            query: queryParameters,
-            body: UpdateMilestoneBodyToJSON(requestParameters['updateMilestoneBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "PATCH",
+                headers: headerParameters,
+                query: queryParameters,
+                body: UpdateMilestoneBodyToJSON(requestParameters["updateMilestoneBody"]),
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MilestoneFromJSON(jsonValue));
     }
@@ -836,7 +1035,10 @@ export class RepositoryMilestonesApi extends runtime.BaseAPI implements Reposito
     /**
      * Update a Milestone (By Slug)
      */
-    async updateMilestone(requestParameters: UpdateMilestoneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Milestone> {
+    async updateMilestone(
+        requestParameters: UpdateMilestoneRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Milestone> {
         const response = await this.updateMilestoneRaw(requestParameters, initOverrides);
         return await response.value();
     }
@@ -844,30 +1046,33 @@ export class RepositoryMilestonesApi extends runtime.BaseAPI implements Reposito
     /**
      * Update a Milestone (By ID)
      */
-    async updateMilestoneByIDRaw(requestParameters: UpdateMilestoneByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Milestone>> {
-        if (requestParameters['milestoneId'] == null) {
+    async updateMilestoneByIDRaw(
+        requestParameters: UpdateMilestoneByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Milestone>> {
+        if (requestParameters["milestoneId"] == null) {
             throw new runtime.RequiredError(
-                'milestoneId',
+                "milestoneId",
                 'Required parameter "milestoneId" was null or undefined when calling updateMilestoneByID().'
             );
         }
 
-        if (requestParameters['updateMilestoneBody'] == null) {
+        if (requestParameters["updateMilestoneBody"] == null) {
             throw new runtime.RequiredError(
-                'updateMilestoneBody',
+                "updateMilestoneBody",
                 'Required parameter "updateMilestoneBody" was null or undefined when calling updateMilestoneByID().'
             );
         }
 
         const queryParameters: any = {};
 
-        if (requestParameters['silent'] != null) {
-            queryParameters['silent'] = requestParameters['silent'];
+        if (requestParameters["silent"] != null) {
+            queryParameters["silent"] = requestParameters["silent"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
-        headerParameters['Content-Type'] = 'application/json';
+        headerParameters["Content-Type"] = "application/json";
 
         if (this.configuration && this.configuration.accessToken) {
             const token = this.configuration.accessToken;
@@ -879,15 +1084,21 @@ export class RepositoryMilestonesApi extends runtime.BaseAPI implements Reposito
         }
 
         let urlPath = `/milestones/id:{milestone_id}`;
-        urlPath = urlPath.replace(`{${"milestone_id"}}`, encodeURIComponent(String(requestParameters['milestoneId'])));
+        urlPath = urlPath.replace(
+            `{${"milestone_id"}}`,
+            encodeURIComponent(String(requestParameters["milestoneId"]))
+        );
 
-        const response = await this.request({
-            path: urlPath,
-            method: 'PATCH',
-            headers: headerParameters,
-            query: queryParameters,
-            body: UpdateMilestoneBodyToJSON(requestParameters['updateMilestoneBody']),
-        }, initOverrides);
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "PATCH",
+                headers: headerParameters,
+                query: queryParameters,
+                body: UpdateMilestoneBodyToJSON(requestParameters["updateMilestoneBody"]),
+            },
+            initOverrides
+        );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MilestoneFromJSON(jsonValue));
     }
@@ -895,9 +1106,11 @@ export class RepositoryMilestonesApi extends runtime.BaseAPI implements Reposito
     /**
      * Update a Milestone (By ID)
      */
-    async updateMilestoneByID(requestParameters: UpdateMilestoneByIDRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Milestone> {
+    async updateMilestoneByID(
+        requestParameters: UpdateMilestoneByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Milestone> {
         const response = await this.updateMilestoneByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }
-
 }

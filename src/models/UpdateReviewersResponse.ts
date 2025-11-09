@@ -12,23 +12,23 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
-import type { PRReviewer } from './PRReviewer';
+import { mapValues } from "../runtime";
+import type { PRReviewer } from "./PRReviewer";
 import {
     PRReviewerFromJSON,
     PRReviewerFromJSONTyped,
     PRReviewerToJSON,
     PRReviewerToJSONTyped,
-} from './PRReviewer';
+} from "./PRReviewer";
 
 /**
- * 
+ *
  * @export
  * @interface UpdateReviewersResponse
  */
 export interface UpdateReviewersResponse {
     /**
-     * 
+     *
      * @type {Array<PRReviewer>}
      * @memberof UpdateReviewersResponse
      */
@@ -46,13 +46,18 @@ export function UpdateReviewersResponseFromJSON(json: any): UpdateReviewersRespo
     return UpdateReviewersResponseFromJSONTyped(json, false);
 }
 
-export function UpdateReviewersResponseFromJSONTyped(json: any, ignoreDiscriminator: boolean): UpdateReviewersResponse {
+export function UpdateReviewersResponseFromJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): UpdateReviewersResponse {
     if (json == null) {
         return json;
     }
     return {
-        
-        'reviewers': json['reviewers'] == null ? undefined : ((json['reviewers'] as Array<any>).map(PRReviewerFromJSON)),
+        reviewers:
+            json["reviewers"] == null
+                ? undefined
+                : (json["reviewers"] as Array<any>).map(PRReviewerFromJSON),
     };
 }
 
@@ -60,14 +65,18 @@ export function UpdateReviewersResponseToJSON(json: any): UpdateReviewersRespons
     return UpdateReviewersResponseToJSONTyped(json, false);
 }
 
-export function UpdateReviewersResponseToJSONTyped(value?: UpdateReviewersResponse | null, ignoreDiscriminator: boolean = false): any {
+export function UpdateReviewersResponseToJSONTyped(
+    value?: UpdateReviewersResponse | null,
+    ignoreDiscriminator: boolean = false
+): any {
     if (value == null) {
         return value;
     }
 
     return {
-        
-        'reviewers': value['reviewers'] == null ? undefined : ((value['reviewers'] as Array<any>).map(PRReviewerToJSON)),
+        reviewers:
+            value["reviewers"] == null
+                ? undefined
+                : (value["reviewers"] as Array<any>).map(PRReviewerToJSON),
     };
 }
-

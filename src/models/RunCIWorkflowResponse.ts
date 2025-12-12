@@ -35,6 +35,12 @@ export interface RunCIWorkflowResponse {
     fluxId?: string;
     /**
      *
+     * @type {string}
+     * @memberof RunCIWorkflowResponse
+     */
+    fluxPublicId?: string;
+    /**
+     *
      * @type {TriggerStatus}
      * @memberof RunCIWorkflowResponse
      */
@@ -61,6 +67,7 @@ export function RunCIWorkflowResponseFromJSONTyped(
     }
     return {
         fluxId: json["flux_id"] == null ? undefined : json["flux_id"],
+        fluxPublicId: json["flux_public_id"] == null ? undefined : json["flux_public_id"],
         triggerStatus:
             json["trigger_status"] == null
                 ? undefined
@@ -82,6 +89,7 @@ export function RunCIWorkflowResponseToJSONTyped(
 
     return {
         flux_id: value["fluxId"],
+        flux_public_id: value["fluxPublicId"],
         trigger_status: TriggerStatusToJSON(value["triggerStatus"]),
     };
 }

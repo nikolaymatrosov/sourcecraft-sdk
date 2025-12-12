@@ -2,6 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/@nikolaymatrosov/sourcecraft-sdk.svg)](https://www.npmjs.com/package/@nikolaymatrosov/sourcecraft-sdk)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Changelog](https://img.shields.io/badge/changelog-CHANGELOG.md-blue)](CHANGELOG.md)
 
 A TypeScript/JavaScript SDK for interacting with the SourceCraft API - a platform for managing source code repositories, issues, pull requests, and CI/CD operations.
 

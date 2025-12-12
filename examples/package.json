@@ -15,7 +15,7 @@
     "@nikolaymatrosov/sourcecraft-sdk": "file:.."
   },
   "devDependencies": {
-    "@types/node": "^24.10.0",
+    "@types/node": "^25.0.1",
     "typescript": "^5.9.3"
   }
 }

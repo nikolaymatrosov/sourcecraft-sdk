@@ -1151,6 +1151,113 @@ paths:
               $ref: '#/components/schemas/UpdateMilestoneBody'
         required: true
       summary: Update a Milestone (By ID)
+  /orgs/id:{org_id}/invites:
+    get:
+      parameters:
+        - in: path
+          name: org_id
+          required: true
+          schema:
+            type: string
+        - description: |-
+            The maximum number of repositories to return. The service may return fewer than
+            this value
+          in: query
+          name: page_size
+          required: false
+          schema:
+            format: uint64
+            type: string
+        - description: |-
+            A page token, received from a previous call.
+            Provide this to retrieve the subsequent page.
+
+            When paginating, all other parameters must match
+            the call that provided the page token.
+          in: query
+          name: page_token
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListOrganizationInvitesResponse'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+          description: Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme
+      tags:
+        - Organization | Invites
+      operationId: ListOrganizationInvitesByID
+      summary: List Organization Invitations (By Organization ID)
+    post:
+      parameters:
+        - in: path
+          name: org_id
+          required: true
+          schema:
+            type: string
+      responses:
+        '202':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateOrganizationInvitesResponse'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+          description: Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme
+      tags:
+        - Organization | Invites
+      description: Creates invitations asynchronously. Poll operation status at `GET /orgs/id:{org_id}/operations/create-invites/{operation_id}`
+      operationId: CreateOrganizationInvitesByID
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateOrganizationInvitesBody'
+        required: true
+      summary: Create Organization Invitations (By Organization ID)
+  /orgs/id:{org_id}/operations/create-invites/{operation_id}:
+    get:
+      parameters:
+        - in: path
+          name: org_id
+          required: true
+          schema:
+            type: string
+        - description: Operation ID
+          in: path
+          name: operation_id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateInvitesOperation'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+          description: Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme
+      tags:
+        - Organization | Operation
+      operationId: GetOrganizationInvitesOperationByID
+      summary: Get invitation creation operation status (By Organization ID)
   /orgs/id:{org_id}/repos:
     get:
       parameters:
@@ -1226,6 +1333,128 @@ paths:
               $ref: '#/components/schemas/CreateRepositoryBody'
         required: true
       summary: Create Repository in Organization (By Organization ID)
+  /orgs/{org_slug}/invites:
+    get:
+      parameters:
+        - in: path
+          name: org_slug
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: org_id
+          required: false
+          schema:
+            type: string
+        - description: |-
+            The maximum number of repositories to return. The service may return fewer than
+            this value
+          in: query
+          name: page_size
+          required: false
+          schema:
+            format: uint64
+            type: string
+        - description: |-
+            A page token, received from a previous call.
+            Provide this to retrieve the subsequent page.
+
+            When paginating, all other parameters must match
+            the call that provided the page token.
+          in: query
+          name: page_token
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListOrganizationInvitesResponse'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+          description: Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme
+      tags:
+        - Organization | Invites
+      operationId: ListOrganizationInvites
+      summary: List Organization Invitations
+    post:
+      parameters:
+        - in: path
+          name: org_slug
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: org_id
+          required: false
+          schema:
+            type: string
+      responses:
+        '202':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateOrganizationInvitesResponse'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+          description: Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme
+      tags:
+        - Organization | Invites
+      description: Creates invitations asynchronously. Poll operation status at `GET /orgs/{org_slug}/operations/create-invites/{operation_id}`
+      operationId: CreateOrganizationInvites
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateOrganizationInvitesBody'
+        required: true
+      summary: Create Organization Invitations
+  /orgs/{org_slug}/operations/create-invites/{operation_id}:
+    get:
+      parameters:
+        - in: path
+          name: org_slug
+          required: true
+          schema:
+            type: string
+        - description: Operation ID
+          in: path
+          name: operation_id
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: org_id
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateInvitesOperation'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+          description: Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme
+      tags:
+        - Organization | Operation
+      operationId: GetOrganizationInvitesOperation
+      summary: Get invitation creation operation status
   /orgs/{org_slug}/repos:
     get:
       parameters:
@@ -1830,6 +2059,139 @@ paths:
               $ref: '#/components/schemas/AutoAssignBody'
         required: true
       summary: Automatically assign reviewers to meet review requirements (By ID)
+  /releases/id:{release_id}:
+    get:
+      parameters:
+        - in: path
+          name: release_id
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: release_tag
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Release'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+          description: Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme
+      tags:
+        - Repository | Releases
+      operationId: GetByID
+      summary: Get Release (By ID)
+  /releases/id:{release_id}/attachments:
+    post:
+      parameters:
+        - in: path
+          name: release_id
+          required: true
+          schema:
+            type: string
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReleaseAsset'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+          description: Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme
+      tags:
+        - Release | Attachments
+      description: Uploads attachment to a release and adds it as an asset
+      operationId: AddReleaseAssetAttachmentByID
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              properties:
+                file:
+                  description: The file to upload
+                  format: binary
+                  type: string
+              required:
+                - file
+              type: object
+        required: true
+      summary: Upload Attachment As Release Asset (By Release ID)
+  /releases/id:{release_id}/discard:
+    post:
+      parameters:
+        - in: path
+          name: release_id
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: release_tag
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Release'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+          description: Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme
+      tags:
+        - Repository | Releases
+      description: |-
+        Only 'published' releases may be discarded, drafts can only be deleted or published.
+        Contrary to deleted releases, discarded releases are still visible to maintainers.
+      operationId: DiscardByID
+      summary: Discard Release (By ID)
+  /releases/id:{release_id}/publish:
+    post:
+      parameters:
+        - in: path
+          name: release_id
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: release_tag
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Release'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+          description: Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme
+      tags:
+        - Repository | Releases
+      description: Only 'draft' releases may be published
+      operationId: PublishByID
+      summary: Publish Release (By ID)
   /repos/id:{repo_id}:
     delete:
       parameters:
@@ -1998,7 +2360,8 @@ paths:
         '200':
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/RunCIWorkflowResponse'
           description: A successful response.
         default:
           content:
@@ -2008,6 +2371,8 @@ paths:
           description: Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme
       tags:
         - CI
+      deprecated: true
+      description: Method is deprecated, please use POST /repos/by-id/{repo_id}/cicd/runs instead
       operationId: RunWorkflowByID
       requestBody:
         content:
@@ -2016,6 +2381,79 @@ paths:
               $ref: '#/components/schemas/RunCIBody'
         required: true
       summary: Run Workflow in Repository (By Repo ID)
+  /repos/id:{repo_id}/cicd/runs:
+    get:
+      parameters:
+        - in: path
+          name: repo_id
+          required: true
+          schema:
+            type: string
+        - description: The maximum number of runs to return. The service may return fewer than this value
+          in: query
+          name: page_size
+          required: false
+          schema:
+            format: uint64
+            type: string
+        - description: |-
+            A page token, received from a previous call.
+            Provide this to retrieve the subsequent page.
+
+            When paginating, all other parameters must match
+            the call that provided the page token.
+          in: query
+          name: page_token
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListRunsResponse'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+          description: Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme
+      tags:
+        - CI/CD
+      operationId: ListRunsByID
+      summary: List CI Runs in Repository (By Repo ID)
+    post:
+      parameters:
+        - in: path
+          name: repo_id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Run'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+          description: Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme
+      tags:
+        - CI/CD
+      operationId: RunWorkflowsByID
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RunWorkflowsBody'
+        required: true
+      summary: Run Workflows in Repository (By Repo ID)
   /repos/id:{repo_id}/fork:
     post:
       parameters:
@@ -2400,6 +2838,117 @@ paths:
               $ref: '#/components/schemas/CreatePullRequestBody'
         required: true
       summary: Create PullRequest in Repository (By Repo ID)
+  /repos/id:{repo_id}/releases:
+    get:
+      parameters:
+        - in: path
+          name: repo_id
+          required: true
+          schema:
+            type: string
+        - description: The maximum number of releases to return. The service may return fewer than this value
+          in: query
+          name: page_size
+          required: false
+          schema:
+            format: uint64
+            type: string
+        - description: |-
+            A page token, received from a previous call.
+            Provide this to retrieve the subsequent page.
+
+            When paginating, all other parameters must match
+            the call that provided the page token.
+          in: query
+          name: page_token
+          required: false
+          schema:
+            type: string
+        - description: |-
+            Ordering options: comma separated list of fields. For example: "name, created_at"
+            Default sorting order is ascending. To specify descending order for a field,
+            append a "-" prefix; for example: "name, -created_at"
+            Redundant space characters in the syntax are insignificant. "foo, -bar", " foo , -bar", and "foo,bar"
+            are all equivalent.
+            Available fields: created_at, released_at
+          in: query
+          name: sort_by
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListReleasesResponse'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+          description: Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme
+      tags:
+        - Repository | Releases
+      operationId: ListByID
+      summary: List Releases in Repository (By Repo ID)
+    post:
+      parameters:
+        - in: path
+          name: repo_id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Release'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+          description: Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme
+      tags:
+        - Repository | Releases
+      operationId: CreateByID
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateReleaseBody'
+        required: true
+      summary: Create Release in Repository (By Repo ID)
+  /repos/id:{repo_id}/releases/latest:
+    get:
+      parameters:
+        - in: path
+          name: repo_id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Release'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+          description: Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme
+      tags:
+        - Repository | Releases
+      description: Retrieves a release marked as latest (by default, last published release)
+      operationId: GetLatestByID
+      summary: Get Latest Release (By Repo ID)
   /repos/id:{repo_id}/roles:
     get:
       parameters:
@@ -4856,6 +5405,309 @@ paths:
               $ref: '#/components/schemas/AutoAssignBody'
         required: true
       summary: Automatically assign reviewers to meet review requirements
+  /repos/{org_slug}/{repo_slug}/releases:
+    get:
+      parameters:
+        - in: path
+          name: org_slug
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: repo_slug
+          required: true
+          schema:
+            type: string
+        - description: The maximum number of releases to return. The service may return fewer than this value
+          in: query
+          name: page_size
+          required: false
+          schema:
+            format: uint64
+            type: string
+        - description: |-
+            A page token, received from a previous call.
+            Provide this to retrieve the subsequent page.
+
+            When paginating, all other parameters must match
+            the call that provided the page token.
+          in: query
+          name: page_token
+          required: false
+          schema:
+            type: string
+        - description: |-
+            Ordering options: comma separated list of fields. For example: "name, created_at"
+            Default sorting order is ascending. To specify descending order for a field,
+            append a "-" prefix; for example: "name, -created_at"
+            Redundant space characters in the syntax are insignificant. "foo, -bar", " foo , -bar", and "foo,bar"
+            are all equivalent.
+            Available fields: created_at, released_at
+          in: query
+          name: sort_by
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListReleasesResponse'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+          description: Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme
+      tags:
+        - Repository | Releases
+      operationId: List
+      summary: List Releases in Repository
+    post:
+      parameters:
+        - in: path
+          name: org_slug
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: repo_slug
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Release'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+          description: Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme
+      tags:
+        - Repository | Releases
+      operationId: Create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateReleaseBody'
+        required: true
+      summary: Create Release in Repository
+  /repos/{org_slug}/{repo_slug}/releases/latest:
+    get:
+      parameters:
+        - in: path
+          name: org_slug
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: repo_slug
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Release'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+          description: Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme
+      tags:
+        - Repository | Releases
+      description: Retrieves a release marked as latest (by default, last published release)
+      operationId: GetLatest
+      summary: Get Latest Release
+  /repos/{org_slug}/{repo_slug}/releases/tag/{release_tag}:
+    get:
+      parameters:
+        - in: path
+          name: org_slug
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: repo_slug
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: release_tag
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: release_id
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Release'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+          description: Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme
+      tags:
+        - Repository | Releases
+      operationId: GetByTag
+      summary: Get Release (By Tag)
+  /repos/{org_slug}/{repo_slug}/releases/tag/{release_tag}/attachments:
+    post:
+      parameters:
+        - in: path
+          name: org_slug
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: repo_slug
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: release_tag
+          required: true
+          schema:
+            type: string
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReleaseAsset'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+          description: Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme
+      tags:
+        - Release | Attachments
+      description: Uploads attachment to a release and adds it as an asset
+      operationId: AddReleaseAssetAttachment
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              properties:
+                file:
+                  description: The file to upload
+                  format: binary
+                  type: string
+                name:
+                  description: The intended name of the asset
+                  type: string
+              required:
+                - name
+                - file
+              type: object
+        required: true
+      summary: Upload Attachment As Release Asset (By Release Tag)
+  /repos/{org_slug}/{repo_slug}/releases/tag/{release_tag}/discard:
+    post:
+      parameters:
+        - in: path
+          name: org_slug
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: repo_slug
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: release_tag
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: release_id
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Release'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+          description: Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme
+      tags:
+        - Repository | Releases
+      description: |-
+        Only 'published' releases may be discarded, drafts can only be deleted or published.
+        Contrary to deleted releases, discarded releases are still visible to maintainers.
+      operationId: DiscardByTag
+      summary: Discard Release (By Tag)
+  /repos/{org_slug}/{repo_slug}/releases/tag/{release_tag}/publish:
+    post:
+      parameters:
+        - in: path
+          name: org_slug
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: repo_slug
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: release_tag
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: release_id
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Release'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+          description: Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme
+      tags:
+        - Repository | Releases
+      description: Only 'draft' releases may be published
+      operationId: PublishByTag
+      summary: Publish Release (By Tag)
   /repos/{org_slug}/{repo_slug}/roles:
     get:
       parameters:
@@ -5127,6 +5979,35 @@ paths:
         - Repository
       operationId: ListTree
       summary: List Repository File Tree
+  /users/id:{user_id}:
+    get:
+      parameters:
+        - in: path
+          name: user_id
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: user_slug
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfile'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+          description: Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme
+      tags:
+        - User
+      operationId: GetProfileByID
   /users/id:{user_id}/pulls:
     get:
       parameters:
@@ -5200,6 +6081,35 @@ paths:
       description: Lists pull requests related to a user identified by UUID.
       operationId: ListUserPullRequestsByID
       summary: List User Pull Requests (By User ID)
+  /users/{user_slug}:
+    get:
+      parameters:
+        - in: path
+          name: user_slug
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: user_id
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfile'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+          description: Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme
+      tags:
+        - User
+      operationId: GetProfile
   /users/{user_slug}/pulls:
     get:
       parameters:
@@ -5369,7 +6279,8 @@ paths:
         '200':
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/RunCIWorkflowResponse'
           description: A successful response.
         default:
           content:
@@ -5379,6 +6290,8 @@ paths:
           description: Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme
       tags:
         - CI
+      deprecated: true
+      description: Method is deprecated, please use POST /{org_slug}/{repo_slug}/cicd/runs instead
       operationId: RunWorkflow
       requestBody:
         content:
@@ -5387,6 +6300,282 @@ paths:
               $ref: '#/components/schemas/RunCIBody'
         required: true
       summary: Run Workflow in Repository
+  /{org_slug}/{repo_slug}/cicd/artifacts/{run_slug}/{workflow_slug}/{task_slug}/{cube_slug}:
+    get:
+      parameters:
+        - in: path
+          name: org_slug
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: repo_slug
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: run_slug
+          required: true
+          schema:
+            type: string
+        - description: Workflow name as defined in the config.
+          in: path
+          name: workflow_slug
+          required: true
+          schema:
+            type: string
+        - description: Task name as defined in the config.
+          in: path
+          name: task_slug
+          required: true
+          schema:
+            type: string
+        - description: Cube name as defined in the config.
+          in: path
+          name: cube_slug
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCubeArtifactsResponse'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+          description: Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme
+      tags:
+        - CI/CD
+      operationId: GetCubeArtifacts
+      summary: Get Artifacts from a CI Run
+  /{org_slug}/{repo_slug}/cicd/logs/{run_slug}/{workflow_slug}/{task_slug}/{cube_slug}:
+    get:
+      parameters:
+        - in: path
+          name: org_slug
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: repo_slug
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: run_slug
+          required: true
+          schema:
+            type: string
+        - description: Workflow name as defined in the config.
+          in: path
+          name: workflow_slug
+          required: true
+          schema:
+            type: string
+        - description: Task name as defined in the config.
+          in: path
+          name: task_slug
+          required: true
+          schema:
+            type: string
+        - description: Cube name as defined in the config.
+          in: path
+          name: cube_slug
+          required: true
+          schema:
+            type: string
+        - description: |-
+            Page number to fetch, by default 1.
+
+            Logs are split into pages; pages are not guaranteed to be the same size and are intended to be read
+            in order. When one page is finished, the subsequent one starts being written.
+          in: query
+          name: page
+          required: false
+          schema:
+            format: int64
+            type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCubeLogsResponse'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+          description: Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme
+      tags:
+        - CI/CD
+      operationId: GetCubeLogs
+      summary: Get Logs from a Running CI Cube in Repository
+  /{org_slug}/{repo_slug}/cicd/runs:
+    get:
+      parameters:
+        - in: path
+          name: org_slug
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: repo_slug
+          required: true
+          schema:
+            type: string
+        - description: The maximum number of runs to return. The service may return fewer than this value
+          in: query
+          name: page_size
+          required: false
+          schema:
+            format: uint64
+            type: string
+        - description: |-
+            A page token, received from a previous call.
+            Provide this to retrieve the subsequent page.
+
+            When paginating, all other parameters must match
+            the call that provided the page token.
+          in: query
+          name: page_token
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListRunsResponse'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+          description: Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme
+      tags:
+        - CI/CD
+      operationId: ListRuns
+      summary: List CI Runs in Repository
+    post:
+      parameters:
+        - in: path
+          name: org_slug
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: repo_slug
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Run'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+          description: Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme
+      tags:
+        - CI/CD
+      operationId: RunWorkflows
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RunWorkflowsBody'
+        required: true
+      summary: Run Workflows in Repository
+  /{org_slug}/{repo_slug}/cicd/runs/{run_slug}:
+    get:
+      parameters:
+        - in: path
+          name: org_slug
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: repo_slug
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: run_slug
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Run'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+          description: Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme
+      tags:
+        - CI/CD
+      operationId: GetRun
+      summary: Get CI Run in Repository
+  /{org_slug}/{repo_slug}/cicd/runs/{run_slug}/{workflow_slug}:
+    get:
+      parameters:
+        - in: path
+          name: org_slug
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: repo_slug
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: run_slug
+          required: true
+          schema:
+            type: string
+        - description: Workflow name as defined in the config.
+          in: path
+          name: workflow_slug
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Workflow'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+          description: Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme
+      tags:
+        - CI/CD
+      operationId: GetWorkflow
+      summary: Get Running CI Workflow in Repository
 components:
   requestBodies:
     AddRepoRolesBody:
@@ -5431,6 +6620,12 @@ components:
           schema:
             $ref: '#/components/schemas/CreateMilestoneBody'
       required: true
+    CreateOrganizationInvitesBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CreateOrganizationInvitesBody'
+      required: true
     CreatePullRequestBody:
       content:
         application/json:
@@ -5442,6 +6637,12 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/CreatePullRequestCommentBody'
+      required: true
+    CreateReleaseBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CreateReleaseBody'
       required: true
     CreateRepositoryBody:
       content:
@@ -5484,6 +6685,12 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/RunCIBody'
+      required: true
+    RunWorkflowsBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RunWorkflowsBody'
       required: true
     SetDecisionBody:
       content:
@@ -5588,6 +6795,44 @@ components:
           title: Request ID
           type: string
       type: object
+    Artifact:
+      properties:
+        dates:
+          $ref: '#/components/schemas/ArtifactDates'
+        download_url:
+          description: A temporary download URL, will be valid for a short period of time after acquisition.
+          type: string
+        id:
+          title: CI/CD entities don't have public IDs at this stage; they will be added later
+          type: string
+        local_path:
+          description: |-
+            Artifacts do not have a slug as we define it.
+            Instead they are differentiated by context (workflow, task, cube) and `local_path`.
+            This is a local path for the artifact as defined in the CI configuration file.
+          type: string
+        status:
+          $ref: '#/components/schemas/ArtifactStatus'
+      type: object
+    ArtifactDates:
+      properties:
+        obtained_at:
+          format: date-time
+          type: string
+        registered_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+      type: object
+    ArtifactStatus:
+      enum:
+        - registered
+        - success
+        - failed
+        - missing
+      type: string
     Attachment:
       properties:
         file_type:
@@ -5667,10 +6912,65 @@ components:
       type: object
     Commit:
       properties:
+        author:
+          $ref: '#/components/schemas/Signature'
+          title: Author of the commit
+        committer:
+          $ref: '#/components/schemas/Signature'
+          title: Committer of the commit (may differ from author)
         hash:
+          type: string
+        merge_tag:
+          title: Embedded merge tag (if present)
           type: string
         message:
           type: string
+        parent_hashes:
+          items:
+            type: string
+          title: Hashes of parent commits
+          type: array
+        tree_hash:
+          title: Hash of the tree object
+          type: string
+      type: object
+    CreateInvitesOperation:
+      properties:
+        created_at:
+          format: date-time
+          title: Timestamp when operation was created
+          type: string
+        error:
+          $ref: '#/components/schemas/OperationError'
+          description: |-
+            Operation-level error. Present only when the entire operation failed
+            due to a fatal error (e.g., permission denied, invalid request, system error).
+            If some invites succeeded and some failed, the operation is considered successful.
+        id:
+          title: Operation ID
+          type: string
+        modified_at:
+          format: date-time
+          title: Timestamp when operation was last modified
+          type: string
+        response:
+          $ref: '#/components/schemas/CreateInvitesOperationResult'
+          description: Operation result. Present when status is "success".
+        status:
+          $ref: '#/components/schemas/OperationStatus'
+      type: object
+    CreateInvitesOperationResult:
+      properties:
+        errors:
+          description: Per-invite errors. Each error identifies which invitee failed and why.
+          items:
+            $ref: '#/components/schemas/InviteError'
+          type: array
+        invites:
+          description: Invites that were successfully created and are waiting for acceptance.
+          items:
+            $ref: '#/components/schemas/Invite'
+          type: array
       type: object
     CreateIssueBody:
       properties:
@@ -5773,6 +7073,30 @@ components:
       required:
         - name
       type: object
+    CreateOrganizationInvitesBody:
+      properties:
+        invitees:
+          items:
+            $ref: '#/components/schemas/InviteeInput'
+          title: List of invitees
+          type: array
+        ttl_in_days:
+          format: int64
+          title: 'Time-to-live in days (1 to 30, empty means default: 14)'
+          type: integer
+      type: object
+    CreateOrganizationInvitesResponse:
+      example:
+        operation_id: 550e8400-e29b-41d4-a716-446655440000
+        status_url: /orgs/id:123/operations/create-invites/550e8400-e29b-41d4-a716-446655440000
+      properties:
+        operation_id:
+          title: Operation ID
+          type: string
+        status_url:
+          title: URL to poll for operation status
+          type: string
+      type: object
     CreatePullRequestBody:
       properties:
         description:
@@ -5818,6 +7142,21 @@ components:
           title: publish immediately (defaults to true)
           type: boolean
       type: object
+    CreateReleaseBody:
+      properties:
+        publish:
+          title: Determines whether the release is to be created as draft or published immedieately
+          type: boolean
+        release_notes:
+          type: string
+        tag:
+          type: string
+        target_branch:
+          title: If provided, tag creation will be attempted on publish; will fail on existing tag
+          type: string
+        title:
+          type: string
+      type: object
     CreateRepositoryBody:
       properties:
         description:
@@ -5842,11 +7181,50 @@ components:
         - name
         - slug
       type: object
+    Cube:
+      properties:
+        artifacts:
+          items:
+            $ref: '#/components/schemas/Artifact'
+          type: array
+        dates:
+          $ref: '#/components/schemas/DatesByStage'
+        id:
+          title: CI/CD entities don't have public IDs at this stage; they will be added later
+          type: string
+        relations:
+          $ref: '#/components/schemas/Relations'
+        slug:
+          title: A name of the cube as defined in the config
+          type: string
+        status:
+          $ref: '#/components/schemas/Run.Status'
+      type: object
+    DatesByStage:
+      properties:
+        created_at:
+          format: date-time
+          type: string
+        finished_at:
+          format: date-time
+          type: string
+        started_at:
+          format: date-time
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+      type: object
     DeltaAction:
       enum:
         - add
         - remove
       type: string
+    Dependency:
+      properties:
+        name:
+          type: string
+      type: object
     DiffPos:
       properties:
         from:
@@ -5863,6 +7241,41 @@ components:
           format: int32
           type: integer
       type: object
+    EventHeader:
+      properties:
+        aggregate_id:
+          title: ID of the primary entity this event is about
+          type: string
+        aggregate_type:
+          title: Type of the primary entity (derived from event_type)
+          type: string
+        id:
+          title: Unique identifier for this event instance
+          type: string
+        metadata:
+          additionalProperties:
+            type: string
+          title: Public metadata
+          type: object
+        occurred_at:
+          format: date-time
+          title: When the event occurred
+          type: string
+        organization_id:
+          title: Organization context
+          type: string
+        type:
+          title: Event type
+          type: string
+      title: Common header included in all public events
+      type: object
+    EventType:
+      enum:
+        - push
+        - pr_update
+        - manual
+        - restart
+      type: string
     FileType:
       enum:
         - image
@@ -5883,6 +7296,42 @@ components:
           type: string
         slug:
           title: Slug for the forked repository (up to 256 characters). If not specified, uses the source repository slug
+          type: string
+      type: object
+    GetCubeArtifactsResponse:
+      properties:
+        artifacts:
+          description: |-
+            List of artifacts filtered by specified workflow/task/cube.
+            Each item contains info about the artifact and a temporary download URL.
+          items:
+            $ref: '#/components/schemas/Artifact'
+          type: array
+      type: object
+    GetCubeLogsResponse:
+      properties:
+        done:
+          description: This flag is set to true when the the cube's execution has finished and no more logs will be written.
+          type: boolean
+        logs:
+          type: string
+        page_complete:
+          description: |-
+            This flag is set to true when the corresponding page of logs was fully written.
+            If `page_complete` is false, requests for the next pages will result in a status code 'Not Found'.
+          type: boolean
+      type: object
+    GitRevision:
+      description: Exactly one of the fields must be provided
+      properties:
+        branch:
+          title: Branch name
+          type: string
+        commit:
+          title: Commit hash
+          type: string
+        tag:
+          title: Tag name
           type: string
       type: object
     Hunk:
@@ -5936,6 +7385,55 @@ components:
         name:
           type: string
         value:
+          type: string
+      type: object
+    Invite:
+      properties:
+        created_at:
+          format: date-time
+          title: When the invitation was created
+          type: string
+        email:
+          title: Email address of the invitee (for external users)
+          type: string
+        expires_at:
+          format: date-time
+          title: When the invitation expires
+          type: string
+        id:
+          title: Unique identifier of the invite
+          type: string
+        invitee:
+          $ref: '#/components/schemas/UserEmbedded'
+          title: Invitee user (if registered user)
+        status:
+          $ref: '#/components/schemas/InviteStatus'
+          title: Current status of the invitation
+      type: object
+    InviteError:
+      properties:
+        error_code:
+          type: string
+        invitee:
+          $ref: '#/components/schemas/InviteeInput'
+          title: The invitee input that caused the error
+        message:
+          type: string
+      type: object
+    InviteStatus:
+      enum:
+        - creating
+        - pending
+        - accepted
+        - rejected
+      type: string
+    InviteeInput:
+      properties:
+        email:
+          title: Email address (for external users)
+          type: string
+        slug:
+          title: User slug (for registered users)
           type: string
       type: object
     Issue:
@@ -6189,6 +7687,19 @@ components:
         next_page_token:
           type: string
       type: object
+    ListOrganizationInvitesResponse:
+      properties:
+        invites:
+          items:
+            $ref: '#/components/schemas/Invite'
+          title: List of invitations
+          type: array
+        next_page_token:
+          description: |-
+            A token, which can be sent as `page_token` to retrieve the next page.
+            If this field is omitted, there are no subsequent pages.
+          type: string
+      type: object
     ListOrganizationRepositoriesResponse:
       properties:
         next_page_token:
@@ -6208,6 +7719,18 @@ components:
         pull_request_comments:
           items:
             $ref: '#/components/schemas/PullRequestComment'
+          type: array
+      type: object
+    ListReleasesResponse:
+      properties:
+        next_page_token:
+          description: |-
+            A token, which can be sent as `page_token` to retrieve the next page.
+            If this field is omitted, there are no subsequent pages.
+          type: string
+        releases:
+          items:
+            $ref: '#/components/schemas/Release'
           type: array
       type: object
     ListRepoRolesResponse:
@@ -6259,6 +7782,19 @@ components:
             $ref: '#/components/schemas/PRReviewer'
           type: array
       title: ListReviewersResponse contains information about all the reviewers of pull request
+      type: object
+    ListRunsResponse:
+      properties:
+        next_page_token:
+          description: |-
+            A token, which can be sent as `page_token` to retrieve the next page.
+            If this field is omitted, there are no subsequent pages.
+          type: string
+        runs:
+          items:
+            $ref: '#/components/schemas/Run'
+          title: List of CI/CD runs
+          type: array
       type: object
     ListTagsResponse:
       properties:
@@ -6376,6 +7912,28 @@ components:
         reaction:
           $ref: '#/components/schemas/Reaction'
       type: object
+    OperationError:
+      properties:
+        details:
+          additionalProperties:
+            type: string
+          title: Optional details. Exact structure depends on error_code
+          type: object
+        error_code:
+          title: Error code that can be used for error handling
+          type: string
+        message:
+          title: Human-readable message
+          type: string
+      type: object
+    OperationStatus:
+      enum:
+        - scheduled
+        - in_progress
+        - success
+        - failed
+        - cancel
+      type: string
     OrganizationEmbedded:
       properties:
         id:
@@ -6396,6 +7954,23 @@ components:
         user:
           $ref: '#/components/schemas/UserEmbedded'
       type: object
+    Ping:
+      properties:
+        header:
+          $ref: '#/components/schemas/EventHeader'
+          title: Event header with common fields
+        pinged_at:
+          format: date-time
+          title: When the ping was sent
+          type: string
+        repository:
+          $ref: '#/components/schemas/RepositoryEmbedded'
+          title: Repository that the webhook is attached to
+        webhook_slug:
+          title: Webhook slug identifier
+          type: string
+      title: Ping event - sent when a webhook is tested
+      type: object
     Priority:
       enum:
         - trivial
@@ -6405,6 +7980,29 @@ components:
         - blocker
       title: mapping is done by const name, except for the unspecified
       type: string
+    ProfileStatus:
+      properties:
+        emoji:
+          type: string
+        message:
+          type: string
+      type: object
+    ProfileVisibility:
+      enum:
+        - private
+        - public
+      type: string
+    Progress:
+      properties:
+        current_cube:
+          $ref: '#/components/schemas/Cube'
+          description: |-
+            A reference to the cube that's currently being executed.
+            In case of several cubes being run in given context, any of them may be returned here.
+        percent:
+          format: float
+          type: number
+      type: object
     PullRequest:
       properties:
         author:
@@ -6496,6 +8094,42 @@ components:
         slug:
           type: string
       type: object
+    Push:
+      properties:
+        commits:
+          description: |-
+            Commits details for this event, from before_sha to after_sha.
+            In case of tag push or new branch creation before_sha is zero
+            and commits contain only single commit.
+          items:
+            $ref: '#/components/schemas/Commit'
+          type: array
+        default_branch:
+          title: The default branch reference name (e.g., "refs/heads/main")
+          type: string
+        has_more_commits:
+          title: Whether there are more commits (due to commits limit)
+          type: boolean
+        header:
+          $ref: '#/components/schemas/EventHeader'
+          title: Event header with common fields
+        is_default_branch_updated:
+          title: Whether the default branch was updated in this push
+          type: boolean
+        pushed_at:
+          format: date-time
+          type: string
+        pusher:
+          $ref: '#/components/schemas/UserEmbedded'
+          title: Who performed the push
+        ref_update:
+          $ref: '#/components/schemas/RefUpdate'
+          title: Push details - single ref update in a single push
+        repository:
+          $ref: '#/components/schemas/Repository'
+          title: Repository that received the push
+      title: Push event - represents git push operation to a repository
+      type: object
     Reaction:
       enum:
         - like
@@ -6539,6 +8173,120 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/ReactionCount'
           type: object
+      type: object
+    RefUpdate:
+      properties:
+        after_sha:
+          title: Commit SHA after the update (zeros for deleted ref)
+          type: string
+        before_sha:
+          title: Commit SHA before the update (zeros for new ref)
+          type: string
+        checkout_sha:
+          title: 'For annotated tags: the peeled SHA (commit the tag points to)'
+          type: string
+        operation:
+          $ref: '#/components/schemas/RefUpdateOperation'
+          title: Operation type
+        ref:
+          title: The git reference being updated (e.g., "refs/heads/main")
+          type: string
+      title: Represents a single ref update within a push
+      type: object
+    RefUpdateOperation:
+      enum:
+        - create
+        - update
+        - delete
+      title: Type of ref update operation
+      type: string
+    RefsUpdate:
+      properties:
+        default_branch:
+          title: The default branch reference name (e.g., "refs/heads/main")
+          type: string
+        header:
+          $ref: '#/components/schemas/EventHeader'
+          title: Event header with common fields
+        is_default_branch_updated:
+          title: Whether the default branch was updated in this push
+          type: boolean
+        pushed_at:
+          format: date-time
+          type: string
+        pusher:
+          $ref: '#/components/schemas/UserEmbedded'
+          title: Who performed the push
+        ref_updates:
+          items:
+            $ref: '#/components/schemas/RefUpdate'
+          title: Push details - supports multiple ref updates in a single push
+          type: array
+        repository:
+          $ref: '#/components/schemas/RepositoryEmbedded'
+          title: Repository that received the push
+      title: RefsUpdate event - represents git resf update operation to a repository
+      type: object
+    Relations:
+      properties:
+        needs:
+          items:
+            $ref: '#/components/schemas/Dependency'
+          type: array
+      type: object
+    Release:
+      properties:
+        assets:
+          items:
+            $ref: '#/components/schemas/ReleaseAsset'
+          type: array
+        author:
+          $ref: '#/components/schemas/UserEmbedded'
+        created_at:
+          format: date-time
+          type: string
+        hash:
+          type: string
+        id:
+          type: string
+        is_latest:
+          type: boolean
+        is_pre_release:
+          type: boolean
+        release_notes:
+          type: string
+        released_at:
+          format: date-time
+          type: string
+        repo_id:
+          type: string
+        status:
+          $ref: '#/components/schemas/Release.Status'
+        tag:
+          title: Release tag also serves as its slug
+          type: string
+        title:
+          type: string
+        updated_at:
+          format: date-time
+          type: string
+      type: object
+    Release.Status:
+      enum:
+        - draft
+        - published
+        - discarded
+      type: string
+    ReleaseAsset:
+      properties:
+        attachment:
+          $ref: '#/components/schemas/Attachment'
+        id:
+          type: string
+        link:
+          type: string
+        name:
+          type: string
       type: object
     RemoveRepoRolesBody:
       properties:
@@ -6659,6 +8407,60 @@ components:
         - any
       title: Role selector for listing PRs related to a user
       type: string
+    Run:
+      description: |-
+        Run represents an instance of CI/CD run which may contain several workflow launches.
+
+        When Run is in `created` status, it is still in preparation for startup and can contain no workflows.
+        After the status is no longer `created` (is `prepared` or `processing`), its workflows list
+        is filled and finalized.
+
+        It is possible that 'Run Workflows' endpoint will return a Run that's no longer `created` or
+        `prepared` if those stages were processed fast enough.
+      properties:
+        dates:
+          $ref: '#/components/schemas/DatesByStage'
+        error_messages:
+          items:
+            type: string
+          type: array
+        event_type:
+          $ref: '#/components/schemas/EventType'
+          title: An event that triggered this run
+        id:
+          title: CI/CD entities don't have public IDs at this stage; they will be added later
+          type: string
+        pull:
+          $ref: '#/components/schemas/PullRequestEmbedded'
+          description: |-
+            Pull request which this run corresponds to.
+            Only provided when this run is triggered by an event of type `pr_update`.
+        slug:
+          title: Run counter serves as a slug
+          type: string
+        status:
+          $ref: '#/components/schemas/Run.Status'
+        user:
+          $ref: '#/components/schemas/UserEmbedded'
+          description: User that triggered this CI run.
+        workflows:
+          items:
+            $ref: '#/components/schemas/Workflow'
+          type: array
+      type: object
+    Run.Status:
+      description: |2-
+         - prepared: Status `prepared` may only appear as a Run status.
+        It's a stage between creation and startup during which the Run is populated with workflows.
+      enum:
+        - created
+        - prepared
+        - processing
+        - success
+        - failed
+        - canceled
+        - timeout
+      type: string
     RunCIBody:
       properties:
         input:
@@ -6679,9 +8481,36 @@ components:
       properties:
         flux_id:
           type: string
+        flux_public_id:
+          type: string
         trigger_status:
           $ref: '#/components/schemas/TriggerStatus'
           title: Will always be equal to 'created', remains here for back-compatibility
+      type: object
+    RunWorkflowsBody:
+      properties:
+        config_revision:
+          $ref: '#/components/schemas/GitRevision'
+          description: |-
+            The git revision (branch, tag or commit hash) to retrieve the CI configuration file from.
+            If empty, the default branch (usually main) will be used.
+        head:
+          $ref: '#/components/schemas/GitRevision'
+          description: |-
+            The git revision (branch, tag or commit hash) to run the CI workflow on.
+            If empty, the default branch (usually main) will be used.
+        shared:
+          title: |-
+            Run shared workflows.
+            If true, run shared workflows by user without access to repository
+          type: boolean
+        workflows:
+          description: |-
+            Information specifying which workflows to run.
+            Each workflow to run is defined by its name and, optionally, input parameters.
+          items:
+            $ref: '#/components/schemas/WorkflowData'
+          type: array
       type: object
     SetDecisionBody:
       properties:
@@ -6710,6 +8539,19 @@ components:
         - target
         - source
       type: string
+    Signature:
+      properties:
+        date:
+          format: date-time
+          title: Timestamp of the signature
+          type: string
+        email:
+          title: Email of the person
+          type: string
+        name:
+          title: Name of the person
+          type: string
+      type: object
     StatusType:
       enum:
         - initial
@@ -6738,10 +8580,38 @@ components:
       enum:
         - user
       type: string
+    Task:
+      properties:
+        cubes:
+          items:
+            $ref: '#/components/schemas/Cube'
+          type: array
+        dates:
+          $ref: '#/components/schemas/DatesByStage'
+        description:
+          type: string
+        id:
+          title: CI/CD entities don't have public IDs at this stage; they will be added later
+          type: string
+        progress:
+          $ref: '#/components/schemas/Progress'
+        relations:
+          $ref: '#/components/schemas/Relations'
+        slug:
+          title: A name of the task as defined in the config
+          type: string
+        status:
+          $ref: '#/components/schemas/Run.Status'
+      type: object
     TemplatingOptions:
       properties:
         template_id:
           title: Template Repo ID
+          type: string
+      type: object
+    Timezone:
+      properties:
+        iana_timezone:
           type: string
       type: object
     TreeEntry:
@@ -6883,6 +8753,67 @@ components:
         slug:
           type: string
       type: object
+    UserProfile:
+      properties:
+        avatar:
+          $ref: '#/components/schemas/Image'
+        background_image:
+          $ref: '#/components/schemas/Image'
+        bio:
+          type: string
+        display_name:
+          type: string
+        id:
+          type: string
+        links:
+          items:
+            $ref: '#/components/schemas/Link'
+          type: array
+        location:
+          $ref: '#/components/schemas/v1.Location'
+        status:
+          $ref: '#/components/schemas/ProfileStatus'
+        timezone:
+          $ref: '#/components/schemas/Timezone'
+        username:
+          type: string
+        visibility:
+          $ref: '#/components/schemas/ProfileVisibility'
+        workplace:
+          $ref: '#/components/schemas/Workplace'
+      type: object
+    Workflow:
+      properties:
+        dates:
+          $ref: '#/components/schemas/DatesByStage'
+        description:
+          type: string
+        id:
+          title: CI/CD entities don't have public IDs at this stage; they will be added later
+          type: string
+        progress:
+          $ref: '#/components/schemas/Progress'
+        slug:
+          title: A name of the workflow as defined in the config
+          type: string
+        status:
+          $ref: '#/components/schemas/Run.Status'
+        tasks:
+          items:
+            $ref: '#/components/schemas/Task'
+          type: array
+      type: object
+    WorkflowData:
+      properties:
+        name:
+          description: The name of a workflow to run as defined in the config.
+          type: string
+        values:
+          description: List of input parameters (name, value pairs) to pass to the workflow.
+          items:
+            $ref: '#/components/schemas/InputValue'
+          type: array
+      type: object
     WorkflowInput:
       properties:
         values:
@@ -6890,6 +8821,13 @@ components:
             $ref: '#/components/schemas/InputValue'
           type: array
       title: WorkflowInput message is a list of key-value items to pass as input for workflow run
+      type: object
+    Workplace:
+      properties:
+        company:
+          type: string
+        position:
+          type: string
       type: object
     v1.Label:
       properties:
@@ -6911,6 +8849,13 @@ components:
           type: string
         updated_by:
           $ref: '#/components/schemas/UserEmbedded'
+      type: object
+    v1.Location:
+      properties:
+        city:
+          type: string
+        country:
+          type: string
       type: object
     v1.ReviewerDelta:
       properties:
@@ -6939,5 +8884,36 @@ components:
       type: http
       scheme: bearer
       bearerFormat: JWT
+x-webhooks:
+  repository.push:
+    post:
+      tags:
+        - Events
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Push'
+        required: true
+  repository.refs_update:
+    post:
+      tags:
+        - Events
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefsUpdate'
+        required: true
+  webhook.ping:
+    post:
+      tags:
+        - Events
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Ping'
+        required: true
 security:
   - bearerAuth: []

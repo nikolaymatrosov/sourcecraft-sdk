@@ -6,8 +6,13 @@
 
 Name | Type
 ------------ | -------------
+`author` | [Signature](Signature.md)
+`committer` | [Signature](Signature.md)
 `hash` | string
+`mergeTag` | string
 `message` | string
+`parentHashes` | Array&lt;string&gt;
+`treeHash` | string
 
 ## Example
 
@@ -16,8 +21,13 @@ import type { Commit } from ''
 
 // TODO: Update the object below with actual values
 const example = {
+  "author": null,
+  "committer": null,
   "hash": null,
+  "mergeTag": null,
   "message": null,
+  "parentHashes": null,
+  "treeHash": null,
 } satisfies Commit
 
 console.log(example)

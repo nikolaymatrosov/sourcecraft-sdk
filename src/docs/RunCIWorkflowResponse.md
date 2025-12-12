@@ -7,6 +7,7 @@
 Name | Type
 ------------ | -------------
 `fluxId` | string
+`fluxPublicId` | string
 `triggerStatus` | [TriggerStatus](TriggerStatus.md)
 
 ## Example
@@ -17,6 +18,7 @@ import type { RunCIWorkflowResponse } from ''
 // TODO: Update the object below with actual values
 const example = {
   "fluxId": null,
+  "fluxPublicId": null,
   "triggerStatus": null,
 } satisfies RunCIWorkflowResponse
 

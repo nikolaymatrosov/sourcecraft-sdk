@@ -40,7 +40,8 @@
         "lint:fix": "eslint . --fix",
         "format": "prettier --write \"src/**/*.ts\"",
         "format:check": "prettier --check \"src/**/*.ts\"",
-        "git-tag": "git tag v`cat package.json | jq -r '.version' | awk -F. '{print $1}'` -f &&  git tag v`cat package.json | jq -r '.version'` -f"
+        "git-tag": "git tag v`cat package.json | jq -r '.version' | awk -F. '{print $1}'` -f &&  git tag v`cat package.json | jq -r '.version'` -f",
+        "version": "conventional-changelog && git add CHANGELOG.md"
     },
     "devDependencies": {
         "@eslint/js": "^9.39.1",
@@ -51,6 +52,7 @@
         "js-yaml": "^4.1.0",
         "prettier": "^3.6.2",
         "typescript": "^5.9.3",
-        "typescript-eslint": "^8.46.3"
+        "typescript-eslint": "^8.46.3",
+        "conventional-changelog": "^7.1.1"
     }
 }

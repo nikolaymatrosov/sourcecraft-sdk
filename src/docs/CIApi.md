@@ -11,9 +11,11 @@ All URIs are relative to *https://api.sourcecraft.tech*
 
 ## runWorkflow
 
-> any runWorkflow(orgSlug, repoSlug, workflowName, runCIBody)
+> RunCIWorkflowResponse runWorkflow(orgSlug, repoSlug, workflowName, runCIBody)
 
 Run Workflow in Repository
+
+Method is deprecated, please use POST /{org_slug}/{repo_slug}/cicd/runs instead
 
 ### Example
 
@@ -67,7 +69,7 @@ example().catch(console.error);
 
 ### Return type
 
-**any**
+[**RunCIWorkflowResponse**](RunCIWorkflowResponse.md)
 
 ### Authorization
 
@@ -90,9 +92,11 @@ example().catch(console.error);
 
 ## runWorkflowByID
 
-> any runWorkflowByID(repoId, workflowName, runCIBody)
+> RunCIWorkflowResponse runWorkflowByID(repoId, workflowName, runCIBody)
 
 Run Workflow in Repository (By Repo ID)
+
+Method is deprecated, please use POST /repos/by-id/{repo_id}/cicd/runs instead
 
 ### Example
 
@@ -143,7 +147,7 @@ example().catch(console.error);
 
 ### Return type
 
-**any**
+[**RunCIWorkflowResponse**](RunCIWorkflowResponse.md)
 
 ### Authorization
 

@@ -13,12 +13,32 @@
  */
 
 import { mapValues } from "../runtime";
+import type { Signature } from "./Signature";
+import {
+    SignatureFromJSON,
+    SignatureFromJSONTyped,
+    SignatureToJSON,
+    SignatureToJSONTyped,
+} from "./Signature";
+
 /**
  *
  * @export
  * @interface Commit
  */
 export interface Commit {
+    /**
+     *
+     * @type {Signature}
+     * @memberof Commit
+     */
+    author?: Signature;
+    /**
+     *
+     * @type {Signature}
+     * @memberof Commit
+     */
+    committer?: Signature;
     /**
      *
      * @type {string}
@@ -30,7 +50,25 @@ export interface Commit {
      * @type {string}
      * @memberof Commit
      */
+    mergeTag?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Commit
+     */
     message?: string;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof Commit
+     */
+    parentHashes?: Array<string>;
+    /**
+     *
+     * @type {string}
+     * @memberof Commit
+     */
+    treeHash?: string;
 }
 
 /**
@@ -49,8 +87,13 @@ export function CommitFromJSONTyped(json: any, ignoreDiscriminator: boolean): Co
         return json;
     }
     return {
+        author: json["author"] == null ? undefined : SignatureFromJSON(json["author"]),
+        committer: json["committer"] == null ? undefined : SignatureFromJSON(json["committer"]),
         hash: json["hash"] == null ? undefined : json["hash"],
+        mergeTag: json["merge_tag"] == null ? undefined : json["merge_tag"],
         message: json["message"] == null ? undefined : json["message"],
+        parentHashes: json["parent_hashes"] == null ? undefined : json["parent_hashes"],
+        treeHash: json["tree_hash"] == null ? undefined : json["tree_hash"],
     };
 }
 
@@ -67,7 +110,12 @@ export function CommitToJSONTyped(
     }
 
     return {
+        author: SignatureToJSON(value["author"]),
+        committer: SignatureToJSON(value["committer"]),
         hash: value["hash"],
+        merge_tag: value["mergeTag"],
         message: value["message"],
+        parent_hashes: value["parentHashes"],
+        tree_hash: value["treeHash"],
     };
 }

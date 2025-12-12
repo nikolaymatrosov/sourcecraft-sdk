@@ -13,12 +13,14 @@
  */
 
 import * as runtime from "../runtime";
-import type { ApiErrorResponse, RunCIBody } from "../models/index";
+import type { ApiErrorResponse, RunCIBody, RunCIWorkflowResponse } from "../models/index";
 import {
     ApiErrorResponseFromJSON,
     ApiErrorResponseToJSON,
     RunCIBodyFromJSON,
     RunCIBodyToJSON,
+    RunCIWorkflowResponseFromJSON,
+    RunCIWorkflowResponseToJSON,
 } from "../models/index";
 
 export interface RunWorkflowRequest {
@@ -42,51 +44,57 @@ export interface RunWorkflowByIDRequest {
  */
 export interface CIApiInterface {
     /**
-     *
+     * Method is deprecated, please use POST /{org_slug}/{repo_slug}/cicd/runs instead
      * @summary Run Workflow in Repository
      * @param {string} orgSlug
      * @param {string} repoSlug
      * @param {string} workflowName
      * @param {RunCIBody} runCIBody
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof CIApiInterface
      */
     runWorkflowRaw(
         requestParameters: RunWorkflowRequest,
         initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<runtime.ApiResponse<any>>;
+    ): Promise<runtime.ApiResponse<RunCIWorkflowResponse>>;
 
     /**
+     * Method is deprecated, please use POST /{org_slug}/{repo_slug}/cicd/runs instead
      * Run Workflow in Repository
+     * @deprecated
      */
     runWorkflow(
         requestParameters: RunWorkflowRequest,
         initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<any>;
+    ): Promise<RunCIWorkflowResponse>;
 
     /**
-     *
+     * Method is deprecated, please use POST /repos/by-id/{repo_id}/cicd/runs instead
      * @summary Run Workflow in Repository (By Repo ID)
      * @param {string} repoId
      * @param {string} workflowName
      * @param {RunCIBody} runCIBody
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof CIApiInterface
      */
     runWorkflowByIDRaw(
         requestParameters: RunWorkflowByIDRequest,
         initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<runtime.ApiResponse<any>>;
+    ): Promise<runtime.ApiResponse<RunCIWorkflowResponse>>;
 
     /**
+     * Method is deprecated, please use POST /repos/by-id/{repo_id}/cicd/runs instead
      * Run Workflow in Repository (By Repo ID)
+     * @deprecated
      */
     runWorkflowByID(
         requestParameters: RunWorkflowByIDRequest,
         initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<any>;
+    ): Promise<RunCIWorkflowResponse>;
 }
 
 /**
@@ -94,12 +102,14 @@ export interface CIApiInterface {
  */
 export class CIApi extends runtime.BaseAPI implements CIApiInterface {
     /**
+     * Method is deprecated, please use POST /{org_slug}/{repo_slug}/cicd/runs instead
      * Run Workflow in Repository
+     * @deprecated
      */
     async runWorkflowRaw(
         requestParameters: RunWorkflowRequest,
         initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<runtime.ApiResponse<any>> {
+    ): Promise<runtime.ApiResponse<RunCIWorkflowResponse>> {
         if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
                 "orgSlug",
@@ -168,31 +178,33 @@ export class CIApi extends runtime.BaseAPI implements CIApiInterface {
             initOverrides
         );
 
-        if (this.isJsonMime(response.headers.get("content-type"))) {
-            return new runtime.JSONApiResponse<any>(response);
-        } else {
-            return new runtime.TextApiResponse(response) as any;
-        }
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            RunCIWorkflowResponseFromJSON(jsonValue)
+        );
     }
 
     /**
+     * Method is deprecated, please use POST /{org_slug}/{repo_slug}/cicd/runs instead
      * Run Workflow in Repository
+     * @deprecated
      */
     async runWorkflow(
         requestParameters: RunWorkflowRequest,
         initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<any> {
+    ): Promise<RunCIWorkflowResponse> {
         const response = await this.runWorkflowRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
+     * Method is deprecated, please use POST /repos/by-id/{repo_id}/cicd/runs instead
      * Run Workflow in Repository (By Repo ID)
+     * @deprecated
      */
     async runWorkflowByIDRaw(
         requestParameters: RunWorkflowByIDRequest,
         initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<runtime.ApiResponse<any>> {
+    ): Promise<runtime.ApiResponse<RunCIWorkflowResponse>> {
         if (requestParameters["repoId"] == null) {
             throw new runtime.RequiredError(
                 "repoId",
@@ -250,20 +262,20 @@ export class CIApi extends runtime.BaseAPI implements CIApiInterface {
             initOverrides
         );
 
-        if (this.isJsonMime(response.headers.get("content-type"))) {
-            return new runtime.JSONApiResponse<any>(response);
-        } else {
-            return new runtime.TextApiResponse(response) as any;
-        }
+        return new runtime.JSONApiResponse(response, (jsonValue) =>
+            RunCIWorkflowResponseFromJSON(jsonValue)
+        );
     }
 
     /**
+     * Method is deprecated, please use POST /repos/by-id/{repo_id}/cicd/runs instead
      * Run Workflow in Repository (By Repo ID)
+     * @deprecated
      */
     async runWorkflowByID(
         requestParameters: RunWorkflowByIDRequest,
         initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<any> {
+    ): Promise<RunCIWorkflowResponse> {
         const response = await this.runWorkflowByIDRaw(requestParameters, initOverrides);
         return await response.value();
     }

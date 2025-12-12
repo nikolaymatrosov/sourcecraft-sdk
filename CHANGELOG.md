@@ -1,3 +1,9 @@
+## <small>0.1.4 (2025-12-12)</small>
+
+* fix: Update NPM publish command to include provenance and access settings ([c9d8346](https://github.com/nikolaymatrosov/sourcecraft-sdk/commit/c9d8346))
+
+
+
 ## <small>0.1.3 (2025-12-12)</small>
 
 * fix: Simplify NPM publish command by removing unnecessary flags ([1fa4ac2](https://github.com/nikolaymatrosov/sourcecraft-sdk/commit/1fa4ac2))

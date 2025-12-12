@@ -1,3 +1,8 @@
+## <small>0.1.1 (2025-12-12)</small>
+
+
+
+
 ## 0.1.0 (2025-12-12)
 
 * feat: Add Run, RunStatus, and related models for CI/CD workflows ([41fa0fc](https://github.com/nikolaymatrosov/sourcecraft-sdk/commit/41fa0fc))

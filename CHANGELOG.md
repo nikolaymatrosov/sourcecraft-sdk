@@ -1,3 +1,9 @@
+## <small>0.1.2 (2025-12-12)</small>
+
+* fix: Remove NODE_AUTH_TOKEN environment variable from NPM publish step ([09ee3f8](https://github.com/nikolaymatrosov/sourcecraft-sdk/commit/09ee3f8))
+
+
+
 ## <small>0.1.1 (2025-12-12)</small>
 
 

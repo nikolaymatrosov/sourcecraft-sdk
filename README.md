@@ -83,39 +83,46 @@ const config = new Configuration({
 
 ## API Coverage
 
-The SDK provides comprehensive coverage of SourceCraft APIs:
+The SDK provides comprehensive coverage of SourceCraft APIs with 25 API client classes and 97+ endpoints:
 
 ### Repository Management
 
-- `RepositoryApi` - Create, read, update, delete repositories
+- `RepositoryApi` - Create, read, update, delete repositories; manage branches, tags, and tree contents
 - `RepositoryLabelsApi` - Manage repository labels
 - `RepositoryMilestonesApi` - Manage milestones
-- `RepositoryPullRequestApi` - Pull request operations
+- `RepositoryPullRequestApi` - Pull request operations (create, update, merge, reopen, discard)
 - `RepositoryPullRequestCommentsApi` - PR comments
-- `RepositoryPullRequestReviewersApi` - PR reviewers
+- `RepositoryPullRequestReviewersApi` - PR reviewers and review decisions
+- `RepositoryReleasesApi` - Release management (create, update, publish, tag-based retrieval)
+- `ReleaseAttachmentsApi` - Release asset attachments
 
 ### Issues Management
 
-- `IssuesApi` - Issue lifecycle management
+- `IssuesApi` - Issue lifecycle management (create, read, update, delete, list)
 - `IssuesCommentsApi` - Issue comments
+- `IssuesCommentsAttachmentsApi` - Attachments on issue comments
 - `IssuesLabelsApi` - Issue labels
-- `IssuesAttachmentsApi` - File attachments
-- `IssuesCommentsReactionsApi` - Emoji reactions
+- `IssuesAttachmentsApi` - File attachments on issues
+- `IssuesCommentsReactionsApi` - Emoji reactions on comments
 - `IssuesLinkedIssuesApi` - Link issues together
 - `IssuesLinkedPRsApi` - Link issues to pull requests
 - `IssuesStatusesApi` - Issue status management
 
 ### Organization & Access
 
-- `OrganizationApi` - Organization management
-- `RolesApi` - Role-based access control
+- `OrganizationApi` - Organization management and repository listing
+- `OrganizationInvitesApi` - Organization membership invitations
+- `OrganizationOperationApi` - Track long-running organization operations
+- `RolesApi` - Role-based access control for repositories
 
 ### CI/CD
 
 - `CIApi` - CI/CD pipeline operations
+- `CICDApi` - CI/CD runs, workflows, logs, and artifact management
 
 ### User Operations
 
+- `UserApi` - User profile information
 - `UserPullRequestApi` - User-specific PR operations
 
 ## Usage Examples

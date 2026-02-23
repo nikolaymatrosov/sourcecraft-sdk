@@ -1,3 +1,10 @@
+## <small>0.1.5 (2026-02-23)</small>
+
+* feat: add models for pull request operations and updates ([842a5fa](https://github.com/nikolaymatrosov/sourcecraft-sdk/commit/842a5fa))
+* docs: Update README to reflect enhanced API coverage and new client classes ([632b703](https://github.com/nikolaymatrosov/sourcecraft-sdk/commit/632b703))
+
+
+
 ## <small>0.1.4 (2025-12-12)</small>
 
 * fix: Update NPM publish command to include provenance and access settings ([c9d8346](https://github.com/nikolaymatrosov/sourcecraft-sdk/commit/c9d8346))

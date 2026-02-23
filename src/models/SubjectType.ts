@@ -18,6 +18,7 @@
  */
 export const SubjectType = {
     User: "user",
+    Invitee: "invitee",
 } as const;
 export type SubjectType = (typeof SubjectType)[keyof typeof SubjectType];
 

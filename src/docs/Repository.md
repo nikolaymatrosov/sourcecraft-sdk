@@ -22,6 +22,7 @@ Name | Type
 `slug` | string
 `templateType` | [RepoTemplate](RepoTemplate.md)
 `visibility` | [RepositoryVisibility](RepositoryVisibility.md)
+`webUrl` | string
 
 ## Example
 
@@ -46,6 +47,7 @@ const example = {
   "slug": null,
   "templateType": null,
   "visibility": null,
+  "webUrl": null,
 } satisfies Repository
 
 console.log(example)

@@ -90,7 +90,7 @@ example().catch(console.error);
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | A successful response. |  -  |
+| **201** | A successful response. |  -  |
 | **0** | Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -166,7 +166,7 @@ example().catch(console.error);
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | A successful response. |  -  |
+| **201** | A successful response. |  -  |
 | **0** | Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -174,7 +174,7 @@ example().catch(console.error);
 
 ## deleteMilestone
 
-> object deleteMilestone(orgSlug, repoSlug, milestoneSlug, silent)
+> deleteMilestone(orgSlug, repoSlug, milestoneSlug, silent)
 
 Delete a Milestone (By Slug)
 
@@ -230,7 +230,7 @@ example().catch(console.error);
 
 ### Return type
 
-**object**
+`void` (Empty response body)
 
 ### Authorization
 
@@ -245,7 +245,7 @@ example().catch(console.error);
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | A successful response. |  -  |
+| **204** | A successful response. |  -  |
 | **0** | Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -253,7 +253,7 @@ example().catch(console.error);
 
 ## deleteMilestoneByID
 
-> object deleteMilestoneByID(milestoneId, silent)
+> deleteMilestoneByID(milestoneId, silent)
 
 Delete a Milestone (By ID)
 
@@ -303,7 +303,7 @@ example().catch(console.error);
 
 ### Return type
 
-**object**
+`void` (Empty response body)
 
 ### Authorization
 
@@ -318,7 +318,7 @@ example().catch(console.error);
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | A successful response. |  -  |
+| **204** | A successful response. |  -  |
 | **0** | Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)

@@ -20,6 +20,13 @@ import {
     SignatureToJSON,
     SignatureToJSONTyped,
 } from "./Signature";
+import type { CommitFileChanges } from "./CommitFileChanges";
+import {
+    CommitFileChangesFromJSON,
+    CommitFileChangesFromJSONTyped,
+    CommitFileChangesToJSON,
+    CommitFileChangesToJSONTyped,
+} from "./CommitFileChanges";
 
 /**
  *
@@ -39,6 +46,12 @@ export interface Commit {
      * @memberof Commit
      */
     committer?: Signature;
+    /**
+     *
+     * @type {CommitFileChanges}
+     * @memberof Commit
+     */
+    fileChanges?: CommitFileChanges;
     /**
      *
      * @type {string}
@@ -89,6 +102,10 @@ export function CommitFromJSONTyped(json: any, ignoreDiscriminator: boolean): Co
     return {
         author: json["author"] == null ? undefined : SignatureFromJSON(json["author"]),
         committer: json["committer"] == null ? undefined : SignatureFromJSON(json["committer"]),
+        fileChanges:
+            json["file_changes"] == null
+                ? undefined
+                : CommitFileChangesFromJSON(json["file_changes"]),
         hash: json["hash"] == null ? undefined : json["hash"],
         mergeTag: json["merge_tag"] == null ? undefined : json["merge_tag"],
         message: json["message"] == null ? undefined : json["message"],
@@ -112,6 +129,7 @@ export function CommitToJSONTyped(
     return {
         author: SignatureToJSON(value["author"]),
         committer: SignatureToJSON(value["committer"]),
+        file_changes: CommitFileChangesToJSON(value["fileChanges"]),
         hash: value["hash"],
         merge_tag: value["mergeTag"],
         message: value["message"],

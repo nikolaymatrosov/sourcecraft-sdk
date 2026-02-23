@@ -8,6 +8,7 @@ Name | Type
 ------------ | -------------
 `author` | [Signature](Signature.md)
 `committer` | [Signature](Signature.md)
+`fileChanges` | [CommitFileChanges](CommitFileChanges.md)
 `hash` | string
 `mergeTag` | string
 `message` | string
@@ -23,6 +24,7 @@ import type { Commit } from ''
 const example = {
   "author": null,
   "committer": null,
+  "fileChanges": null,
   "hash": null,
   "mergeTag": null,
   "message": null,

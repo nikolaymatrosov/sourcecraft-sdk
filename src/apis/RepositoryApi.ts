@@ -14,20 +14,16 @@
 
 import * as runtime from "../runtime";
 import type {
-    AddRepoRolesBody,
     ApiErrorResponse,
     CreateRepositoryBody,
     ForkRepositoryBody,
     ListBranchesResponse,
     ListTagsResponse,
     ListTreeResponse,
-    RemoveRepoRolesBody,
     Repository,
     UpdateRepositoryBody,
 } from "../models/index";
 import {
-    AddRepoRolesBodyFromJSON,
-    AddRepoRolesBodyToJSON,
     ApiErrorResponseFromJSON,
     ApiErrorResponseToJSON,
     CreateRepositoryBodyFromJSON,
@@ -40,24 +36,11 @@ import {
     ListTagsResponseToJSON,
     ListTreeResponseFromJSON,
     ListTreeResponseToJSON,
-    RemoveRepoRolesBodyFromJSON,
-    RemoveRepoRolesBodyToJSON,
     RepositoryFromJSON,
     RepositoryToJSON,
     UpdateRepositoryBodyFromJSON,
     UpdateRepositoryBodyToJSON,
 } from "../models/index";
-
-export interface AddRepoRolesRequest {
-    orgSlug: string;
-    repoSlug: string;
-    addRepoRolesBody: AddRepoRolesBody;
-}
-
-export interface AddRepoRolesByIDRequest {
-    repoId: string;
-    addRepoRolesBody: AddRepoRolesBody;
-}
 
 export interface CreateRepositoryRequest {
     orgSlug: string;
@@ -118,21 +101,6 @@ export interface ListBranchesByIDRequest {
     pageToken?: string;
 }
 
-export interface ListRepoRolesRequest {
-    orgSlug: string;
-    repoSlug: string;
-    pageSize?: string;
-    pageToken?: string;
-    sortBy?: string;
-}
-
-export interface ListRepoRolesByIDRequest {
-    repoId: string;
-    pageSize?: string;
-    pageToken?: string;
-    sortBy?: string;
-}
-
 export interface ListTagsRequest {
     orgSlug: string;
     repoSlug: string;
@@ -169,17 +137,6 @@ export interface ListTreeByIDRequest {
     pageToken?: string;
 }
 
-export interface RemoveRepoRolesRequest {
-    orgSlug: string;
-    repoSlug: string;
-    removeRepoRolesBody: RemoveRepoRolesBody;
-}
-
-export interface RemoveRepoRolesByIDRequest {
-    repoId: string;
-    removeRepoRolesBody: RemoveRepoRolesBody;
-}
-
 export interface UpdateRepositoryRequest {
     orgSlug: string;
     repoSlug: string;
@@ -200,51 +157,6 @@ export interface UpdateRepositoryByIDRequest {
  * @interface RepositoryApiInterface
  */
 export interface RepositoryApiInterface {
-    /**
-     *
-     * @summary Add Repository Roles
-     * @param {string} orgSlug
-     * @param {string} repoSlug
-     * @param {AddRepoRolesBody} addRepoRolesBody
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof RepositoryApiInterface
-     */
-    addRepoRolesRaw(
-        requestParameters: AddRepoRolesRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<runtime.ApiResponse<any>>;
-
-    /**
-     * Add Repository Roles
-     */
-    addRepoRoles(
-        requestParameters: AddRepoRolesRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<any>;
-
-    /**
-     *
-     * @summary Add Repository Roles (By ID)
-     * @param {string} repoId
-     * @param {AddRepoRolesBody} addRepoRolesBody
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof RepositoryApiInterface
-     */
-    addRepoRolesByIDRaw(
-        requestParameters: AddRepoRolesByIDRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<runtime.ApiResponse<any>>;
-
-    /**
-     * Add Repository Roles (By ID)
-     */
-    addRepoRolesByID(
-        requestParameters: AddRepoRolesByIDRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<any>;
-
     /**
      *
      * @summary Create Repository in Organization
@@ -476,55 +388,6 @@ export interface RepositoryApiInterface {
 
     /**
      *
-     * @summary List Repository Roles
-     * @param {string} orgSlug
-     * @param {string} repoSlug
-     * @param {string} [pageSize] The maximum number of repo roles to return. The service may return fewer than this value
-     * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
-     * @param {string} [sortBy] Ordering options: comma separated list of fields. Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;foo, -bar\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent. Available fields: name
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof RepositoryApiInterface
-     */
-    listRepoRolesRaw(
-        requestParameters: ListRepoRolesRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<runtime.ApiResponse<any>>;
-
-    /**
-     * List Repository Roles
-     */
-    listRepoRoles(
-        requestParameters: ListRepoRolesRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<any>;
-
-    /**
-     *
-     * @summary List Repository Roles (By ID)
-     * @param {string} repoId
-     * @param {string} [pageSize] The maximum number of repo roles to return. The service may return fewer than this value
-     * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
-     * @param {string} [sortBy] Ordering options: comma separated list of fields. Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;foo, -bar\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent. Available fields: name
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof RepositoryApiInterface
-     */
-    listRepoRolesByIDRaw(
-        requestParameters: ListRepoRolesByIDRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<runtime.ApiResponse<any>>;
-
-    /**
-     * List Repository Roles (By ID)
-     */
-    listRepoRolesByID(
-        requestParameters: ListRepoRolesByIDRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<any>;
-
-    /**
-     *
      * @summary List Repository Tags
      * @param {string} orgSlug
      * @param {string} repoSlug
@@ -629,51 +492,6 @@ export interface RepositoryApiInterface {
 
     /**
      *
-     * @summary Remove Repository Roles
-     * @param {string} orgSlug
-     * @param {string} repoSlug
-     * @param {RemoveRepoRolesBody} removeRepoRolesBody
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof RepositoryApiInterface
-     */
-    removeRepoRolesRaw(
-        requestParameters: RemoveRepoRolesRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<runtime.ApiResponse<any>>;
-
-    /**
-     * Remove Repository Roles
-     */
-    removeRepoRoles(
-        requestParameters: RemoveRepoRolesRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<any>;
-
-    /**
-     *
-     * @summary Remove Repository Roles (By ID)
-     * @param {string} repoId
-     * @param {RemoveRepoRolesBody} removeRepoRolesBody
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof RepositoryApiInterface
-     */
-    removeRepoRolesByIDRaw(
-        requestParameters: RemoveRepoRolesByIDRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<runtime.ApiResponse<any>>;
-
-    /**
-     * Remove Repository Roles (By ID)
-     */
-    removeRepoRolesByID(
-        requestParameters: RemoveRepoRolesByIDRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<any>;
-
-    /**
-     *
      * @summary Update Repository
      * @param {string} orgSlug
      * @param {string} repoSlug
@@ -724,159 +542,6 @@ export interface RepositoryApiInterface {
  *
  */
 export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInterface {
-    /**
-     * Add Repository Roles
-     */
-    async addRepoRolesRaw(
-        requestParameters: AddRepoRolesRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<runtime.ApiResponse<any>> {
-        if (requestParameters["orgSlug"] == null) {
-            throw new runtime.RequiredError(
-                "orgSlug",
-                'Required parameter "orgSlug" was null or undefined when calling addRepoRoles().'
-            );
-        }
-
-        if (requestParameters["repoSlug"] == null) {
-            throw new runtime.RequiredError(
-                "repoSlug",
-                'Required parameter "repoSlug" was null or undefined when calling addRepoRoles().'
-            );
-        }
-
-        if (requestParameters["addRepoRolesBody"] == null) {
-            throw new runtime.RequiredError(
-                "addRepoRolesBody",
-                'Required parameter "addRepoRolesBody" was null or undefined when calling addRepoRoles().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters["Content-Type"] = "application/json";
-
-        if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("bearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
-        }
-
-        let urlPath = `/repos/{org_slug}/{repo_slug}/roles`;
-        urlPath = urlPath.replace(
-            `{${"org_slug"}}`,
-            encodeURIComponent(String(requestParameters["orgSlug"]))
-        );
-        urlPath = urlPath.replace(
-            `{${"repo_slug"}}`,
-            encodeURIComponent(String(requestParameters["repoSlug"]))
-        );
-
-        const response = await this.request(
-            {
-                path: urlPath,
-                method: "POST",
-                headers: headerParameters,
-                query: queryParameters,
-                body: AddRepoRolesBodyToJSON(requestParameters["addRepoRolesBody"]),
-            },
-            initOverrides
-        );
-
-        if (this.isJsonMime(response.headers.get("content-type"))) {
-            return new runtime.JSONApiResponse<any>(response);
-        } else {
-            return new runtime.TextApiResponse(response) as any;
-        }
-    }
-
-    /**
-     * Add Repository Roles
-     */
-    async addRepoRoles(
-        requestParameters: AddRepoRolesRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<any> {
-        const response = await this.addRepoRolesRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Add Repository Roles (By ID)
-     */
-    async addRepoRolesByIDRaw(
-        requestParameters: AddRepoRolesByIDRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<runtime.ApiResponse<any>> {
-        if (requestParameters["repoId"] == null) {
-            throw new runtime.RequiredError(
-                "repoId",
-                'Required parameter "repoId" was null or undefined when calling addRepoRolesByID().'
-            );
-        }
-
-        if (requestParameters["addRepoRolesBody"] == null) {
-            throw new runtime.RequiredError(
-                "addRepoRolesBody",
-                'Required parameter "addRepoRolesBody" was null or undefined when calling addRepoRolesByID().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters["Content-Type"] = "application/json";
-
-        if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("bearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
-        }
-
-        let urlPath = `/repos/id:{repo_id}/roles`;
-        urlPath = urlPath.replace(
-            `{${"repo_id"}}`,
-            encodeURIComponent(String(requestParameters["repoId"]))
-        );
-
-        const response = await this.request(
-            {
-                path: urlPath,
-                method: "POST",
-                headers: headerParameters,
-                query: queryParameters,
-                body: AddRepoRolesBodyToJSON(requestParameters["addRepoRolesBody"]),
-            },
-            initOverrides
-        );
-
-        if (this.isJsonMime(response.headers.get("content-type"))) {
-            return new runtime.JSONApiResponse<any>(response);
-        } else {
-            return new runtime.TextApiResponse(response) as any;
-        }
-    }
-
-    /**
-     * Add Repository Roles (By ID)
-     */
-    async addRepoRolesByID(
-        requestParameters: AddRepoRolesByIDRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<any> {
-        const response = await this.addRepoRolesByIDRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
     /**
      * Create Repository in Organization
      */
@@ -1053,7 +718,7 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
             }
         }
 
-        let urlPath = `/{org_slug}/{repo_slug}`;
+        let urlPath = `/repos/{org_slug}/{repo_slug}`;
         urlPath = urlPath.replace(
             `{${"org_slug"}}`,
             encodeURIComponent(String(requestParameters["orgSlug"]))
@@ -1578,163 +1243,6 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
     }
 
     /**
-     * List Repository Roles
-     */
-    async listRepoRolesRaw(
-        requestParameters: ListRepoRolesRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<runtime.ApiResponse<any>> {
-        if (requestParameters["orgSlug"] == null) {
-            throw new runtime.RequiredError(
-                "orgSlug",
-                'Required parameter "orgSlug" was null or undefined when calling listRepoRoles().'
-            );
-        }
-
-        if (requestParameters["repoSlug"] == null) {
-            throw new runtime.RequiredError(
-                "repoSlug",
-                'Required parameter "repoSlug" was null or undefined when calling listRepoRoles().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters["pageSize"] != null) {
-            queryParameters["page_size"] = requestParameters["pageSize"];
-        }
-
-        if (requestParameters["pageToken"] != null) {
-            queryParameters["page_token"] = requestParameters["pageToken"];
-        }
-
-        if (requestParameters["sortBy"] != null) {
-            queryParameters["sort_by"] = requestParameters["sortBy"];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("bearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
-        }
-
-        let urlPath = `/repos/{org_slug}/{repo_slug}/roles`;
-        urlPath = urlPath.replace(
-            `{${"org_slug"}}`,
-            encodeURIComponent(String(requestParameters["orgSlug"]))
-        );
-        urlPath = urlPath.replace(
-            `{${"repo_slug"}}`,
-            encodeURIComponent(String(requestParameters["repoSlug"]))
-        );
-
-        const response = await this.request(
-            {
-                path: urlPath,
-                method: "GET",
-                headers: headerParameters,
-                query: queryParameters,
-            },
-            initOverrides
-        );
-
-        if (this.isJsonMime(response.headers.get("content-type"))) {
-            return new runtime.JSONApiResponse<any>(response);
-        } else {
-            return new runtime.TextApiResponse(response) as any;
-        }
-    }
-
-    /**
-     * List Repository Roles
-     */
-    async listRepoRoles(
-        requestParameters: ListRepoRolesRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<any> {
-        const response = await this.listRepoRolesRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * List Repository Roles (By ID)
-     */
-    async listRepoRolesByIDRaw(
-        requestParameters: ListRepoRolesByIDRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<runtime.ApiResponse<any>> {
-        if (requestParameters["repoId"] == null) {
-            throw new runtime.RequiredError(
-                "repoId",
-                'Required parameter "repoId" was null or undefined when calling listRepoRolesByID().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters["pageSize"] != null) {
-            queryParameters["page_size"] = requestParameters["pageSize"];
-        }
-
-        if (requestParameters["pageToken"] != null) {
-            queryParameters["page_token"] = requestParameters["pageToken"];
-        }
-
-        if (requestParameters["sortBy"] != null) {
-            queryParameters["sort_by"] = requestParameters["sortBy"];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("bearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
-        }
-
-        let urlPath = `/repos/id:{repo_id}/roles`;
-        urlPath = urlPath.replace(
-            `{${"repo_id"}}`,
-            encodeURIComponent(String(requestParameters["repoId"]))
-        );
-
-        const response = await this.request(
-            {
-                path: urlPath,
-                method: "GET",
-                headers: headerParameters,
-                query: queryParameters,
-            },
-            initOverrides
-        );
-
-        if (this.isJsonMime(response.headers.get("content-type"))) {
-            return new runtime.JSONApiResponse<any>(response);
-        } else {
-            return new runtime.TextApiResponse(response) as any;
-        }
-    }
-
-    /**
-     * List Repository Roles (By ID)
-     */
-    async listRepoRolesByID(
-        requestParameters: ListRepoRolesByIDRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<any> {
-        const response = await this.listRepoRolesByIDRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
      * List Repository Tags
      */
     async listTagsRaw(
@@ -2065,159 +1573,6 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
     }
 
     /**
-     * Remove Repository Roles
-     */
-    async removeRepoRolesRaw(
-        requestParameters: RemoveRepoRolesRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<runtime.ApiResponse<any>> {
-        if (requestParameters["orgSlug"] == null) {
-            throw new runtime.RequiredError(
-                "orgSlug",
-                'Required parameter "orgSlug" was null or undefined when calling removeRepoRoles().'
-            );
-        }
-
-        if (requestParameters["repoSlug"] == null) {
-            throw new runtime.RequiredError(
-                "repoSlug",
-                'Required parameter "repoSlug" was null or undefined when calling removeRepoRoles().'
-            );
-        }
-
-        if (requestParameters["removeRepoRolesBody"] == null) {
-            throw new runtime.RequiredError(
-                "removeRepoRolesBody",
-                'Required parameter "removeRepoRolesBody" was null or undefined when calling removeRepoRoles().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters["Content-Type"] = "application/json";
-
-        if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("bearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
-        }
-
-        let urlPath = `/repos/{org_slug}/{repo_slug}/roles/remove`;
-        urlPath = urlPath.replace(
-            `{${"org_slug"}}`,
-            encodeURIComponent(String(requestParameters["orgSlug"]))
-        );
-        urlPath = urlPath.replace(
-            `{${"repo_slug"}}`,
-            encodeURIComponent(String(requestParameters["repoSlug"]))
-        );
-
-        const response = await this.request(
-            {
-                path: urlPath,
-                method: "POST",
-                headers: headerParameters,
-                query: queryParameters,
-                body: RemoveRepoRolesBodyToJSON(requestParameters["removeRepoRolesBody"]),
-            },
-            initOverrides
-        );
-
-        if (this.isJsonMime(response.headers.get("content-type"))) {
-            return new runtime.JSONApiResponse<any>(response);
-        } else {
-            return new runtime.TextApiResponse(response) as any;
-        }
-    }
-
-    /**
-     * Remove Repository Roles
-     */
-    async removeRepoRoles(
-        requestParameters: RemoveRepoRolesRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<any> {
-        const response = await this.removeRepoRolesRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
-     * Remove Repository Roles (By ID)
-     */
-    async removeRepoRolesByIDRaw(
-        requestParameters: RemoveRepoRolesByIDRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<runtime.ApiResponse<any>> {
-        if (requestParameters["repoId"] == null) {
-            throw new runtime.RequiredError(
-                "repoId",
-                'Required parameter "repoId" was null or undefined when calling removeRepoRolesByID().'
-            );
-        }
-
-        if (requestParameters["removeRepoRolesBody"] == null) {
-            throw new runtime.RequiredError(
-                "removeRepoRolesBody",
-                'Required parameter "removeRepoRolesBody" was null or undefined when calling removeRepoRolesByID().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        headerParameters["Content-Type"] = "application/json";
-
-        if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("bearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
-        }
-
-        let urlPath = `/repos/id:{repo_id}/roles/remove`;
-        urlPath = urlPath.replace(
-            `{${"repo_id"}}`,
-            encodeURIComponent(String(requestParameters["repoId"]))
-        );
-
-        const response = await this.request(
-            {
-                path: urlPath,
-                method: "POST",
-                headers: headerParameters,
-                query: queryParameters,
-                body: RemoveRepoRolesBodyToJSON(requestParameters["removeRepoRolesBody"]),
-            },
-            initOverrides
-        );
-
-        if (this.isJsonMime(response.headers.get("content-type"))) {
-            return new runtime.JSONApiResponse<any>(response);
-        } else {
-            return new runtime.TextApiResponse(response) as any;
-        }
-    }
-
-    /**
-     * Remove Repository Roles (By ID)
-     */
-    async removeRepoRolesByID(
-        requestParameters: RemoveRepoRolesByIDRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<any> {
-        const response = await this.removeRepoRolesByIDRaw(requestParameters, initOverrides);
-        return await response.value();
-    }
-
-    /**
      * Update Repository
      */
     async updateRepositoryRaw(
@@ -2264,7 +1619,7 @@ export class RepositoryApi extends runtime.BaseAPI implements RepositoryApiInter
             }
         }
 
-        let urlPath = `/{org_slug}/{repo_slug}`;
+        let urlPath = `/repos/{org_slug}/{repo_slug}`;
         urlPath = urlPath.replace(
             `{${"org_slug"}}`,
             encodeURIComponent(String(requestParameters["orgSlug"]))

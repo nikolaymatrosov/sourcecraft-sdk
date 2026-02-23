@@ -18,6 +18,7 @@ import type {
     CreateReleaseBody,
     ListReleasesResponse,
     Release,
+    UpdateReleaseBody,
 } from "../models/index";
 import {
     ApiErrorResponseFromJSON,
@@ -28,6 +29,8 @@ import {
     ListReleasesResponseToJSON,
     ReleaseFromJSON,
     ReleaseToJSON,
+    UpdateReleaseBodyFromJSON,
+    UpdateReleaseBodyToJSON,
 } from "../models/index";
 
 export interface CreateRequest {
@@ -39,6 +42,18 @@ export interface CreateRequest {
 export interface CreateByIDRequest {
     repoId: string;
     createReleaseBody: CreateReleaseBody;
+}
+
+export interface DeleteByIDRequest {
+    releaseId: string;
+    releaseTag?: string;
+}
+
+export interface DeleteByTagRequest {
+    orgSlug: string;
+    repoSlug: string;
+    releaseTag: string;
+    releaseId?: string;
 }
 
 export interface DiscardByIDRequest {
@@ -101,6 +116,20 @@ export interface PublishByTagRequest {
     releaseId?: string;
 }
 
+export interface UpdateByIDRequest {
+    releaseId: string;
+    updateReleaseBody: UpdateReleaseBody;
+    releaseTag?: string;
+}
+
+export interface UpdateByTagRequest {
+    orgSlug: string;
+    repoSlug: string;
+    releaseTag: string;
+    updateReleaseBody: UpdateReleaseBody;
+    releaseId?: string;
+}
+
 /**
  * RepositoryReleasesApi - interface
  *
@@ -152,6 +181,52 @@ export interface RepositoryReleasesApiInterface {
         requestParameters: CreateByIDRequest,
         initOverrides?: RequestInit | runtime.InitOverrideFunction
     ): Promise<Release>;
+
+    /**
+     *
+     * @summary Delete Release (By ID)
+     * @param {string} releaseId
+     * @param {string} [releaseTag]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryReleasesApiInterface
+     */
+    deleteByIDRaw(
+        requestParameters: DeleteByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<object>>;
+
+    /**
+     * Delete Release (By ID)
+     */
+    deleteByID(
+        requestParameters: DeleteByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<object>;
+
+    /**
+     *
+     * @summary Delete Release (By Tag)
+     * @param {string} orgSlug
+     * @param {string} repoSlug
+     * @param {string} releaseTag
+     * @param {string} [releaseId]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryReleasesApiInterface
+     */
+    deleteByTagRaw(
+        requestParameters: DeleteByTagRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<object>>;
+
+    /**
+     * Delete Release (By Tag)
+     */
+    deleteByTag(
+        requestParameters: DeleteByTagRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<object>;
 
     /**
      * Only \'published\' releases may be discarded, drafts can only be deleted or published. Contrary to deleted releases, discarded releases are still visible to maintainers.
@@ -388,6 +463,56 @@ export interface RepositoryReleasesApiInterface {
         requestParameters: PublishByTagRequest,
         initOverrides?: RequestInit | runtime.InitOverrideFunction
     ): Promise<Release>;
+
+    /**
+     * Can update title and release notes. For status updates, see \'Publish Release\' and \'Discard Release\'
+     * @summary Update Release (By ID)
+     * @param {string} releaseId
+     * @param {UpdateReleaseBody} updateReleaseBody
+     * @param {string} [releaseTag]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryReleasesApiInterface
+     */
+    updateByIDRaw(
+        requestParameters: UpdateByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Release>>;
+
+    /**
+     * Can update title and release notes. For status updates, see \'Publish Release\' and \'Discard Release\'
+     * Update Release (By ID)
+     */
+    updateByID(
+        requestParameters: UpdateByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Release>;
+
+    /**
+     * Can update title and release notes. For status updates, see \'Publish Release\' and \'Discard Release\'
+     * @summary Update Release (By Tag)
+     * @param {string} orgSlug
+     * @param {string} repoSlug
+     * @param {string} releaseTag
+     * @param {UpdateReleaseBody} updateReleaseBody
+     * @param {string} [releaseId]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RepositoryReleasesApiInterface
+     */
+    updateByTagRaw(
+        requestParameters: UpdateByTagRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Release>>;
+
+    /**
+     * Can update title and release notes. For status updates, see \'Publish Release\' and \'Discard Release\'
+     * Update Release (By Tag)
+     */
+    updateByTag(
+        requestParameters: UpdateByTagRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Release>;
 }
 
 /**
@@ -539,6 +664,150 @@ export class RepositoryReleasesApi
         initOverrides?: RequestInit | runtime.InitOverrideFunction
     ): Promise<Release> {
         const response = await this.createByIDRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Delete Release (By ID)
+     */
+    async deleteByIDRaw(
+        requestParameters: DeleteByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<object>> {
+        if (requestParameters["releaseId"] == null) {
+            throw new runtime.RequiredError(
+                "releaseId",
+                'Required parameter "releaseId" was null or undefined when calling deleteByID().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters["releaseTag"] != null) {
+            queryParameters["release_tag"] = requestParameters["releaseTag"];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("bearerAuth", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+
+        let urlPath = `/releases/id:{release_id}`;
+        urlPath = urlPath.replace(
+            `{${"release_id"}}`,
+            encodeURIComponent(String(requestParameters["releaseId"]))
+        );
+
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "DELETE",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     * Delete Release (By ID)
+     */
+    async deleteByID(
+        requestParameters: DeleteByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<object> {
+        const response = await this.deleteByIDRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Delete Release (By Tag)
+     */
+    async deleteByTagRaw(
+        requestParameters: DeleteByTagRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<object>> {
+        if (requestParameters["orgSlug"] == null) {
+            throw new runtime.RequiredError(
+                "orgSlug",
+                'Required parameter "orgSlug" was null or undefined when calling deleteByTag().'
+            );
+        }
+
+        if (requestParameters["repoSlug"] == null) {
+            throw new runtime.RequiredError(
+                "repoSlug",
+                'Required parameter "repoSlug" was null or undefined when calling deleteByTag().'
+            );
+        }
+
+        if (requestParameters["releaseTag"] == null) {
+            throw new runtime.RequiredError(
+                "releaseTag",
+                'Required parameter "releaseTag" was null or undefined when calling deleteByTag().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters["releaseId"] != null) {
+            queryParameters["release_id"] = requestParameters["releaseId"];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("bearerAuth", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+
+        let urlPath = `/repos/{org_slug}/{repo_slug}/releases/tag/{release_tag}`;
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"release_tag"}}`,
+            encodeURIComponent(String(requestParameters["releaseTag"]))
+        );
+
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "DELETE",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     * Delete Release (By Tag)
+     */
+    async deleteByTag(
+        requestParameters: DeleteByTagRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<object> {
+        const response = await this.deleteByTagRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
@@ -1261,6 +1530,174 @@ export class RepositoryReleasesApi
         initOverrides?: RequestInit | runtime.InitOverrideFunction
     ): Promise<Release> {
         const response = await this.publishByTagRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Can update title and release notes. For status updates, see \'Publish Release\' and \'Discard Release\'
+     * Update Release (By ID)
+     */
+    async updateByIDRaw(
+        requestParameters: UpdateByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Release>> {
+        if (requestParameters["releaseId"] == null) {
+            throw new runtime.RequiredError(
+                "releaseId",
+                'Required parameter "releaseId" was null or undefined when calling updateByID().'
+            );
+        }
+
+        if (requestParameters["updateReleaseBody"] == null) {
+            throw new runtime.RequiredError(
+                "updateReleaseBody",
+                'Required parameter "updateReleaseBody" was null or undefined when calling updateByID().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters["releaseTag"] != null) {
+            queryParameters["release_tag"] = requestParameters["releaseTag"];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters["Content-Type"] = "application/json";
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("bearerAuth", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+
+        let urlPath = `/releases/id:{release_id}`;
+        urlPath = urlPath.replace(
+            `{${"release_id"}}`,
+            encodeURIComponent(String(requestParameters["releaseId"]))
+        );
+
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "PATCH",
+                headers: headerParameters,
+                query: queryParameters,
+                body: UpdateReleaseBodyToJSON(requestParameters["updateReleaseBody"]),
+            },
+            initOverrides
+        );
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ReleaseFromJSON(jsonValue));
+    }
+
+    /**
+     * Can update title and release notes. For status updates, see \'Publish Release\' and \'Discard Release\'
+     * Update Release (By ID)
+     */
+    async updateByID(
+        requestParameters: UpdateByIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Release> {
+        const response = await this.updateByIDRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Can update title and release notes. For status updates, see \'Publish Release\' and \'Discard Release\'
+     * Update Release (By Tag)
+     */
+    async updateByTagRaw(
+        requestParameters: UpdateByTagRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<Release>> {
+        if (requestParameters["orgSlug"] == null) {
+            throw new runtime.RequiredError(
+                "orgSlug",
+                'Required parameter "orgSlug" was null or undefined when calling updateByTag().'
+            );
+        }
+
+        if (requestParameters["repoSlug"] == null) {
+            throw new runtime.RequiredError(
+                "repoSlug",
+                'Required parameter "repoSlug" was null or undefined when calling updateByTag().'
+            );
+        }
+
+        if (requestParameters["releaseTag"] == null) {
+            throw new runtime.RequiredError(
+                "releaseTag",
+                'Required parameter "releaseTag" was null or undefined when calling updateByTag().'
+            );
+        }
+
+        if (requestParameters["updateReleaseBody"] == null) {
+            throw new runtime.RequiredError(
+                "updateReleaseBody",
+                'Required parameter "updateReleaseBody" was null or undefined when calling updateByTag().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters["releaseId"] != null) {
+            queryParameters["release_id"] = requestParameters["releaseId"];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        headerParameters["Content-Type"] = "application/json";
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("bearerAuth", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+
+        let urlPath = `/repos/{org_slug}/{repo_slug}/releases/tag/{release_tag}`;
+        urlPath = urlPath.replace(
+            `{${"org_slug"}}`,
+            encodeURIComponent(String(requestParameters["orgSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"repo_slug"}}`,
+            encodeURIComponent(String(requestParameters["repoSlug"]))
+        );
+        urlPath = urlPath.replace(
+            `{${"release_tag"}}`,
+            encodeURIComponent(String(requestParameters["releaseTag"]))
+        );
+
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "PATCH",
+                headers: headerParameters,
+                query: queryParameters,
+                body: UpdateReleaseBodyToJSON(requestParameters["updateReleaseBody"]),
+            },
+            initOverrides
+        );
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => ReleaseFromJSON(jsonValue));
+    }
+
+    /**
+     * Can update title and release notes. For status updates, see \'Publish Release\' and \'Discard Release\'
+     * Update Release (By Tag)
+     */
+    async updateByTag(
+        requestParameters: UpdateByTagRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<Release> {
+        const response = await this.updateByTagRaw(requestParameters, initOverrides);
         return await response.value();
     }
 }

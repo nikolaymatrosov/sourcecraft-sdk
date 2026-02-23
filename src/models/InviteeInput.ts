@@ -14,11 +14,17 @@
 
 import { mapValues } from "../runtime";
 /**
- *
+ * Input for invite recipient. Exactly one of email, slug, or alias must be specified.
  * @export
  * @interface InviteeInput
  */
 export interface InviteeInput {
+    /**
+     * Human-readable identifier for code-based invite. Generates invite_link in response.
+     * @type {string}
+     * @memberof InviteeInput
+     */
+    alias?: string;
     /**
      *
      * @type {string}
@@ -49,6 +55,7 @@ export function InviteeInputFromJSONTyped(json: any, ignoreDiscriminator: boolea
         return json;
     }
     return {
+        alias: json["alias"] == null ? undefined : json["alias"],
         email: json["email"] == null ? undefined : json["email"],
         slug: json["slug"] == null ? undefined : json["slug"],
     };
@@ -67,6 +74,7 @@ export function InviteeInputToJSONTyped(
     }
 
     return {
+        alias: value["alias"],
         email: value["email"],
         slug: value["slug"],
     };

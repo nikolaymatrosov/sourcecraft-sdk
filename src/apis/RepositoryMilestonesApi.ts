@@ -167,7 +167,7 @@ export interface RepositoryMilestonesApiInterface {
     deleteMilestoneRaw(
         requestParameters: DeleteMilestoneRequest,
         initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<runtime.ApiResponse<object>>;
+    ): Promise<runtime.ApiResponse<void>>;
 
     /**
      * Delete a Milestone (By Slug)
@@ -175,7 +175,7 @@ export interface RepositoryMilestonesApiInterface {
     deleteMilestone(
         requestParameters: DeleteMilestoneRequest,
         initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<object>;
+    ): Promise<void>;
 
     /**
      *
@@ -189,7 +189,7 @@ export interface RepositoryMilestonesApiInterface {
     deleteMilestoneByIDRaw(
         requestParameters: DeleteMilestoneByIDRequest,
         initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<runtime.ApiResponse<object>>;
+    ): Promise<runtime.ApiResponse<void>>;
 
     /**
      * Delete a Milestone (By ID)
@@ -197,7 +197,7 @@ export interface RepositoryMilestonesApiInterface {
     deleteMilestoneByID(
         requestParameters: DeleteMilestoneByIDRequest,
         initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<object>;
+    ): Promise<void>;
 
     /**
      *
@@ -509,7 +509,7 @@ export class RepositoryMilestonesApi
     async deleteMilestoneRaw(
         requestParameters: DeleteMilestoneRequest,
         initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<runtime.ApiResponse<object>> {
+    ): Promise<runtime.ApiResponse<void>> {
         if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
                 "orgSlug",
@@ -572,7 +572,7 @@ export class RepositoryMilestonesApi
             initOverrides
         );
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.VoidApiResponse(response);
     }
 
     /**
@@ -581,9 +581,8 @@ export class RepositoryMilestonesApi
     async deleteMilestone(
         requestParameters: DeleteMilestoneRequest,
         initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<object> {
-        const response = await this.deleteMilestoneRaw(requestParameters, initOverrides);
-        return await response.value();
+    ): Promise<void> {
+        await this.deleteMilestoneRaw(requestParameters, initOverrides);
     }
 
     /**
@@ -592,7 +591,7 @@ export class RepositoryMilestonesApi
     async deleteMilestoneByIDRaw(
         requestParameters: DeleteMilestoneByIDRequest,
         initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<runtime.ApiResponse<object>> {
+    ): Promise<runtime.ApiResponse<void>> {
         if (requestParameters["milestoneId"] == null) {
             throw new runtime.RequiredError(
                 "milestoneId",
@@ -633,7 +632,7 @@ export class RepositoryMilestonesApi
             initOverrides
         );
 
-        return new runtime.JSONApiResponse<any>(response);
+        return new runtime.VoidApiResponse(response);
     }
 
     /**
@@ -642,9 +641,8 @@ export class RepositoryMilestonesApi
     async deleteMilestoneByID(
         requestParameters: DeleteMilestoneByIDRequest,
         initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<object> {
-        const response = await this.deleteMilestoneByIDRaw(requestParameters, initOverrides);
-        return await response.value();
+    ): Promise<void> {
+        await this.deleteMilestoneByIDRaw(requestParameters, initOverrides);
     }
 
     /**

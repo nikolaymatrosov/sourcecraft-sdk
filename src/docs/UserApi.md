@@ -4,16 +4,17 @@ All URIs are relative to *https://api.sourcecraft.tech*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**getProfile**](UserApi.md#getprofile) | **GET** /users/{user_slug} |  |
-| [**getProfileByID**](UserApi.md#getprofilebyid) | **GET** /users/id:{user_id} |  |
+| [**getProfile**](UserApi.md#getprofile) | **GET** /users/{user_slug} | Get User Profile |
+| [**getProfileByCloudID**](UserApi.md#getprofilebycloudid) | **GET** /users/by-cloud-id/{cloud_id} | Get User Profile (By Cloud ID) |
+| [**getProfileByID**](UserApi.md#getprofilebyid) | **GET** /users/id:{user_id} | Get User Profile (By ID) |
 
 
 
 ## getProfile
 
-> UserProfile getProfile(userSlug, userId)
+> UserProfile getProfile(userSlug, userId, cloudId)
 
-
+Get User Profile
 
 ### Example
 
@@ -37,6 +38,8 @@ async function example() {
     userSlug: userSlug_example,
     // string (optional)
     userId: userId_example,
+    // string (optional)
+    cloudId: cloudId_example,
   } satisfies GetProfileRequest;
 
   try {
@@ -57,6 +60,83 @@ example().catch(console.error);
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **userSlug** | `string` |  | [Defaults to `undefined`] |
+| **userId** | `string` |  | [Optional] [Defaults to `undefined`] |
+| **cloudId** | `string` |  | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**UserProfile**](UserProfile.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | A successful response. |  -  |
+| **0** | Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## getProfileByCloudID
+
+> UserProfile getProfileByCloudID(cloudId, userSlug, userId)
+
+Get User Profile (By Cloud ID)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  UserApi,
+} from '';
+import type { GetProfileByCloudIDRequest } from '';
+
+async function example() {
+  console.log("🚀 Testing  SDK...");
+  const config = new Configuration({ 
+    // Configure HTTP bearer authorization: bearerAuth
+    accessToken: "YOUR BEARER TOKEN",
+  });
+  const api = new UserApi(config);
+
+  const body = {
+    // string
+    cloudId: cloudId_example,
+    // string (optional)
+    userSlug: userSlug_example,
+    // string (optional)
+    userId: userId_example,
+  } satisfies GetProfileByCloudIDRequest;
+
+  try {
+    const data = await api.getProfileByCloudID(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **cloudId** | `string` |  | [Defaults to `undefined`] |
+| **userSlug** | `string` |  | [Optional] [Defaults to `undefined`] |
 | **userId** | `string` |  | [Optional] [Defaults to `undefined`] |
 
 ### Return type
@@ -84,9 +164,9 @@ example().catch(console.error);
 
 ## getProfileByID
 
-> UserProfile getProfileByID(userId, userSlug)
+> UserProfile getProfileByID(userId, userSlug, cloudId)
 
-
+Get User Profile (By ID)
 
 ### Example
 
@@ -110,6 +190,8 @@ async function example() {
     userId: userId_example,
     // string (optional)
     userSlug: userSlug_example,
+    // string (optional)
+    cloudId: cloudId_example,
   } satisfies GetProfileByIDRequest;
 
   try {
@@ -131,6 +213,7 @@ example().catch(console.error);
 |------------- | ------------- | ------------- | -------------|
 | **userId** | `string` |  | [Defaults to `undefined`] |
 | **userSlug** | `string` |  | [Optional] [Defaults to `undefined`] |
+| **cloudId** | `string` |  | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 

@@ -13,22 +13,15 @@
  */
 
 import * as runtime from "../runtime";
-import type { ApiErrorResponse, CreateInvitesOperation } from "../models/index";
+import type { ApiErrorResponse, CreateOrganizationInvitesOperation } from "../models/index";
 import {
     ApiErrorResponseFromJSON,
     ApiErrorResponseToJSON,
-    CreateInvitesOperationFromJSON,
-    CreateInvitesOperationToJSON,
+    CreateOrganizationInvitesOperationFromJSON,
+    CreateOrganizationInvitesOperationToJSON,
 } from "../models/index";
 
-export interface GetOrganizationInvitesOperationRequest {
-    orgSlug: string;
-    operationId: string;
-    orgId?: string;
-}
-
 export interface GetOrganizationInvitesOperationByIDRequest {
-    orgId: string;
     operationId: string;
 }
 
@@ -41,31 +34,7 @@ export interface GetOrganizationInvitesOperationByIDRequest {
 export interface OrganizationOperationApiInterface {
     /**
      *
-     * @summary Get invitation creation operation status
-     * @param {string} orgSlug
-     * @param {string} operationId Operation ID
-     * @param {string} [orgId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof OrganizationOperationApiInterface
-     */
-    getOrganizationInvitesOperationRaw(
-        requestParameters: GetOrganizationInvitesOperationRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<runtime.ApiResponse<CreateInvitesOperation>>;
-
-    /**
-     * Get invitation creation operation status
-     */
-    getOrganizationInvitesOperation(
-        requestParameters: GetOrganizationInvitesOperationRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<CreateInvitesOperation>;
-
-    /**
-     *
-     * @summary Get invitation creation operation status (By Organization ID)
-     * @param {string} orgId
+     * @summary Get invitation creation operation status (By Operation ID)
      * @param {string} operationId Operation ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -74,15 +43,15 @@ export interface OrganizationOperationApiInterface {
     getOrganizationInvitesOperationByIDRaw(
         requestParameters: GetOrganizationInvitesOperationByIDRequest,
         initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<runtime.ApiResponse<CreateInvitesOperation>>;
+    ): Promise<runtime.ApiResponse<CreateOrganizationInvitesOperation>>;
 
     /**
-     * Get invitation creation operation status (By Organization ID)
+     * Get invitation creation operation status (By Operation ID)
      */
     getOrganizationInvitesOperationByID(
         requestParameters: GetOrganizationInvitesOperationByIDRequest,
         initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<CreateInvitesOperation>;
+    ): Promise<CreateOrganizationInvitesOperation>;
 }
 
 /**
@@ -93,96 +62,12 @@ export class OrganizationOperationApi
     implements OrganizationOperationApiInterface
 {
     /**
-     * Get invitation creation operation status
-     */
-    async getOrganizationInvitesOperationRaw(
-        requestParameters: GetOrganizationInvitesOperationRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<runtime.ApiResponse<CreateInvitesOperation>> {
-        if (requestParameters["orgSlug"] == null) {
-            throw new runtime.RequiredError(
-                "orgSlug",
-                'Required parameter "orgSlug" was null or undefined when calling getOrganizationInvitesOperation().'
-            );
-        }
-
-        if (requestParameters["operationId"] == null) {
-            throw new runtime.RequiredError(
-                "operationId",
-                'Required parameter "operationId" was null or undefined when calling getOrganizationInvitesOperation().'
-            );
-        }
-
-        const queryParameters: any = {};
-
-        if (requestParameters["orgId"] != null) {
-            queryParameters["org_id"] = requestParameters["orgId"];
-        }
-
-        const headerParameters: runtime.HTTPHeaders = {};
-
-        if (this.configuration && this.configuration.accessToken) {
-            const token = this.configuration.accessToken;
-            const tokenString = await token("bearerAuth", []);
-
-            if (tokenString) {
-                headerParameters["Authorization"] = `Bearer ${tokenString}`;
-            }
-        }
-
-        let urlPath = `/orgs/{org_slug}/operations/create-invites/{operation_id}`;
-        urlPath = urlPath.replace(
-            `{${"org_slug"}}`,
-            encodeURIComponent(String(requestParameters["orgSlug"]))
-        );
-        urlPath = urlPath.replace(
-            `{${"operation_id"}}`,
-            encodeURIComponent(String(requestParameters["operationId"]))
-        );
-
-        const response = await this.request(
-            {
-                path: urlPath,
-                method: "GET",
-                headers: headerParameters,
-                query: queryParameters,
-            },
-            initOverrides
-        );
-
-        return new runtime.JSONApiResponse(response, (jsonValue) =>
-            CreateInvitesOperationFromJSON(jsonValue)
-        );
-    }
-
-    /**
-     * Get invitation creation operation status
-     */
-    async getOrganizationInvitesOperation(
-        requestParameters: GetOrganizationInvitesOperationRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<CreateInvitesOperation> {
-        const response = await this.getOrganizationInvitesOperationRaw(
-            requestParameters,
-            initOverrides
-        );
-        return await response.value();
-    }
-
-    /**
-     * Get invitation creation operation status (By Organization ID)
+     * Get invitation creation operation status (By Operation ID)
      */
     async getOrganizationInvitesOperationByIDRaw(
         requestParameters: GetOrganizationInvitesOperationByIDRequest,
         initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<runtime.ApiResponse<CreateInvitesOperation>> {
-        if (requestParameters["orgId"] == null) {
-            throw new runtime.RequiredError(
-                "orgId",
-                'Required parameter "orgId" was null or undefined when calling getOrganizationInvitesOperationByID().'
-            );
-        }
-
+    ): Promise<runtime.ApiResponse<CreateOrganizationInvitesOperation>> {
         if (requestParameters["operationId"] == null) {
             throw new runtime.RequiredError(
                 "operationId",
@@ -203,11 +88,7 @@ export class OrganizationOperationApi
             }
         }
 
-        let urlPath = `/orgs/id:{org_id}/operations/create-invites/{operation_id}`;
-        urlPath = urlPath.replace(
-            `{${"org_id"}}`,
-            encodeURIComponent(String(requestParameters["orgId"]))
-        );
+        let urlPath = `/operations/create-invites/id:{operation_id}`;
         urlPath = urlPath.replace(
             `{${"operation_id"}}`,
             encodeURIComponent(String(requestParameters["operationId"]))
@@ -224,17 +105,17 @@ export class OrganizationOperationApi
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) =>
-            CreateInvitesOperationFromJSON(jsonValue)
+            CreateOrganizationInvitesOperationFromJSON(jsonValue)
         );
     }
 
     /**
-     * Get invitation creation operation status (By Organization ID)
+     * Get invitation creation operation status (By Operation ID)
      */
     async getOrganizationInvitesOperationByID(
         requestParameters: GetOrganizationInvitesOperationByIDRequest,
         initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<CreateInvitesOperation> {
+    ): Promise<CreateOrganizationInvitesOperation> {
         const response = await this.getOrganizationInvitesOperationByIDRaw(
             requestParameters,
             initOverrides

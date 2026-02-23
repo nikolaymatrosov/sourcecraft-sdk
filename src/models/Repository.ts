@@ -169,6 +169,12 @@ export interface Repository {
      * @memberof Repository
      */
     visibility?: RepositoryVisibility;
+    /**
+     *
+     * @type {string}
+     * @memberof Repository
+     */
+    webUrl?: string;
 }
 
 /**
@@ -211,6 +217,7 @@ export function RepositoryFromJSONTyped(json: any, ignoreDiscriminator: boolean)
             json["visibility"] == null
                 ? undefined
                 : RepositoryVisibilityFromJSON(json["visibility"]),
+        webUrl: json["web_url"] == null ? undefined : json["web_url"],
     };
 }
 
@@ -246,5 +253,6 @@ export function RepositoryToJSONTyped(
         slug: value["slug"],
         template_type: RepoTemplateToJSON(value["templateType"]),
         visibility: RepositoryVisibilityToJSON(value["visibility"]),
+        web_url: value["webUrl"],
     };
 }

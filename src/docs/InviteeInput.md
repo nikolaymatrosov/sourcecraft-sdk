@@ -1,11 +1,13 @@
 
 # InviteeInput
 
+Input for invite recipient. Exactly one of email, slug, or alias must be specified.
 
 ## Properties
 
 Name | Type
 ------------ | -------------
+`alias` | string
 `email` | string
 `slug` | string
 
@@ -16,6 +18,7 @@ import type { InviteeInput } from ''
 
 // TODO: Update the object below with actual values
 const example = {
+  "alias": null,
   "email": null,
   "slug": null,
 } satisfies InviteeInput

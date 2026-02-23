@@ -16,7 +16,7 @@ import * as runtime from "../runtime";
 import type {
     ApiErrorResponse,
     CreateOrganizationInvitesBody,
-    CreateOrganizationInvitesResponse,
+    CreateOrganizationInvitesOperation,
     ListOrganizationInvitesResponse,
 } from "../models/index";
 import {
@@ -24,8 +24,8 @@ import {
     ApiErrorResponseToJSON,
     CreateOrganizationInvitesBodyFromJSON,
     CreateOrganizationInvitesBodyToJSON,
-    CreateOrganizationInvitesResponseFromJSON,
-    CreateOrganizationInvitesResponseToJSON,
+    CreateOrganizationInvitesOperationFromJSON,
+    CreateOrganizationInvitesOperationToJSON,
     ListOrganizationInvitesResponseFromJSON,
     ListOrganizationInvitesResponseToJSON,
 } from "../models/index";
@@ -62,7 +62,7 @@ export interface ListOrganizationInvitesByIDRequest {
  */
 export interface OrganizationInvitesApiInterface {
     /**
-     * Creates invitations asynchronously. Poll operation status at `GET /orgs/{org_slug}/operations/create-invites/{operation_id}`
+     * Creates invitations asynchronously. Poll operation status at the returned status_url.
      * @summary Create Organization Invitations
      * @param {string} orgSlug
      * @param {CreateOrganizationInvitesBody} createOrganizationInvitesBody
@@ -74,19 +74,19 @@ export interface OrganizationInvitesApiInterface {
     createOrganizationInvitesRaw(
         requestParameters: CreateOrganizationInvitesRequest,
         initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<runtime.ApiResponse<CreateOrganizationInvitesResponse>>;
+    ): Promise<runtime.ApiResponse<CreateOrganizationInvitesOperation>>;
 
     /**
-     * Creates invitations asynchronously. Poll operation status at `GET /orgs/{org_slug}/operations/create-invites/{operation_id}`
+     * Creates invitations asynchronously. Poll operation status at the returned status_url.
      * Create Organization Invitations
      */
     createOrganizationInvites(
         requestParameters: CreateOrganizationInvitesRequest,
         initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<CreateOrganizationInvitesResponse>;
+    ): Promise<CreateOrganizationInvitesOperation>;
 
     /**
-     * Creates invitations asynchronously. Poll operation status at `GET /orgs/id:{org_id}/operations/create-invites/{operation_id}`
+     * Creates invitations asynchronously. Poll operation status at the returned status_url.
      * @summary Create Organization Invitations (By Organization ID)
      * @param {string} orgId
      * @param {CreateOrganizationInvitesBody} createOrganizationInvitesBody
@@ -97,16 +97,16 @@ export interface OrganizationInvitesApiInterface {
     createOrganizationInvitesByIDRaw(
         requestParameters: CreateOrganizationInvitesByIDRequest,
         initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<runtime.ApiResponse<CreateOrganizationInvitesResponse>>;
+    ): Promise<runtime.ApiResponse<CreateOrganizationInvitesOperation>>;
 
     /**
-     * Creates invitations asynchronously. Poll operation status at `GET /orgs/id:{org_id}/operations/create-invites/{operation_id}`
+     * Creates invitations asynchronously. Poll operation status at the returned status_url.
      * Create Organization Invitations (By Organization ID)
      */
     createOrganizationInvitesByID(
         requestParameters: CreateOrganizationInvitesByIDRequest,
         initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<CreateOrganizationInvitesResponse>;
+    ): Promise<CreateOrganizationInvitesOperation>;
 
     /**
      *
@@ -164,13 +164,13 @@ export class OrganizationInvitesApi
     implements OrganizationInvitesApiInterface
 {
     /**
-     * Creates invitations asynchronously. Poll operation status at `GET /orgs/{org_slug}/operations/create-invites/{operation_id}`
+     * Creates invitations asynchronously. Poll operation status at the returned status_url.
      * Create Organization Invitations
      */
     async createOrganizationInvitesRaw(
         requestParameters: CreateOrganizationInvitesRequest,
         initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<runtime.ApiResponse<CreateOrganizationInvitesResponse>> {
+    ): Promise<runtime.ApiResponse<CreateOrganizationInvitesOperation>> {
         if (requestParameters["orgSlug"] == null) {
             throw new runtime.RequiredError(
                 "orgSlug",
@@ -224,30 +224,30 @@ export class OrganizationInvitesApi
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) =>
-            CreateOrganizationInvitesResponseFromJSON(jsonValue)
+            CreateOrganizationInvitesOperationFromJSON(jsonValue)
         );
     }
 
     /**
-     * Creates invitations asynchronously. Poll operation status at `GET /orgs/{org_slug}/operations/create-invites/{operation_id}`
+     * Creates invitations asynchronously. Poll operation status at the returned status_url.
      * Create Organization Invitations
      */
     async createOrganizationInvites(
         requestParameters: CreateOrganizationInvitesRequest,
         initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<CreateOrganizationInvitesResponse> {
+    ): Promise<CreateOrganizationInvitesOperation> {
         const response = await this.createOrganizationInvitesRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
     /**
-     * Creates invitations asynchronously. Poll operation status at `GET /orgs/id:{org_id}/operations/create-invites/{operation_id}`
+     * Creates invitations asynchronously. Poll operation status at the returned status_url.
      * Create Organization Invitations (By Organization ID)
      */
     async createOrganizationInvitesByIDRaw(
         requestParameters: CreateOrganizationInvitesByIDRequest,
         initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<runtime.ApiResponse<CreateOrganizationInvitesResponse>> {
+    ): Promise<runtime.ApiResponse<CreateOrganizationInvitesOperation>> {
         if (requestParameters["orgId"] == null) {
             throw new runtime.RequiredError(
                 "orgId",
@@ -297,18 +297,18 @@ export class OrganizationInvitesApi
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) =>
-            CreateOrganizationInvitesResponseFromJSON(jsonValue)
+            CreateOrganizationInvitesOperationFromJSON(jsonValue)
         );
     }
 
     /**
-     * Creates invitations asynchronously. Poll operation status at `GET /orgs/id:{org_id}/operations/create-invites/{operation_id}`
+     * Creates invitations asynchronously. Poll operation status at the returned status_url.
      * Create Organization Invitations (By Organization ID)
      */
     async createOrganizationInvitesByID(
         requestParameters: CreateOrganizationInvitesByIDRequest,
         initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<CreateOrganizationInvitesResponse> {
+    ): Promise<CreateOrganizationInvitesOperation> {
         const response = await this.createOrganizationInvitesByIDRaw(
             requestParameters,
             initOverrides

@@ -8,10 +8,14 @@ Name | Type
 ------------ | -------------
 `aggregateId` | string
 `aggregateType` | string
+`causationId` | string
+`correlationId` | string
 `id` | string
 `metadata` | { [key: string]: string; }
 `occurredAt` | Date
 `organizationId` | string
+`repositoryId` | string
+`triggeredBy` | [UserEmbedded](UserEmbedded.md)
 `type` | string
 
 ## Example
@@ -23,10 +27,14 @@ import type { EventHeader } from ''
 const example = {
   "aggregateId": null,
   "aggregateType": null,
+  "causationId": null,
+  "correlationId": null,
   "id": null,
   "metadata": null,
   "occurredAt": null,
   "organizationId": null,
+  "repositoryId": null,
+  "triggeredBy": null,
   "type": null,
 } satisfies EventHeader
 

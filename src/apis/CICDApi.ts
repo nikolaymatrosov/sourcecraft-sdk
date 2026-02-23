@@ -361,7 +361,7 @@ export class CICDApi extends runtime.BaseAPI implements CICDApiInterface {
             }
         }
 
-        let urlPath = `/{org_slug}/{repo_slug}/cicd/artifacts/{run_slug}/{workflow_slug}/{task_slug}/{cube_slug}`;
+        let urlPath = `/repos/{org_slug}/{repo_slug}/cicd/artifacts/{run_slug}/{workflow_slug}/{task_slug}/{cube_slug}`;
         urlPath = urlPath.replace(
             `{${"org_slug"}}`,
             encodeURIComponent(String(requestParameters["orgSlug"]))
@@ -479,7 +479,7 @@ export class CICDApi extends runtime.BaseAPI implements CICDApiInterface {
             }
         }
 
-        let urlPath = `/{org_slug}/{repo_slug}/cicd/logs/{run_slug}/{workflow_slug}/{task_slug}/{cube_slug}`;
+        let urlPath = `/repos/{org_slug}/{repo_slug}/cicd/logs/{run_slug}/{workflow_slug}/{task_slug}/{cube_slug}`;
         urlPath = urlPath.replace(
             `{${"org_slug"}}`,
             encodeURIComponent(String(requestParameters["orgSlug"]))
@@ -572,7 +572,7 @@ export class CICDApi extends runtime.BaseAPI implements CICDApiInterface {
             }
         }
 
-        let urlPath = `/{org_slug}/{repo_slug}/cicd/runs/{run_slug}`;
+        let urlPath = `/repos/{org_slug}/{repo_slug}/cicd/runs/{run_slug}`;
         urlPath = urlPath.replace(
             `{${"org_slug"}}`,
             encodeURIComponent(String(requestParameters["orgSlug"]))
@@ -658,7 +658,7 @@ export class CICDApi extends runtime.BaseAPI implements CICDApiInterface {
             }
         }
 
-        let urlPath = `/{org_slug}/{repo_slug}/cicd/runs/{run_slug}/{workflow_slug}`;
+        let urlPath = `/repos/{org_slug}/{repo_slug}/cicd/runs/{run_slug}/{workflow_slug}`;
         urlPath = urlPath.replace(
             `{${"org_slug"}}`,
             encodeURIComponent(String(requestParameters["orgSlug"]))
@@ -742,7 +742,7 @@ export class CICDApi extends runtime.BaseAPI implements CICDApiInterface {
             }
         }
 
-        let urlPath = `/{org_slug}/{repo_slug}/cicd/runs`;
+        let urlPath = `/repos/{org_slug}/{repo_slug}/cicd/runs`;
         urlPath = urlPath.replace(
             `{${"org_slug"}}`,
             encodeURIComponent(String(requestParameters["orgSlug"]))
@@ -888,7 +888,7 @@ export class CICDApi extends runtime.BaseAPI implements CICDApiInterface {
             }
         }
 
-        let urlPath = `/{org_slug}/{repo_slug}/cicd/runs`;
+        let urlPath = `/repos/{org_slug}/{repo_slug}/cicd/runs`;
         urlPath = urlPath.replace(
             `{${"org_slug"}}`,
             encodeURIComponent(String(requestParameters["orgSlug"]))

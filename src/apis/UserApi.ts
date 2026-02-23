@@ -24,11 +24,19 @@ import {
 export interface GetProfileRequest {
     userSlug: string;
     userId?: string;
+    cloudId?: string;
+}
+
+export interface GetProfileByCloudIDRequest {
+    cloudId: string;
+    userSlug?: string;
+    userId?: string;
 }
 
 export interface GetProfileByIDRequest {
     userId: string;
     userSlug?: string;
+    cloudId?: string;
 }
 
 /**
@@ -40,8 +48,10 @@ export interface GetProfileByIDRequest {
 export interface UserApiInterface {
     /**
      *
+     * @summary Get User Profile
      * @param {string} userSlug
      * @param {string} [userId]
+     * @param {string} [cloudId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UserApiInterface
@@ -52,6 +62,7 @@ export interface UserApiInterface {
     ): Promise<runtime.ApiResponse<UserProfile>>;
 
     /**
+     * Get User Profile
      */
     getProfile(
         requestParameters: GetProfileRequest,
@@ -60,8 +71,33 @@ export interface UserApiInterface {
 
     /**
      *
+     * @summary Get User Profile (By Cloud ID)
+     * @param {string} cloudId
+     * @param {string} [userSlug]
+     * @param {string} [userId]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserApiInterface
+     */
+    getProfileByCloudIDRaw(
+        requestParameters: GetProfileByCloudIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<UserProfile>>;
+
+    /**
+     * Get User Profile (By Cloud ID)
+     */
+    getProfileByCloudID(
+        requestParameters: GetProfileByCloudIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<UserProfile>;
+
+    /**
+     *
+     * @summary Get User Profile (By ID)
      * @param {string} userId
      * @param {string} [userSlug]
+     * @param {string} [cloudId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UserApiInterface
@@ -72,6 +108,7 @@ export interface UserApiInterface {
     ): Promise<runtime.ApiResponse<UserProfile>>;
 
     /**
+     * Get User Profile (By ID)
      */
     getProfileByID(
         requestParameters: GetProfileByIDRequest,
@@ -84,6 +121,7 @@ export interface UserApiInterface {
  */
 export class UserApi extends runtime.BaseAPI implements UserApiInterface {
     /**
+     * Get User Profile
      */
     async getProfileRaw(
         requestParameters: GetProfileRequest,
@@ -100,6 +138,10 @@ export class UserApi extends runtime.BaseAPI implements UserApiInterface {
 
         if (requestParameters["userId"] != null) {
             queryParameters["user_id"] = requestParameters["userId"];
+        }
+
+        if (requestParameters["cloudId"] != null) {
+            queryParameters["cloud_id"] = requestParameters["cloudId"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -133,6 +175,7 @@ export class UserApi extends runtime.BaseAPI implements UserApiInterface {
     }
 
     /**
+     * Get User Profile
      */
     async getProfile(
         requestParameters: GetProfileRequest,
@@ -143,6 +186,72 @@ export class UserApi extends runtime.BaseAPI implements UserApiInterface {
     }
 
     /**
+     * Get User Profile (By Cloud ID)
+     */
+    async getProfileByCloudIDRaw(
+        requestParameters: GetProfileByCloudIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<UserProfile>> {
+        if (requestParameters["cloudId"] == null) {
+            throw new runtime.RequiredError(
+                "cloudId",
+                'Required parameter "cloudId" was null or undefined when calling getProfileByCloudID().'
+            );
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters["userSlug"] != null) {
+            queryParameters["user_slug"] = requestParameters["userSlug"];
+        }
+
+        if (requestParameters["userId"] != null) {
+            queryParameters["user_id"] = requestParameters["userId"];
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.accessToken) {
+            const token = this.configuration.accessToken;
+            const tokenString = await token("bearerAuth", []);
+
+            if (tokenString) {
+                headerParameters["Authorization"] = `Bearer ${tokenString}`;
+            }
+        }
+
+        let urlPath = `/users/by-cloud-id/{cloud_id}`;
+        urlPath = urlPath.replace(
+            `{${"cloud_id"}}`,
+            encodeURIComponent(String(requestParameters["cloudId"]))
+        );
+
+        const response = await this.request(
+            {
+                path: urlPath,
+                method: "GET",
+                headers: headerParameters,
+                query: queryParameters,
+            },
+            initOverrides
+        );
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => UserProfileFromJSON(jsonValue));
+    }
+
+    /**
+     * Get User Profile (By Cloud ID)
+     */
+    async getProfileByCloudID(
+        requestParameters: GetProfileByCloudIDRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<UserProfile> {
+        const response = await this.getProfileByCloudIDRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get User Profile (By ID)
      */
     async getProfileByIDRaw(
         requestParameters: GetProfileByIDRequest,
@@ -159,6 +268,10 @@ export class UserApi extends runtime.BaseAPI implements UserApiInterface {
 
         if (requestParameters["userSlug"] != null) {
             queryParameters["user_slug"] = requestParameters["userSlug"];
+        }
+
+        if (requestParameters["cloudId"] != null) {
+            queryParameters["cloud_id"] = requestParameters["cloudId"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -192,6 +305,7 @@ export class UserApi extends runtime.BaseAPI implements UserApiInterface {
     }
 
     /**
+     * Get User Profile (By ID)
      */
     async getProfileByID(
         requestParameters: GetProfileByIDRequest,

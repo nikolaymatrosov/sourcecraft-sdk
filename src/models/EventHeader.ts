@@ -13,6 +13,14 @@
  */
 
 import { mapValues } from "../runtime";
+import type { UserEmbedded } from "./UserEmbedded";
+import {
+    UserEmbeddedFromJSON,
+    UserEmbeddedFromJSONTyped,
+    UserEmbeddedToJSON,
+    UserEmbeddedToJSONTyped,
+} from "./UserEmbedded";
+
 /**
  *
  * @export
@@ -31,6 +39,22 @@ export interface EventHeader {
      * @memberof EventHeader
      */
     aggregateType?: string;
+    /**
+     * Causation ID is the ID of the event that directly caused this event.
+     * Empty for root events (events triggered directly by user actions).
+     * Used to reconstruct the event tree within a correlation chain.
+     * @type {string}
+     * @memberof EventHeader
+     */
+    causationId?: string;
+    /**
+     * Correlation ID for tracking event chains back to the original request.
+     * Uses request_id from the originating gRPC/HTTP request when available,
+     * falls back to trace_id or the root event's ID.
+     * @type {string}
+     * @memberof EventHeader
+     */
+    correlationId?: string;
     /**
      *
      * @type {string}
@@ -60,6 +84,18 @@ export interface EventHeader {
      * @type {string}
      * @memberof EventHeader
      */
+    repositoryId?: string;
+    /**
+     *
+     * @type {UserEmbedded}
+     * @memberof EventHeader
+     */
+    triggeredBy?: UserEmbedded;
+    /**
+     *
+     * @type {string}
+     * @memberof EventHeader
+     */
     type?: string;
 }
 
@@ -81,10 +117,15 @@ export function EventHeaderFromJSONTyped(json: any, ignoreDiscriminator: boolean
     return {
         aggregateId: json["aggregate_id"] == null ? undefined : json["aggregate_id"],
         aggregateType: json["aggregate_type"] == null ? undefined : json["aggregate_type"],
+        causationId: json["causation_id"] == null ? undefined : json["causation_id"],
+        correlationId: json["correlation_id"] == null ? undefined : json["correlation_id"],
         id: json["id"] == null ? undefined : json["id"],
         metadata: json["metadata"] == null ? undefined : json["metadata"],
         occurredAt: json["occurred_at"] == null ? undefined : new Date(json["occurred_at"]),
         organizationId: json["organization_id"] == null ? undefined : json["organization_id"],
+        repositoryId: json["repository_id"] == null ? undefined : json["repository_id"],
+        triggeredBy:
+            json["triggered_by"] == null ? undefined : UserEmbeddedFromJSON(json["triggered_by"]),
         type: json["type"] == null ? undefined : json["type"],
     };
 }
@@ -104,11 +145,15 @@ export function EventHeaderToJSONTyped(
     return {
         aggregate_id: value["aggregateId"],
         aggregate_type: value["aggregateType"],
+        causation_id: value["causationId"],
+        correlation_id: value["correlationId"],
         id: value["id"],
         metadata: value["metadata"],
         occurred_at:
             value["occurredAt"] == null ? value["occurredAt"] : value["occurredAt"].toISOString(),
         organization_id: value["organizationId"],
+        repository_id: value["repositoryId"],
+        triggered_by: UserEmbeddedToJSON(value["triggeredBy"]),
         type: value["type"],
     };
 }

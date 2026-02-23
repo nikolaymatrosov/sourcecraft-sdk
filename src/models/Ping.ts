@@ -20,6 +20,13 @@ import {
     EventHeaderToJSON,
     EventHeaderToJSONTyped,
 } from "./EventHeader";
+import type { OrganizationEmbedded } from "./OrganizationEmbedded";
+import {
+    OrganizationEmbeddedFromJSON,
+    OrganizationEmbeddedFromJSONTyped,
+    OrganizationEmbeddedToJSON,
+    OrganizationEmbeddedToJSONTyped,
+} from "./OrganizationEmbedded";
 import type { RepositoryEmbedded } from "./RepositoryEmbedded";
 import {
     RepositoryEmbeddedFromJSON,
@@ -40,6 +47,12 @@ export interface Ping {
      * @memberof Ping
      */
     header?: EventHeader;
+    /**
+     *
+     * @type {OrganizationEmbedded}
+     * @memberof Ping
+     */
+    organization?: OrganizationEmbedded;
     /**
      *
      * @type {Date}
@@ -77,6 +90,10 @@ export function PingFromJSONTyped(json: any, ignoreDiscriminator: boolean): Ping
     }
     return {
         header: json["header"] == null ? undefined : EventHeaderFromJSON(json["header"]),
+        organization:
+            json["organization"] == null
+                ? undefined
+                : OrganizationEmbeddedFromJSON(json["organization"]),
         pingedAt: json["pinged_at"] == null ? undefined : new Date(json["pinged_at"]),
         repository:
             json["repository"] == null ? undefined : RepositoryEmbeddedFromJSON(json["repository"]),
@@ -95,6 +112,7 @@ export function PingToJSONTyped(value?: Ping | null, ignoreDiscriminator: boolea
 
     return {
         header: EventHeaderToJSON(value["header"]),
+        organization: OrganizationEmbeddedToJSON(value["organization"]),
         pinged_at: value["pingedAt"] == null ? value["pingedAt"] : value["pingedAt"].toISOString(),
         repository: RepositoryEmbeddedToJSON(value["repository"]),
         webhook_slug: value["webhookSlug"],

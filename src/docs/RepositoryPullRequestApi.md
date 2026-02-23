@@ -96,7 +96,7 @@ example().catch(console.error);
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | A successful response. |  -  |
+| **201** | A successful response. |  -  |
 | **0** | Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -172,7 +172,7 @@ example().catch(console.error);
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | A successful response. |  -  |
+| **201** | A successful response. |  -  |
 | **0** | Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -648,7 +648,7 @@ example().catch(console.error);
 
 ## listRepositoryPullRequests
 
-> ListRepositoryPullRequestsResponse listRepositoryPullRequests(orgSlug, repoSlug, pageSize, pageToken, sortBy)
+> ListRepositoryPullRequestsResponse listRepositoryPullRequests(orgSlug, repoSlug, pageSize, pageToken, sortBy, filter)
 
 List Repository Pull Requests
 
@@ -682,6 +682,8 @@ async function example() {
     pageToken: pageToken_example,
     // string | Ordering options: comma separated list of fields. For example: \"name, created_at\" Default sorting order is ascending. To specify descending order for a field, append a \"-\" prefix; for example: \"name, -created_at\" Redundant space characters in the syntax are insignificant. \"foo, -bar\", \" foo , -bar\", and \"foo,bar\" are all equivalent. Available fields: title, created_at, updated_at (optional)
     sortBy: sortBy_example,
+    // string | Filter using QL language.  Supported fields: - author_id: PR author ID - status: PR status (enum: draft, open, discarded, merging, merged) - source_branch: Source branch name (string) - target_branch: Target branch name (string)  Examples: - status=open - status=open and source_branch=\"feature/xyz\" - author_id=\"550e8400-e29b-41d4-a716-446655440000\" (optional)
+    filter: filter_example,
   } satisfies ListRepositoryPullRequestsRequest;
 
   try {
@@ -706,6 +708,7 @@ example().catch(console.error);
 | **pageSize** | `string` | The maximum number of pull requests to return. The service may return fewer than this value | [Optional] [Defaults to `undefined`] |
 | **pageToken** | `string` | A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token. | [Optional] [Defaults to `undefined`] |
 | **sortBy** | `string` | Ordering options: comma separated list of fields. For example: \&quot;name, created_at\&quot; Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;name, -created_at\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent. Available fields: title, created_at, updated_at | [Optional] [Defaults to `undefined`] |
+| **filter** | `string` | Filter using QL language.  Supported fields: - author_id: PR author ID - status: PR status (enum: draft, open, discarded, merging, merged) - source_branch: Source branch name (string) - target_branch: Target branch name (string)  Examples: - status&#x3D;open - status&#x3D;open and source_branch&#x3D;\&quot;feature/xyz\&quot; - author_id&#x3D;\&quot;550e8400-e29b-41d4-a716-446655440000\&quot; | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -732,7 +735,7 @@ example().catch(console.error);
 
 ## listRepositoryPullRequestsByID
 
-> ListRepositoryPullRequestsResponse listRepositoryPullRequestsByID(repoId, pageSize, pageToken, sortBy)
+> ListRepositoryPullRequestsResponse listRepositoryPullRequestsByID(repoId, pageSize, pageToken, sortBy, filter)
 
 List Repository Pull Requests (By Repo ID)
 
@@ -764,6 +767,8 @@ async function example() {
     pageToken: pageToken_example,
     // string | Ordering options: comma separated list of fields. For example: \"name, created_at\" Default sorting order is ascending. To specify descending order for a field, append a \"-\" prefix; for example: \"name, -created_at\" Redundant space characters in the syntax are insignificant. \"foo, -bar\", \" foo , -bar\", and \"foo,bar\" are all equivalent. Available fields: title, created_at, updated_at (optional)
     sortBy: sortBy_example,
+    // string | Filter using QL language.  Supported fields: - author_id: PR author ID - status: PR status (enum: draft, open, discarded, merging, merged) - source_branch: Source branch name (string) - target_branch: Target branch name (string)  Examples: - status=open - status=open and source_branch=\"feature/xyz\" - author_id=\"550e8400-e29b-41d4-a716-446655440000\" (optional)
+    filter: filter_example,
   } satisfies ListRepositoryPullRequestsByIDRequest;
 
   try {
@@ -787,6 +792,7 @@ example().catch(console.error);
 | **pageSize** | `string` | The maximum number of pull requests to return. The service may return fewer than this value | [Optional] [Defaults to `undefined`] |
 | **pageToken** | `string` | A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token. | [Optional] [Defaults to `undefined`] |
 | **sortBy** | `string` | Ordering options: comma separated list of fields. For example: \&quot;name, created_at\&quot; Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;name, -created_at\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent. Available fields: title, created_at, updated_at | [Optional] [Defaults to `undefined`] |
+| **filter** | `string` | Filter using QL language.  Supported fields: - author_id: PR author ID - status: PR status (enum: draft, open, discarded, merging, merged) - source_branch: Source branch name (string) - target_branch: Target branch name (string)  Examples: - status&#x3D;open - status&#x3D;open and source_branch&#x3D;\&quot;feature/xyz\&quot; - author_id&#x3D;\&quot;550e8400-e29b-41d4-a716-446655440000\&quot; | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 

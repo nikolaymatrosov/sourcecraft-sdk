@@ -503,7 +503,7 @@ async function example() {
     pageToken: pageToken_example,
     // string (optional)
     sortBy: sortBy_example,
-    // string (optional)
+    // string | Filter using QL language.  Supported fields: - title: Issue title (string, prefix match) - priority: Issue priority (enum: low, normal, high, critical) - status: Issue status (enum: open, in_progress, closed) - assignee_id: Assignee ID - assignee_slug: Assignee username - milestone_id: Milestone ID - milestone_slug: Milestone slug - label_id: Label ID - label_slug: Label slug - author_id: Author ID - author_slug: Author username - visibility: Issue visibility (enum: public, private) - created_at: Creation timestamp (RFC3339 format) - updated_at: Last update timestamp (RFC3339 format)  Examples: - status=open and priority=critical - author_id=\"550e8400-e29b-41d4-a716-446655440000\" - created_at>\"2024-01-01T00:00:00Z\" (optional)
     filter: filter_example,
   } satisfies ListIssuesAssignedToAuthenticatedUserRequest;
 
@@ -527,7 +527,7 @@ example().catch(console.error);
 | **pageSize** | `string` |  | [Optional] [Defaults to `undefined`] |
 | **pageToken** | `string` |  | [Optional] [Defaults to `undefined`] |
 | **sortBy** | `string` |  | [Optional] [Defaults to `undefined`] |
-| **filter** | `string` |  | [Optional] [Defaults to `undefined`] |
+| **filter** | `string` | Filter using QL language.  Supported fields: - title: Issue title (string, prefix match) - priority: Issue priority (enum: low, normal, high, critical) - status: Issue status (enum: open, in_progress, closed) - assignee_id: Assignee ID - assignee_slug: Assignee username - milestone_id: Milestone ID - milestone_slug: Milestone slug - label_id: Label ID - label_slug: Label slug - author_id: Author ID - author_slug: Author username - visibility: Issue visibility (enum: public, private) - created_at: Creation timestamp (RFC3339 format) - updated_at: Last update timestamp (RFC3339 format)  Examples: - status&#x3D;open and priority&#x3D;critical - author_id&#x3D;\&quot;550e8400-e29b-41d4-a716-446655440000\&quot; - created_at&gt;\&quot;2024-01-01T00:00:00Z\&quot; | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -586,7 +586,7 @@ async function example() {
     pageToken: pageToken_example,
     // string | Ordering options: comma separated list of fields. For example: \"name, created_at\" Default sorting order is ascending. To specify descending order for a field, append a \"-\" prefix; for example: \"name, -created_at\" Redundant space characters in the syntax are insignificant. \"foo, -bar\", \" foo , -bar\", and \"foo,bar\" are all equivalent. (optional)
     sortBy: sortBy_example,
-    // string | Filter using QL language (optional)
+    // string | Filter using QL language.  Supported fields: - title: Issue title (string, prefix match) - priority: Issue priority (enum: low, normal, high, critical) - status: Issue status (enum: open, in_progress, closed) - assignee_id: Assignee ID - assignee_slug: Assignee username - milestone_id: Milestone ID - milestone_slug: Milestone slug - label_id: Label ID - label_slug: Label slug - author_id: Author ID - author_slug: Author username - visibility: Issue visibility (enum: public, private) - created_at: Creation timestamp (RFC3339 format) - updated_at: Last update timestamp (RFC3339 format)  Examples: - status=open and priority=critical - author_id=\"550e8400-e29b-41d4-a716-446655440000\" - created_at>\"2024-01-01T00:00:00Z\" (optional)
     filter: filter_example,
   } satisfies ListRepositoryIssuesRequest;
 
@@ -612,7 +612,7 @@ example().catch(console.error);
 | **pageSize** | `string` | The maximum number of issues to return. The service may return fewer than this value | [Optional] [Defaults to `undefined`] |
 | **pageToken** | `string` | A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token. | [Optional] [Defaults to `undefined`] |
 | **sortBy** | `string` | Ordering options: comma separated list of fields. For example: \&quot;name, created_at\&quot; Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;name, -created_at\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent. | [Optional] [Defaults to `undefined`] |
-| **filter** | `string` | Filter using QL language | [Optional] [Defaults to `undefined`] |
+| **filter** | `string` | Filter using QL language.  Supported fields: - title: Issue title (string, prefix match) - priority: Issue priority (enum: low, normal, high, critical) - status: Issue status (enum: open, in_progress, closed) - assignee_id: Assignee ID - assignee_slug: Assignee username - milestone_id: Milestone ID - milestone_slug: Milestone slug - label_id: Label ID - label_slug: Label slug - author_id: Author ID - author_slug: Author username - visibility: Issue visibility (enum: public, private) - created_at: Creation timestamp (RFC3339 format) - updated_at: Last update timestamp (RFC3339 format)  Examples: - status&#x3D;open and priority&#x3D;critical - author_id&#x3D;\&quot;550e8400-e29b-41d4-a716-446655440000\&quot; - created_at&gt;\&quot;2024-01-01T00:00:00Z\&quot; | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 
@@ -669,7 +669,7 @@ async function example() {
     pageToken: pageToken_example,
     // string | Ordering options: comma separated list of fields. For example: \"name, created_at\" Default sorting order is ascending. To specify descending order for a field, append a \"-\" prefix; for example: \"name, -created_at\" Redundant space characters in the syntax are insignificant. \"foo, -bar\", \" foo , -bar\", and \"foo,bar\" are all equivalent. (optional)
     sortBy: sortBy_example,
-    // string | Filter using QL language (optional)
+    // string | Filter using QL language.  Supported fields: - title: Issue title (string, prefix match) - priority: Issue priority (enum: low, normal, high, critical) - status: Issue status (enum: open, in_progress, closed) - assignee_id: Assignee ID - assignee_slug: Assignee username - milestone_id: Milestone ID - milestone_slug: Milestone slug - label_id: Label ID - label_slug: Label slug - author_id: Author ID - author_slug: Author username - visibility: Issue visibility (enum: public, private) - created_at: Creation timestamp (RFC3339 format) - updated_at: Last update timestamp (RFC3339 format)  Examples: - status=open and priority=critical - author_id=\"550e8400-e29b-41d4-a716-446655440000\" - created_at>\"2024-01-01T00:00:00Z\" (optional)
     filter: filter_example,
   } satisfies ListRepositoryIssuesByIDRequest;
 
@@ -694,7 +694,7 @@ example().catch(console.error);
 | **pageSize** | `string` | The maximum number of issues to return. The service may return fewer than this value | [Optional] [Defaults to `undefined`] |
 | **pageToken** | `string` | A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token. | [Optional] [Defaults to `undefined`] |
 | **sortBy** | `string` | Ordering options: comma separated list of fields. For example: \&quot;name, created_at\&quot; Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;name, -created_at\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent. | [Optional] [Defaults to `undefined`] |
-| **filter** | `string` | Filter using QL language | [Optional] [Defaults to `undefined`] |
+| **filter** | `string` | Filter using QL language.  Supported fields: - title: Issue title (string, prefix match) - priority: Issue priority (enum: low, normal, high, critical) - status: Issue status (enum: open, in_progress, closed) - assignee_id: Assignee ID - assignee_slug: Assignee username - milestone_id: Milestone ID - milestone_slug: Milestone slug - label_id: Label ID - label_slug: Label slug - author_id: Author ID - author_slug: Author username - visibility: Issue visibility (enum: public, private) - created_at: Creation timestamp (RFC3339 format) - updated_at: Last update timestamp (RFC3339 format)  Examples: - status&#x3D;open and priority&#x3D;critical - author_id&#x3D;\&quot;550e8400-e29b-41d4-a716-446655440000\&quot; - created_at&gt;\&quot;2024-01-01T00:00:00Z\&quot; | [Optional] [Defaults to `undefined`] |
 
 ### Return type
 

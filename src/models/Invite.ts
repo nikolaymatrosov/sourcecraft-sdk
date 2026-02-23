@@ -27,13 +27,27 @@ import {
     UserEmbeddedToJSON,
     UserEmbeddedToJSONTyped,
 } from "./UserEmbedded";
+import type { Subject } from "./Subject";
+import {
+    SubjectFromJSON,
+    SubjectFromJSONTyped,
+    SubjectToJSON,
+    SubjectToJSONTyped,
+} from "./Subject";
 
 /**
- *
+ * Invite represents an organization invitation.
+ * Exactly one of email, alias, or invitee is set depending on invite type.
  * @export
  * @interface Invite
  */
 export interface Invite {
+    /**
+     *
+     * @type {string}
+     * @memberof Invite
+     */
+    alias?: string;
     /**
      *
      * @type {Date}
@@ -60,6 +74,12 @@ export interface Invite {
     id?: string;
     /**
      *
+     * @type {string}
+     * @memberof Invite
+     */
+    inviteLink?: string;
+    /**
+     *
      * @type {UserEmbedded}
      * @memberof Invite
      */
@@ -70,6 +90,12 @@ export interface Invite {
      * @memberof Invite
      */
     status?: InviteStatus;
+    /**
+     *
+     * @type {Subject}
+     * @memberof Invite
+     */
+    subject?: Subject;
 }
 
 /**
@@ -88,12 +114,15 @@ export function InviteFromJSONTyped(json: any, ignoreDiscriminator: boolean): In
         return json;
     }
     return {
+        alias: json["alias"] == null ? undefined : json["alias"],
         createdAt: json["created_at"] == null ? undefined : new Date(json["created_at"]),
         email: json["email"] == null ? undefined : json["email"],
         expiresAt: json["expires_at"] == null ? undefined : new Date(json["expires_at"]),
         id: json["id"] == null ? undefined : json["id"],
+        inviteLink: json["invite_link"] == null ? undefined : json["invite_link"],
         invitee: json["invitee"] == null ? undefined : UserEmbeddedFromJSON(json["invitee"]),
         status: json["status"] == null ? undefined : InviteStatusFromJSON(json["status"]),
+        subject: json["subject"] == null ? undefined : SubjectFromJSON(json["subject"]),
     };
 }
 
@@ -110,13 +139,16 @@ export function InviteToJSONTyped(
     }
 
     return {
+        alias: value["alias"],
         created_at:
             value["createdAt"] == null ? value["createdAt"] : value["createdAt"].toISOString(),
         email: value["email"],
         expires_at:
             value["expiresAt"] == null ? value["expiresAt"] : value["expiresAt"].toISOString(),
         id: value["id"],
+        invite_link: value["inviteLink"],
         invitee: UserEmbeddedToJSON(value["invitee"]),
         status: InviteStatusToJSON(value["status"]),
+        subject: SubjectToJSON(value["subject"]),
     };
 }

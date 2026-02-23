@@ -92,6 +92,7 @@ export interface ListRepositoryPullRequestsRequest {
     pageSize?: string;
     pageToken?: string;
     sortBy?: string;
+    filter?: string;
 }
 
 export interface ListRepositoryPullRequestsByIDRequest {
@@ -99,6 +100,7 @@ export interface ListRepositoryPullRequestsByIDRequest {
     pageSize?: string;
     pageToken?: string;
     sortBy?: string;
+    filter?: string;
 }
 
 export interface PublishPullRequestRequest {
@@ -349,6 +351,7 @@ export interface RepositoryPullRequestApiInterface {
      * @param {string} [pageSize] The maximum number of pull requests to return. The service may return fewer than this value
      * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
      * @param {string} [sortBy] Ordering options: comma separated list of fields. For example: \&quot;name, created_at\&quot; Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;name, -created_at\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent. Available fields: title, created_at, updated_at
+     * @param {string} [filter] Filter using QL language.  Supported fields: - author_id: PR author ID - status: PR status (enum: draft, open, discarded, merging, merged) - source_branch: Source branch name (string) - target_branch: Target branch name (string)  Examples: - status&#x3D;open - status&#x3D;open and source_branch&#x3D;\&quot;feature/xyz\&quot; - author_id&#x3D;\&quot;550e8400-e29b-41d4-a716-446655440000\&quot;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryPullRequestApiInterface
@@ -374,6 +377,7 @@ export interface RepositoryPullRequestApiInterface {
      * @param {string} [pageSize] The maximum number of pull requests to return. The service may return fewer than this value
      * @param {string} [pageToken] A page token, received from a previous call. Provide this to retrieve the subsequent page.  When paginating, all other parameters must match the call that provided the page token.
      * @param {string} [sortBy] Ordering options: comma separated list of fields. For example: \&quot;name, created_at\&quot; Default sorting order is ascending. To specify descending order for a field, append a \&quot;-\&quot; prefix; for example: \&quot;name, -created_at\&quot; Redundant space characters in the syntax are insignificant. \&quot;foo, -bar\&quot;, \&quot; foo , -bar\&quot;, and \&quot;foo,bar\&quot; are all equivalent. Available fields: title, created_at, updated_at
+     * @param {string} [filter] Filter using QL language.  Supported fields: - author_id: PR author ID - status: PR status (enum: draft, open, discarded, merging, merged) - source_branch: Source branch name (string) - target_branch: Target branch name (string)  Examples: - status&#x3D;open - status&#x3D;open and source_branch&#x3D;\&quot;feature/xyz\&quot; - author_id&#x3D;\&quot;550e8400-e29b-41d4-a716-446655440000\&quot;
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RepositoryPullRequestApiInterface
@@ -1183,6 +1187,10 @@ export class RepositoryPullRequestApi
             queryParameters["sort_by"] = requestParameters["sortBy"];
         }
 
+        if (requestParameters["filter"] != null) {
+            queryParameters["filter"] = requestParameters["filter"];
+        }
+
         const headerParameters: runtime.HTTPHeaders = {};
 
         if (this.configuration && this.configuration.accessToken) {
@@ -1258,6 +1266,10 @@ export class RepositoryPullRequestApi
 
         if (requestParameters["sortBy"] != null) {
             queryParameters["sort_by"] = requestParameters["sortBy"];
+        }
+
+        if (requestParameters["filter"] != null) {
+            queryParameters["filter"] = requestParameters["filter"];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};

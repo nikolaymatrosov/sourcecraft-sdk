@@ -1296,6 +1296,7 @@
           },
           {
             "name": "filter",
+            "description": "Filter using QL language.\n\nSupported fields:\n- title: Issue title (string, prefix match)\n- priority: Issue priority (enum: low, normal, high, critical)\n- status: Issue status (enum: open, in_progress, closed)\n- assignee_id: Assignee ID\n- assignee_slug: Assignee username\n- milestone_id: Milestone ID\n- milestone_slug: Milestone slug\n- label_id: Label ID\n- label_slug: Label slug\n- author_id: Author ID\n- author_slug: Author username\n- visibility: Issue visibility (enum: public, private)\n- created_at: Creation timestamp (RFC3339 format)\n- updated_at: Last update timestamp (RFC3339 format)\n\nExamples:\n- status=open and priority=critical\n- author_id=\"550e8400-e29b-41d4-a716-446655440000\"\n- created_at>\"2024-01-01T00:00:00Z\"",
             "in": "query",
             "required": false,
             "type": "string"
@@ -1340,7 +1341,7 @@
         "summary": "Delete a Milestone (By ID)",
         "operationId": "DeleteMilestoneByID",
         "responses": {
-          "200": {
+          "204": {
             "description": "A successful response.",
             "schema": {
               "type": "object",
@@ -1416,6 +1417,38 @@
         ]
       }
     },
+    "/operations/create-invites/id:{operation_id}": {
+      "get": {
+        "summary": "Get invitation creation operation status (By Operation ID)",
+        "operationId": "GetOrganizationInvitesOperationByID",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/CreateOrganizationInvitesOperation"
+            }
+          },
+          "default": {
+            "description": "Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme",
+            "schema": {
+              "$ref": "#/definitions/ApiErrorResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "operation_id",
+            "description": "Operation ID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Organization | Operation"
+        ]
+      }
+    },
     "/orgs/id:{org_id}/invites": {
       "get": {
         "summary": "List Organization Invitations (By Organization ID)",
@@ -1463,13 +1496,13 @@
       },
       "post": {
         "summary": "Create Organization Invitations (By Organization ID)",
-        "description": "Creates invitations asynchronously. Poll operation status at `GET /orgs/id:{org_id}/operations/create-invites/{operation_id}`",
+        "description": "Creates invitations asynchronously. Poll operation status at the returned status_url.",
         "operationId": "CreateOrganizationInvitesByID",
         "responses": {
           "202": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/CreateOrganizationInvitesResponse"
+              "$ref": "#/definitions/CreateOrganizationInvitesOperation"
             }
           },
           "default": {
@@ -1497,44 +1530,6 @@
         ],
         "tags": [
           "Organization | Invites"
-        ]
-      }
-    },
-    "/orgs/id:{org_id}/operations/create-invites/{operation_id}": {
-      "get": {
-        "summary": "Get invitation creation operation status (By Organization ID)",
-        "operationId": "GetOrganizationInvitesOperationByID",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/CreateInvitesOperation"
-            }
-          },
-          "default": {
-            "description": "Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme",
-            "schema": {
-              "$ref": "#/definitions/ApiErrorResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "org_id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "operation_id",
-            "description": "Operation ID",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "Organization | Operation"
         ]
       }
     },
@@ -1674,13 +1669,13 @@
       },
       "post": {
         "summary": "Create Organization Invitations",
-        "description": "Creates invitations asynchronously. Poll operation status at `GET /orgs/{org_slug}/operations/create-invites/{operation_id}`",
+        "description": "Creates invitations asynchronously. Poll operation status at the returned status_url.",
         "operationId": "CreateOrganizationInvites",
         "responses": {
           "202": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/CreateOrganizationInvitesResponse"
+              "$ref": "#/definitions/CreateOrganizationInvitesOperation"
             }
           },
           "default": {
@@ -1714,50 +1709,6 @@
         ],
         "tags": [
           "Organization | Invites"
-        ]
-      }
-    },
-    "/orgs/{org_slug}/operations/create-invites/{operation_id}": {
-      "get": {
-        "summary": "Get invitation creation operation status",
-        "operationId": "GetOrganizationInvitesOperation",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/CreateInvitesOperation"
-            }
-          },
-          "default": {
-            "description": "Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme",
-            "schema": {
-              "$ref": "#/definitions/ApiErrorResponse"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "org_slug",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "operation_id",
-            "description": "Operation ID",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "org_id",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "Organization | Operation"
         ]
       }
     },
@@ -2494,6 +2445,86 @@
         "tags": [
           "Repository | Releases"
         ]
+      },
+      "delete": {
+        "summary": "Delete Release (By ID)",
+        "operationId": "DeleteByID",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme",
+            "schema": {
+              "$ref": "#/definitions/ApiErrorResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "release_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "release_tag",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Repository | Releases"
+        ]
+      },
+      "patch": {
+        "summary": "Update Release (By ID)",
+        "description": "Can update title and release notes. For status updates, see 'Publish Release' and\n'Discard Release'",
+        "operationId": "UpdateByID",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/Release"
+            }
+          },
+          "default": {
+            "description": "Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme",
+            "schema": {
+              "$ref": "#/definitions/ApiErrorResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "release_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateReleaseBody"
+            }
+          },
+          {
+            "name": "release_tag",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Repository | Releases"
+        ]
       }
     },
     "/releases/id:{release_id}/discard": {
@@ -2747,7 +2778,7 @@
     "/repos/id:{repo_id}/ci_workflows/{workflow_name}/trigger": {
       "post": {
         "summary": "Run Workflow in Repository (By Repo ID)",
-        "description": "Method is deprecated, please use POST /repos/by-id/{repo_id}/cicd/runs instead",
+        "description": "Endpoint is deprecated, please use `POST /repos/id:{repo_id}/cicd/runs` instead",
         "operationId": "RunWorkflowByID",
         "responses": {
           "200": {
@@ -2786,7 +2817,7 @@
           }
         ],
         "tags": [
-          "CI"
+          "Withdrawn"
         ],
         "deprecated": true
       }
@@ -2962,7 +2993,7 @@
           },
           {
             "name": "filter",
-            "description": "Filter using QL language",
+            "description": "Filter using QL language.\n\nSupported fields:\n- title: Issue title (string, prefix match)\n- priority: Issue priority (enum: low, normal, high, critical)\n- status: Issue status (enum: open, in_progress, closed)\n- assignee_id: Assignee ID\n- assignee_slug: Assignee username\n- milestone_id: Milestone ID\n- milestone_slug: Milestone slug\n- label_id: Label ID\n- label_slug: Label slug\n- author_id: Author ID\n- author_slug: Author username\n- visibility: Issue visibility (enum: public, private)\n- created_at: Creation timestamp (RFC3339 format)\n- updated_at: Last update timestamp (RFC3339 format)\n\nExamples:\n- status=open and priority=critical\n- author_id=\"550e8400-e29b-41d4-a716-446655440000\"\n- created_at>\"2024-01-01T00:00:00Z\"",
             "in": "query",
             "required": false,
             "type": "string"
@@ -3175,7 +3206,7 @@
         "summary": "Create a Milestone (By Repo ID)",
         "operationId": "CreateMilestoneByID",
         "responses": {
-          "200": {
+          "201": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/Milestone"
@@ -3262,6 +3293,13 @@
             "in": "query",
             "required": false,
             "type": "string"
+          },
+          {
+            "name": "filter",
+            "description": "Filter using QL language.\n\nSupported fields:\n- author_id: PR author ID\n- status: PR status (enum: draft, open, discarded, merging, merged)\n- source_branch: Source branch name (string)\n- target_branch: Target branch name (string)\n\nExamples:\n- status=open\n- status=open and source_branch=\"feature/xyz\"\n- author_id=\"550e8400-e29b-41d4-a716-446655440000\"",
+            "in": "query",
+            "required": false,
+            "type": "string"
           }
         ],
         "tags": [
@@ -3272,7 +3310,7 @@
         "summary": "Create PullRequest in Repository (By Repo ID)",
         "operationId": "CreatePullRequestByID",
         "responses": {
-          "200": {
+          "201": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/PullRequest"
@@ -3368,7 +3406,7 @@
         "summary": "Create Release in Repository (By Repo ID)",
         "operationId": "CreateByID",
         "responses": {
-          "200": {
+          "201": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/Release"
@@ -3441,7 +3479,9 @@
         "responses": {
           "200": {
             "description": "A successful response.",
-            "schema": {}
+            "schema": {
+              "$ref": "#/definitions/ListRepoRolesResponse"
+            }
           },
           "default": {
             "description": "Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme",
@@ -3481,8 +3521,7 @@
           }
         ],
         "tags": [
-          "Repository",
-          "Roles"
+          "Repository | Roles"
         ]
       },
       "post": {
@@ -3491,7 +3530,9 @@
         "responses": {
           "200": {
             "description": "A successful response.",
-            "schema": {}
+            "schema": {
+              "$ref": "#/definitions/AddRepoRolesResponse"
+            }
           },
           "default": {
             "description": "Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme",
@@ -3517,8 +3558,7 @@
           }
         ],
         "tags": [
-          "Repository",
-          "Roles"
+          "Repository | Roles"
         ]
       }
     },
@@ -3529,7 +3569,9 @@
         "responses": {
           "200": {
             "description": "A successful response.",
-            "schema": {}
+            "schema": {
+              "$ref": "#/definitions/RemoveRepoRolesResponse"
+            }
           },
           "default": {
             "description": "Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme",
@@ -3555,8 +3597,7 @@
           }
         ],
         "tags": [
-          "Repository",
-          "Roles"
+          "Repository | Roles"
         ]
       }
     },
@@ -3722,6 +3763,99 @@
         "tags": [
           "Repository"
         ]
+      },
+      "delete": {
+        "summary": "Delete Repository",
+        "operationId": "DeleteRepository",
+        "responses": {
+          "204": {
+            "description": "A successful response.",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme",
+            "schema": {
+              "$ref": "#/definitions/ApiErrorResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "org_slug",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "repo_slug",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "silent",
+            "description": "Flag for deleting without any notifications. NOT IMPLEMENTED YET.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "tags": [
+          "Repository"
+        ]
+      },
+      "patch": {
+        "summary": "Update Repository",
+        "operationId": "UpdateRepository",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/Repository"
+            }
+          },
+          "default": {
+            "description": "Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme",
+            "schema": {
+              "$ref": "#/definitions/ApiErrorResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "org_slug",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "repo_slug",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateRepositoryBody"
+            }
+          },
+          {
+            "name": "silent",
+            "description": "Flag for update without any notifications. NOT IMPLEMENTED YET.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "tags": [
+          "Repository"
+        ]
       }
     },
     "/repos/{org_slug}/{repo_slug}/branches": {
@@ -3787,6 +3921,330 @@
         ],
         "tags": [
           "Repository"
+        ]
+      }
+    },
+    "/repos/{org_slug}/{repo_slug}/cicd/artifacts/{run_slug}/{workflow_slug}/{task_slug}/{cube_slug}": {
+      "get": {
+        "summary": "Get Artifacts from a CI Run",
+        "operationId": "GetCubeArtifacts",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetCubeArtifactsResponse"
+            }
+          },
+          "default": {
+            "description": "Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme",
+            "schema": {
+              "$ref": "#/definitions/ApiErrorResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "org_slug",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "repo_slug",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "run_slug",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "workflow_slug",
+            "description": "Workflow name as defined in the config.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "task_slug",
+            "description": "Task name as defined in the config.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "cube_slug",
+            "description": "Cube name as defined in the config.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "CI/CD"
+        ]
+      }
+    },
+    "/repos/{org_slug}/{repo_slug}/cicd/logs/{run_slug}/{workflow_slug}/{task_slug}/{cube_slug}": {
+      "get": {
+        "summary": "Get Logs from a Running CI Cube in Repository",
+        "operationId": "GetCubeLogs",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/GetCubeLogsResponse"
+            }
+          },
+          "default": {
+            "description": "Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme",
+            "schema": {
+              "$ref": "#/definitions/ApiErrorResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "org_slug",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "repo_slug",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "run_slug",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "workflow_slug",
+            "description": "Workflow name as defined in the config.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "task_slug",
+            "description": "Task name as defined in the config.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "cube_slug",
+            "description": "Cube name as defined in the config.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "description": "Page number to fetch, by default 1.\n\nLogs are split into pages; pages are not guaranteed to be the same size and are intended to be read\nin order. When one page is finished, the subsequent one starts being written.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "CI/CD"
+        ]
+      }
+    },
+    "/repos/{org_slug}/{repo_slug}/cicd/runs": {
+      "get": {
+        "summary": "List CI Runs in Repository",
+        "operationId": "ListRuns",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/ListRunsResponse"
+            }
+          },
+          "default": {
+            "description": "Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme",
+            "schema": {
+              "$ref": "#/definitions/ApiErrorResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "org_slug",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "repo_slug",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "page_size",
+            "description": "The maximum number of runs to return. The service may return fewer than this value",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "uint64"
+          },
+          {
+            "name": "page_token",
+            "description": "A page token, received from a previous call.\nProvide this to retrieve the subsequent page.\n\nWhen paginating, all other parameters must match\nthe call that provided the page token.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "CI/CD"
+        ]
+      },
+      "post": {
+        "summary": "Run Workflows in Repository",
+        "operationId": "RunWorkflows",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/Run"
+            }
+          },
+          "default": {
+            "description": "Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme",
+            "schema": {
+              "$ref": "#/definitions/ApiErrorResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "org_slug",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "repo_slug",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RunWorkflowsBody"
+            }
+          }
+        ],
+        "tags": [
+          "CI/CD"
+        ]
+      }
+    },
+    "/repos/{org_slug}/{repo_slug}/cicd/runs/{run_slug}": {
+      "get": {
+        "summary": "Get CI Run in Repository",
+        "operationId": "GetRun",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/Run"
+            }
+          },
+          "default": {
+            "description": "Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme",
+            "schema": {
+              "$ref": "#/definitions/ApiErrorResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "org_slug",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "repo_slug",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "run_slug",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "CI/CD"
+        ]
+      }
+    },
+    "/repos/{org_slug}/{repo_slug}/cicd/runs/{run_slug}/{workflow_slug}": {
+      "get": {
+        "summary": "Get Running CI Workflow in Repository",
+        "operationId": "GetWorkflow",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/Workflow"
+            }
+          },
+          "default": {
+            "description": "Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme",
+            "schema": {
+              "$ref": "#/definitions/ApiErrorResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "org_slug",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "repo_slug",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "run_slug",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "workflow_slug",
+            "description": "Workflow name as defined in the config.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "CI/CD"
         ]
       }
     },
@@ -3890,7 +4348,7 @@
           },
           {
             "name": "filter",
-            "description": "Filter using QL language",
+            "description": "Filter using QL language.\n\nSupported fields:\n- title: Issue title (string, prefix match)\n- priority: Issue priority (enum: low, normal, high, critical)\n- status: Issue status (enum: open, in_progress, closed)\n- assignee_id: Assignee ID\n- assignee_slug: Assignee username\n- milestone_id: Milestone ID\n- milestone_slug: Milestone slug\n- label_id: Label ID\n- label_slug: Label slug\n- author_id: Author ID\n- author_slug: Author username\n- visibility: Issue visibility (enum: public, private)\n- created_at: Creation timestamp (RFC3339 format)\n- updated_at: Last update timestamp (RFC3339 format)\n\nExamples:\n- status=open and priority=critical\n- author_id=\"550e8400-e29b-41d4-a716-446655440000\"\n- created_at>\"2024-01-01T00:00:00Z\"",
             "in": "query",
             "required": false,
             "type": "string"
@@ -5260,7 +5718,7 @@
         "summary": "Create a Milestone",
         "operationId": "CreateMilestone",
         "responses": {
-          "200": {
+          "201": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/Milestone"
@@ -5354,7 +5812,7 @@
         "summary": "Delete a Milestone (By Slug)",
         "operationId": "DeleteMilestone",
         "responses": {
-          "200": {
+          "204": {
             "description": "A successful response.",
             "schema": {
               "type": "object",
@@ -5509,6 +5967,13 @@
             "in": "query",
             "required": false,
             "type": "string"
+          },
+          {
+            "name": "filter",
+            "description": "Filter using QL language.\n\nSupported fields:\n- author_id: PR author ID\n- status: PR status (enum: draft, open, discarded, merging, merged)\n- source_branch: Source branch name (string)\n- target_branch: Target branch name (string)\n\nExamples:\n- status=open\n- status=open and source_branch=\"feature/xyz\"\n- author_id=\"550e8400-e29b-41d4-a716-446655440000\"",
+            "in": "query",
+            "required": false,
+            "type": "string"
           }
         ],
         "tags": [
@@ -5519,7 +5984,7 @@
         "summary": "Create PullRequest in Repository",
         "operationId": "CreatePullRequest",
         "responses": {
-          "200": {
+          "201": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/PullRequest"
@@ -6343,7 +6808,7 @@
         "summary": "Create Release in Repository",
         "operationId": "Create",
         "responses": {
-          "200": {
+          "201": {
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/Release"
@@ -6468,6 +6933,110 @@
         "tags": [
           "Repository | Releases"
         ]
+      },
+      "delete": {
+        "summary": "Delete Release (By Tag)",
+        "operationId": "DeleteByTag",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme",
+            "schema": {
+              "$ref": "#/definitions/ApiErrorResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "org_slug",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "repo_slug",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "release_tag",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "release_id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Repository | Releases"
+        ]
+      },
+      "patch": {
+        "summary": "Update Release (By Tag)",
+        "description": "Can update title and release notes. For status updates, see 'Publish Release' and\n'Discard Release'",
+        "operationId": "UpdateByTag",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/Release"
+            }
+          },
+          "default": {
+            "description": "Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme",
+            "schema": {
+              "$ref": "#/definitions/ApiErrorResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "org_slug",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "repo_slug",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "release_tag",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateReleaseBody"
+            }
+          },
+          {
+            "name": "release_id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Repository | Releases"
+        ]
       }
     },
     "/repos/{org_slug}/{repo_slug}/releases/tag/{release_tag}/discard": {
@@ -6577,7 +7146,9 @@
         "responses": {
           "200": {
             "description": "A successful response.",
-            "schema": {}
+            "schema": {
+              "$ref": "#/definitions/ListRepoRolesResponse"
+            }
           },
           "default": {
             "description": "Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme",
@@ -6623,8 +7194,7 @@
           }
         ],
         "tags": [
-          "Repository",
-          "Roles"
+          "Repository | Roles"
         ]
       },
       "post": {
@@ -6633,7 +7203,9 @@
         "responses": {
           "200": {
             "description": "A successful response.",
-            "schema": {}
+            "schema": {
+              "$ref": "#/definitions/AddRepoRolesResponse"
+            }
           },
           "default": {
             "description": "Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme",
@@ -6665,8 +7237,7 @@
           }
         ],
         "tags": [
-          "Repository",
-          "Roles"
+          "Repository | Roles"
         ]
       }
     },
@@ -6677,7 +7248,9 @@
         "responses": {
           "200": {
             "description": "A successful response.",
-            "schema": {}
+            "schema": {
+              "$ref": "#/definitions/RemoveRepoRolesResponse"
+            }
           },
           "default": {
             "description": "Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme",
@@ -6709,8 +7282,7 @@
           }
         ],
         "tags": [
-          "Repository",
-          "Roles"
+          "Repository | Roles"
         ]
       }
     },
@@ -6853,8 +7425,52 @@
         ]
       }
     },
+    "/users/by-cloud-id/{cloud_id}": {
+      "get": {
+        "summary": "Get User Profile (By Cloud ID)",
+        "operationId": "GetProfileByCloudID",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/UserProfile"
+            }
+          },
+          "default": {
+            "description": "Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme",
+            "schema": {
+              "$ref": "#/definitions/ApiErrorResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cloud_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "user_slug",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "user_id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "User"
+        ]
+      }
+    },
     "/users/id:{user_id}": {
       "get": {
+        "summary": "Get User Profile (By ID)",
         "operationId": "GetProfileByID",
         "responses": {
           "200": {
@@ -6879,6 +7495,12 @@
           },
           {
             "name": "user_slug",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "cloud_id",
             "in": "query",
             "required": false,
             "type": "string"
@@ -6963,6 +7585,7 @@
     },
     "/users/{user_slug}": {
       "get": {
+        "summary": "Get User Profile",
         "operationId": "GetProfile",
         "responses": {
           "200": {
@@ -6987,6 +7610,12 @@
           },
           {
             "name": "user_id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "cloud_id",
             "in": "query",
             "required": false,
             "type": "string"
@@ -7072,7 +7701,8 @@
     "/{org_slug}/{repo_slug}": {
       "delete": {
         "summary": "Delete Repository",
-        "operationId": "DeleteRepository",
+        "description": "Endpoint is deprecated, please use `DELETE /repos/{org_slug}/{repo_slug}` instead",
+        "operationId": "DeleteRepositoryDeprecated",
         "responses": {
           "204": {
             "description": "A successful response.",
@@ -7110,12 +7740,14 @@
           }
         ],
         "tags": [
-          "Repository"
-        ]
+          "Withdrawn"
+        ],
+        "deprecated": true
       },
       "patch": {
         "summary": "Update Repository",
-        "operationId": "UpdateRepository",
+        "description": "Endpoint is deprecated, please use `PATCH /repos/{org_slug}/{repo_slug}` instead",
+        "operationId": "UpdateRepositoryDeprecated",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -7160,14 +7792,15 @@
           }
         ],
         "tags": [
-          "Repository"
-        ]
+          "Withdrawn"
+        ],
+        "deprecated": true
       }
     },
     "/{org_slug}/{repo_slug}/ci_workflows/{workflow_name}/trigger": {
       "post": {
         "summary": "Run Workflow in Repository",
-        "description": "Method is deprecated, please use POST /{org_slug}/{repo_slug}/cicd/runs instead",
+        "description": "Endpoint is deprecated, please use `POST /repos/{org_slug}/{repo_slug}/cicd/runs` instead",
         "operationId": "RunWorkflow",
         "responses": {
           "200": {
@@ -7212,7 +7845,7 @@
           }
         ],
         "tags": [
-          "CI"
+          "Withdrawn"
         ],
         "deprecated": true
       }
@@ -7220,7 +7853,8 @@
     "/{org_slug}/{repo_slug}/cicd/artifacts/{run_slug}/{workflow_slug}/{task_slug}/{cube_slug}": {
       "get": {
         "summary": "Get Artifacts from a CI Run",
-        "operationId": "GetCubeArtifacts",
+        "description": "Endpoint is deprecated, please use `GET /repos/{org_slug}/{repo_slug}/cicd/artifacts/{run_slug}/{workflow_slug}/{task_slug}/{cube_slug}` instead",
+        "operationId": "GetCubeArtifactsDeprecated",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -7277,14 +7911,16 @@
           }
         ],
         "tags": [
-          "CI/CD"
-        ]
+          "Withdrawn"
+        ],
+        "deprecated": true
       }
     },
     "/{org_slug}/{repo_slug}/cicd/logs/{run_slug}/{workflow_slug}/{task_slug}/{cube_slug}": {
       "get": {
         "summary": "Get Logs from a Running CI Cube in Repository",
-        "operationId": "GetCubeLogs",
+        "description": "Endpoint is deprecated, please use `GET /repos/{org_slug}/{repo_slug}/cicd/logs/{run_slug}/{workflow_slug}/{task_slug}/{cube_slug}` instead",
+        "operationId": "GetCubeLogsDeprecated",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -7349,14 +7985,16 @@
           }
         ],
         "tags": [
-          "CI/CD"
-        ]
+          "Withdrawn"
+        ],
+        "deprecated": true
       }
     },
     "/{org_slug}/{repo_slug}/cicd/runs": {
       "get": {
         "summary": "List CI Runs in Repository",
-        "operationId": "ListRuns",
+        "description": "Endpoint is deprecated, please use `GET /repos/{org_slug}/{repo_slug}/cicd/runs` instead",
+        "operationId": "ListRunsDeprecated",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -7401,12 +8039,14 @@
           }
         ],
         "tags": [
-          "CI/CD"
-        ]
+          "Withdrawn"
+        ],
+        "deprecated": true
       },
       "post": {
         "summary": "Run Workflows in Repository",
-        "operationId": "RunWorkflows",
+        "description": "Endpoint is deprecated, please use `POST /repos/{org_slug}/{repo_slug}/cicd/runs` instead",
+        "operationId": "RunWorkflowsDeprecated",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -7444,14 +8084,16 @@
           }
         ],
         "tags": [
-          "CI/CD"
-        ]
+          "Withdrawn"
+        ],
+        "deprecated": true
       }
     },
     "/{org_slug}/{repo_slug}/cicd/runs/{run_slug}": {
       "get": {
         "summary": "Get CI Run in Repository",
-        "operationId": "GetRun",
+        "description": "Endpoint is deprecated, please use `GET /repos/{org_slug}/{repo_slug}/cicd/runs/{run_slug}` instead",
+        "operationId": "GetRunDeprecated",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -7487,14 +8129,16 @@
           }
         ],
         "tags": [
-          "CI/CD"
-        ]
+          "Withdrawn"
+        ],
+        "deprecated": true
       }
     },
     "/{org_slug}/{repo_slug}/cicd/runs/{run_slug}/{workflow_slug}": {
       "get": {
         "summary": "Get Running CI Workflow in Repository",
-        "operationId": "GetWorkflow",
+        "description": "Endpoint is deprecated, please use `GET /repos/{org_slug}/{repo_slug}/cicd/runs/{run_slug}/{workflow_slug}` instead",
+        "operationId": "GetWorkflowDeprecated",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -7537,8 +8181,9 @@
           }
         ],
         "tags": [
-          "CI/CD"
-        ]
+          "Withdrawn"
+        ],
+        "deprecated": true
       }
     },
     "/repos/{org_slug}/{repo_slug}/releases/tag/{release_tag}/attachments": {
@@ -7933,57 +8578,36 @@
         "merge_tag": {
           "type": "string",
           "title": "Embedded merge tag (if present)"
+        },
+        "file_changes": {
+          "$ref": "#/definitions/CommitFileChanges",
+          "title": "File changes in this commit"
         }
       }
     },
-    "CreateInvitesOperation": {
+    "CommitFileChanges": {
       "type": "object",
       "properties": {
-        "id": {
-          "type": "string",
-          "title": "Operation ID"
-        },
-        "status": {
-          "$ref": "#/definitions/OperationStatus"
-        },
-        "created_at": {
-          "type": "string",
-          "format": "date-time",
-          "title": "Timestamp when operation was created"
-        },
-        "modified_at": {
-          "type": "string",
-          "format": "date-time",
-          "title": "Timestamp when operation was last modified"
-        },
-        "response": {
-          "$ref": "#/definitions/CreateInvitesOperationResult",
-          "description": "Operation result. Present when status is \"success\"."
-        },
-        "error": {
-          "$ref": "#/definitions/OperationError",
-          "description": "Operation-level error. Present only when the entire operation failed\ndue to a fatal error (e.g., permission denied, invalid request, system error).\nIf some invites succeeded and some failed, the operation is considered successful."
-        }
-      }
-    },
-    "CreateInvitesOperationResult": {
-      "type": "object",
-      "properties": {
-        "invites": {
+        "added": {
           "type": "array",
           "items": {
-            "type": "object",
-            "$ref": "#/definitions/Invite"
+            "type": "string"
           },
-          "description": "Invites that were successfully created and are waiting for acceptance."
+          "description": "Files that were added in this commit.\nLimited to 1000 files maximum. Empty list means no files were added."
         },
-        "errors": {
+        "modified": {
           "type": "array",
           "items": {
-            "type": "object",
-            "$ref": "#/definitions/InviteError"
+            "type": "string"
           },
-          "description": "Per-invite errors. Each error identifies which invitee failed and why."
+          "description": "Files that were modified in this commit.\nLimited to 1000 files maximum. Empty list means no files were modified."
+        },
+        "removed": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Files that were removed in this commit.\nLimited to 1000 files maximum. Empty list means no files were removed."
         }
       }
     },
@@ -8149,12 +8773,8 @@
         }
       }
     },
-    "CreateOrganizationInvitesResponse": {
+    "CreateOrganizationInvitesOperation": {
       "type": "object",
-      "example": {
-        "operation_id": "550e8400-e29b-41d4-a716-446655440000",
-        "status_url": "/orgs/id:123/operations/create-invites/550e8400-e29b-41d4-a716-446655440000"
-      },
       "properties": {
         "operation_id": {
           "type": "string",
@@ -8163,6 +8783,48 @@
         "status_url": {
           "type": "string",
           "title": "URL to poll for operation status"
+        },
+        "status": {
+          "$ref": "#/definitions/OperationStatus"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "title": "Timestamp when operation was created"
+        },
+        "modified_at": {
+          "type": "string",
+          "format": "date-time",
+          "title": "Timestamp when operation was last modified"
+        },
+        "response": {
+          "$ref": "#/definitions/CreateOrganizationInvitesOperationResult",
+          "description": "Operation result. Present when status is \"success\"."
+        },
+        "error": {
+          "$ref": "#/definitions/OperationError",
+          "description": "Operation-level error. Present only when the entire operation failed\ndue to a fatal error (e.g., permission denied, invalid request, system error).\nIf some invites succeeded and some failed, the operation is considered successful."
+        }
+      }
+    },
+    "CreateOrganizationInvitesOperationResult": {
+      "type": "object",
+      "properties": {
+        "invites": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/Invite"
+          },
+          "description": "Invites that were successfully created and are waiting for acceptance."
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/InviteError"
+          },
+          "description": "Per-invite errors. Each error identifies which invitee failed and why."
         }
       }
     },
@@ -8406,6 +9068,22 @@
         "organization_id": {
           "type": "string",
           "title": "Organization context"
+        },
+        "repository_id": {
+          "type": "string",
+          "title": "Repository context"
+        },
+        "triggered_by": {
+          "$ref": "#/definitions/UserEmbedded",
+          "title": "User that triggered event"
+        },
+        "correlation_id": {
+          "type": "string",
+          "description": "Correlation ID for tracking event chains back to the original request.\nUses request_id from the originating gRPC/HTTP request when available,\nfalls back to trace_id or the root event's ID."
+        },
+        "causation_id": {
+          "type": "string",
+          "description": "Causation ID is the ID of the event that directly caused this event.\nEmpty for root events (events triggered directly by user actions).\nUsed to reconstruct the event tree within a correlation chain."
         }
       },
       "title": "Common header included in all public events"
@@ -8581,6 +9259,14 @@
           "type": "string",
           "title": "Email address of the invitee (for external users)"
         },
+        "alias": {
+          "type": "string",
+          "title": "Human-readable identifier for code-based invite"
+        },
+        "invite_link": {
+          "type": "string",
+          "title": "Invite URL for code-based invites. Only returned in create operation response"
+        },
         "invitee": {
           "$ref": "#/definitions/UserEmbedded",
           "title": "Invitee user (if registered user)"
@@ -8588,6 +9274,10 @@
         "status": {
           "$ref": "#/definitions/InviteStatus",
           "title": "Current status of the invitation"
+        },
+        "subject": {
+          "$ref": "#/definitions/Subject",
+          "title": "Subject to which a role can be assigned"
         },
         "created_at": {
           "type": "string",
@@ -8599,7 +9289,8 @@
           "format": "date-time",
           "title": "When the invitation expires"
         }
-      }
+      },
+      "description": "Invite represents an organization invitation.\nExactly one of email, alias, or invitee is set depending on invite type."
     },
     "InviteError": {
       "type": "object",
@@ -8636,8 +9327,13 @@
         "slug": {
           "type": "string",
           "title": "User slug (for registered users)"
+        },
+        "alias": {
+          "type": "string",
+          "description": "Human-readable identifier for code-based invite. Generates invite_link in response."
         }
-      }
+      },
+      "description": "Input for invite recipient. Exactly one of email, slug, or alias must be specified."
     },
     "Issue": {
       "type": "object",
@@ -9422,6 +10118,10 @@
           "type": "string",
           "format": "date-time",
           "title": "When the ping was sent"
+        },
+        "organization": {
+          "$ref": "#/definitions/OrganizationEmbedded",
+          "title": "Organization that the repository belongs to"
         }
       },
       "title": "Ping event - sent when a webhook is tested"
@@ -9594,6 +10294,147 @@
       ],
       "properties": null
     },
+    "PullRequestCommentCreate": {
+      "type": "object",
+      "properties": {
+        "header": {
+          "$ref": "#/definitions/EventHeader",
+          "title": "Event header with common fields"
+        },
+        "repository": {
+          "$ref": "#/definitions/Repository",
+          "title": "Repository where the pull request is located"
+        },
+        "pull_request": {
+          "$ref": "#/definitions/PullRequest",
+          "title": "Pull request where the comment was created"
+        },
+        "comment": {
+          "$ref": "#/definitions/PullRequestComment",
+          "title": "The comment that was created"
+        },
+        "is_thread": {
+          "type": "boolean",
+          "title": "Whether this is a top-level thread (not a reply)"
+        },
+        "is_published": {
+          "type": "boolean",
+          "title": "Whether the comment was published (visible) or draft"
+        }
+      },
+      "title": "PullRequestCommentCreate event - represents creation of a pull request comment"
+    },
+    "PullRequestCommentCreateBulk": {
+      "type": "object",
+      "properties": {
+        "header": {
+          "$ref": "#/definitions/EventHeader",
+          "title": "Event header with common fields"
+        },
+        "repository": {
+          "$ref": "#/definitions/Repository",
+          "title": "Repository where the pull request is located"
+        },
+        "pull_request": {
+          "$ref": "#/definitions/PullRequest",
+          "title": "Pull request where the comments were created"
+        },
+        "comments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/PullRequestComment"
+          },
+          "title": "The comments that were created"
+        }
+      },
+      "title": "PullRequestCommentCreateBulk event - represents bulk creation of pull request comments"
+    },
+    "PullRequestCommentReactionsUpdate": {
+      "type": "object",
+      "properties": {
+        "header": {
+          "$ref": "#/definitions/EventHeader",
+          "title": "Event header with common fields"
+        },
+        "repository": {
+          "$ref": "#/definitions/Repository",
+          "title": "Repository where the pull request is located"
+        },
+        "pull_request": {
+          "$ref": "#/definitions/PullRequest",
+          "title": "Pull request where the comment is located"
+        },
+        "comment": {
+          "$ref": "#/definitions/PullRequestComment",
+          "title": "The comment whose reactions were updated"
+        },
+        "added_reactions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Reaction"
+          },
+          "title": "Reactions that were added"
+        },
+        "removed_reactions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Reaction"
+          },
+          "title": "Reaction that were removed"
+        }
+      },
+      "title": "PullRequestCommentReactionsUpdate event - represents update of reactions on a pull request comment"
+    },
+    "PullRequestCommentsPublish": {
+      "type": "object",
+      "properties": {
+        "header": {
+          "$ref": "#/definitions/EventHeader",
+          "title": "Event header with common fields"
+        },
+        "repository": {
+          "$ref": "#/definitions/Repository",
+          "title": "Repository where the pull request is located"
+        },
+        "pull_request": {
+          "$ref": "#/definitions/PullRequest",
+          "title": "Pull request where the comments were published"
+        },
+        "comments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/PullRequestComment"
+          },
+          "title": "Comments that were published"
+        }
+      },
+      "title": "PullRequestCommentsPublish event - represents publishing of draft pull request comments"
+    },
+    "PullRequestCreate": {
+      "type": "object",
+      "properties": {
+        "header": {
+          "$ref": "#/definitions/EventHeader",
+          "title": "Event header with common fields"
+        },
+        "repository": {
+          "$ref": "#/definitions/Repository",
+          "title": "Repository where the pull request was created"
+        },
+        "pull_request": {
+          "$ref": "#/definitions/PullRequest",
+          "title": "Pull request that was created"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "title": "When the pull request was created"
+        }
+      },
+      "title": "PullRequestCreate event - represents creation of a new pull request"
+    },
     "PullRequestEmbedded": {
       "type": "object",
       "properties": {
@@ -9604,6 +10445,212 @@
           "type": "string"
         }
       }
+    },
+    "PullRequestMerge": {
+      "type": "object",
+      "properties": {
+        "header": {
+          "$ref": "#/definitions/EventHeader",
+          "title": "Event header with common fields"
+        },
+        "repository": {
+          "$ref": "#/definitions/Repository",
+          "title": "Repository where the pull request is located"
+        },
+        "pull_request": {
+          "$ref": "#/definitions/PullRequest",
+          "title": "Pull request that is being refreshed"
+        },
+        "merge_hash": {
+          "type": "string",
+          "title": "Merge hash of the pull request"
+        }
+      },
+      "title": "PullRequestMerge event - represents merge success of a pull request"
+    },
+    "PullRequestMergeFailure": {
+      "type": "object",
+      "properties": {
+        "header": {
+          "$ref": "#/definitions/EventHeader",
+          "title": "Event header with common fields"
+        },
+        "repository": {
+          "$ref": "#/definitions/Repository",
+          "title": "Repository where the pull request is located"
+        },
+        "pull_request": {
+          "$ref": "#/definitions/PullRequest",
+          "title": "Pull request that is being refreshed"
+        },
+        "error_message": {
+          "type": "string",
+          "title": "Error message of the merge failure"
+        }
+      },
+      "title": "PullRequestMergeFailure event - represents merge failure of a pull request"
+    },
+    "PullRequestNewIteration": {
+      "type": "object",
+      "properties": {
+        "header": {
+          "$ref": "#/definitions/EventHeader",
+          "title": "Event header with common fields"
+        },
+        "repository": {
+          "$ref": "#/definitions/Repository",
+          "title": "Repository where the pull request is located"
+        },
+        "pull_request": {
+          "$ref": "#/definitions/PullRequest",
+          "title": "Pull request that is being refreshed"
+        },
+        "commit_sha": {
+          "type": "string",
+          "title": "Commit SHA of the iteration"
+        },
+        "merge_base_sha": {
+          "type": "string",
+          "title": "Merge base SHA of the iteration"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "title": "Iteration created at timestamp"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time",
+          "title": "Iteration updated at timestamp"
+        }
+      },
+      "title": "PullRequestNewIteration event - represents new iteration on a pull request"
+    },
+    "PullRequestPublish": {
+      "type": "object",
+      "properties": {
+        "header": {
+          "$ref": "#/definitions/EventHeader",
+          "title": "Event header with common fields"
+        },
+        "repository": {
+          "$ref": "#/definitions/Repository",
+          "title": "Repository where the pull request was published"
+        },
+        "pull_request": {
+          "$ref": "#/definitions/PullRequest",
+          "title": "Pull request that was published"
+        },
+        "previous_status": {
+          "$ref": "#/definitions/PullRequest.Status",
+          "title": "Pull request previous status"
+        }
+      },
+      "title": "PullRequestPublish event - represents publish of a pull request"
+    },
+    "PullRequestRefresh": {
+      "type": "object",
+      "properties": {
+        "header": {
+          "$ref": "#/definitions/EventHeader",
+          "title": "Event header with common fields"
+        },
+        "repository": {
+          "$ref": "#/definitions/Repository",
+          "title": "Repository where the pull request is located"
+        },
+        "pull_request": {
+          "$ref": "#/definitions/PullRequest",
+          "title": "Pull request that is being refreshed"
+        },
+        "previous_status": {
+          "$ref": "#/definitions/PullRequest.Status",
+          "title": "Pull request previous status"
+        },
+        "head_sha": {
+          "type": "string",
+          "title": "Head SHA of the pull request"
+        },
+        "merge_base_sha": {
+          "type": "string",
+          "title": "Merge base SHA of the pull request"
+        }
+      },
+      "title": "PullRequestRefresh event - represents refresh of a pull request"
+    },
+    "PullRequestReviewAssignment": {
+      "type": "object",
+      "properties": {
+        "header": {
+          "$ref": "#/definitions/EventHeader",
+          "title": "Event header with common fields"
+        },
+        "repository": {
+          "$ref": "#/definitions/Repository",
+          "title": "Repository where the pull request is located"
+        },
+        "pull_request": {
+          "$ref": "#/definitions/PullRequest",
+          "title": "Pull request that had reviewers modified"
+        },
+        "user": {
+          "$ref": "#/definitions/UserEmbedded",
+          "title": "User who made the assignment"
+        },
+        "reviewer_deltas": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v1.ReviewerDelta"
+          },
+          "title": "Reviewers deltas"
+        }
+      },
+      "title": "PullRequestReviewAssignment event - represents changes to pull request reviewers"
+    },
+    "PullRequestReviewDecision": {
+      "type": "object",
+      "properties": {
+        "header": {
+          "$ref": "#/definitions/EventHeader",
+          "title": "Event header with common fields"
+        },
+        "repository": {
+          "$ref": "#/definitions/Repository",
+          "title": "Repository where the pull request is located"
+        },
+        "pull_request": {
+          "$ref": "#/definitions/PullRequest",
+          "title": "Pull request that received the decision"
+        },
+        "user": {
+          "$ref": "#/definitions/UserEmbedded",
+          "title": "User who made the decision"
+        },
+        "decision": {
+          "$ref": "#/definitions/ReviewDecision",
+          "title": "Review decision (ship, sticky_ship, block, abstain, or null for withdrawal)"
+        }
+      },
+      "title": "PullRequestReviewDecision event - represents a review decision on a pull request"
+    },
+    "PullRequestUpdate": {
+      "type": "object",
+      "properties": {
+        "header": {
+          "$ref": "#/definitions/EventHeader",
+          "title": "Event header with common fields"
+        },
+        "repository": {
+          "$ref": "#/definitions/Repository",
+          "title": "Repository where the pull request is located"
+        },
+        "pull_request": {
+          "$ref": "#/definitions/PullRequest",
+          "title": "Pull request that was updated"
+        }
+      },
+      "title": "PullRequestUpdate event - represents update of a pull request"
     },
     "Push": {
       "type": "object",
@@ -9778,7 +10825,7 @@
           "title": "The default branch reference name (e.g., \"refs/heads/main\")"
         }
       },
-      "title": "RefsUpdate event - represents git resf update operation to a repository"
+      "title": "RefsUpdate event - represents git refs update operation to a repository"
     },
     "Relations": {
       "type": "object",
@@ -9958,6 +11005,9 @@
         },
         "clone_url": {
           "$ref": "#/definitions/CloneURL"
+        },
+        "web_url": {
+          "type": "string"
         },
         "links": {
           "type": "array",
@@ -10243,7 +11293,7 @@
           "type": "string"
         }
       },
-      "title": "A subject is an entity that can receive and use a role"
+      "title": "Subject is an entity to which a role can be assigned"
     },
     "SubjectRole": {
       "type": "object",
@@ -10260,7 +11310,8 @@
     "SubjectType": {
       "type": "string",
       "enum": [
-        "user"
+        "user",
+        "invitee"
       ],
       "properties": null
     },
@@ -10451,6 +11502,17 @@
         }
       }
     },
+    "UpdateReleaseBody": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "release_notes": {
+          "type": "string"
+        }
+      }
+    },
     "UpdateRepositoryBody": {
       "type": "object",
       "properties": {
@@ -10488,7 +11550,8 @@
           "items": {
             "type": "object",
             "$ref": "#/definitions/v1.ReviewerDelta"
-          }
+          },
+          "title": "List of reviewers deltas to apply (add or remove)\nEach delta must specify action (add/remove) and reviewer reference (by ID)"
         },
         "silent": {
           "type": "boolean"
@@ -10712,6 +11775,227 @@
     }
   },
   "x-webhooks": {
+    "pull_request.create": {
+      "post": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/PullRequestCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "tags": [
+          "Events"
+        ]
+      }
+    },
+    "pull_request.merge": {
+      "post": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/PullRequestMerge"
+              }
+            }
+          },
+          "required": true
+        },
+        "tags": [
+          "Events"
+        ]
+      }
+    },
+    "pull_request.merge_failure": {
+      "post": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/PullRequestMergeFailure"
+              }
+            }
+          },
+          "required": true
+        },
+        "tags": [
+          "Events"
+        ]
+      }
+    },
+    "pull_request.new_iteration": {
+      "post": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/PullRequestNewIteration"
+              }
+            }
+          },
+          "required": true
+        },
+        "tags": [
+          "Events"
+        ]
+      }
+    },
+    "pull_request.publish": {
+      "post": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/PullRequestPublish"
+              }
+            }
+          },
+          "required": true
+        },
+        "tags": [
+          "Events"
+        ]
+      }
+    },
+    "pull_request.refresh": {
+      "post": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/PullRequestRefresh"
+              }
+            }
+          },
+          "required": true
+        },
+        "tags": [
+          "Events"
+        ]
+      }
+    },
+    "pull_request.review_assignment": {
+      "post": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/PullRequestReviewAssignment"
+              }
+            }
+          },
+          "required": true
+        },
+        "tags": [
+          "Events"
+        ]
+      }
+    },
+    "pull_request.review_decision": {
+      "post": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/PullRequestReviewDecision"
+              }
+            }
+          },
+          "required": true
+        },
+        "tags": [
+          "Events"
+        ]
+      }
+    },
+    "pull_request.update": {
+      "post": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/PullRequestUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "tags": [
+          "Events"
+        ]
+      }
+    },
+    "pull_request_comment.create": {
+      "post": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/PullRequestCommentCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "tags": [
+          "Events"
+        ]
+      }
+    },
+    "pull_request_comment.create_bulk": {
+      "post": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/PullRequestCommentCreateBulk"
+              }
+            }
+          },
+          "required": true
+        },
+        "tags": [
+          "Events"
+        ]
+      }
+    },
+    "pull_request_comment.publish": {
+      "post": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/PullRequestCommentsPublish"
+              }
+            }
+          },
+          "required": true
+        },
+        "tags": [
+          "Events"
+        ]
+      }
+    },
+    "pull_request_comment.reactions_update": {
+      "post": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/PullRequestCommentReactionsUpdate"
+              }
+            }
+          },
+          "required": true
+        },
+        "tags": [
+          "Events"
+        ]
+      }
+    },
     "repository.push": {
       "post": {
         "requestBody": {

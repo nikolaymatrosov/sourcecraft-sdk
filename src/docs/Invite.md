@@ -1,17 +1,21 @@
 
 # Invite
 
+Invite represents an organization invitation. Exactly one of email, alias, or invitee is set depending on invite type.
 
 ## Properties
 
 Name | Type
 ------------ | -------------
+`alias` | string
 `createdAt` | Date
 `email` | string
 `expiresAt` | Date
 `id` | string
+`inviteLink` | string
 `invitee` | [UserEmbedded](UserEmbedded.md)
 `status` | [InviteStatus](InviteStatus.md)
+`subject` | [Subject](Subject.md)
 
 ## Example
 
@@ -20,12 +24,15 @@ import type { Invite } from ''
 
 // TODO: Update the object below with actual values
 const example = {
+  "alias": null,
   "createdAt": null,
   "email": null,
   "expiresAt": null,
   "id": null,
+  "inviteLink": null,
   "invitee": null,
   "status": null,
+  "subject": null,
 } satisfies Invite
 
 console.log(example)

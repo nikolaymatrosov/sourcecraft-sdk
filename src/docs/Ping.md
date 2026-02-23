@@ -7,6 +7,7 @@
 Name | Type
 ------------ | -------------
 `header` | [EventHeader](EventHeader.md)
+`organization` | [OrganizationEmbedded](OrganizationEmbedded.md)
 `pingedAt` | Date
 `repository` | [RepositoryEmbedded](RepositoryEmbedded.md)
 `webhookSlug` | string
@@ -19,6 +20,7 @@ import type { Ping } from ''
 // TODO: Update the object below with actual values
 const example = {
   "header": null,
+  "organization": null,
   "pingedAt": null,
   "repository": null,
   "webhookSlug": null,

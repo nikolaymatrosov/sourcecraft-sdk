@@ -6,6 +6,8 @@ All URIs are relative to *https://api.sourcecraft.tech*
 |------------- | ------------- | -------------|
 | [**create**](RepositoryReleasesApi.md#create) | **POST** /repos/{org_slug}/{repo_slug}/releases | Create Release in Repository |
 | [**createByID**](RepositoryReleasesApi.md#createbyid) | **POST** /repos/id:{repo_id}/releases | Create Release in Repository (By Repo ID) |
+| [**deleteByID**](RepositoryReleasesApi.md#deletebyid) | **DELETE** /releases/id:{release_id} | Delete Release (By ID) |
+| [**deleteByTag**](RepositoryReleasesApi.md#deletebytag) | **DELETE** /repos/{org_slug}/{repo_slug}/releases/tag/{release_tag} | Delete Release (By Tag) |
 | [**discardByID**](RepositoryReleasesApi.md#discardbyid) | **POST** /releases/id:{release_id}/discard | Discard Release (By ID) |
 | [**discardByTag**](RepositoryReleasesApi.md#discardbytag) | **POST** /repos/{org_slug}/{repo_slug}/releases/tag/{release_tag}/discard | Discard Release (By Tag) |
 | [**getByID**](RepositoryReleasesApi.md#getbyid) | **GET** /releases/id:{release_id} | Get Release (By ID) |
@@ -16,6 +18,8 @@ All URIs are relative to *https://api.sourcecraft.tech*
 | [**listByID**](RepositoryReleasesApi.md#listbyid) | **GET** /repos/id:{repo_id}/releases | List Releases in Repository (By Repo ID) |
 | [**publishByID**](RepositoryReleasesApi.md#publishbyid) | **POST** /releases/id:{release_id}/publish | Publish Release (By ID) |
 | [**publishByTag**](RepositoryReleasesApi.md#publishbytag) | **POST** /repos/{org_slug}/{repo_slug}/releases/tag/{release_tag}/publish | Publish Release (By Tag) |
+| [**updateByID**](RepositoryReleasesApi.md#updatebyid) | **PATCH** /releases/id:{release_id} | Update Release (By ID) |
+| [**updateByTag**](RepositoryReleasesApi.md#updatebytag) | **PATCH** /repos/{org_slug}/{repo_slug}/releases/tag/{release_tag} | Update Release (By Tag) |
 
 
 
@@ -89,7 +93,7 @@ example().catch(console.error);
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | A successful response. |  -  |
+| **201** | A successful response. |  -  |
 | **0** | Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
@@ -156,6 +160,158 @@ example().catch(console.error);
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | A successful response. |  -  |
+| **0** | Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## deleteByID
+
+> object deleteByID(releaseId, releaseTag)
+
+Delete Release (By ID)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  RepositoryReleasesApi,
+} from '';
+import type { DeleteByIDRequest } from '';
+
+async function example() {
+  console.log("🚀 Testing  SDK...");
+  const config = new Configuration({ 
+    // Configure HTTP bearer authorization: bearerAuth
+    accessToken: "YOUR BEARER TOKEN",
+  });
+  const api = new RepositoryReleasesApi(config);
+
+  const body = {
+    // string
+    releaseId: releaseId_example,
+    // string (optional)
+    releaseTag: releaseTag_example,
+  } satisfies DeleteByIDRequest;
+
+  try {
+    const data = await api.deleteByID(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **releaseId** | `string` |  | [Defaults to `undefined`] |
+| **releaseTag** | `string` |  | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+**object**
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | A successful response. |  -  |
+| **0** | Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## deleteByTag
+
+> object deleteByTag(orgSlug, repoSlug, releaseTag, releaseId)
+
+Delete Release (By Tag)
+
+### Example
+
+```ts
+import {
+  Configuration,
+  RepositoryReleasesApi,
+} from '';
+import type { DeleteByTagRequest } from '';
+
+async function example() {
+  console.log("🚀 Testing  SDK...");
+  const config = new Configuration({ 
+    // Configure HTTP bearer authorization: bearerAuth
+    accessToken: "YOUR BEARER TOKEN",
+  });
+  const api = new RepositoryReleasesApi(config);
+
+  const body = {
+    // string
+    orgSlug: orgSlug_example,
+    // string
+    repoSlug: repoSlug_example,
+    // string
+    releaseTag: releaseTag_example,
+    // string (optional)
+    releaseId: releaseId_example,
+  } satisfies DeleteByTagRequest;
+
+  try {
+    const data = await api.deleteByTag(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **orgSlug** | `string` |  | [Defaults to `undefined`] |
+| **repoSlug** | `string` |  | [Defaults to `undefined`] |
+| **releaseTag** | `string` |  | [Defaults to `undefined`] |
+| **releaseId** | `string` |  | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+**object**
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 
@@ -928,6 +1084,168 @@ example().catch(console.error);
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | A successful response. |  -  |
+| **0** | Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## updateByID
+
+> Release updateByID(releaseId, updateReleaseBody, releaseTag)
+
+Update Release (By ID)
+
+Can update title and release notes. For status updates, see \&#39;Publish Release\&#39; and \&#39;Discard Release\&#39;
+
+### Example
+
+```ts
+import {
+  Configuration,
+  RepositoryReleasesApi,
+} from '';
+import type { UpdateByIDRequest } from '';
+
+async function example() {
+  console.log("🚀 Testing  SDK...");
+  const config = new Configuration({ 
+    // Configure HTTP bearer authorization: bearerAuth
+    accessToken: "YOUR BEARER TOKEN",
+  });
+  const api = new RepositoryReleasesApi(config);
+
+  const body = {
+    // string
+    releaseId: releaseId_example,
+    // UpdateReleaseBody
+    updateReleaseBody: ...,
+    // string (optional)
+    releaseTag: releaseTag_example,
+  } satisfies UpdateByIDRequest;
+
+  try {
+    const data = await api.updateByID(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **releaseId** | `string` |  | [Defaults to `undefined`] |
+| **updateReleaseBody** | [UpdateReleaseBody](UpdateReleaseBody.md) |  | |
+| **releaseTag** | `string` |  | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**Release**](Release.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | A successful response. |  -  |
+| **0** | Both Client Errors (4xx) and Server Errors (5xx) are serialized into this scheme |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#api-endpoints) [[Back to Model list]](../README.md#models) [[Back to README]](../README.md)
+
+
+## updateByTag
+
+> Release updateByTag(orgSlug, repoSlug, releaseTag, updateReleaseBody, releaseId)
+
+Update Release (By Tag)
+
+Can update title and release notes. For status updates, see \&#39;Publish Release\&#39; and \&#39;Discard Release\&#39;
+
+### Example
+
+```ts
+import {
+  Configuration,
+  RepositoryReleasesApi,
+} from '';
+import type { UpdateByTagRequest } from '';
+
+async function example() {
+  console.log("🚀 Testing  SDK...");
+  const config = new Configuration({ 
+    // Configure HTTP bearer authorization: bearerAuth
+    accessToken: "YOUR BEARER TOKEN",
+  });
+  const api = new RepositoryReleasesApi(config);
+
+  const body = {
+    // string
+    orgSlug: orgSlug_example,
+    // string
+    repoSlug: repoSlug_example,
+    // string
+    releaseTag: releaseTag_example,
+    // UpdateReleaseBody
+    updateReleaseBody: ...,
+    // string (optional)
+    releaseId: releaseId_example,
+  } satisfies UpdateByTagRequest;
+
+  try {
+    const data = await api.updateByTag(body);
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Run the test
+example().catch(console.error);
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **orgSlug** | `string` |  | [Defaults to `undefined`] |
+| **repoSlug** | `string` |  | [Defaults to `undefined`] |
+| **releaseTag** | `string` |  | [Defaults to `undefined`] |
+| **updateReleaseBody** | [UpdateReleaseBody](UpdateReleaseBody.md) |  | |
+| **releaseId** | `string` |  | [Optional] [Defaults to `undefined`] |
+
+### Return type
+
+[**Release**](Release.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
 - **Accept**: `application/json`
 
 

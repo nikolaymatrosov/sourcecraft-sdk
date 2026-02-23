@@ -13,11 +13,11 @@ All URIs are relative to *https://api.sourcecraft.tech*
 
 ## createOrganizationInvites
 
-> CreateOrganizationInvitesResponse createOrganizationInvites(orgSlug, createOrganizationInvitesBody, orgId)
+> CreateOrganizationInvitesOperation createOrganizationInvites(orgSlug, createOrganizationInvitesBody, orgId)
 
 Create Organization Invitations
 
-Creates invitations asynchronously. Poll operation status at &#x60;GET /orgs/{org_slug}/operations/create-invites/{operation_id}&#x60;
+Creates invitations asynchronously. Poll operation status at the returned status_url.
 
 ### Example
 
@@ -68,7 +68,7 @@ example().catch(console.error);
 
 ### Return type
 
-[**CreateOrganizationInvitesResponse**](CreateOrganizationInvitesResponse.md)
+[**CreateOrganizationInvitesOperation**](CreateOrganizationInvitesOperation.md)
 
 ### Authorization
 
@@ -91,11 +91,11 @@ example().catch(console.error);
 
 ## createOrganizationInvitesByID
 
-> CreateOrganizationInvitesResponse createOrganizationInvitesByID(orgId, createOrganizationInvitesBody)
+> CreateOrganizationInvitesOperation createOrganizationInvitesByID(orgId, createOrganizationInvitesBody)
 
 Create Organization Invitations (By Organization ID)
 
-Creates invitations asynchronously. Poll operation status at &#x60;GET /orgs/id:{org_id}/operations/create-invites/{operation_id}&#x60;
+Creates invitations asynchronously. Poll operation status at the returned status_url.
 
 ### Example
 
@@ -143,7 +143,7 @@ example().catch(console.error);
 
 ### Return type
 
-[**CreateOrganizationInvitesResponse**](CreateOrganizationInvitesResponse.md)
+[**CreateOrganizationInvitesOperation**](CreateOrganizationInvitesOperation.md)
 
 ### Authorization
 

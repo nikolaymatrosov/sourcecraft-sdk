@@ -4,13 +4,13 @@ All URIs are relative to *https://api.sourcecraft.tech*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**getCubeArtifacts**](CICDApi.md#getcubeartifacts) | **GET** /{org_slug}/{repo_slug}/cicd/artifacts/{run_slug}/{workflow_slug}/{task_slug}/{cube_slug} | Get Artifacts from a CI Run |
-| [**getCubeLogs**](CICDApi.md#getcubelogs) | **GET** /{org_slug}/{repo_slug}/cicd/logs/{run_slug}/{workflow_slug}/{task_slug}/{cube_slug} | Get Logs from a Running CI Cube in Repository |
-| [**getRun**](CICDApi.md#getrun) | **GET** /{org_slug}/{repo_slug}/cicd/runs/{run_slug} | Get CI Run in Repository |
-| [**getWorkflow**](CICDApi.md#getworkflow) | **GET** /{org_slug}/{repo_slug}/cicd/runs/{run_slug}/{workflow_slug} | Get Running CI Workflow in Repository |
-| [**listRuns**](CICDApi.md#listruns) | **GET** /{org_slug}/{repo_slug}/cicd/runs | List CI Runs in Repository |
+| [**getCubeArtifacts**](CICDApi.md#getcubeartifacts) | **GET** /repos/{org_slug}/{repo_slug}/cicd/artifacts/{run_slug}/{workflow_slug}/{task_slug}/{cube_slug} | Get Artifacts from a CI Run |
+| [**getCubeLogs**](CICDApi.md#getcubelogs) | **GET** /repos/{org_slug}/{repo_slug}/cicd/logs/{run_slug}/{workflow_slug}/{task_slug}/{cube_slug} | Get Logs from a Running CI Cube in Repository |
+| [**getRun**](CICDApi.md#getrun) | **GET** /repos/{org_slug}/{repo_slug}/cicd/runs/{run_slug} | Get CI Run in Repository |
+| [**getWorkflow**](CICDApi.md#getworkflow) | **GET** /repos/{org_slug}/{repo_slug}/cicd/runs/{run_slug}/{workflow_slug} | Get Running CI Workflow in Repository |
+| [**listRuns**](CICDApi.md#listruns) | **GET** /repos/{org_slug}/{repo_slug}/cicd/runs | List CI Runs in Repository |
 | [**listRunsByID**](CICDApi.md#listrunsbyid) | **GET** /repos/id:{repo_id}/cicd/runs | List CI Runs in Repository (By Repo ID) |
-| [**runWorkflows**](CICDApi.md#runworkflows) | **POST** /{org_slug}/{repo_slug}/cicd/runs | Run Workflows in Repository |
+| [**runWorkflows**](CICDApi.md#runworkflows) | **POST** /repos/{org_slug}/{repo_slug}/cicd/runs | Run Workflows in Repository |
 | [**runWorkflowsByID**](CICDApi.md#runworkflowsbyid) | **POST** /repos/id:{repo_id}/cicd/runs | Run Workflows in Repository (By Repo ID) |
 
 
